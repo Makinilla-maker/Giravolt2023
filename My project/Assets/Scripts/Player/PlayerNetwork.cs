@@ -6,10 +6,16 @@ using TMPro;
 public class PlayerNetwork : NetworkBehaviour
 {
     [SerializeField] Camera camera;
+    [SerializeField] GameObject UI;
     private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public override void OnNetworkSpawn()
     {
 
+    }
+    void Start()
+    {
+        UI = GameObject.Find("FirstNetWorkCanvas");
+        UI.SetActive(false);
     }
     void Update()
     {
