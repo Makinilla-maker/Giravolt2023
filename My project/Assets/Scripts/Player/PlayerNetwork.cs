@@ -9,8 +9,6 @@ public class PlayerNetwork : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         randomNumber.OnValueChanged += (int previousValue, int newValue) => { };
-        string s = OwnerClientId + "; + randomNumber" + randomNumber.Value;
-        text.text = s;
     }
     void Update()
     {
