@@ -5,12 +5,7 @@ using Unity.Netcode;
 using TMPro;
 public class PlayerNetwork : NetworkBehaviour
 {
-    [SerializeField] private TextMeshProUGUI text;
     private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-    private void Awake()
-    {
-        text = GameObject.Find("DebugText").GetComponent<TextMeshProUGUI>();
-    }
     public override void OnNetworkSpawn()
     {
         randomNumber.OnValueChanged += (int previousValue, int newValue) => { };
