@@ -22,3 +22,10 @@ public class NetworkManagerUI : MonoBehaviour
         });
     }
 }
+public class NetManagerUI : NetworkBehaviour
+{
+    public override void OnNetworkSpawn()
+    {
+        this.gameObject.active = false;
+    }
+}
