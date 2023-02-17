@@ -5,6 +5,7 @@ using Unity.Netcode;
 using TMPro;
 public class PlayerNetwork : NetworkBehaviour
 {
+    [SerializeField] Camera camera;
     private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public override void OnNetworkSpawn()
     {
@@ -12,7 +13,11 @@ public class PlayerNetwork : NetworkBehaviour
     }
     void Update()
     {
-        if (!IsOwner) return;
+        if (!IsOwner)
+        {
+            Debug.Log(IsOwner);
+            camera.enabled = false;
+        }
 
         if(Input.GetKeyDown(KeyCode.T))
         {
