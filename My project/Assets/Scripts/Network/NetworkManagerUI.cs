@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.UI;
-public class NetworkManagerUI : NetworkBehaviour
+public class NetworkManagerUI : MonoBehaviour
 {
     [SerializeField] private Button serverButton;
     [SerializeField] private Button hostButton;
