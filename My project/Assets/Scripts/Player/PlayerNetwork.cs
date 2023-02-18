@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerNetwork : NetworkBehaviour
 {
     [SerializeField] Camera camera;
-    [SerializeField] GameObject UI;
+    private UiManager uiManager;
     private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public CharacterController controller;
     public float speed = 12f;
@@ -17,14 +17,17 @@ public class PlayerNetwork : NetworkBehaviour
     public LayerMask groundMask;
     Vector3 velocity;
     bool isGrounded;
+    void Awake()
+    {
+        uiManager = GameObject.Find("UiManager").GetComponent<UiManager>();
+    }
     public override void OnNetworkSpawn()
     {
 
     }
     void Start()
     {
-        UI = GameObject.Find("FirstNetWorkCanvas");
-        //UI.SetActive(false);
+        uiManager.CleanUI();
     }
     void Update()
     {
