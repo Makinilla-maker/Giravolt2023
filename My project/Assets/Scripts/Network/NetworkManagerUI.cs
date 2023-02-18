@@ -15,15 +15,15 @@ public class NetworkManagerUI : MonoBehaviour
         canvas = GetComponent<Canvas>();
         serverButton.onClick.AddListener(() => {
             NetworkManager.Singleton.StartServer();
-            canvas.enabled = false;
+            //canvas.enabled = false;
         });
         hostButton.onClick.AddListener(() => {
             NetworkManager.Singleton.StartHost();
-            canvas.enabled = false;
+            //canvas.enabled = false;
         });
         clientButton.onClick.AddListener(() => {
             NetworkManager.Singleton.StartClient();
-            canvas.enabled = false;
+            //canvas.enabled = false;
         });
     }
 }
@@ -31,6 +31,6 @@ public class NetManagerUI : NetworkBehaviour
 {
     public override void OnNetworkSpawn()
     {
-        this.gameObject.active = false;
+        //this.gameObject.active = false;
     }
 }

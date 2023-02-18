@@ -22,7 +22,7 @@ public class PlayerCameraFix : NetworkBehaviour
         if (!IsOwner)
         {
             Debug.Log(IsOwner);
-            GetComponent<Camera>().enabled = false;
+            camera.enabled = false;
         }
     }
 }
