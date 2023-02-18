@@ -24,7 +24,7 @@ public class PlayerNetwork : NetworkBehaviour
     void Start()
     {
         UI = GameObject.Find("FirstNetWorkCanvas");
-        UI.SetActive(false);
+        //UI.SetActive(false);
     }
     void Update()
     {
