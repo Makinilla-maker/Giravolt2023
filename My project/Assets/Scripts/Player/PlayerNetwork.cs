@@ -27,7 +27,7 @@ public class PlayerNetwork : NetworkBehaviour
     }
     void Start()
     {
-        uiManager.CleanUI();
+        uiManager.CleanAllUI();
     }
     void Update()
     {
