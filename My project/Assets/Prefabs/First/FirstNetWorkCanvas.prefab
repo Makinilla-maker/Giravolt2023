@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 2643199083649456481}
   - component: {fileID: 7344568210923265918}
   - component: {fileID: 4104871735480640054}
+  - component: {fileID: 2262795893573428714}
   m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
@@ -337,6 +338,37 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &2262795893573428714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009064230217194495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1a9a1d119a5944aacfb87d1ec283a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayTransform: {fileID: 0}
+  m_Cursor: {fileID: 0}
+  joyPadClickButton: 1
+  gazeClickKey: 32
+  performSphereCastForGazepointer: 0
+  useRightStickScroll: 1
+  rightStickDeadZone: 0.15
+  useSwipeScroll: 1
+  swipeDragThreshold: 2
+  swipeDragScale: 1
+  InvertSwipeXAxis: 0
+  angleDragThreshold: 1
+  m_SpherecastRadius: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_AllowActivationOnMobileDevice: 1
 --- !u!1 &4044102765803028157
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,9 +1003,9 @@ GameObject:
   - component: {fileID: 4617746673899114574}
   - component: {fileID: 4617746673899114573}
   - component: {fileID: 4617746673899114572}
-  - component: {fileID: 4617746673899114563}
   - component: {fileID: 4617746673899114562}
   - component: {fileID: 626957610}
+  - component: {fileID: 4943308070166320260}
   m_Layer: 5
   m_Name: FirstNetWorkCanvas
   m_TagString: Untagged
@@ -1051,23 +1083,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &4617746673899114563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617746673899114561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &4617746673899114562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,6 +1099,7 @@ MonoBehaviour:
   serverButton: {fileID: 4617746673083776626}
   hostButton: {fileID: 4617746673823827329}
   clientButton: {fileID: 4617746673293751309}
+  clientJoinButton: {fileID: 0}
   canvas: {fileID: 4617746673899114573}
 --- !u!114 &626957610
 MonoBehaviour:
@@ -1101,6 +1117,25 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &4943308070166320260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617746673899114561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aaf960227867044282d921171d2d7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  pointer: {fileID: 0}
+  sortOrder: 0
 --- !u!1 &4617746673989634086
 GameObject:
   m_ObjectHideFlags: 0
