@@ -33,7 +33,7 @@ public class NetworkManagerUI : MonoBehaviour
         });
         clientJoinButton.onClick.AddListener(() => {
             Debug.Log("Input field text: " + inputField.text);
-            NetworkManager.Singleton.StartClient();
+            //NetworkManager.Singleton.StartClient();
             relay.JoinRelay(inputField.text);
             uiManager.CleanMainUI();
         });

@@ -12,11 +12,6 @@ using Unity.Netcode.Transports.UTP;
 public class TestRelay : MonoBehaviour
 {
     public TextMeshProUGUI joinCodeText;
-    private string ipv;
-    int port;
-    byte[] bytesArr;
-    byte[] key;
-    byte[] connectionData;
     void Awake()
     {
         joinCodeText = GameObject.Find("JoinCode").GetComponent<TextMeshProUGUI>();
@@ -62,11 +57,6 @@ public class TestRelay : MonoBehaviour
                 allocation.Key,
                 allocation.ConnectionData
             );
-            ipv = allocation.RelayServer.IpV4;
-            port = allocation.RelayServer.Port;
-            bytesArr = allocation.AllocationIdBytes;
-            key = allocation.Key;
-            connectionData = allocation.ConnectionData;
             NetworkManager.Singleton.StartHost();
         } catch(RelayServiceException e)
         {
@@ -79,19 +69,19 @@ public class TestRelay : MonoBehaviour
         {
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(
-                ipv,
-                (ushort)port,
-                bytesArr,
-                key,
-                connectionData,
+                joinAllocation.RelayServer.IpV4,
+                (ushort)joinAllocation.RelayServer.Port,
+                joinAllocation.AllocationIdBytes,
+                joinAllocation.Key,
+                joinAllocation.ConnectionData,
                 joinAllocation.HostConnectionData
             );
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
-                ipv,
-                (ushort)port,
-                bytesArr,
-                key,
-                connectionData,
+                joinAllocation.RelayServer.IpV4,
+                (ushort)joinAllocation.RelayServer.Port,
+                joinAllocation.AllocationIdBytes,
+                joinAllocation.Key,
+                joinAllocation.ConnectionData,
                 joinAllocation.HostConnectionData
             );
 
