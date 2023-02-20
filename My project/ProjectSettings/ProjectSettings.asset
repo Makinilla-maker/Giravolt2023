@@ -863,10 +863,10 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: d0c4cf8d-1219-4547-a756-930cbe7ad547
+  cloudProjectId: 6083514f-bbdf-4b01-9738-9f42efb3b8b5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project (3)
+  projectName: My project
   organizationId: isaacolomer
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
