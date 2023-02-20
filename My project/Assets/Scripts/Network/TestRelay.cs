@@ -42,26 +42,22 @@ public class TestRelay : MonoBehaviour
             Debug.Log(joinCode);
             joinCodeText.text = joinCode;
 
-            Unity.Networking.Transport.Relay.RelayServerData relayServerData = new Unity.Networking.Transport.Relay.RelayServerData(allocation, "dtls");
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(
+                allocation.RelayServer.IpV4,
+                (ushort)allocation.RelayServer.Port,
+                allocation.AllocationIdBytes,
+                allocation.Key,
+                allocation.ConnectionData
+            );
 
-
-            //NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(
-            //    allocation.RelayServer.IpV4,
-            //    (ushort)allocation.RelayServer.Port,
-            //    allocation.AllocationIdBytes,
-            //    allocation.Key,
-            //    allocation.ConnectionData
-            //);
-
-            //NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
-            //    allocation.RelayServer.IpV4,
-            //    (ushort)allocation.RelayServer.Port,
-            //    allocation.AllocationIdBytes,
-            //    allocation.Key,
-            //    allocation.ConnectionData
-            //);
-
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
+                allocation.RelayServer.IpV4,
+                (ushort)allocation.RelayServer.Port,
+                allocation.AllocationIdBytes,
+                allocation.Key,
+                allocation.ConnectionData
+            );
+            
             NetworkManager.Singleton.StartHost();
         } catch(RelayServiceException e)
         {
@@ -73,24 +69,22 @@ public class TestRelay : MonoBehaviour
         try
         {
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
-            Unity.Networking.Transport.Relay.RelayServerData relayServerData = new Unity.Networking.Transport.Relay.RelayServerData(joinAllocation, "dtls");
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
-            //NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(
-            //    joinAllocation.RelayServer.IpV4,
-            //    (ushort)joinAllocation.RelayServer.Port,
-            //    joinAllocation.AllocationIdBytes,
-            //    joinAllocation.Key,
-            //    joinAllocation.ConnectionData,
-            //    joinAllocation.HostConnectionData
-            //);
-            //NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
-            //    joinAllocation.RelayServer.IpV4,
-            //    (ushort)joinAllocation.RelayServer.Port,
-            //    joinAllocation.AllocationIdBytes,
-            //    joinAllocation.Key,
-            //    joinAllocation.ConnectionData,
-            //    joinAllocation.HostConnectionData
-            //);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(
+                joinAllocation.RelayServer.IpV4,
+                (ushort)joinAllocation.RelayServer.Port,
+                joinAllocation.AllocationIdBytes,
+                joinAllocation.Key,
+                joinAllocation.ConnectionData,
+                joinAllocation.HostConnectionData
+            );
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
+                joinAllocation.RelayServer.IpV4,
+                (ushort)joinAllocation.RelayServer.Port,
+                joinAllocation.AllocationIdBytes,
+                joinAllocation.Key,
+                joinAllocation.ConnectionData,
+                joinAllocation.HostConnectionData
+            );
 
             NetworkManager.Singleton.StartClient();
         }catch(RelayServiceException e)
