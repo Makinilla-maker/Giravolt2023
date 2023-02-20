@@ -21,6 +21,7 @@ public class NetworkManagerUI : MonoBehaviour
         relay = GameObject.Find("TestRelay").GetComponent<TestRelay>();
         serverButton.onClick.AddListener(() => {
             NetworkManager.Singleton.StartServer();
+            uiManager.CleanMainUI();
         });
         hostButton.onClick.AddListener(() => {
             relay.CreateRelay();
@@ -28,11 +29,13 @@ public class NetworkManagerUI : MonoBehaviour
         clientButton.onClick.AddListener(() => {
             Debug.Log("Input field text: " + inputField.text);
             uiManager.EnterClientUI();
+            uiManager.CleanMainUI();
         });
         clientJoinButton.onClick.AddListener(() => {
             Debug.Log("Input field text: " + inputField.text);
             NetworkManager.Singleton.StartClient();
             relay.JoinRelay(inputField.text);
+            uiManager.CleanMainUI();
         });
     }
 }
