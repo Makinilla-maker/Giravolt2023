@@ -17,12 +17,13 @@ public class UiManager : MonoBehaviour
     {
         
     }
-    public void CleanMainUI()
+    public IEnumerator CleanMainUI()
     {
         foreach(GameObject ui in cleanUI)
         {
             ui.SetActive(false);
         }
+        yield return new WaitForSeconds(.3f);
     }
     public void CleanAllUI()
     {
