@@ -5,10 +5,10 @@ using Unity.Netcode;
 using TMPro;
 public class PlayerCameraFix : NetworkBehaviour
 {
-    [SerializeField] private GameObject[] camera1;
+    [SerializeField] private GameObject[] cameras;
     [SerializeField] private GameObject deleteCamera;
-    Camera camera3;
-    Camera camera4;
+    [SerializeField] private GameObject hostCamera;
+    [SerializeField] private GameObject clientCamera;
     void Start()
     {
         if(GameObject.Find("DeleteCamera") != null)
@@ -17,21 +17,27 @@ public class PlayerCameraFix : NetworkBehaviour
             deleteCamera.SetActive(false);
         }
         
-        camera1 = GameObject.FindGameObjectsWithTag("OVRCameraRig");
-        for(int i = 0; i < camera1.Length; i++)
+        cameras = GameObject.FindGameObjectsWithTag("OVRCameraRig");
+        for(int i = 0; i < cameras.Length; i++)
         {
-            if(!IsOwner)
-                camera1[i].SetActive(false);
+            if(IsHost)
+            {
+                hostCamera = cameras[i];
+            }
+            else if(IsClient)
+            {
+                clientCamera = cameras[i];
+            }   
+        }
+
+        if(IsHost && IsOwner && clientCamera != null)
+        {
+            clientCamera.SetActive(false);
+        }
+        else if(IsOwner && IsClient && hostCamera != null)
+        {
+            hostCamera.SetActive(false);
         }
             
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        for(int i = 0; i < camera1.Length; i++)
-        {
-            if(!IsOwner)
-                camera1[i].SetActive(false);
-        }
     }
 }

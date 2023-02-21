@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CleanUI
   - OVRCameraRig
+  - DeleteCamera
   layers:
   - Default
   - TransparentFX

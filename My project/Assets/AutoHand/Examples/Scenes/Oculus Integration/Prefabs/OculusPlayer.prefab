@@ -7256,14 +7256,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297602103752395642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b637a3ef645157a4b898e5dece031aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera1:
-  - {fileID: 0}
+  cameras: []
   deleteCamera: {fileID: 0}
+  hostCamera: {fileID: 0}
+  clientCamera: {fileID: 0}
 --- !u!1 &387941546817901168
 GameObject:
   m_ObjectHideFlags: 0
@@ -14099,6 +14100,7 @@ GameObject:
   - component: {fileID: 1599582972140686902}
   - component: {fileID: 7214012720012497621}
   - component: {fileID: 7867050202165549015}
+  - component: {fileID: 7878162813440994417}
   m_Layer: 0
   m_Name: OVRCameraRig
   m_TagString: OVRCameraRig
@@ -14218,6 +14220,22 @@ MonoBehaviour:
   resetHmdPoseByMiddleMouseButton: 1
   activateKeys: 3201000031010000
   pitchKeys: 3401000033010000
+--- !u!114 &7878162813440994417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8703080188876491382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8750720917864705924
 GameObject:
   m_ObjectHideFlags: 0
