@@ -7261,6 +7261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b637a3ef645157a4b898e5dece031aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera1: {fileID: 0}
 --- !u!1 &387941546817901168
 GameObject:
   m_ObjectHideFlags: 0
@@ -14098,7 +14099,7 @@ GameObject:
   - component: {fileID: 7867050202165549015}
   m_Layer: 0
   m_Name: OVRCameraRig
-  m_TagString: Untagged
+  m_TagString: OVRCameraRig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
