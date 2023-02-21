@@ -11,28 +11,27 @@ public class PlayerCameraFix : NetworkBehaviour
     Camera camera4;
     void Start()
     {
-        deleteCamera = GameObject.Find("DeleteCamera");
-        deleteCamera.SetActive(false);
-        camera1 = GameObject.FindGameObjectsWithTag("OVRCameraRig");
-        if (!IsOwner)
+        if(GameObject.Find("DeleteCamera") != null)
         {
-            for(int i = 0; i < camera1.Length; i++)
-            {
-                camera1[i].SetActive(false);
-            }
-            
+            deleteCamera = GameObject.Find("DeleteCamera");
+            deleteCamera.SetActive(false);
         }
+        
+        camera1 = GameObject.FindGameObjectsWithTag("OVRCameraRig");
+        for(int i = 0; i < camera1.Length; i++)
+        {
+            if(!IsOwner)
+                camera1[i].SetActive(false);
+        }
+            
     }
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner)
+        for(int i = 0; i < camera1.Length; i++)
         {
-            for(int i = 0; i < camera1.Length; i++)
-            {
+            if(!IsOwner)
                 camera1[i].SetActive(false);
-            }
-            
         }
     }
 }
