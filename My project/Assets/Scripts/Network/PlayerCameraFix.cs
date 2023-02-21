@@ -41,4 +41,15 @@ public class PlayerCameraFix : NetworkBehaviour
     //     }
             
     // }
+    void Update()
+    {
+        
+        for(int i = 0; i < cameras.Length; i++)
+        {
+            if(!IsOwner)
+            {
+                cameras[i].enabled = false;
+            }
+        }
+    }
 }
