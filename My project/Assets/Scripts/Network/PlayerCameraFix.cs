@@ -24,6 +24,9 @@ public class PlayerCameraFix : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        camera1 = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
+        camera2 = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>();
+        camera3 = GameObject.Find("RightEyeAnchor").GetComponent<Camera>();
         if (!IsOwner)
         {
             Debug.Log(IsOwner);
