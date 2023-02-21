@@ -7256,15 +7256,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297602103752395642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b637a3ef645157a4b898e5dece031aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameras: []
-  deleteCamera: {fileID: 0}
-  hostCamera: {fileID: 0}
-  clientCamera: {fileID: 0}
+  cameras:
+  - {fileID: 1992776023468930093}
+  - {fileID: 5087129502592381777}
+  - {fileID: 7411018131765917555}
 --- !u!1 &387941546817901168
 GameObject:
   m_ObjectHideFlags: 0
