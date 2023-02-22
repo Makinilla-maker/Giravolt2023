@@ -507,13 +507,24 @@ PrefabInstance:
         type: 3}
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
-      objectReference: {fileID: 6673825013549574197, guid: 22c1b1daa63819e419416a47c44d1e0a,
+      objectReference: {fileID: 297602103752395642, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
         type: 3}
+    - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
       propertyPath: NetworkConfig.NetworkPrefabs.Array.data[0].Prefab
       value: 
-      objectReference: {fileID: 6673825013549574197, guid: 22c1b1daa63819e419416a47c44d1e0a,
+      objectReference: {fileID: 297602103752395642, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+        type: 3}
+    - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 7497740577067446680, guid: b0e7c93652ef2a64ca3bf3fc9ff3ca20,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d18df112e9a6f124cb8813557193098b, type: 3}
