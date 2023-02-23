@@ -20,9 +20,15 @@ public class TestRelay : MonoBehaviour
     {
         GameObject newPlayer;
         if (prefabId==0)
-                newPlayer=(GameObject)Instantiate(playerPrefabA);
+        {
+            newPlayer=(GameObject)Instantiate(playerPrefabA);
+        }
+                
         else
+        {
             newPlayer=(GameObject)Instantiate(playerPrefabB);
+        }
+            
         NetworkObject netObj=newPlayer.GetComponent<NetworkObject>();
         newPlayer.SetActive(true);
         netObj.SpawnAsPlayerObject(clientId,true);

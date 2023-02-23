@@ -10,11 +10,16 @@ public class PlayerSpawner : NetworkBehaviour
     {
         relay = GameObject.Find("TestRelay").GetComponent<TestRelay>();
     }
-    public override void OnNetworkSpawn() {
+    public override void OnNetworkSpawn()
+    {
     if (IsServer)
         relay.SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId,0);
     else
-           relay.SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId,1);
+        relay.SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId,1);
+    }
+    private void OnConnectedToServer()
+    {
+        relay.SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId,1);
     }
 }
 
