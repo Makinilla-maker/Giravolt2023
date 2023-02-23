@@ -512,7 +512,7 @@ PrefabInstance:
     - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
       propertyPath: NetworkConfig.NetworkPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
