@@ -492,6 +492,16 @@ PrefabInstance:
       propertyPath: onGrab.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4179709510035443431, guid: a18b647ece002404089338702cc8556c,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179709510035443431, guid: a18b647ece002404089338702cc8556c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4179709510035443452, guid: a18b647ece002404089338702cc8556c,
         type: 3}
       propertyPath: m_RootOrder
