@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d3f872698641b4bb71902de1d838e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 539635358}
 --- !u!114 &508078341 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2435547775977737497, guid: 9af73315050e3de4c807f7e03375f90c,
@@ -301,6 +302,13 @@ MonoBehaviour:
     type: 3}
   xrControllerLeft: {fileID: 2589378572117696043, guid: 9d4fc26d702a143469b1642fc59346fe,
     type: 3}
+  xRigGo: {fileID: 0}
+  cameraOffsetGo: {fileID: 0}
+  mainCameraGo: {fileID: 0}
+  rightControllerGo: {fileID: 0}
+  xrControllerRightGo: {fileID: 0}
+  leftControllerGo: {fileID: 0}
+  xrControllerLeftGo: {fileID: 0}
   player: {fileID: 0}
 --- !u!1001 &626957608
 PrefabInstance:

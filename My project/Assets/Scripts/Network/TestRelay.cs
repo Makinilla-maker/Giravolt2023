@@ -33,22 +33,11 @@ public class TestRelay : MonoBehaviour
         {
             newPlayer = player.SpawnPlayer();
         }
-            
-        NetworkObject netObj=newPlayer.GetComponent<NetworkObject>();
-        newPlayer.SetActive(true);
-        netObj.SpawnAsPlayerObject(clientId,true);
-        player.xRigGo.AddComponent<NetworkObject>();
-        player.xRigGo.AddComponent<NetworkTransform>();
-        player.mainCameraGo.AddComponent<NetworkObject>();
-        player.mainCameraGo.AddComponent<NetworkTransform>();
-        player.rightControllerGo.AddComponent<NetworkObject>();
-        player.rightControllerGo.AddComponent<NetworkTransform>();
-        player.xrControllerRightGo.AddComponent<NetworkObject>();
-        player.xrControllerRightGo.AddComponent<NetworkTransform>();
-        player.leftControllerGo.AddComponent<NetworkObject>();
-        player.leftControllerGo.AddComponent<NetworkTransform>();
-        player.xrControllerLeftGo.AddComponent<NetworkObject>();
-        player.xrControllerLeftGo.AddComponent<NetworkTransform>();
+        
+        // NetworkObject netObj=newPlayer.GetComponent<NetworkObject>();
+        // newPlayer.SetActive(true);
+        // netObj.SpawnAsPlayerObject(clientId,true);
+        
     }
     
 
