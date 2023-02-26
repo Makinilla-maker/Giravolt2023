@@ -7131,7 +7131,7 @@ GameObject:
   - component: {fileID: 1623265306378328295}
   - component: {fileID: 3107847255291254994}
   m_Layer: 0
-  m_Name: OculusPlayer
+  m_Name: OculusPlayer Photon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
