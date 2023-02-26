@@ -19,9 +19,9 @@ public class PhotonPlayer : MonoBehaviour
     {
         if (photonView.IsMine)
         {
-            leftHand.SetActive(false);
-            rightHand.SetActive(false);
-            camera.SetActive(false);
+            //leftHand.SetActive(false);
+            //rightHand.SetActive(false);
+            //camera.SetActive(false);
         }
     }
 }
