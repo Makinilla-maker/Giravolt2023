@@ -21,26 +21,6 @@ public class TestRelay : MonoBehaviour
 
     
     [ServerRpc(RequireOwnership=false)] //server owns this object but client can request a spawn
-    public void SpawnPlayerServerRpc(ulong clientId,int prefabId)
-    {
-        GameObject newPlayer;
-        if (prefabId==0)
-        {
-            newPlayer = player.SpawnPlayer();
-        }
-                
-        else
-        {
-            newPlayer = player.SpawnPlayer();
-        }
-        
-        // NetworkObject netObj=newPlayer.GetComponent<NetworkObject>();
-        // newPlayer.SetActive(true);
-        // netObj.SpawnAsPlayerObject(clientId,true);
-        
-    }
-    
-
     void Awake()
     {
         joinCodeText = GameObject.Find("JoinCode").GetComponent<TextMeshProUGUI>();

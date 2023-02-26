@@ -144,8 +144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314291249}
-  - component: {fileID: 314291250}
-  - component: {fileID: 314291251}
   m_Layer: 0
   m_Name: PlayerSpawner
   m_TagString: Untagged
@@ -168,35 +166,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &314291250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314291247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1103273975
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
---- !u!114 &314291251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314291247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2d3f872698641b4bb71902de1d838e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 539635358}
 --- !u!114 &508078341 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2435547775977737497, guid: 9af73315050e3de4c807f7e03375f90c,
@@ -310,6 +279,7 @@ MonoBehaviour:
   leftControllerGo: {fileID: 0}
   xrControllerLeftGo: {fileID: 0}
   player: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!1001 &626957608
 PrefabInstance:
   m_ObjectHideFlags: 0
