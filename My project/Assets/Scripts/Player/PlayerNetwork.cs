@@ -8,9 +8,14 @@ public class PlayerNetwork : NetworkBehaviour
     [SerializeField] Camera camera;
     void Update()
     {
+        if(camera == null)
+        {
+            camera = GameObject.Find("MainCameraGo").GetComponent<Camera>();
+        }
         if (!IsOwner)
         {
-            camera.enabled = false;
+            if(camera != null)
+                camera.enabled = false;
         }
     }
 }

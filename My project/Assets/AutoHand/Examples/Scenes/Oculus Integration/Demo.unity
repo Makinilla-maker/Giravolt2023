@@ -144,7 +144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314291249}
-  - component: {fileID: 314291248}
   - component: {fileID: 314291250}
   m_Layer: 0
   m_Name: PlayerSpawner
@@ -152,19 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &314291248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314291247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2d3f872698641b4bb71902de1d838e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsActive: 0
 --- !u!4 &314291249
 Transform:
   m_ObjectHideFlags: 0
@@ -218,6 +205,8 @@ GameObject:
   m_Component:
   - component: {fileID: 539635356}
   - component: {fileID: 539635355}
+  - component: {fileID: 539635358}
+  - component: {fileID: 539635357}
   m_Layer: 0
   m_Name: TestRelay
   m_TagString: Untagged
@@ -232,7 +221,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539635354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3f094da9994ad646ae94cf40c6ff5e0, type: 3}
   m_Name: 
@@ -257,6 +246,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539635357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539635354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2347446673
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &539635358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539635354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868ef066de048324d9076c78b1527913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xRig: {fileID: 1717882476858434677, guid: 5bb43d30881301c4d936dabd8de2ff4a, type: 3}
+  cameraOffset: {fileID: 3847351385243542934, guid: 25b20c3bc359c1a4da2d54af55ceafe8,
+    type: 3}
+  mainCamera: {fileID: 1393446289483466872, guid: a07883972ad368b45a094d81314109bb,
+    type: 3}
+  rightController: {fileID: 5659145250636480009, guid: a9c7217f15c4e5a4084afa92a3bcd226,
+    type: 3}
+  xrControllerRight: {fileID: 8930248434634711992, guid: f0bb818092e7c8c4ba957ad095fd1000,
+    type: 3}
+  leftController: {fileID: 7499534206285980833, guid: 94f714d50095fef41a36f3e396b11b9e,
+    type: 3}
+  xrControllerLeft: {fileID: 2589378572117696043, guid: 9d4fc26d702a143469b1642fc59346fe,
+    type: 3}
+  player: {fileID: 0}
 --- !u!1001 &626957608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,6 +589,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6698574996382526289, guid: d18df112e9a6f124cb8813557193098b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6698574996382526290, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
       propertyPath: m_ProtocolType
@@ -570,13 +606,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
+        type: 3}
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
       propertyPath: NetworkConfig.NetworkPrefabs.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
