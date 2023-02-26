@@ -38,8 +38,12 @@ public class SpawnXRrigPlayer : NetworkBehaviour
     {
         xRigGo = Instantiate(xRig, transform.position, Quaternion.identity);
         cameraOffsetGo = Instantiate(cameraOffset, transform.position, Quaternion.identity, xRigGo.transform);
+        xRigGo.AddComponent<NetworkObject>();
+        xRigGo.AddComponent<NetworkTransform>();
+
         mainCameraGo = Instantiate(mainCamera, transform.position, Quaternion.identity, cameraOffsetGo.transform);
         mainCameraGo.name = "MainCameraGo";
+        
         mainCameraGo.AddComponent<NetworkObject>();
         mainCameraGo.AddComponent<NetworkTransform>();
         rightControllerGo = Instantiate(rightController, transform.position, Quaternion.identity, xRigGo.transform);
