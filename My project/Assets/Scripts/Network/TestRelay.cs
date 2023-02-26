@@ -10,6 +10,7 @@ using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Oculus.Platform.Samples.VrHoops;
+using Unity.Netcode.Components;
 
 public class TestRelay : MonoBehaviour
 {
@@ -36,6 +37,18 @@ public class TestRelay : MonoBehaviour
         NetworkObject netObj=newPlayer.GetComponent<NetworkObject>();
         newPlayer.SetActive(true);
         netObj.SpawnAsPlayerObject(clientId,true);
+        player.xRigGo.AddComponent<NetworkObject>();
+        player.xRigGo.AddComponent<NetworkTransform>();
+        player.mainCameraGo.AddComponent<NetworkObject>();
+        player.mainCameraGo.AddComponent<NetworkTransform>();
+        player.rightControllerGo.AddComponent<NetworkObject>();
+        player.rightControllerGo.AddComponent<NetworkTransform>();
+        player.xrControllerRightGo.AddComponent<NetworkObject>();
+        player.xrControllerRightGo.AddComponent<NetworkTransform>();
+        player.leftControllerGo.AddComponent<NetworkObject>();
+        player.leftControllerGo.AddComponent<NetworkTransform>();
+        player.xrControllerLeftGo.AddComponent<NetworkObject>();
+        player.xrControllerLeftGo.AddComponent<NetworkTransform>();
     }
     
 
