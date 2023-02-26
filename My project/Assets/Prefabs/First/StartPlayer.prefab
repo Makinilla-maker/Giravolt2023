@@ -65,8 +65,6 @@ MonoBehaviour:
   xrControllerRightGo: {fileID: 0}
   leftControllerGo: {fileID: 0}
   xrControllerLeftGo: {fileID: 0}
-  player: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!114 &8718572571218085844
 MonoBehaviour:
   m_ObjectHideFlags: 0
