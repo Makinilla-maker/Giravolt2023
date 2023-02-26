@@ -17,7 +17,7 @@ public class PhotonPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             leftHand.SetActive(false);
             rightHand.SetActive(false);

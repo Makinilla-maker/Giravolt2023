@@ -9,7 +9,7 @@ public class PhotonPlayerSpawner : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        spawnedPlayerPrefab = PhotonNetwork.Instantiate("OculusPlayer Photon", transform.position, Quaternion.identity);
+        spawnedPlayerPrefab = PhotonNetwork.Instantiate("XRRig", transform.position, Quaternion.identity);
     }
     public override void OnLeftRoom()
     {
