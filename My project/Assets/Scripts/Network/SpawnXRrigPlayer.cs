@@ -27,7 +27,6 @@ public class SpawnXRrigPlayer : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPlayer();
     }
 
     // Update is called once per frame
@@ -35,7 +34,7 @@ public class SpawnXRrigPlayer : NetworkBehaviour
     {
         
     }
-    public void SpawnPlayer()
+    public GameObject SpawnPlayer()
     {
         xRigGo = Instantiate(xRig, transform.position, Quaternion.identity);
         cameraOffsetGo = Instantiate(cameraOffset, transform.position, Quaternion.identity, xRigGo.transform);
@@ -55,5 +54,7 @@ public class SpawnXRrigPlayer : NetworkBehaviour
         xrControllerLeftGo = Instantiate(xrControllerLeft, transform.position, Quaternion.identity, leftControllerGo.transform);
         xrControllerLeftGo.AddComponent<NetworkObject>();
         xrControllerLeftGo.AddComponent<NetworkTransform>();
+
+        return xRigGo;
     }
 }

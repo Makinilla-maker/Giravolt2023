@@ -9,11 +9,15 @@ using Unity.Services.Relay.Models;
 using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
+using Oculus.Platform.Samples.VrHoops;
+
 public class TestRelay : MonoBehaviour
 {
     public TextMeshProUGUI joinCodeText;
     [SerializeField] private GameObject playerPrefabA; //add prefab in inspector
     [SerializeField] private GameObject playerPrefabB; //add prefab in inspector
+    [SerializeField] private SpawnXRrigPlayer player;
+
     
     [ServerRpc(RequireOwnership=false)] //server owns this object but client can request a spawn
     public void SpawnPlayerServerRpc(ulong clientId,int prefabId)
@@ -21,12 +25,12 @@ public class TestRelay : MonoBehaviour
         GameObject newPlayer;
         if (prefabId==0)
         {
-            newPlayer=(GameObject)Instantiate(playerPrefabA);
+            newPlayer = player.SpawnPlayer();
         }
                 
         else
         {
-            newPlayer=(GameObject)Instantiate(playerPrefabB);
+            newPlayer = player.SpawnPlayer();
         }
             
         NetworkObject netObj=newPlayer.GetComponent<NetworkObject>();
@@ -50,7 +54,6 @@ public class TestRelay : MonoBehaviour
 
         AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
-
     // Update is called once per frame
     void Update()
     {
