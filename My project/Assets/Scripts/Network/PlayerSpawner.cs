@@ -12,10 +12,6 @@ using Oculus.Platform.Samples.VrHoops;
 using Unity.Netcode.Components;
 public class PlayerSpawner : NetworkBehaviour
 {
-    public SpawnXRrigPlayer player;
-    public override void OnNetworkSpawn()
-    {
-        player.SpawnPlayer();
-    }
+    
 }
 

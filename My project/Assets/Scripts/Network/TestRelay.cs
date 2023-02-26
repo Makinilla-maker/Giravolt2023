@@ -25,6 +25,7 @@ public class TestRelay : MonoBehaviour
     {
         joinCodeText = GameObject.Find("JoinCode").GetComponent<TextMeshProUGUI>();
     }
+    
     // Start is called before the first frame update
     private async void Start()
     {

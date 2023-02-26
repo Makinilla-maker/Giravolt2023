@@ -21,15 +21,13 @@ public class SpawnXRrigPlayer : NetworkBehaviour
     public GameObject xrControllerRightGo;
     public GameObject leftControllerGo;
     public GameObject xrControllerLeftGo;
-    public GameObject player;
-
-    [SerializeField] NetworkManager manager;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        SpawnPlayer();
     }
 
     // Update is called once per frame
@@ -54,29 +52,41 @@ public class SpawnXRrigPlayer : NetworkBehaviour
         xRigGo.AddComponent<NetworkObject>();
         xRigGo.AddComponent<NetworkTransform>();
         xRigGo.GetComponent<NetworkObject>().Spawn();
+
+
+
+        cameraOffsetGo.AddComponent<NetworkObject>();
+        cameraOffsetGo.AddComponent<NetworkTransform>();
+        cameraOffsetGo.GetComponent<NetworkObject>().Spawn();
+        cameraOffsetGo.transform.SetParent(xRigGo.transform, false);
+
+
+
         mainCameraGo.AddComponent<NetworkObject>();
         mainCameraGo.AddComponent<NetworkTransform>();
         mainCameraGo.GetComponent<NetworkObject>().Spawn();
+        mainCameraGo.transform.SetParent(cameraOffsetGo.transform, false);
 
         rightControllerGo.AddComponent<NetworkObject>();
         rightControllerGo.AddComponent<NetworkTransform>();
         rightControllerGo.GetComponent<NetworkObject>().Spawn();
+        rightControllerGo.transform.SetParent(xRigGo.transform, false);
 
         xrControllerRightGo.AddComponent<NetworkObject>();
         xrControllerRightGo.AddComponent<NetworkTransform>();
         xrControllerRightGo.GetComponent<NetworkObject>().Spawn();
+        xrControllerRightGo.transform.SetParent(rightControllerGo.transform, false);
+
 
         leftControllerGo.AddComponent<NetworkObject>();
         leftControllerGo.AddComponent<NetworkTransform>();
         leftControllerGo.GetComponent<NetworkObject>().Spawn();
-
-        xrControllerLeftGo.AddComponent<NetworkObject>();
-        xrControllerLeftGo.AddComponent<NetworkTransform>();
-        xrControllerLeftGo.GetComponent<NetworkObject>().Spawn();
+        leftControllerGo.transform.SetParent(xRigGo.transform, false);
 
 
         xrControllerLeftGo.AddComponent<NetworkObject>();
         xrControllerLeftGo.AddComponent<NetworkTransform>();
         xrControllerLeftGo.GetComponent<NetworkObject>().Spawn();
+        xrControllerLeftGo.transform.SetParent(leftControllerGo.transform, false);
     }
 }

@@ -135,37 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &314291247
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 314291249}
-  m_Layer: 0
-  m_Name: PlayerSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &314291249
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314291247}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &508078341 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2435547775977737497, guid: 9af73315050e3de4c807f7e03375f90c,
@@ -188,7 +157,6 @@ GameObject:
   m_Component:
   - component: {fileID: 539635356}
   - component: {fileID: 539635355}
-  - component: {fileID: 539635358}
   - component: {fileID: 539635357}
   m_Layer: 0
   m_Name: TestRelay
@@ -214,7 +182,7 @@ MonoBehaviour:
     type: 3}
   playerPrefabB: {fileID: 7497740577067446680, guid: b0e7c93652ef2a64ca3bf3fc9ff3ca20,
     type: 3}
-  player: {fileID: 539635358}
+  player: {fileID: 0}
 --- !u!4 &539635356
 Transform:
   m_ObjectHideFlags: 0
@@ -246,40 +214,6 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &539635358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 539635354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 868ef066de048324d9076c78b1527913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xRig: {fileID: 1717882476858434677, guid: 5bb43d30881301c4d936dabd8de2ff4a, type: 3}
-  cameraOffset: {fileID: 3847351385243542934, guid: 25b20c3bc359c1a4da2d54af55ceafe8,
-    type: 3}
-  mainCamera: {fileID: 1393446289483466872, guid: a07883972ad368b45a094d81314109bb,
-    type: 3}
-  rightController: {fileID: 5659145250636480009, guid: a9c7217f15c4e5a4084afa92a3bcd226,
-    type: 3}
-  xrControllerRight: {fileID: 8930248434634711992, guid: f0bb818092e7c8c4ba957ad095fd1000,
-    type: 3}
-  leftController: {fileID: 7499534206285980833, guid: 94f714d50095fef41a36f3e396b11b9e,
-    type: 3}
-  xrControllerLeft: {fileID: 2589378572117696043, guid: 9d4fc26d702a143469b1642fc59346fe,
-    type: 3}
-  xRigGo: {fileID: 0}
-  cameraOffsetGo: {fileID: 0}
-  mainCameraGo: {fileID: 0}
-  rightControllerGo: {fileID: 0}
-  xrControllerRightGo: {fileID: 0}
-  leftControllerGo: {fileID: 0}
-  xrControllerLeftGo: {fileID: 0}
-  player: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!1001 &626957608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,7 +539,8 @@ PrefabInstance:
         type: 3}
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8718572571218085847, guid: f0518b3b72422b0439aadb59ad0f1015,
+        type: 3}
     - target: {fileID: 6698574996382526291, guid: d18df112e9a6f124cb8813557193098b,
         type: 3}
       propertyPath: NetworkConfig.NetworkPrefabs.Array.size
