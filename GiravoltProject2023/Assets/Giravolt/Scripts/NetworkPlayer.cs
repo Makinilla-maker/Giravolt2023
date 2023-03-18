@@ -15,11 +15,13 @@ public class NetworkPlayer : MonoBehaviour
     private Transform leftHandRig;
     private Transform rightHandRig;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
         photonView= GetComponent<PhotonView>();
-        //XRRig rig
+        player = GameObject.Find("TrackerOffsets");
     }
 
     // Update is called once per frame
@@ -34,6 +36,9 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(head, XRNode.Head);
             MapPosition(leftHand, XRNode.LeftHand);
             MapPosition(rightHand, XRNode.RightHand);
+
+            this.gameObject.transform.position = player.transform.position;
+            this.gameObject.transform.rotation = player.transform.rotation;
         }
     }
     void MapPosition(Transform target, XRNode node)
@@ -41,7 +46,9 @@ public class NetworkPlayer : MonoBehaviour
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion rotation);
 
-        target.position = position;
-        target.rotation = rotation;
+        Debug.Log(position + " " + rotation);
+
+        target.localPosition = position;
+        target.localRotation = rotation;
     }
 }

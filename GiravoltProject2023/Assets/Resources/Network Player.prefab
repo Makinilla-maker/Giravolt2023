@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 1975584682318861999}
   - component: {fileID: -5464690255708301854}
   - component: {fileID: 8592134566807800345}
+  - component: {fileID: 1851346148594273139}
   m_Layer: 0
   m_Name: Network Player
   m_TagString: Untagged
@@ -267,6 +268,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 1851346148594273139}
   - {fileID: 7527976409329096010}
   - {fileID: 5157983300218126791}
   - {fileID: 1424937715619978490}
@@ -291,6 +293,23 @@ MonoBehaviour:
   head: {fileID: 441223076130087967}
   leftHand: {fileID: 1929591401196533943}
   rightHand: {fileID: 3652318989459504793}
+  player: {fileID: 0}
+--- !u!114 &1851346148594273139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811012511946502716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &6226005740609080961
 GameObject:
   m_ObjectHideFlags: 0

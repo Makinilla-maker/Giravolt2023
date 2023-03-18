@@ -165,6 +165,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: OculusPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 297602103752395642, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 297602103752395642, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 297602103752395643, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1631,12 +1641,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9413d460e98076241a1f46c91201217d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1462265595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2839866808124084458, guid: 8d447b25c326eb940b6967957e64879b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1603667122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1462265596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2839866808124084459, guid: 8d447b25c326eb940b6967957e64879b,
     type: 3}
   m_PrefabInstance: {fileID: 1603667122}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1462265597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462265595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1603667122
 PrefabInstance:
   m_ObjectHideFlags: 0
