@@ -182,7 +182,8 @@ namespace Autohand {
                 Selection.activeGameObject = null;
                 Debug.Log("Auto Hand: highlighting grabbables and rigidbodies in the inspector can cause lag and quality reduction at runtime in VR. (Automatically deselecting at runtime) Remove this code at any time.", this);
                 editorSelected = true;
-                phView = GetComponent<PhotonView>();
+                if(GetComponent<PhotonView>() != null)
+                    phView = GetComponent<PhotonView>();
             }
             Application.quitting += () => { if (editorSelected && Selection.activeGameObject == null) Selection.activeGameObject = gameObject; };
 #endif
@@ -438,9 +439,11 @@ namespace Autohand {
             if (rigidbodyDeactivated)
                 ActivateRigidbody();
 
-
-            // OUR CODE
-            phView.RequestOwnership();
+            if (GetComponent<PhotonView>() != null)
+            {
+                // OUR CODE
+                phView.RequestOwnership();
+            }                
 
             if (lockHandOnGrab)
                 hand.body.isKinematic = true;
