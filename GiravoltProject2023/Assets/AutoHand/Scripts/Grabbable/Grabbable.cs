@@ -440,7 +440,7 @@ namespace Autohand {
 
 
             // OUR CODE
-            hand.GetComponentInParent<GameObject>().GetComponent<PhotonView>().RequestOwnership();
+            phView.RequestOwnership();
 
             if (lockHandOnGrab)
                 hand.body.isKinematic = true;
