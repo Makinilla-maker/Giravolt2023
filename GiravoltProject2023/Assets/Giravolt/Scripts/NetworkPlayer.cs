@@ -41,6 +41,7 @@ public class NetworkPlayer : MonoBehaviour
             this.gameObject.transform.rotation = player.transform.rotation;
         }
     }
+    
     void MapPosition(Transform target, XRNode node)
     {
         InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);

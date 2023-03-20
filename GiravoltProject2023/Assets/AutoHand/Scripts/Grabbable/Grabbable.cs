@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine.Serialization;
-
+using Photon.Pun;
+using Photon.Realtime;
 
 namespace Autohand {
     public enum HandGrabType {
@@ -19,7 +20,7 @@ namespace Autohand {
     [HelpURL("https://app.gitbook.com/s/5zKO0EvOjzUDeT2aiFk3/auto-hand/grabbable"), DefaultExecutionOrder(-100)]
     public class Grabbable : GrabbableBase {
 
-
+        [SerializeField] PhotonView phView;
         [Tooltip("This will copy the given grabbables settings to this grabbable when applied"), OnValueChanged("EditorCopyGrabbable")]
         public Grabbable CopySettings;
 
@@ -181,6 +182,7 @@ namespace Autohand {
                 Selection.activeGameObject = null;
                 Debug.Log("Auto Hand: highlighting grabbables and rigidbodies in the inspector can cause lag and quality reduction at runtime in VR. (Automatically deselecting at runtime) Remove this code at any time.", this);
                 editorSelected = true;
+                phView = GetComponent<PhotonView>();
             }
             Application.quitting += () => { if (editorSelected && Selection.activeGameObject == null) Selection.activeGameObject = gameObject; };
 #endif
@@ -428,15 +430,17 @@ namespace Autohand {
         public virtual bool CanGrab(HandBase hand) {
             return enabled && isGrabbable && (handType == HandType.both || (handType == HandType.left && hand.left) || (handType == HandType.right && !hand.left));
         }
-
         /// <summary>Called by the hand whenever this item is grabbed</summary>
         internal virtual void OnGrab(Hand hand) {
-
             if(beingGrabbedBy.Contains(hand))
                 beingGrabbedBy.Remove(hand);
 
             if (rigidbodyDeactivated)
                 ActivateRigidbody();
+
+
+            // OUR CODE
+            hand.GetComponentInParent<GameObject>().GetComponent<PhotonView>().RequestOwnership();
 
             if (lockHandOnGrab)
                 hand.body.isKinematic = true;
