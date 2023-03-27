@@ -3402,6 +3402,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1283116975386250120, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe, type: 3}
+--- !u!1 &635154735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7037916030628338173, guid: 64c4d73713283994280506c6a4738703,
+    type: 3}
+  m_PrefabInstance: {fileID: 738926433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &635154739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635154735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &640506554 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3270362053453753576, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe,
@@ -5548,6 +5570,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4021948952766011793, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe, type: 3}
+--- !u!1 &1077286804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7037916030749722771, guid: 64c4d73713283994280506c6a4738703,
+    type: 3}
+  m_PrefabInstance: {fileID: 738926433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077286808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077286804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &1079648772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8130633766454001850, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe,
@@ -5765,6 +5809,7 @@ GameObject:
   - component: {fileID: 1118169484}
   - component: {fileID: 1118169491}
   - component: {fileID: 1118169490}
+  - component: {fileID: 1118169492}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -5988,6 +6033,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1118169491}
+  - {fileID: 1118169492}
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -6007,6 +6053,22 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 1
   m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1118169492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118169482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &1118317773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4378417924521234195, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe,

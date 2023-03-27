@@ -175,6 +175,8 @@ namespace Autohand {
 
         protected override void Start()
         {
+            if (GetComponent<PhotonView>() != null)
+                phView = GetComponent<PhotonView>();
             base.Start();
 #if UNITY_EDITOR
             if (Selection.activeGameObject == gameObject)
@@ -182,8 +184,7 @@ namespace Autohand {
                 Selection.activeGameObject = null;
                 Debug.Log("Auto Hand: highlighting grabbables and rigidbodies in the inspector can cause lag and quality reduction at runtime in VR. (Automatically deselecting at runtime) Remove this code at any time.", this);
                 editorSelected = true;
-                if(GetComponent<PhotonView>() != null)
-                    phView = GetComponent<PhotonView>();
+                
             }
             Application.quitting += () => { if (editorSelected && Selection.activeGameObject == null) Selection.activeGameObject = gameObject; };
 #endif
