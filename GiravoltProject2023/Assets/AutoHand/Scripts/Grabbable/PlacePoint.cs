@@ -301,10 +301,6 @@ namespace Autohand {
             foreach(var garb in placedObject.grabbableParents)
                 garb.OnPlacePointAddEvent?.Invoke(this, garb);
 
-            OnPlaceEvent?.Invoke(this, placeObj);
-            OnPlace?.Invoke(this, placeObj);
-            lastPlacedTime = Time.time;
-
             if (parentOnPlace)
                 placedObject.rootTransform.parent = transform;
 
@@ -320,6 +316,10 @@ namespace Autohand {
 
             if (destroyObjectOnPlace)
                 Destroy(placedObject);
+
+            OnPlaceEvent?.Invoke(this, placeObj);
+            OnPlace?.Invoke(this, placeObj);
+            lastPlacedTime = Time.time;
         }
 
         public virtual void Remove(Grabbable placeObj) {
