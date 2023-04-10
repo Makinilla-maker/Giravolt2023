@@ -23,6 +23,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     int taskCompleted = 0;
     private string sendTaskName = "";
     private int sendTaskInt = -1;
+    private PhotonView pView;
+    private void Awake()
+    {
+        pView = GetComponent<PhotonView>();
+    }
     public void OnPlace(GameObject receptor)
     {
         go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
@@ -59,7 +64,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
+        if (pView.IsMine)
         {
             // We own this player: send the others our data
             if (sendTaskName != "")
