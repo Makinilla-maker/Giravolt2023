@@ -27,13 +27,19 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
            if(sendTask != null)
            {
              stream.SendNext(sendTask);
+             Debug.Log("sending this info: " + sendTask.name);
            }
+           else
+            {
+                Debug.Log("Sending null information");
+            }
             
         }
         else
         {
             // Network player, receive data
             this.ReceiveTaskStatus((Task)stream.ReceiveNext());
+            Debug.Log("receiving this info: " + (Task)stream.ReceiveNext());
         }
     }
 
@@ -52,14 +58,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
 
         Debug.Log(go.name);
-        foreach(Task task in tasks)
+        foreach(Task currentTask in tasks)
         {
-            Debug.Log(task.mainObject.name + "==" + go.name);
-            Debug.Log(task.targetObject.name + "==" + receptor.name);
-            if (task.mainObject.name == go.name && task.targetObject.name == receptor.name)
+            Debug.Log(currentTask.mainObject.name + "==" + go.name);
+            Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
+            if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
             {
-                task.status = TaskStatus.COMPLETED;
-                SendTaskStatus(task);
+                SendTaskStatus(currentTask);
+                currentTask.status = TaskStatus.COMPLETED;
             }
         }
     }
