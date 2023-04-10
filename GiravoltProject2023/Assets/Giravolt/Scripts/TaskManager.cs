@@ -39,7 +39,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             Debug.Log("receiving info: ");
             // Network player, receive data
-            this.ReceiveTaskStatus((Task)stream.ReceiveNext());
+            this.ReceiveTaskStatus((string)stream.ReceiveNext());
         }
     }
     #endregion
@@ -72,16 +72,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         sendTask = task;
     }
-    private void ReceiveTaskStatus(Task taskReceive)
+    private void ReceiveTaskStatus(string taskReceive)
     {
         foreach (Task task in tasks)
         {
-            if (task.id == taskReceive.id)
+            if (task.name == taskReceive)
             {
-                task.description = taskReceive.description;
-                task.status = taskReceive.status;
-                task.name = taskReceive.name;
-                task.mainObject = taskReceive.mainObject;
                 Debug.Log("this is the current name of the task" + task.name);
             }
         }
