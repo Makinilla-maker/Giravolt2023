@@ -21,7 +21,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
-    private string sendTaskname;
+    private string sendTaskname = "";
     private int sendTaskInt;
     public void OnPlace(GameObject receptor)
     {
@@ -34,7 +34,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
             if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
             {
-                SendTaskStatus(currentTask.name, ((int)TaskStatus.COMPLETED));
+                SendTaskStatus(currentTask.name, 3);
                 currentTask.status = TaskStatus.COMPLETED;
             }
         }
@@ -62,10 +62,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             // We own this player: send the others our data
-            if (sendTaskname != null)
+            if (sendTaskname != "")
             {
                 stream.SendNext(sendTaskname);
-                stream.SendNext(sendTaskInt);
+                //stream.SendNext(sendTaskInt);
                 Debug.Log("sending this info: " + sendTaskname);
             }
             else
@@ -78,14 +78,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             // Network player, receive data
             this.sendTaskname = (string)stream.ReceiveNext();
-            this.sendTaskInt = (int)stream.ReceiveNext();
+            //this.sendTaskInt = (int)stream.ReceiveNext();
             Debug.Log("receiving info: " + this.sendTaskname);
-            CheckTasksState(this.sendTaskname, this.sendTaskInt);
+            CheckTasksState(this.sendTaskname, 3);
         }
     }
     #endregion
     private void CheckTasksState(string name, int status)
     {
-        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status);
+        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + 3);
     }
 }
