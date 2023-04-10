@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Photon;
 using Photon.Pun;
-
 [System.Serializable]
 public enum TaskStatus
 {
@@ -17,12 +16,29 @@ public enum TaskStatus
 }
 [System.Serializable]
 
-public class TaskManager : MonoBehaviour
+public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
+    #region IPunObservable implementation
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(sendTask);
+        }
+        else
+        {
+            // Network player, receive data
+            this.ReceiveTaskStatus((Task)stream.ReceiveNext());
+        }
+    }
+
+    #endregion
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
     private PhotonView pView;
+    private Task sendTask;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -39,12 +55,26 @@ public class TaskManager : MonoBehaviour
             if (task.mainObject.name == go.name && task.targetObject.name == receptor.name)
             {
                 task.status = TaskStatus.COMPLETED;
-                if(task.status == TaskStatus.COMPLETED && !pView.IsMine)
-                {
-                    Instantiate(go, receptor.transform.position, go.transform.rotation);
-                }
+                SendTaskStatus(task);
             }
-                
+        }
+    }
+    private void SendTaskStatus(Task task)
+    {
+        sendTask = task;
+    }
+    private void ReceiveTaskStatus(Task taskReceive)
+    {
+        foreach (Task task in tasks)
+        {
+            if (task.id == taskReceive.id)
+            {
+                task.description = taskReceive.description;
+                task.status = taskReceive.status;
+                task.name = taskReceive.name;
+                task.mainObject = taskReceive.mainObject;
+                Debug.Log("this is the current name of the task" + task.name);
+            }
         }
     }
     private void Update()
