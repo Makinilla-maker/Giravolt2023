@@ -24,12 +24,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if(stream.IsWriting)
         {
             // We own this player: send the others our data
-           if(sendTask != null)
-           {
-             stream.SendNext(sendTask);
-             Debug.Log("sending this info: " + sendTask.name);
-           }
-           else
+            if(sendTask != null)
+            {
+                stream.SendNext(sendTask);
+                Debug.Log("sending this info: " + sendTask);
+            }
+            else
             {
                 Debug.Log("Sending null information");
             }
@@ -37,18 +37,17 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
+            Debug.Log("receiving info: ");
             // Network player, receive data
             this.ReceiveTaskStatus((Task)stream.ReceiveNext());
-            Debug.Log("receiving this info: " + (Task)stream.ReceiveNext());
         }
     }
-
     #endregion
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
     private PhotonView pView;
-    private Task sendTask;
+    private string sendTask;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -64,12 +63,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
             if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
             {
-                SendTaskStatus(currentTask);
+                SendTaskStatus(currentTask.name);
                 currentTask.status = TaskStatus.COMPLETED;
             }
         }
     }
-    private void SendTaskStatus(Task task)
+    private void SendTaskStatus(string task)
     {
         sendTask = task;
     }

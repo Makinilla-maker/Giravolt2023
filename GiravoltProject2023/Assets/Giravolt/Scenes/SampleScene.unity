@@ -439,6 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94974125}
   - component: {fileID: 94974126}
+  - component: {fileID: 94974127}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -481,6 +482,29 @@ MonoBehaviour:
     targetObject: {fileID: 1277969250}
     id: 0
   go: {fileID: 0}
+--- !u!114 &94974127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94974124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 94974126}
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &158220876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4283425761326543017, guid: 1f4d373a613d0466fbd8849470265852,
@@ -2075,7 +2099,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1192969539 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5407218802118561081, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
@@ -2100,6 +2124,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 75509612}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1277969254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277969250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &1462265596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2839866808124084459, guid: 8d447b25c326eb940b6967957e64879b,
