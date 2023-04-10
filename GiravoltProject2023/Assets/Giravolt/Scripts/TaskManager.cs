@@ -24,7 +24,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if(stream.IsWriting)
         {
             // We own this player: send the others our data
-            stream.SendNext(sendTask);
+           if(sendTask != null)
+           {
+             stream.SendNext(sendTask);
+           }
+            
         }
         else
         {
