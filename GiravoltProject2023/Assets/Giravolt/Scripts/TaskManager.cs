@@ -22,7 +22,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject go;
     int taskCompleted = 0;
     private string sendTaskname = "";
-    private int sendTaskInt;
+    private int sendTaskInt = -1;
     public void OnPlace(GameObject receptor)
     {
         go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
@@ -65,7 +65,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             if (sendTaskname != "")
             {
                 stream.SendNext(sendTaskname);
-                //stream.SendNext(sendTaskInt);
+                stream.SendNext(sendTaskInt);
                 Debug.Log("sending this info: " + sendTaskname);
             }
             else
@@ -78,14 +78,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             // Network player, receive data
             this.sendTaskname = (string)stream.ReceiveNext();
-            //this.sendTaskInt = (int)stream.ReceiveNext();
+            this.sendTaskInt = (int)stream.ReceiveNext();
             Debug.Log("receiving info: " + this.sendTaskname);
-            CheckTasksState(this.sendTaskname, 3);
+            CheckTasksState(this.sendTaskname, this.sendTaskInt);
         }
     }
     #endregion
     private void CheckTasksState(string name, int status)
     {
-        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + 3);
+        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status);
     }
 }
