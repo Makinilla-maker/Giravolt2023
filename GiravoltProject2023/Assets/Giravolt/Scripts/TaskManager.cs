@@ -21,7 +21,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
-    private string sendTaskname = "";
+    private string sendTaskName = "";
     private int sendTaskInt = -1;
     public void OnPlace(GameObject receptor)
     {
@@ -34,14 +34,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
             if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
             {
-                SendTaskStatus(currentTask.name, 3);
+                SendTaskStatus(currentTask.name, (int)TaskStatus.COMPLETED);
                 currentTask.status = TaskStatus.COMPLETED;
             }
         }
     }
     private void SendTaskStatus(string task, int status)
     {
-        sendTaskname = task;
+        sendTaskName = task;
         sendTaskInt = status;
     }
     private void Update()
@@ -62,11 +62,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             // We own this player: send the others our data
-            if (sendTaskname != "")
+            if (sendTaskName != "")
             {
-                stream.SendNext(sendTaskname);
+                stream.SendNext(sendTaskName);
                 stream.SendNext(sendTaskInt);
-                Debug.Log("sending this info: " + sendTaskname);
+                Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
             }
             else
             {
@@ -77,10 +77,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         else
         {
             // Network player, receive data
-            this.sendTaskname = (string)stream.ReceiveNext();
+            this.sendTaskName = (string)stream.ReceiveNext();
             this.sendTaskInt = (int)stream.ReceiveNext();
-            Debug.Log("receiving info: " + this.sendTaskname);
-            CheckTasksState(this.sendTaskname, this.sendTaskInt);
+            Debug.Log("receiving info: " + this.sendTaskName);
+            CheckTasksState(this.sendTaskName, this.sendTaskInt);
         }
     }
     #endregion
