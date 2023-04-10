@@ -11,7 +11,6 @@ public enum TaskStatus
     NOTSTARTED,
     DOING,
     COMPLETED,
-    GAMEOBJECT,
     NONE,
 }
 [System.Serializable]
@@ -22,12 +21,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
-    private PhotonView pView;
-    private string sendTask;
-    private void Awake()
-    {
-        pView = GetComponent<PhotonView>();
-    }
+    private string sendTaskname;
+    private int sendTaskInt;
     public void OnPlace(GameObject receptor)
     {
         go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
@@ -39,31 +34,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
             if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
             {
-                SendTaskStatus(currentTask.name);
+                SendTaskStatus(currentTask.name, ((int)TaskStatus.COMPLETED));
                 currentTask.status = TaskStatus.COMPLETED;
             }
         }
     }
-    private void SendTaskStatus(string task)
+    private void SendTaskStatus(string task, int status)
     {
-        sendTask = task;
-    }
-    private string ReceiveTaskStatus(string taskReceive)
-    {
-        string ret = "";
-        foreach (Task task in tasks)
-        {
-            if (task.name == taskReceive)
-            {
-                ret = task.name;
-                Debug.Log("this is the current name of the task" + task.name);
-            }
-            else
-            {
-                ret = "";
-            }
-        }
-        return ret;
+        sendTaskname = task;
+        sendTaskInt = status;
     }
     private void Update()
     {
@@ -83,10 +62,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             // We own this player: send the others our data
-            if (sendTask != null)
+            if (sendTaskname != null)
             {
-                stream.SendNext(sendTask);
-                Debug.Log("sending this info: " + sendTask);
+                stream.SendNext(sendTaskname);
+                stream.SendNext(sendTaskInt);
+                Debug.Log("sending this info: " + sendTaskname);
             }
             else
             {
@@ -96,10 +76,16 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            Debug.Log("receiving info: ");
             // Network player, receive data
-            this.sendTask = (string)stream.ReceiveNext();
+            this.sendTaskname = (string)stream.ReceiveNext();
+            this.sendTaskInt = (int)stream.ReceiveNext();
+            Debug.Log("receiving info: " + this.sendTaskname);
+            CheckTasksState(this.sendTaskname, this.sendTaskInt);
         }
     }
     #endregion
+    private void CheckTasksState(string name, int status)
+    {
+        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status);
+    }
 }
