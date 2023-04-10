@@ -18,31 +18,7 @@ public enum TaskStatus
 
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
-    #region IPunObservable implementation
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if(stream.IsWriting)
-        {
-            // We own this player: send the others our data
-            if(sendTask != null)
-            {
-                stream.SendNext(sendTask);
-                Debug.Log("sending this info: " + sendTask);
-            }
-            else
-            {
-                Debug.Log("Sending null information");
-            }
-            
-        }
-        else
-        {
-            Debug.Log("receiving info: ");
-            // Network player, receive data
-            this.ReceiveTaskStatus((string)stream.ReceiveNext());
-        }
-    }
-    #endregion
+   
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
@@ -72,15 +48,22 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         sendTask = task;
     }
-    private void ReceiveTaskStatus(string taskReceive)
+    private string ReceiveTaskStatus(string taskReceive)
     {
+        string ret = "";
         foreach (Task task in tasks)
         {
             if (task.name == taskReceive)
             {
+                ret = task.name;
                 Debug.Log("this is the current name of the task" + task.name);
             }
+            else
+            {
+                ret = "";
+            }
         }
+        return ret;
     }
     private void Update()
     {
@@ -94,4 +77,29 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
     }
+    #region IPunObservable implementation
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // We own this player: send the others our data
+            if (sendTask != null)
+            {
+                stream.SendNext(sendTask);
+                Debug.Log("sending this info: " + sendTask);
+            }
+            else
+            {
+                Debug.Log("Sending null information");
+            }
+
+        }
+        else
+        {
+            Debug.Log("receiving info: ");
+            // Network player, receive data
+            this.sendTask = (string)stream.ReceiveNext();
+        }
+    }
+    #endregion
 }
