@@ -25,8 +25,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private int sendTaskInt = -1;
     private PhotonView pView;
     public GameObject ball;
-    public bool goingLeft = false;
-    private bool sendGoingLeft = false;
+    private bool goingLeft = false;
+    public bool sendGoingLeft = false;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -82,7 +82,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
-        if (goingLeft)
+        if (sendGoingLeft)
         {
             ball.GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0);
         }
@@ -131,7 +131,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskName = task;
         this.sendTaskInt = id;
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
-        this.goingLeft = go;
+        this.sendGoingLeft = go;
 
     }
     #endregion
