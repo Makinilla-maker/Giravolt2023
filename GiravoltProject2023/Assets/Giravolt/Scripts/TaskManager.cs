@@ -25,7 +25,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private int sendTaskInt = -1;
     private PhotonView pView;
     public GameObject ball;
-    private bool goingLeft = false;
+    public bool goingLeft = false;
     private bool onlineGoingLeft = false;
     private void Awake()
     {
@@ -92,8 +92,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (goingLeft)
-                goingLeft = !goingLeft;
+            goingLeft = !goingLeft;
             if (pView.IsMine)
             {
                 // We own this player: send the others our data
@@ -113,7 +112,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             else
             {
-                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt);
+                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt, goingLeft);
             }
         }
     }
@@ -123,7 +122,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
     }
     [PunRPC]
-    public void ApplyReceivedChanges(string task, int id)
+    public void ApplyReceivedChanges(string task, int id, bool go)
     {
         // Network player, receive data
         this.sendTaskName = task;
