@@ -26,7 +26,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private PhotonView pView;
     public GameObject ball;
     public bool goingLeft = false;
-    private bool onlineGoingLeft = false;
+    private bool sendGoingLeft = false;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -100,7 +100,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     sendTaskName = "POLLA";
                     sendTaskInt = -1;
-                    onlineGoingLeft = goingLeft;
+                    sendGoingLeft = goingLeft;
+                    
                     Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
                     
                         
@@ -113,7 +114,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             else
             {
-                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt, onlineGoingLeft);
+                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt, sendGoingLeft);
             }
         }
     }
@@ -130,7 +131,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskInt = id;
         Debug.Log("receiving info: " + this.sendTaskName);
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
-        this.goingLeft = onlineGoingLeft;
+        this.sendGoingLeft = go;
 
     }
     #endregion
