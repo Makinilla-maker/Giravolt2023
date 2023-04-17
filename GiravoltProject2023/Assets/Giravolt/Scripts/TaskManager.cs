@@ -22,10 +22,13 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject go;
     int taskCompleted = 0;
     private string sendTaskName = "Tita";
+    private string reciveTaskName = "KIHJDIOSIHDISAJDIASN";
     private int sendTaskInt = -1;
+    private int reciveTaskInt = -2;
+    public bool sendGoingLeft = false;
+    private bool reciveGoingLeft = true;
     private PhotonView pView;
     public GameObject ball;
-    public bool sendGoingLeft = false;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -105,7 +108,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             else
             {
-                pView.RPC("ApplyReceivedChanges", RpcTarget.All, sendTaskName, sendTaskInt, sendGoingLeft);
+                pView.RPC("ApplyReceivedChanges", RpcTarget.All, reciveTaskName, reciveTaskInt, reciveGoingLeft);
             }
         }
     }
