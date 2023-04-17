@@ -39,8 +39,27 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
             if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
             {
-                SendTaskStatus(currentTask.name, (int)TaskStatus.COMPLETED);
+                
                 currentTask.status = TaskStatus.COMPLETED;
+                if (pView.IsMine)
+                {
+                    // We own this player: send the others our data
+                    if (sendTaskName != "")
+                    {
+                        sendTaskName = currentTask.name;
+                        sendTaskInt = currentTask.id;
+                        Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
+                    }
+                    else
+                    {
+                        Debug.Log("Sending null information");
+                    }
+
+                }
+                else
+                {
+                    pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt);
+                }
             }
         }
     }
@@ -64,29 +83,16 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (pView.IsMine)
-        {
-            // We own this player: send the others our data
-            if (sendTaskName != "")
-            {
-                stream.SendNext(sendTaskName);
-                stream.SendNext(sendTaskInt);
-                Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
-            }
-            else
-            {
-                Debug.Log("Sending null information");
-            }
-
-        }
-        else
-        {
-            // Network player, receive data
-            this.sendTaskName = (string)stream.ReceiveNext();
-            this.sendTaskInt = (int)stream.ReceiveNext();
-            Debug.Log("receiving info: " + this.sendTaskName);
-            CheckTasksState(this.sendTaskName, this.sendTaskInt);
-        }
+        
+    }
+    [PunRPC]
+    public void ApplyReceivedChanges(string task, int id)
+    {
+        // Network player, receive data
+        this.sendTaskName = task;
+        this.sendTaskInt = id;
+        Debug.Log("receiving info: " + this.sendTaskName);
+        CheckTasksState(this.sendTaskName, this.sendTaskInt);
     }
     #endregion
     private void CheckTasksState(string name, int status)
