@@ -93,6 +93,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (pView.IsMine)
             {
+                ball.GetComponent<PhotonView>().RequestOwnership();
                 sendGoingLeft = !sendGoingLeft;
                 // We own this player: send the others our data
                 //if (sendTaskName != "")
