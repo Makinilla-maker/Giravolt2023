@@ -79,6 +79,29 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (pView.IsMine)
+            {
+                // We own this player: send the others our data
+                if (sendTaskName != "")
+                {
+                    sendTaskName = "POLLA";
+                    sendTaskInt = -1;
+                    Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
+                }
+                else
+                {
+                    Debug.Log("Sending null information");
+                }
+
+            }
+            else
+            {
+                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt);
+            }
+        }
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
