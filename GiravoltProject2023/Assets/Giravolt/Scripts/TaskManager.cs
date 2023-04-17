@@ -21,7 +21,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
-    private string sendTaskName = "";
+    private string sendTaskName = "Tita";
     private int sendTaskInt = -1;
     private PhotonView pView;
     private void Awake()
