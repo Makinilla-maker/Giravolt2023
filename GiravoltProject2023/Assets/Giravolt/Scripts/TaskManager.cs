@@ -24,6 +24,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private string sendTaskName = "Tita";
     private int sendTaskInt = -1;
     private PhotonView pView;
+    public GameObject ball;
+    private bool goingLeft = false;
+    private bool onlineGoingLeft = false;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -79,9 +82,18 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
-
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (goingLeft)
         {
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0);
+        }
+        else
+        {
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (goingLeft)
+                goingLeft = !goingLeft;
             if (pView.IsMine)
             {
                 // We own this player: send the others our data
@@ -90,6 +102,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     sendTaskName = "POLLA";
                     sendTaskInt = -1;
                     Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
+                    
+                        
                 }
                 else
                 {
@@ -116,6 +130,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskInt = id;
         Debug.Log("receiving info: " + this.sendTaskName);
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
+        onlineGoingLeft = goingLeft;
     }
     #endregion
     private void CheckTasksState(string name, int status)
