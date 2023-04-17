@@ -92,9 +92,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            goingLeft = !goingLeft;
+            
             if (pView.IsMine)
             {
+                goingLeft = !goingLeft;
                 // We own this player: send the others our data
                 if (sendTaskName != "")
                 {
@@ -102,7 +103,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     sendTaskInt = -1;
                     sendGoingLeft = goingLeft;
                     
-                    Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
+                    Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: " + sendGoingLeft);
                     
                         
                 }
@@ -129,7 +130,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         // Network player, receive data
         this.sendTaskName = task;
         this.sendTaskInt = id;
-        Debug.Log("receiving info: " + this.sendTaskName);
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
         this.sendGoingLeft = go;
 
@@ -137,6 +137,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     #endregion
     private void CheckTasksState(string name, int status)
     {
-        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status);
+        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status + "\n" + "This is the value of the bool: " + sendGoingLeft);
     }
 }
