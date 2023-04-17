@@ -33,6 +33,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
+        pView.RequestOwnership();
     }
     public void OnPlace(GameObject receptor)
     {
@@ -113,7 +114,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
+            sendTaskName = (string)stream.ReceiveNext();
+            sendTaskInt = (int)stream.ReceiveNext();
+
+            Debug.Log("Send Task name: " + sendTaskName);
+            //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
         }
         
     }
@@ -121,10 +126,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void ApplyReceivedChanges(PhotonStream stream)
     {
         // Network player, receive data
-        sendTaskName = (string)stream.ReceiveNext();
-        sendTaskInt = (int)stream.ReceiveNext();
-
-        Debug.Log("Send Task name: "+ sendTaskName);
+        
 
         //this.sendTaskName = task;
         //this.sendTaskInt = id;
