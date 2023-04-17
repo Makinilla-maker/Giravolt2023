@@ -97,7 +97,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             {
                 goingLeft = !goingLeft;
                 // We own this player: send the others our data
-                if (sendTaskName != "")
+                //if (sendTaskName != "")
                 {
                     sendTaskName = "POLLA";
                     sendTaskInt = -1;
@@ -107,7 +107,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     
                         
                 }
-                else
+                //else
                 {
                     Debug.Log("Sending null information");
                 }
@@ -132,6 +132,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskInt = id;
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
         this.sendGoingLeft = go;
+        goingLeft = this.sendGoingLeft;
 
     }
     #endregion
