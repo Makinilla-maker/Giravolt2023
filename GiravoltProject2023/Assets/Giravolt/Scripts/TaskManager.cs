@@ -29,6 +29,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private bool reciveGoingLeft = true;
     private PhotonView pView;
     public GameObject ball;
+    bool send = false;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -84,37 +85,38 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (pView.IsMine)
-            {
-                ball.GetComponent<PhotonView>().RequestOwnership();
-                sendGoingLeft = !sendGoingLeft;
-                // We own this player: send the others our data
-                //if (sendTaskName != "")
-                {
-                    sendTaskName = "POLLA";
-                    sendTaskInt = -1;
-                    
-                    Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: " + sendGoingLeft);
-
-                }
-                //else
-                {
-                    Debug.Log("Sending null information");
-                }
-
-            }
-            else
-            {
-                pView.RPC("ApplyReceivedChanges", RpcTarget.All, reciveTaskName, reciveTaskInt, reciveGoingLeft);
-            }
-        }
+            send = !send;
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        if (pView.IsMine)
+        {
+            sendGoingLeft = !sendGoingLeft;
+            // We own this player: send the others our data
+            if (sendTaskName != "")
+            {
+                sendTaskName = "POLLA";
+                sendTaskInt = -1;
+
+                Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: " + sendGoingLeft);
+
+                stream.SendNext(sendTaskName);
+                stream.SendNext(sendTaskInt);
+            }
+            else
+            {
+                Debug.Log("Sending null information");
+            }
+        }
+        else
+        {
+            sendTaskName = (string)stream.ReceiveNext();
+            sendTaskInt = (int)stream.ReceiveNext();
+            //pView.RPC("ApplyReceivedChanges", RpcTarget.All, reciveTaskName, reciveTaskInt, reciveGoingLeft);
+        }
         
     }
     [PunRPC]
