@@ -100,6 +100,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     sendTaskName = "POLLA";
                     sendTaskInt = -1;
+                    onlineGoingLeft = goingLeft;
                     Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
                     
                         
@@ -112,7 +113,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             else
             {
-                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt, goingLeft);
+                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt, onlineGoingLeft);
             }
         }
     }
@@ -129,7 +130,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskInt = id;
         Debug.Log("receiving info: " + this.sendTaskName);
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
-        onlineGoingLeft = goingLeft;
+        this.goingLeft = onlineGoingLeft;
+
     }
     #endregion
     private void CheckTasksState(string name, int status)
