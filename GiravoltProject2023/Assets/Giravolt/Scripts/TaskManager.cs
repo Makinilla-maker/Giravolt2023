@@ -94,7 +94,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 pView.RequestOwnership();                
             
         }
-            
+        if (sendGoingLeft)
+        {
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0);
+        }
+        else
+        {
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0);
+        }
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -143,16 +150,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskInt = (int)stream.ReceiveNext();
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
         this.sendGoingLeft = (bool)stream.ReceiveNext();
-
-        if (go)
-        {
-            ball.GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0);
-        }
-        else
-        {
-            ball.GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0);
-        }
-        send = false;
 
     }
     #endregion
