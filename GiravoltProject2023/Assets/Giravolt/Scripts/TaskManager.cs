@@ -25,7 +25,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private int sendTaskInt = -1;
     private PhotonView pView;
     public GameObject ball;
-    private bool goingLeft = false;
     public bool sendGoingLeft = false;
     private void Awake()
     {
@@ -92,20 +91,17 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
             if (pView.IsMine)
             {
-                goingLeft = !goingLeft;
+                sendGoingLeft = !sendGoingLeft;
                 // We own this player: send the others our data
                 //if (sendTaskName != "")
                 {
                     sendTaskName = "POLLA";
                     sendTaskInt = -1;
-                    sendGoingLeft = goingLeft;
                     
                     Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: " + sendGoingLeft);
-                    
-                        
+
                 }
                 //else
                 {
@@ -132,7 +128,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskInt = id;
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
         this.sendGoingLeft = go;
-        goingLeft = this.sendGoingLeft;
 
     }
     #endregion
