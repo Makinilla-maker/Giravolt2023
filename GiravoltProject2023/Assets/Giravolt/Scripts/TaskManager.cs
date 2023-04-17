@@ -81,14 +81,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
-        if (sendGoingLeft)
-        {
-            ball.GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0);
-        }
-        else
-        {
-            ball.GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0);
-        }
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (pView.IsMine)
@@ -129,6 +122,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskInt = id;
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
         this.sendGoingLeft = go;
+
+        if (go)
+        {
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0);
+        }
+        else
+        {
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0);
+        }
 
     }
     #endregion
