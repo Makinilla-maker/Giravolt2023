@@ -15,7 +15,7 @@ public enum TaskStatus
 }
 [System.Serializable]
 
-public class TaskManager : MonoBehaviourPunCallbacks
+public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
    
     public List<Task> tasks = new List<Task>();
@@ -29,7 +29,7 @@ public class TaskManager : MonoBehaviourPunCallbacks
     private bool reciveGoingLeft = true;
     private PhotonView pView;
     public GameObject ball;
-    bool send = false;
+    private bool send = false;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -90,38 +90,9 @@ public class TaskManager : MonoBehaviourPunCallbacks
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(!send)
-            {
-                pView.RequestOwnership();
-                if (pView.IsMine)
-                {
-
-                    sendGoingLeft = !sendGoingLeft;
-                    // We own this player: send the others our data
-                    if (sendTaskName != "")
-                    {
-                        sendTaskName = "POLLA";
-                        sendTaskInt = -1;
-
-                        Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: " + sendGoingLeft);
-
-                        
-                    }
-                    else
-                    {
-                        Debug.Log("Sending null information");
-                    }
-
-                    send = true;
-                }
-                else
-                {
-                    
-
-                    Debug.Log("Send Task name: " + sendTaskName);
-                    pView.RPC("ApplyReceivedChanges", RpcTarget.All, sendTaskName, sendTaskInt, sendGoingLeft);
-                }
-            }
+            
+                pView.RequestOwnership();                
+            
         }
             
     }
@@ -130,8 +101,9 @@ public class TaskManager : MonoBehaviourPunCallbacks
     {
         if (pView.IsMine)
         {
-
-            sendGoingLeft = !sendGoingLeft;
+            
+                sendGoingLeft = !sendGoingLeft;
+            
             // We own this player: send the others our data
             if (sendTaskName != "")
             {
@@ -142,34 +114,35 @@ public class TaskManager : MonoBehaviourPunCallbacks
 
                 stream.SendNext(sendTaskName);
                 stream.SendNext(sendTaskInt);
+                stream.SendNext(sendGoingLeft);
             }
             else
             {
                 Debug.Log("Sending null information");
             }
 
-            send = true;
+            
         }
-        //else
-        //{
-        //    sendTaskName = (string)stream.ReceiveNext();
-        //    sendTaskInt = (int)stream.ReceiveNext();
-
-        //    Debug.Log("Send Task name: " + sendTaskName);
-        //    pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
-        //}
+        else
+        {
+            sendTaskName = (string)stream.ReceiveNext();
+            sendTaskInt = (int)stream.ReceiveNext();
+            sendGoingLeft = (bool)stream.ReceiveNext();
+            Debug.Log("Received Task name: " + sendTaskName);
+            pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
+        }
 
     }
     [PunRPC]
-    public void ApplyReceivedChanges(string task, int id, bool go)
+    public void ApplyReceivedChanges(PhotonStream stream)
     {
         // Network player, receive data
 
 
-        this.sendTaskName = task;
-        this.sendTaskInt = id;
+        this.sendTaskName = (string)stream.ReceiveNext();
+        this.sendTaskInt = (int)stream.ReceiveNext();
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
-        this.sendGoingLeft = go;
+        this.sendGoingLeft = (bool)stream.ReceiveNext();
 
         if (go)
         {
@@ -179,6 +152,7 @@ public class TaskManager : MonoBehaviourPunCallbacks
         {
             ball.GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0);
         }
+        send = false;
 
     }
     #endregion
