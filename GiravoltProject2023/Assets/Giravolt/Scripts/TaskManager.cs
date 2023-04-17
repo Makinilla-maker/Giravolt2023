@@ -131,7 +131,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         this.sendTaskName = task;
         this.sendTaskInt = id;
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
-        this.sendGoingLeft = go;
+        this.goingLeft = go;
 
     }
     #endregion
