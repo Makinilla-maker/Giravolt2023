@@ -115,7 +115,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             else
             {
-                pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt, sendGoingLeft);
+                pView.RPC("ApplyReceivedChanges", RpcTarget.All, sendTaskName, sendTaskInt, sendGoingLeft);
             }
         }
     }
