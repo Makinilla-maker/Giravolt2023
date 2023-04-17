@@ -113,20 +113,23 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            sendTaskName = (string)stream.ReceiveNext();
-            sendTaskInt = (int)stream.ReceiveNext();
-            //pView.RPC("ApplyReceivedChanges", RpcTarget.All, reciveTaskName, reciveTaskInt, reciveGoingLeft);
+            pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
         }
         
     }
     [PunRPC]
-    public void ApplyReceivedChanges(string task, int id, bool go)
+    public void ApplyReceivedChanges(PhotonStream stream)
     {
         // Network player, receive data
-        this.sendTaskName = task;
-        this.sendTaskInt = id;
-        CheckTasksState(this.sendTaskName, this.sendTaskInt);
-        this.sendGoingLeft = go;
+        sendTaskName = (string)stream.ReceiveNext();
+        sendTaskInt = (int)stream.ReceiveNext();
+
+        Debug.Log("Send Task name: "+ sendTaskName);
+
+        //this.sendTaskName = task;
+        //this.sendTaskInt = id;
+        //CheckTasksState(this.sendTaskName, this.sendTaskInt);
+        //this.sendGoingLeft = go;
 
         if (go)
         {
