@@ -481,8 +481,14 @@ MonoBehaviour:
     mainObject: {fileID: 1118169482}
     targetObject: {fileID: 1277969250}
     id: 0
-  go: {fileID: 0}
-  sendGoingLeft: 0
+  taskCompleted:
+    name: 
+    description: 
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 0
+  send: 0
   ball: {fileID: 306310635}
 --- !u!114 &94974127
 MonoBehaviour:
@@ -500,7 +506,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 2
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 94974126}
