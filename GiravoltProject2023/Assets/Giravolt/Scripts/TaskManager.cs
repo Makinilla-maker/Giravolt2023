@@ -19,9 +19,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
    
     public List<Task> tasks = new List<Task>();
-    public GameObject go;
-    int taskCompleted = 0;
-    private string sendTaskName = "";
+    public Task taskCompleted;
+    int tasksCompleted = 0;
+    private string sendTaskName = "A";
     private int sendTaskInt = -1;
     public bool send = false;
     private PhotonView pView;
@@ -34,7 +34,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void OnPlace(GameObject receptor)
     {
-        go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
+        GameObject go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
 
         Debug.Log(go.name);
         foreach(Task currentTask in tasks)
@@ -43,27 +43,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
             if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
             {
-                
                 currentTask.status = TaskStatus.COMPLETED;
-                if (pView.IsMine)
-                {
-                    // We own this player: send the others our data
-                    if (sendTaskName != "")
-                    {
-                        sendTaskName = currentTask.name;
-                        sendTaskInt = currentTask.id;
-                        Debug.Log("sending this info: " + sendTaskName + " , " + sendTaskInt);
-                    }
-                    else
-                    {
-                        Debug.Log("Sending null information");
-                    }
-
-                }
-                else
-                {
-                    pView.RPC("ApplyReceivedChanges", pView.Owner, sendTaskName, sendTaskInt);
-                }
+                taskCompleted = currentTask;
+                pView.RequestOwnership();
+                send = true;
             }
         }
     }
@@ -77,9 +60,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         foreach (Task task in tasks)
         {
             if (task.status == TaskStatus.COMPLETED)
-                taskCompleted++;
+                tasksCompleted++;
         }
-        if(taskCompleted == tasks.Count)
+        if(tasksCompleted == tasks.Count)
         {
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
@@ -100,8 +83,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 // We own this player: send the others our data
                 if (sendTaskName != "")
                 {
-                    sendTaskName = "POLLA";
-                    sendTaskInt = -1;
+                    sendTaskName = taskCompleted.name;
+                    sendTaskInt = taskCompleted.id;
 
                     Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
 
