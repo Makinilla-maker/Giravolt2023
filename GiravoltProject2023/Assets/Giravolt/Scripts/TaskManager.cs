@@ -133,7 +133,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             //sendTaskInt = (int)stream.ReceiveNext();
             //sendGoingLeft = (bool)stream.ReceiveNext();
             Debug.Log("Received Task name: " + sendTaskName);
-            pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
+            //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
         }
 
     }
@@ -142,11 +142,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         // Network player, receive data
 
-
         this.sendTaskName = (string)stream.ReceiveNext();
         this.sendTaskInt = (int)stream.ReceiveNext();
-        CheckTasksState(this.sendTaskName, this.sendTaskInt);
         this.sendGoingLeft = (bool)stream.ReceiveNext();
+        CheckTasksState(this.sendTaskName, this.sendTaskInt);
 
     }
     #endregion
