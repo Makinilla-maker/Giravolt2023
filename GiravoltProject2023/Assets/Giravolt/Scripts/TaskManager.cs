@@ -41,7 +41,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             Debug.Log(currentTask.mainObject.name + "==" + go.name);
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
-            if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name)
+            if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name && currentTask.status != TaskStatus.COMPLETED)
             {
                 currentTask.status = TaskStatus.COMPLETED;
                 taskCompleted = currentTask;
@@ -90,7 +90,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
                     stream.SendNext(sendTaskName);
                     stream.SendNext(sendTaskInt);
-                    //stream.SendNext(send);
                 }
                 else
                 {
@@ -103,11 +102,21 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
-            //send = (bool)stream.ReceiveNext();
             Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
+
             //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
         }
 
+    }
+    public void SetTaskStatus(string name, int id)
+    {
+        foreach (Task currentTask in tasks)
+        { 
+            if (currentTask.name == name && currentTask.id == id)
+            {
+                currentTask.status = TaskStatus.COMPLETED;
+            }
+        }
     }
     [PunRPC]
     public void ApplyReceivedChanges(PhotonStream stream)
