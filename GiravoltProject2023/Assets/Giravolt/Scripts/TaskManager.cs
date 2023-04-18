@@ -21,15 +21,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public List<Task> tasks = new List<Task>();
     public GameObject go;
     int taskCompleted = 0;
-    private string sendTaskName = "Tita";
-    private string reciveTaskName = "KIHJDIOSIHDISAJDIASN";
+    private string sendTaskName = "";
     private int sendTaskInt = -1;
-    private int reciveTaskInt = -2;
-    public bool sendGoingLeft = false;
-    private bool reciveGoingLeft = true;
+    public bool send = false;
     private PhotonView pView;
     public GameObject ball;
-    private bool send = false;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -90,49 +86,42 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            pView.RequestOwnership();                
-            
+            pView.RequestOwnership();
+            send = true;
         }
-        //if (sendGoingLeft)
-        //{
-        //    ball.GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 0);
-        //}
-        //else
-        //{
-        //    ball.GetComponent<Rigidbody>().velocity = new Vector3(-1, 0, 0);
-        //}
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (pView.IsMine)
         {
-            
-            sendGoingLeft = !sendGoingLeft;
-            
-            // We own this player: send the others our data
-            if (sendTaskName != "")
+            if(send)
             {
-                sendTaskName = "POLLA";
-                sendTaskInt = -1;
+                // We own this player: send the others our data
+                if (sendTaskName != "")
+                {
+                    sendTaskName = "POLLA";
+                    sendTaskInt = -1;
 
-                Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: " + sendGoingLeft);
+                    Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
 
-                stream.SendNext(sendTaskName);
-                stream.SendNext(sendTaskInt);
-                stream.SendNext(sendGoingLeft);
-            }
-            else
-            {
-                Debug.Log("Reciving null information");
-            }
+                    stream.SendNext(sendTaskName);
+                    stream.SendNext(sendTaskInt);
+                    //stream.SendNext(send);
+                }
+                else
+                {
+                    Debug.Log("Sending null information");
+                }
+                send = !send;
+            }        
         }
         else
         {
-            //sendTaskName = (string)stream.ReceiveNext();
-            //sendTaskInt = (int)stream.ReceiveNext();
-            //sendGoingLeft = (bool)stream.ReceiveNext();
-            Debug.Log("Received Task name: " + sendTaskName);
+            sendTaskName = (string)stream.ReceiveNext();
+            sendTaskInt = (int)stream.ReceiveNext();
+            //send = (bool)stream.ReceiveNext();
+            Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
             //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
         }
 
@@ -144,13 +133,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
         this.sendTaskName = (string)stream.ReceiveNext();
         this.sendTaskInt = (int)stream.ReceiveNext();
-        this.sendGoingLeft = (bool)stream.ReceiveNext();
+        //this.sendGoingLeft = (bool)stream.ReceiveNext();
+        //Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt + " Bool is: " + sendGoingLeft);
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
 
     }
     #endregion
     private void CheckTasksState(string name, int status)
     {
-        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status + "\n" + "This is the value of the bool: " + sendGoingLeft);
+        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status + "\n" + "This is the value of the bool: ");
     }
 }
