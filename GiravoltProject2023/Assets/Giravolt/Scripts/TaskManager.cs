@@ -103,7 +103,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
             Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
-
+            SetTaskStatus(sendTaskName, sendTaskInt);
             //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
         }
 
