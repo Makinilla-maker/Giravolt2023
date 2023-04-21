@@ -11442,18 +11442,18 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000040095994, y: -0.000000038953548, z: 0.0061947526}
+  m_ConnectedAnchor: {x: 0.9785082, y: 1.011, z: -0.80783343}
   m_UseSpring: 0
   m_Spring:
-    spring: 10
-    damper: 10
+    spring: 5
+    damper: 5
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: -180
     max: 180
