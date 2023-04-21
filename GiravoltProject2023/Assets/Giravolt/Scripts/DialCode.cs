@@ -4,10 +4,26 @@ using UnityEngine;
 using UnityEditor;
     public class DialCode : MonoBehaviour
     {
-        private void Start()
-        {
+    private Rigidbody rb;
+    private RigidbodyConstraints originalConstraints;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        originalConstraints = rb.constraints;
+        FreezeRigidbodyConstraints();
+    }
+    public void FreezeRigidbodyConstraints()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+    public void UnFreezeRigidboydConstraints()
+    {
+        rb.constraints = originalConstraints;
+    }
+    private void Start()
+    {
             
-        }
+    }
         // Update is called once per frame
         void Update()
         {
