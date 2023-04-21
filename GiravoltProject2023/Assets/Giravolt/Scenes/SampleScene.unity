@@ -242,10 +242,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 627562255, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 627562257, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 627562257, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
+      propertyPath: showAdvanced
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 627562259, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
       propertyPath: hand
       value: 
       objectReference: {fileID: 369134415}
+    - target: {fileID: 1108740119, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108740121, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108740121, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
+      propertyPath: showAdvanced
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1108740123, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
       propertyPath: hand
       value: 
@@ -260,6 +284,11 @@ PrefabInstance:
       propertyPath: handRight
       value: 
       objectReference: {fileID: 369134415}
+    - target: {fileID: 297602102319057232, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+        type: 3}
+      propertyPath: platformingLayerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 297602103752395642, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
         type: 3}
       propertyPath: m_Name
