@@ -1763,11 +1763,31 @@ PrefabInstance:
       propertyPath: m_Data.m_Target
       value: 
       objectReference: {fileID: 3652318989459504793}
+    - target: {fileID: 8045183339306246723, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_Data.m_MaintainTargetPositionOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045183339306246723, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_Data.m_MaintainTargetRotationOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8045183339895293131, guid: d4e1683bac913ba4b8737d5f7457ea26,
         type: 3}
       propertyPath: m_Data.m_Target
       value: 
       objectReference: {fileID: 1929591401196533943}
+    - target: {fileID: 8045183339895293131, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_Data.m_MaintainTargetPositionOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045183339895293131, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_Data.m_MaintainTargetRotationOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8175124608502669690, guid: d4e1683bac913ba4b8737d5f7457ea26,
         type: 3}
       propertyPath: m_LocalPosition.x
