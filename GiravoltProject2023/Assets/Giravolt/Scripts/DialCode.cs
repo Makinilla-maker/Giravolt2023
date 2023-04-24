@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Linq;
     public class DialCode : MonoBehaviour
     {
     private Rigidbody rb;
     private RigidbodyConstraints originalConstraints;
+    [SerializeField] private List<int> password = new List<int>();
+    [SerializeField] private List<int> userInputPassword = new List<int>();
+    [SerializeField] private int divisions = 10;
+    [SerializeField] private int divisionsAngle;
+    [SerializeField] private int d;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         originalConstraints = rb.constraints;
         FreezeRigidbodyConstraints();
+        divisionsAngle = 360 / divisions;
+        d = divisionsAngle / 2;
     }
+
     public void FreezeRigidbodyConstraints()
     {
         rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -22,7 +32,10 @@ using UnityEditor;
     }
     private void Start()
     {
-            
+        for(int i = 0; i < 5; ++i)
+        {
+            password.Add(Random.Range(0, 10));
+        }
     }
         // Update is called once per frame
         void Update()
@@ -31,80 +44,122 @@ using UnityEditor;
             {
                 CheckReleaseAngle();
             }
-            Debug.Log(transform.rotation.eulerAngles.y);
         }
         bool IsInRange(float val, float b1, float b2)
         {
             return (val >= Mathf.Min(b1, b2) && val <= Mathf.Max(b1, b2));
         }
-     [MenuItem( "Tools/Clear Console %#w" )] // CMD + SHIFT + W
         public void CheckReleaseAngle()
         {
-            if (IsInRange(transform.rotation.eulerAngles.y, 0, 22.5f))
-            {
-                transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
-            }
-            else if(IsInRange(transform.rotation.eulerAngles.y, 22.5f, 45f))
-            {
-                transform.rotation = Quaternion.Euler(transform.rotation.x, 45f, transform.rotation.z);
-            }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 45, 67.5f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 45f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 67.5f, 90f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 90f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 90f, 112.5f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 90f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 112.5f, 135f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 135f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 135f, 157.5f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 135f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 157.5f, 180f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 180f, 202.5f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 202.5f, 225f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 225f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 225f, 247.5f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 225f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 247.5f, 270f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 270f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 270f, 292.5f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 270f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 270f, 315f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 315f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 315f, 337.5f))
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 315f, transform.rotation.z);
-        }
-        else if (IsInRange(transform.rotation.eulerAngles.y, 337.5f, 360f))
+        // ------------------- NUMBERS -------------------
+        if (IsInRange(transform.rotation.eulerAngles.y, 0, d))
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
+            userInputPassword.Add(0);
+        }
+        else if(IsInRange(transform.rotation.eulerAngles.y, d, d*2))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle, transform.rotation.z);
+            userInputPassword.Add(1);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*2, d*3))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle, transform.rotation.z);
+            userInputPassword.Add(1);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*3, d*4))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*2, transform.rotation.z);
+            userInputPassword.Add(2);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*4, d*5))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*2, transform.rotation.z);
+            userInputPassword.Add(2);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*5, d*6))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*3, transform.rotation.z);
+            userInputPassword.Add(3);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*6, d*7))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*3, transform.rotation.z);
+            userInputPassword.Add(3);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*7, d*8))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*4, transform.rotation.z);
+            userInputPassword.Add(4);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*8, d*9))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*4, transform.rotation.z);
+            userInputPassword.Add(4);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*9, d*10))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*5, transform.rotation.z);
+            userInputPassword.Add(5);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*10, d*11))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*5, transform.rotation.z);
+            userInputPassword.Add(5);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*11, d*12))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*6, transform.rotation.z);
+            userInputPassword.Add(6);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*12, d*13))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*6, transform.rotation.z);
+            userInputPassword.Add(6);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*13, d*14))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*7, transform.rotation.z);
+            userInputPassword.Add(7);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*14, d*15))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*7, transform.rotation.z);
+            userInputPassword.Add(7);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*15, d*16))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*8, transform.rotation.z);
+            userInputPassword.Add(8);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*16, d*17))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*8, transform.rotation.z);
+            userInputPassword.Add(8);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d*17, d*18))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, divisionsAngle*9, transform.rotation.z);
+            userInputPassword.Add(9);
+        }
+        else if (IsInRange(transform.rotation.eulerAngles.y, d * 18, d * 19))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
+            userInputPassword.Add(9);
+        }
+        if(CheckCorrectPassword())
+        {
+            Debug.Log("Correct Password");
+        }
+        else
+        {
+            Debug.Log("Incorrect password");
         }
     }
+    bool CheckCorrectPassword()
+    {
+        return password.SequenceEqual(userInputPassword);
     }
+}
 
 
