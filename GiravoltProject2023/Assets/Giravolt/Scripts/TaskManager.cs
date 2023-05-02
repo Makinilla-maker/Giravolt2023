@@ -129,40 +129,36 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 tasksForThisGame.Add(newTask);
             }
         }
-        if (pView.IsMine)
-        {
-            
-                
-
-            
-            if(send)
-            {
-                // We own this player: send the others our data
-                if (sendTaskName != "")
-                {
-                    sendTaskName = taskCompleted.name;
-                    sendTaskInt = taskCompleted.id;
-
-                    Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
-
-                    stream.SendNext(sendTaskName);
-                    stream.SendNext(sendTaskInt);
-                }
-                else
-                {
-                    Debug.Log("Sending null information");
-                }
-                send = !send;
-            }        
-        }
-        else
-        {
-            sendTaskName = (string)stream.ReceiveNext();
-            sendTaskInt = (int)stream.ReceiveNext();
-            Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
-            SetTaskStatus(sendTaskName, sendTaskInt);
-            //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
-        }
+        // if (pView.IsMine)
+        // {
+        //     if(send)
+        //     {
+        //         // We own this player: send the others our data
+        //         if (sendTaskName != "")
+        //         {
+        //             sendTaskName = taskCompleted.name;
+        //             sendTaskInt = taskCompleted.id;
+        //
+        //             Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
+        //
+        //             stream.SendNext(sendTaskName);
+        //             stream.SendNext(sendTaskInt);
+        //         }
+        //         else
+        //         {
+        //             Debug.Log("Sending null information");
+        //         }
+        //         send = !send;
+        //     }        
+        // }
+        // else
+        // {
+        //     sendTaskName = (string)stream.ReceiveNext();
+        //     sendTaskInt = (int)stream.ReceiveNext();
+        //     Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
+        //     SetTaskStatus(sendTaskName, sendTaskInt);
+        //     //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
+        // }
 
     }
     public void SetTaskStatus(string name, int id)
