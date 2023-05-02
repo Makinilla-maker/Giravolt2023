@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Photon;
 using Photon.Pun;
+using ExitGames.Client.Photon;
+using Photon.Realtime;
 using UnityEngine.Serialization;
 
 [System.Serializable]
@@ -87,12 +89,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
         if (PhotonNetwork.IsMasterClient)
         {
-            pView.RPC("GenerateTasks", PhotonTargets.All);
+            pView.RPC("GenerateTasks", RpcTarget.All);
         }
+        
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        
         if (pView.IsMine)
         {
                 stream.SendNext(numberOfTasksForThisGame);
@@ -166,7 +170,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
     }
+
     [PunRPC]
+    
     public void GenerateTasks()
     {
         if (!alreadyGeneratedList)
@@ -177,7 +183,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 tasksForThisGame.Add(allTasks[randomNumber]);
             }
 
-            alreadyGeneratedList = true;s
+            alreadyGeneratedList = true;
         }
     }
     public void ApplyReceivedChanges(PhotonStream stream)
