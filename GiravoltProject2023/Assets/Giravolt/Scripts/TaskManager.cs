@@ -32,8 +32,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     
     
     // ISAAC
-    public bool alreadyGeneratedListSend;
-    public bool alreadyGeneratedListReceived;
+    private bool alreadyGeneratedList;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
     public int numberOfTasksForThisGame;
@@ -41,14 +40,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         pView = GetComponent<PhotonView>();
         send = false;
-        if (PhotonNetwork.IsMasterClient)
-        {
-            for (int i = 0; i < numberOfTasksForThisGame; ++i)
-            {
-                int randomNumber = Random.Range(0, allTasks.Count);
-                tasksForThisGame.Add(allTasks[randomNumber]);
-            }
-        }
+        
     }
     public void OnPlace(GameObject receptor)
     {
@@ -68,6 +60,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
     }
+
+    
     private void SendTaskStatus(string task, int status)
     {
         sendTaskName = task;
@@ -90,7 +84,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             pView.RequestOwnership();
             send = true;
         }
-        
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            pView.RPC("GenerateTasks", PhotonTargets.All);
+        }
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -169,6 +167,19 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
     [PunRPC]
+    public void GenerateTasks()
+    {
+        if (!alreadyGeneratedList)
+        {
+            for (int i = 0; i < numberOfTasksForThisGame; ++i)
+            {
+                int randomNumber = Random.Range(0, allTasks.Count);
+                tasksForThisGame.Add(allTasks[randomNumber]);
+            }
+
+            alreadyGeneratedList = true;s
+        }
+    }
     public void ApplyReceivedChanges(PhotonStream stream)
     {
         // Network player, receive data
