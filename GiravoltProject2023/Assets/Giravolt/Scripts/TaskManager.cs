@@ -89,7 +89,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
         if (PhotonNetwork.IsMasterClient)
         {
-            pView.RPC("GenerateTasks", RpcTarget.All);
+            pView.RPC("GenerateTasks", RpcTarget.MasterClient);
         }
         
     }
@@ -99,6 +99,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
         if (pView.IsMine)
         {
+            if (PhotonNetwork.IsMasterClient)
+            {
                 stream.SendNext(numberOfTasksForThisGame);
                 for (int i = 0; i < tasksForThisGame.Count; ++i)
                 {
@@ -109,6 +111,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     stream.SendNext(tasksForThisGame[i].targetObject.name);
                     stream.SendNext(tasksForThisGame[i].id);
                 }
+            }
+                
 
             
             if(send)
@@ -138,6 +142,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     {
                         Task newTask = new Task();
                         newTask.name = (string)stream.ReceiveNext();
+                        Debug.Log("This is the name of the first received task!" + newTask.name);
                         newTask.description = (string)stream.ReceiveNext();
                         int s = (int)stream.ReceiveNext();
                         newTask.status = (TaskStatus)s;
