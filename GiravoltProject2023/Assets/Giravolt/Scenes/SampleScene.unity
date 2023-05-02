@@ -839,6 +839,29 @@ MonoBehaviour:
     id: 0
   send: 0
   ball: {fileID: 306310635}
+  alreadyGeneratedListSend: 0
+  alreadyGeneratedListReceived: 0
+  allTasks:
+  - name: asddas
+    description: asda
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 0
+  - name: AAAA
+    description: AAAAA
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 1
+  - name: VVVVV
+    description: VVVV
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 2
+  tasksForThisGame: []
+  numberOfTasksForThisGame: 3
 --- !u!114 &94974127
 MonoBehaviour:
   m_ObjectHideFlags: 0

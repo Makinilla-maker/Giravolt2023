@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Photon;
 using Photon.Pun;
+using UnityEngine.Serialization;
+
 [System.Serializable]
 public enum TaskStatus
 {
@@ -30,7 +32,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     
     
     // ISAAC
-    public bool alreadyGeneratedList;
+    public bool alreadyGeneratedListSend;
+    public bool alreadyGeneratedListReceived;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
     public int numberOfTasksForThisGame;
@@ -39,15 +42,13 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         pView = GetComponent<PhotonView>();
         send = false;
         
-        if (!alreadyGeneratedList)
+        if (!alreadyGeneratedListSend)
         {
             for (int i = 0; i < numberOfTasksForThisGame; ++i)
             {
                 int randomNumber = Random.Range(0, allTasks.Count);
                 tasksForThisGame.Add(allTasks[randomNumber]);
             }
-
-            alreadyGeneratedList = true;
         }
     }
     public void OnPlace(GameObject receptor)
@@ -97,7 +98,23 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (pView.IsMine)
         {
-            stream.SendNext(alreadyGeneratedList);
+            if (!alreadyGeneratedListSend)
+            {
+                stream.SendNext(alreadyGeneratedListSend);
+                stream.SendNext(numberOfTasksForThisGame);
+                for (int i = 0; i < tasksForThisGame.Count; ++i)
+                {
+                    stream.SendNext(tasksForThisGame[i].name);
+                    stream.SendNext(tasksForThisGame[i].description);
+                    stream.SendNext((int)tasksForThisGame[i].status);
+                    stream.SendNext(tasksForThisGame[i].mainObject.name);
+                    stream.SendNext(tasksForThisGame[i].targetObject.name);
+                    stream.SendNext(tasksForThisGame[i].id);
+                }
+
+                alreadyGeneratedListSend = true;
+                alreadyGeneratedListReceived = false;
+            }
             
             if(send)
             {
@@ -121,7 +138,30 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            alreadyGeneratedList = (bool)stream.ReceiveNext();
+            if (!alreadyGeneratedListReceived)
+            {
+                if (!pView.IsMine)
+                {
+                    alreadyGeneratedListSend = (bool)stream.ReceiveNext();
+                    int _numberOfTasksForThisGame = (int)stream.ReceiveNext();
+                    for (int i = 0; i < _numberOfTasksForThisGame; ++i)
+                    {
+                        Task newTask = new Task();
+                        newTask.name = (string)stream.ReceiveNext();
+                        newTask.description = (string)stream.ReceiveNext();
+                        int s = (int)stream.ReceiveNext();
+                        newTask.status = (TaskStatus)s;
+                        string s1 = (string)stream.ReceiveNext();
+                        newTask.mainObject = GameObject.Find(s1);
+                        string s2 = (string)stream.ReceiveNext();
+                        newTask.targetObject = GameObject.Find(s2);
+                        newTask.id = (int)stream.ReceiveNext();
+                        tasksForThisGame.Add(newTask);
+                    }
+                }
+                
+            }
+            
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
             Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
