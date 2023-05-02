@@ -41,8 +41,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         pView = GetComponent<PhotonView>();
         send = false;
-        
-        if (!alreadyGeneratedListSend)
+        if (PhotonNetwork.IsMasterClient)
         {
             for (int i = 0; i < numberOfTasksForThisGame; ++i)
             {
@@ -98,7 +97,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (pView.IsMine)
         {
-            stream.SendNext(alreadyGeneratedListSend);
                 stream.SendNext(numberOfTasksForThisGame);
                 for (int i = 0; i < tasksForThisGame.Count; ++i)
                 {
@@ -133,11 +131,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            if (!alreadyGeneratedListReceived)
-            {
-                if (!pView.IsMine)
-                {
-                    alreadyGeneratedListSend = (bool)stream.ReceiveNext();
                     int _numberOfTasksForThisGame = (int)stream.ReceiveNext();
                     for (int i = 0; i < _numberOfTasksForThisGame; ++i)
                     {
@@ -153,9 +146,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                         newTask.id = (int)stream.ReceiveNext();
                         tasksForThisGame.Add(newTask);
                     }
-                }
                 
-            }
+                
+            
             
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
