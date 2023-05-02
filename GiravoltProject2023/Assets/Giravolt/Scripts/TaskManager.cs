@@ -99,35 +99,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (pView.IsMine)
         {
             stream.SendNext(numberOfTasksForThisGame);
-            for (int i = 0; i < tasksForThisGame.Count; ++i)
-            {
-                Debug.Log("This is the name of the first sent task: " + tasksForThisGame[i].name);
-                stream.SendNext(tasksForThisGame[i].name);
-                stream.SendNext(tasksForThisGame[i].description);
-                stream.SendNext((int)tasksForThisGame[i].status);
-                stream.SendNext(tasksForThisGame[i].mainObject.name);
-                stream.SendNext(tasksForThisGame[i].targetObject.name);
-                stream.SendNext(tasksForThisGame[i].id);
-            }
+            
         }
         else
         {
             int _numberOfTasksForThisGame = (int)stream.ReceiveNext();
-            for (int i = 0; i < _numberOfTasksForThisGame; ++i)
-            {
-                Task newTask = new Task();
-                newTask.name = (string)stream.ReceiveNext();
-                Debug.Log("This is the name of the first received task!" + newTask.name);
-                newTask.description = (string)stream.ReceiveNext();
-                int s = (int)stream.ReceiveNext();
-                newTask.status = (TaskStatus)s;
-                string s1 = (string)stream.ReceiveNext();
-                newTask.mainObject = GameObject.Find(s1);
-                string s2 = (string)stream.ReceiveNext();
-                newTask.targetObject = GameObject.Find(s2);
-                newTask.id = (int)stream.ReceiveNext();
-                tasksForThisGame.Add(newTask);
-            }
+            numberOfTasksForThisGame = _numberOfTasksForThisGame;
         }
         // if (pView.IsMine)
         // {
