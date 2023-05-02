@@ -31,7 +31,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public bool send = false;
     private PhotonView pView;
     public GameObject ball;
-    
+    public int trueNumberOfTasks = 0;
     
     // ISAAC
     private bool alreadyGeneratedList;
@@ -97,7 +97,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (pView.IsMine && !alreadyGeneratedList)
+        if (pView.IsMine)
         {
             stream.SendNext(numberOfTasksForThisGame);
             for (int i = 0; i < numberOfTasksForThisGame; ++i)
@@ -109,9 +109,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         else
         {
             int _numberOfTasksForThisGame = (int)stream.ReceiveNext();
+            numberOfTasksForThisGame = _numberOfTasksForThisGame;
             if (tasksForThisGame.Count != _numberOfTasksForThisGame)
             {
-                numberOfTasksForThisGame = _numberOfTasksForThisGame;
                 for (int i = 0; i < numberOfTasksForThisGame; ++i)
                 {
                     int rcvdId = -1;
@@ -199,7 +199,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     Debug.Log("Duplicated number!");
                 }
+                
             }
+
+            numberOfTasksForThisGame = trueNumberOfTasks;
             
             
             alreadyGeneratedList = true;
