@@ -158,8 +158,6 @@ MonoBehaviour:
   - {fileID: 7527976409329096010}
   - {fileID: 5157983300218126791}
   - {fileID: 1424937715619978490}
-  - {fileID: 0}
-  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -946,6 +944,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088501026309427040, guid: d4e1683bac913ba4b8737d5f7457ea26,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088501026309427040, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088501026309427040, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088501026309427040, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1193,6 +1206,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.2668791
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929383849487263519, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929383849487263519, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4929383849487263519, guid: d4e1683bac913ba4b8737d5f7457ea26,
         type: 3}
@@ -2006,6 +2029,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4e1683bac913ba4b8737d5f7457ea26, type: 3}
+--- !u!4 &2953753092331146814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8045183339895293128, guid: d4e1683bac913ba4b8737d5f7457ea26,
+    type: 3}
+  m_PrefabInstance: {fileID: 5141964357386996470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2953753092857325750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8045183339306246720, guid: d4e1683bac913ba4b8737d5f7457ea26,
+    type: 3}
+  m_PrefabInstance: {fileID: 5141964357386996470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2953753092990430551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8045183339170260897, guid: d4e1683bac913ba4b8737d5f7457ea26,
+    type: 3}
+  m_PrefabInstance: {fileID: 5141964357386996470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6619231385448691589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2055847639052500339, guid: d4e1683bac913ba4b8737d5f7457ea26,
+    type: 3}
+  m_PrefabInstance: {fileID: 5141964357386996470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6809841049807043650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619231385448691589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdcd321a03e96a49bac30af95eb5520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSmooth: 5
+  head:
+    vrTarget: {fileID: 441223076130087967}
+    rigTarget: {fileID: 2953753092990430551}
+    trackingPositionOffset: {x: 0, y: 0, z: 0}
+    trackingRotationOffset: {x: 0, y: 0, z: 0}
+  leftHand:
+    vrTarget: {fileID: 1929591401196533943}
+    rigTarget: {fileID: 2953753092331146814}
+    trackingPositionOffset: {x: 0, y: 0, z: 0}
+    trackingRotationOffset: {x: 0, y: 0, z: 0}
+  rightHand:
+    vrTarget: {fileID: 3652318989459504793}
+    rigTarget: {fileID: 2953753092857325750}
+    trackingPositionOffset: {x: 0, y: 0, z: 0}
+    trackingRotationOffset: {x: 0, y: 0, z: 0}
+  headConstraint: {fileID: 0}
+  headBodyOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &7892384654603306390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3088501026309427040, guid: d4e1683bac913ba4b8737d5f7457ea26,
