@@ -194,6 +194,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     tasksForThisGame.Add(allTasks[rnd]);
                     number.Add(rnd);
+                    trueNumberOfTasks++;
                 }
                 else
                 {
