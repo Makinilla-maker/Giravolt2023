@@ -839,22 +839,21 @@ MonoBehaviour:
     id: 0
   send: 0
   ball: {fileID: 306310635}
-  alreadyGeneratedListSend: 0
-  alreadyGeneratedListReceived: 0
+  trueNumberOfTasks: 0
   allTasks:
-  - name: asddas
+  - name: Oriol Mongolin
     description: asda
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 0
-  - name: AAAA
+  - name: Oscar Gilipollas
     description: AAAAA
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 1
-  - name: VVVVV
+  - name: Marc Mongolo
     description: VVVV
     status: 0
     mainObject: {fileID: 0}
@@ -862,6 +861,7 @@ MonoBehaviour:
     id: 2
   tasksForThisGame: []
   numberOfTasksForThisGame: 3
+  number: 
 --- !u!114 &94974127
 MonoBehaviour:
   m_ObjectHideFlags: 0
