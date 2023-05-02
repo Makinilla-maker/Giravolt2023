@@ -108,10 +108,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            if (tasksForThisGame.Count == 0)
+            int _numberOfTasksForThisGame = (int)stream.ReceiveNext();
+            if (tasksForThisGame.Count != _numberOfTasksForThisGame)
             {
-                int _numberOfTasksForThisGame = (int)stream.ReceiveNext();
-            
                 numberOfTasksForThisGame = _numberOfTasksForThisGame;
                 for (int i = 0; i < numberOfTasksForThisGame; ++i)
                 {
