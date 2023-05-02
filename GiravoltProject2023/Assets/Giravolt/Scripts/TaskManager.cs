@@ -13,11 +13,12 @@ public enum TaskStatus
     COMPLETED,
     NONE,
 }
+
 [System.Serializable]
 
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
-   
+    
     public List<Task> tasks = new List<Task>();
     public Task taskCompleted;
     int tasksCompleted = 0;
@@ -26,11 +27,28 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public bool send = false;
     private PhotonView pView;
     public GameObject ball;
+    
+    
+    // ISAAC
+    public bool alreadyGeneratedList;
+    [SerializeField] private List<Task> allTasks = new List<Task>();
+    [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
+    public int numberOfTasksForThisGame;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
         send = false;
         
+        if (!alreadyGeneratedList)
+        {
+            for (int i = 0; i < numberOfTasksForThisGame; ++i)
+            {
+                int randomNumber = Random.Range(0, allTasks.Count);
+                tasksForThisGame.Add(allTasks[randomNumber]);
+            }
+
+            alreadyGeneratedList = true;
+        }
     }
     public void OnPlace(GameObject receptor)
     {
@@ -72,12 +90,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             pView.RequestOwnership();
             send = true;
         }
+        
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (pView.IsMine)
         {
+            stream.SendNext(alreadyGeneratedList);
+            
             if(send)
             {
                 // We own this player: send the others our data
@@ -100,6 +121,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
+            alreadyGeneratedList = (bool)stream.ReceiveNext();
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
             Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
@@ -122,13 +144,13 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void ApplyReceivedChanges(PhotonStream stream)
     {
         // Network player, receive data
-
+    
         this.sendTaskName = (string)stream.ReceiveNext();
         this.sendTaskInt = (int)stream.ReceiveNext();
         //this.sendGoingLeft = (bool)stream.ReceiveNext();
         //Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt + " Bool is: " + sendGoingLeft);
         CheckTasksState(this.sendTaskName, this.sendTaskInt);
-
+    
     }
     #endregion
     private void CheckTasksState(string name, int status)
