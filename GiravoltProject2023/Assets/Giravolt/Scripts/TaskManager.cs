@@ -38,6 +38,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private List<Task> allTasks = new List<Task>();
     [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
     public int numberOfTasksForThisGame;
+    [SerializeField] private List<int> number = new List<int>();
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -99,43 +100,61 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (pView.IsMine)
         {
             stream.SendNext(numberOfTasksForThisGame);
-            
+            for (int i = 0; i < numberOfTasksForThisGame; ++i)
+            {
+                int n = tasksForThisGame[i].id;
+                stream.SendNext(n);
+            }
         }
         else
         {
             int _numberOfTasksForThisGame = (int)stream.ReceiveNext();
+            
             numberOfTasksForThisGame = _numberOfTasksForThisGame;
+            for (int i = 0; i < numberOfTasksForThisGame; ++i)
+            {
+                int rcvdId = -1;
+                rcvdId = (int)stream.ReceiveNext();
+                for (int k = 0; k < allTasks.Count; ++k)
+                {
+                    if (allTasks[k].id == rcvdId)
+                    {
+                        tasksForThisGame.Add(allTasks[k]);
+                    }
+                }
+            }
+            Debug.Log("This is the total number of tasks of this game: " + numberOfTasksForThisGame);
         }
-        // if (pView.IsMine)
-        // {
-        //     if(send)
-        //     {
-        //         // We own this player: send the others our data
-        //         if (sendTaskName != "")
-        //         {
-        //             sendTaskName = taskCompleted.name;
-        //             sendTaskInt = taskCompleted.id;
-        //
-        //             Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
-        //
-        //             stream.SendNext(sendTaskName);
-        //             stream.SendNext(sendTaskInt);
-        //         }
-        //         else
-        //         {
-        //             Debug.Log("Sending null information");
-        //         }
-        //         send = !send;
-        //     }        
-        // }
-        // else
-        // {
-        //     sendTaskName = (string)stream.ReceiveNext();
-        //     sendTaskInt = (int)stream.ReceiveNext();
-        //     Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
-        //     SetTaskStatus(sendTaskName, sendTaskInt);
-        //     //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
-        // }
+        if (pView.IsMine)
+        {
+            if(send)
+            {
+                // We own this player: send the others our data
+                if (sendTaskName != "")
+                {
+                    sendTaskName = taskCompleted.name;
+                    sendTaskInt = taskCompleted.id;
+        
+                    Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
+        
+                    stream.SendNext(sendTaskName);
+                    stream.SendNext(sendTaskInt);
+                }
+                else
+                {
+                    Debug.Log("Sending null information");
+                }
+                send = !send;
+            }        
+        }
+        else
+        {
+            sendTaskName = (string)stream.ReceiveNext();
+            sendTaskInt = (int)stream.ReceiveNext();
+            Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
+            SetTaskStatus(sendTaskName, sendTaskInt);
+            //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
+        }
 
     }
     public void SetTaskStatus(string name, int id)
@@ -155,12 +174,31 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (!alreadyGeneratedList)
         {
+            // for (int i = 0; i < numberOfTasksForThisGame; ++i)
+            // {
+            //     int randomNumber = Random.Range(0, allTasks.Count);
+            //     for (int j = 0; j < numberOfTasksForThisGame; ++j)
+            //     {
+            //         if(allTasks[randomNumber] != tasksForThisGame[j])
+            //             tasksForThisGame.Add(allTasks[randomNumber]);
+            //     }
+            // }
+            
             for (int i = 0; i < numberOfTasksForThisGame; ++i)
             {
-                int randomNumber = Random.Range(0, allTasks.Count);
-                tasksForThisGame.Add(allTasks[randomNumber]);
+                int rnd = Random.Range(0, allTasks.Count + 1);
+                if (!number.Contains(rnd))
+                {
+                    tasksForThisGame.Add(allTasks[rnd]);
+                    number.Add(rnd);
+                }
+                else
+                {
+                    Debug.Log("Duplicated number!");
+                }
             }
-
+            
+            
             alreadyGeneratedList = true;
         }
     }
