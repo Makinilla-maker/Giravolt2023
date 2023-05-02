@@ -98,9 +98,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (pView.IsMine)
         {
-            if (!alreadyGeneratedListSend)
-            {
-                stream.SendNext(alreadyGeneratedListSend);
+            stream.SendNext(alreadyGeneratedListSend);
                 stream.SendNext(numberOfTasksForThisGame);
                 for (int i = 0; i < tasksForThisGame.Count; ++i)
                 {
@@ -112,9 +110,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     stream.SendNext(tasksForThisGame[i].id);
                 }
 
-                alreadyGeneratedListSend = true;
-                alreadyGeneratedListReceived = false;
-            }
             
             if(send)
             {
