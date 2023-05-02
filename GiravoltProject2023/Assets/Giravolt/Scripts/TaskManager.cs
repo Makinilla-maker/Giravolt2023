@@ -96,7 +96,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (pView.IsMine)
         {
             stream.SendNext(numberOfTasksForThisGame);
             for (int i = 0; i < tasksForThisGame.Count; ++i)
