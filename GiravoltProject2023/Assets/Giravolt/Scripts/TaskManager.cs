@@ -88,7 +88,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             send = true;
         }
 
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && tasksForThisGame.Count != numberOfTasksForThisGame)
         {
             pView.RPC("GenerateTasks", RpcTarget.MasterClient);
         }
