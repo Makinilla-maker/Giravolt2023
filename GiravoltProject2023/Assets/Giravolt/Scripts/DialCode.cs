@@ -12,7 +12,7 @@ using System.Linq;
     [SerializeField] private int divisions = 10;
     [SerializeField] private int divisionsAngle;
     [SerializeField] private int d;
-    private TaskManager manager;
+    [SerializeField] private TaskManager manager;
 
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task dialTask = new Task();
@@ -37,9 +37,14 @@ using System.Linq;
     {
         rb.constraints = originalConstraints;
     }
+    IEnumerator Corru()
+    {
+        yield return new WaitForSeconds(.5f);
+        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+    }
     private void Start()
     {
-        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+        
         
         for (int i = 0; i < 2; ++i)
         {
