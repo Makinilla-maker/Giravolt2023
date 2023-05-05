@@ -22,10 +22,8 @@ public enum TaskStatus
 
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
-    
-    public List<Task> tasks = new List<Task>();
     public Task taskCompleted;
-    int tasksCompleted = 0;
+    int ammountOfCompletedTasks = 0;
     private string sendTaskName = "A";
     private int sendTaskInt = -1;
     public bool send = false;
@@ -39,6 +37,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
     public int numberOfTasksForThisGame;
     [SerializeField] private List<int> number = new List<int>();
+
+    // place here the info for each created task;
+    // DialTask = 0;
+    // CremarNota = 1;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -50,7 +52,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         GameObject go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
 
         Debug.Log(go.name);
-        foreach(Task currentTask in tasks)
+        foreach(Task currentTask in tasksForThisGame)
         {
             Debug.Log(currentTask.mainObject.name + "==" + go.name);
             Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
@@ -63,7 +65,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
     }
-
+    public void SetCompletedTask(Task completedTask)
+    {
+        completedTask.status = TaskStatus.COMPLETED;
+        ammountOfCompletedTasks++;
+        pView.RPC("SendNumberOfCompletedTasks", RpcTarget.All);
+    }
     
     private void SendTaskStatus(string task, int status)
     {
@@ -72,14 +79,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     }
     private void Update()
     {
-        foreach (Task task in tasks)
+        if(ammountOfCompletedTasks == tasksForThisGame.Count)
         {
-            if (task.status == TaskStatus.COMPLETED)
-                tasksCompleted++;
-        }
-        if(tasksCompleted == tasks.Count)
-        {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            Debug.Log("All tasks are done!");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -116,7 +118,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     int rcvdId = -1;
                     rcvdId = (int)stream.ReceiveNext();
-                    for (int k = 0; k < allTasks.Count; ++k)
+                    for (int k = 0; k < allTasks.Count; ++k) 
                     {
                         if (allTasks[k].id == rcvdId)
                         {
@@ -155,23 +157,17 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
             Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
-            SetTaskStatus(sendTaskName, sendTaskInt);
             //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
         }
 
     }
-    public void SetTaskStatus(string name, int id)
-    {
-        foreach (Task currentTask in tasks)
-        { 
-            if (currentTask.name == name && currentTask.id == id)
-            {
-                currentTask.status = TaskStatus.COMPLETED;
-            }
-        }
-    }
 
     [PunRPC]
+    public void SendNumberOfCompletedTasks()
+    {
+        if(!pView.IsMine)
+            ammountOfCompletedTasks++;
+    }
     
     public void GenerateTasks()
     {
@@ -224,5 +220,25 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private void CheckTasksState(string name, int status)
     {
         Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status + "\n" + "This is the value of the bool: ");
+    }
+    // this function must be used in the awake function of every gameobject that has a task
+    public Task CreateTask(string n, string d, TaskStatus s, GameObject mo, GameObject to, int id)
+    {
+        for (int i = 0; i < tasksForThisGame.Count; ++i)
+        {
+            if (tasksForThisGame[i].id == id)
+            {
+                Task ret = new Task();
+                ret.name = n;
+                ret.description = d;
+                ret.status = s;
+                ret.mainObject = mo;
+                ret.targetObject = to;
+                ret.id = id;
+                return ret;
+            }
+            
+        }
+        return null;
     }
 }

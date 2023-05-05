@@ -12,7 +12,11 @@ using System.Linq;
     [SerializeField] private int divisions = 10;
     [SerializeField] private int divisionsAngle;
     [SerializeField] private int d;
-    
+    private TaskManager manager;
+
+    // this code is for this script only and will only be used if this task is added to tasksForThisGame list
+    Task dialTask;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,6 +24,9 @@ using System.Linq;
         FreezeRigidbodyConstraints();
         divisionsAngle = 360 / divisions;
         d = divisionsAngle / 2;
+        manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
+        // we go to the task manager and generate thas task and assign its info
+        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, null, null, 0);
     }
 
     public void FreezeRigidbodyConstraints()
@@ -150,6 +157,8 @@ using System.Linq;
         if(CheckCorrectPassword())
         {
             Debug.Log("Correct Password");
+            manager.SetCompletedTask(dialTask);
+            Debug.Log(dialTask.status + "status of the task");
         }
         else
         {
