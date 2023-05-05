@@ -216,8 +216,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         for (int i = 0; i < tasksForThisGame.Count; ++i)
         {
+            Debug.Log(" ================================================================================= id ->" + tasksForThisGame[i].id);
             if (tasksForThisGame[i].id == id)
             {
+                Debug.Log(" 222222222222222222222222222222222222222222222222222222222222222222222222222222222 id ->" + tasksForThisGame[i].id);
                 Task ret = new Task();
                 ret.name = n;
                 ret.description = d;

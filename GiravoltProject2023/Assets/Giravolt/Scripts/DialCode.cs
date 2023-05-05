@@ -15,7 +15,7 @@ using System.Linq;
     private TaskManager manager;
 
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
-    Task dialTask = new Task();
+    public Task dialTask = new Task();
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ using System.Linq;
     }
     private void Start()
     {
-        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, null, null, 0);
+        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
         
         for (int i = 0; i < 2; ++i)
         {
