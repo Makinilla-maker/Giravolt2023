@@ -40,7 +40,7 @@ using System.Linq;
     IEnumerator Corru()
     {
         yield return new WaitForSeconds(.5f);
-        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+        dialTask = manager.CreateTask("DialTask", "A", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
     }
     private void Start()
     {
