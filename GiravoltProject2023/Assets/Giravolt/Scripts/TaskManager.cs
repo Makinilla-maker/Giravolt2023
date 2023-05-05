@@ -176,16 +176,17 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             for (int i = 0; i < numberOfTasksForThisGame; ++i)
             {
                 int rnd = Random.Range(0, allTasks.Count + 1);
-                if (!number.Contains(rnd))
-                {
-                    tasksForThisGame.Add(allTasks[rnd]);
-                    number.Add(rnd);
-                    trueNumberOfTasks++;
-                }
-                else
-                {
-                    Debug.Log("Duplicated number!");
-                }
+                tasksForThisGame.Add(allTasks[i]);
+                //if (!number.Contains(rnd))
+                //{
+                //    tasksForThisGame.Add(allTasks[rnd]);
+                //    number.Add(rnd);
+                //    trueNumberOfTasks++;
+                //}
+                //else
+                //{
+                //    Debug.Log("Duplicated number!");
+                //}
                 
             }
 
