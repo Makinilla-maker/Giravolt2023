@@ -26,7 +26,7 @@ using System.Linq;
         d = divisionsAngle / 2;
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         // we go to the task manager and generate thas task and assign its info
-        
+        StartCoroutine(Corru());
     }
 
     public void FreezeRigidbodyConstraints()
