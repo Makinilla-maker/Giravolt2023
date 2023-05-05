@@ -26,7 +26,7 @@ using System.Linq;
         d = divisionsAngle / 2;
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         // we go to the task manager and generate thas task and assign its info
-        StartCoroutine(Corru());
+        dialTask = manager.CreateTask("DialTask", "A", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
     }
 
     public void FreezeRigidbodyConstraints()
@@ -40,7 +40,7 @@ using System.Linq;
     IEnumerator Corru()
     {
         yield return new WaitForSeconds(.5f);
-        dialTask = manager.CreateTask("DialTask", "A", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+        
     }
     private void Start()
     {
