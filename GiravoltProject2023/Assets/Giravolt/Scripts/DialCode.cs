@@ -15,7 +15,7 @@ using System.Linq;
     private TaskManager manager;
 
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
-    Task dialTask;
+    Task dialTask = new Task();
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ using System.Linq;
         d = divisionsAngle / 2;
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         // we go to the task manager and generate thas task and assign its info
-        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, null, null, 0);
+        
     }
 
     public void FreezeRigidbodyConstraints()
@@ -39,7 +39,9 @@ using System.Linq;
     }
     private void Start()
     {
-        for(int i = 0; i < 5; ++i)
+        dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, null, null, 0);
+        Debug.Log("Name of the status = " + dialTask.status);
+        for (int i = 0; i < 2; ++i)
         {
             password.Add(Random.Range(0, 10));
         }
@@ -158,7 +160,7 @@ using System.Linq;
         {
             Debug.Log("Correct Password");
             manager.SetCompletedTask(dialTask);
-            Debug.Log(dialTask.status + "status of the task");
+            Debug.Log(dialTask.status.ToString() + "status of the task");
         }
         else
         {

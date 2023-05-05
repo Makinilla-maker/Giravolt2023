@@ -67,7 +67,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void SetCompletedTask(Task completedTask)
     {
-        completedTask.status = TaskStatus.COMPLETED;
+        //completedTask.status = TaskStatus.COMPLETED;
         pView.RPC("SendNumberOfCompletedTasks", RpcTarget.All);
     }
     
@@ -80,7 +80,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if(ammountOfCompletedTasks == tasksForThisGame.Count)
         {
-            Debug.Log("All tasks are done!");
+            //Debug.Log("All tasks are done!");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
