@@ -2081,7 +2081,7 @@ MonoBehaviour:
     rigTarget: {fileID: 2953753092857325750}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
     trackingRotationOffset: {x: 0, y: 0, z: 0}
-  headConstraint: {fileID: 0}
+  headConstraint: {fileID: 441223076130087967}
   headBodyOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &7892384654603306390 stripped
 Transform:
