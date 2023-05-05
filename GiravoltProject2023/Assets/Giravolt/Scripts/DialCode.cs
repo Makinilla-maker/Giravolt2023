@@ -160,7 +160,6 @@ using System.Linq;
         {
             Debug.Log("Correct Password");
             manager.SetCompletedTask(dialTask);
-            Debug.Log("Name of the status = " + dialTask.status.ToString());
         }
         else
         {
