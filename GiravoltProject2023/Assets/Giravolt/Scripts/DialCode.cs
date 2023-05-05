@@ -40,7 +40,7 @@ using System.Linq;
     private void Start()
     {
         dialTask = manager.CreateTask("DialTask", "This task is releated to password", TaskStatus.NOTSTARTED, null, null, 0);
-        Debug.Log("Name of the status = " + dialTask.status);
+        
         for (int i = 0; i < 2; ++i)
         {
             password.Add(Random.Range(0, 10));
@@ -160,7 +160,7 @@ using System.Linq;
         {
             Debug.Log("Correct Password");
             manager.SetCompletedTask(dialTask);
-            Debug.Log(dialTask.status.ToString() + "status of the task");
+            Debug.Log("Name of the status = " + dialTask.status.ToString());
         }
         else
         {

@@ -37,6 +37,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
     public int numberOfTasksForThisGame;
     [SerializeField] private List<int> number = new List<int>();
+    public string name;
 
     // place here the info for each created task;
     // DialTask = 0;
@@ -68,6 +69,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void SetCompletedTask(Task completedTask)
     {
         //completedTask.status = TaskStatus.COMPLETED;
+        name = completedTask.name;
         pView.RPC("SendNumberOfCompletedTasks", RpcTarget.All);
     }
     
