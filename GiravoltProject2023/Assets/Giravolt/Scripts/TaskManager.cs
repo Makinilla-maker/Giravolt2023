@@ -23,7 +23,7 @@ public enum TaskStatus
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Task taskCompleted;
-    int ammountOfCompletedTasks = 0;
+    [SerializeField] int ammountOfCompletedTasks = 0;
     private string sendTaskName = "A";
     private int sendTaskInt = -1;
     public bool send = false;
@@ -68,7 +68,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void SetCompletedTask(Task completedTask)
     {
         completedTask.status = TaskStatus.COMPLETED;
-        ammountOfCompletedTasks++;
         pView.RPC("SendNumberOfCompletedTasks", RpcTarget.All);
     }
     
@@ -165,10 +164,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void SendNumberOfCompletedTasks()
     {
-        if(!pView.IsMine)
             ammountOfCompletedTasks++;
     }
-    
+    [PunRPC]
     public void GenerateTasks()
     {
         if (!alreadyGeneratedList)
