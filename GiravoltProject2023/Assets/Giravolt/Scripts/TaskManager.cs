@@ -173,7 +173,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (!alreadyGeneratedList)
         {            
-            for (int i = 0; i < numberOfTasksForThisGame; ++i)
+            for (int i = 0; i < /*numberOfTasksForThisGame*/ allTasks.Count; ++i)
             {
                 int rnd = Random.Range(0, allTasks.Count + 1);
                 tasksForThisGame.Add(allTasks[i]);
