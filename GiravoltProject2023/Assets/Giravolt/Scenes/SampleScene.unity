@@ -823,13 +823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb4726d3720604cbc0366fb7a5de1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasks:
-  - name: Cube
-    description: Put the cube in the sphere
-    status: 0
-    mainObject: {fileID: 1118169482}
-    targetObject: {fileID: 1277969250}
-    id: 0
   taskCompleted:
     name: 
     description: 
@@ -846,7 +839,7 @@ MonoBehaviour:
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
-    id: 0
+    id: 9
   - name: Oscar Gilipollas
     description: AAAAA
     status: 0
@@ -859,6 +852,12 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 2
+  - name: Dial
+    description: VVVV
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 0
   tasksForThisGame: []
   numberOfTasksForThisGame: 3
   number: 
