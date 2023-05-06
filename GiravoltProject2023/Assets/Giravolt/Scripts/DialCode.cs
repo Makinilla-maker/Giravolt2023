@@ -26,7 +26,7 @@ using System.Linq;
         d = divisionsAngle / 2;
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         // we go to the task manager and generate thas task and assign its info
-        dialTask = manager.CreateTask("DialTask", "A", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+        
     }
 
     public void FreezeRigidbodyConstraints()
@@ -50,6 +50,7 @@ using System.Linq;
         {
             password.Add(Random.Range(0, 10));
         }
+        dialTask = manager.CreateTask("DialTask", "A", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
     }
         // Update is called once per frame
         void Update()

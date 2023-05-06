@@ -37,7 +37,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
     public int numberOfTasksForThisGame;
     [SerializeField] private List<int> number = new List<int>();
-    public string name;
+    public string myName;
 
     // place here the info for each created task;
     // DialTask = 0;
@@ -69,7 +69,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void SetCompletedTask(Task completedTask)
     {
         //completedTask.status = TaskStatus.COMPLETED;
-        name = completedTask.name;
+        myName = completedTask.name;
         pView.RPC("SendNumberOfCompletedTasks", RpcTarget.All);
     }
     
@@ -215,13 +215,13 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     // this function must be used in the awake function of every gameobject that has a task
     public Task CreateTask(string n, string d, TaskStatus s, GameObject mo, GameObject to, int id)
     {
-        Debug.Log("dsaddddddddddddddddddddddddddddddddddddddddddddddddddddddpppppppppppppppppppppppppppppppppppppppppppp   " + tasksForThisGame.Count);
-        for (int i = 0; i < tasksForThisGame.Count; ++i)
+        Debug.Log("dsaddddddddddddddddddddddddddddddddddddddddddddddddddddddpppppppppppppppppppppppppppppppppppppppppppp   " + numberOfTasksForThisGame);
+        for (int i = 0; i < numberOfTasksForThisGame; ++i)
         {
-            Debug.Log(" ================================================================================= id ->" + tasksForThisGame[i].id);
-            if (tasksForThisGame[i].id == id)
+            Debug.Log(" ================================================================================= id ->" + allTasks[i].id);
+            if (allTasks[i].id == id)
             {
-                Debug.Log(" 222222222222222222222222222222222222222222222222222222222222222222222222222222222 id ->" + tasksForThisGame[i].id);
+                Debug.Log(" 222222222222222222222222222222222222222222222222222222222222222222222222222222222 id ->" + allTasks[i].id);
                 Task ret = new Task();
                 ret.name = n;
                 ret.description = d;
