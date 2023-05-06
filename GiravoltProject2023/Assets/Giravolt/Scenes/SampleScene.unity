@@ -824,6 +824,7 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 0
+  ammountOfCompletedTasks: 0
   send: 0
   ball: {fileID: 306310635}
   trueNumberOfTasks: 0
@@ -853,8 +854,9 @@ MonoBehaviour:
     targetObject: {fileID: 0}
     id: 0
   tasksForThisGame: []
-  numberOfTasksForThisGame: 5
+  numberOfTasksForThisGame: 4
   number: 
+  myName: 
 --- !u!114 &94974127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7150,6 +7152,14 @@ MonoBehaviour:
   divisions: 10
   divisionsAngle: 0
   d: 0
+  manager: {fileID: 0}
+  dialTask:
+    name: 
+    description: 
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 0
 --- !u!1 &1209782756 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4271849530905777710, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe,
