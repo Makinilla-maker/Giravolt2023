@@ -110,9 +110,10 @@ GameObject:
   - component: {fileID: -5464690255708301854}
   - component: {fileID: 8592134566807800345}
   - component: {fileID: 1851346148594273139}
+  - component: {fileID: 126034967971231764}
   m_Layer: 0
   m_Name: Network Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,6 +194,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!136 &126034967971231764
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811012511946502716}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.111263074
+  m_Height: 1.4967284
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.528, z: 0}
 --- !u!1 &6226005740609080961
 GameObject:
   m_ObjectHideFlags: 0
