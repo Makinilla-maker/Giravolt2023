@@ -7,7 +7,6 @@ public class DeathManager : MonoBehaviour
 
     [SerializeField] public bool isAlive = true;
     [SerializeField] Material deathMat;
-
     void Start()
     {
         
