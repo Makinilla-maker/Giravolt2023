@@ -101,8 +101,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (pView.IsMine)
         {
-            Debug.Log("HOOOOOOOOOOOLAAAAAAAAAAAAAAAAAAAAAAA");
-            stream.SendNext(numberOfTasksForThisGame);
+            stream.SendNext(trueNumberOfTasks);
             for (int i = 0; i < trueNumberOfTasks; ++i)
             {
                 int n = tasksForThisGame[i].id;
@@ -113,11 +112,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             _AnumberOfTasksForThisGame = (int)stream.ReceiveNext();
             trueNumberOfTasks = _AnumberOfTasksForThisGame;
-            if (tasksForThisGame.Count != _AnumberOfTasksForThisGame)
-            {
+            int rcvdId = -1;
                 for (int i = 0; i < trueNumberOfTasks; ++i)
                 {
-                    int rcvdId = -1;
                     rcvdId = (int)stream.ReceiveNext();
                     for (int k = 0; k < allTasks.Count; ++k) 
                     {
@@ -127,8 +124,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                         }
                     }
                 }
-            }
-            
             Debug.Log("This is the total number of tasks of this game: " + trueNumberOfTasks);
         }
         if (pView.IsMine)
@@ -176,7 +171,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             for (int i = 0; i < allTasks.Count; ++i)
             {
                 int rnd = Random.Range(0, allTasks.Count + 1);
-                tasksForThisGame.Add(allTasks[i]);
+                //tasksForThisGame.Add(allTasks[i]);
                 if (!number.Contains(rnd))
                 {
                     tasksForThisGame.Add(allTasks[rnd]);
