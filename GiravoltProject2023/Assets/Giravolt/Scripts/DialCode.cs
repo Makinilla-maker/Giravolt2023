@@ -13,6 +13,8 @@ using System.Linq;
     [SerializeField] private int divisionsAngle;
     [SerializeField] private int d;
     [SerializeField] private TaskManager manager;
+    private bool taskCreated;
+    private bool doUpdate;
 
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task dialTask = new Task();
@@ -50,7 +52,15 @@ using System.Linq;
         {
             password.Add(Random.Range(0, 10));
         }
+        
+    }
+
+    IEnumerator CreateTask()
+    {
+        doUpdate = true;
+        yield return new WaitForSeconds(2f);
         dialTask = manager.CreateTask("DialTask", "Tita", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+        taskCreated = true;
     }
         // Update is called once per frame
         void Update()
@@ -58,6 +68,11 @@ using System.Linq;
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 CheckReleaseAngle();
+            }
+
+            if (!doUpdate)
+            {
+                StartCoroutine(CreateTask());
             }
         }
         bool IsInRange(float val, float b1, float b2)
