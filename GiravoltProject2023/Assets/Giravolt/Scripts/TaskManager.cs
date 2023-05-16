@@ -128,22 +128,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             if(send)
             {
-                // We own this player: send the others our data
-                if (sendTaskName != "")
-                {
-                    sendTaskName = taskCompleted.name;
-                    sendTaskInt = taskCompleted.id;
-        
-                    Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
-        
-                    stream.SendNext(sendTaskName);
-                    stream.SendNext(sendTaskInt);
-                }
-                else
-                {
-                    Debug.Log("Sending null information");
-                }
-                send = !send;
+
             }        
         }
         else
@@ -161,7 +146,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         send = true;
     }
     [PunRPC]
-    public void SendNumberOfCompletedTasks()
+    public void SetCompletedTask()
     {
         for (int i = 0; i < tasksForThisGame.Count; ++i)
         {
