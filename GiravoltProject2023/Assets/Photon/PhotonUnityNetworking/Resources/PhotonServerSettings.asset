@@ -42,6 +42,8 @@ MonoBehaviour:
   - ApplyReceivedChanges
   - GenerateTasks
   - SendNumberOfCompletedTasks
+  - SetCompletedTask
+  - GetCompletedTask
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

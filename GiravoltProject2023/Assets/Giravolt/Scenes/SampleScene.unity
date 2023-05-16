@@ -7154,8 +7154,8 @@ MonoBehaviour:
   d: 0
   manager: {fileID: 0}
   dialTask:
-    name: 
-    description: 
+    name: Dial
+    description: Tita
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
