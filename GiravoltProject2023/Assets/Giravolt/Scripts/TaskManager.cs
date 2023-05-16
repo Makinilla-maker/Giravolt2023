@@ -91,7 +91,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             pView.RequestOwnership();
             send = true;
         }
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && !alreadyGeneratedList)
         {
             pView.RPC("GenerateTasks", RpcTarget.MasterClient);
         }
@@ -172,8 +172,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void GenerateTasks()
     {
         if (!alreadyGeneratedList)
-        {            
-            for (int i = 0; i < trueNumberOfTasks; ++i)
+        {
+            for (int i = 0; i < allTasks.Count; ++i)
             {
                 int rnd = Random.Range(0, allTasks.Count + 1);
                 tasksForThisGame.Add(allTasks[i]);
