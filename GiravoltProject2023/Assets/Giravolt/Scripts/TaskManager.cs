@@ -38,7 +38,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public int numberOfTasksForThisGame;
     [SerializeField] private List<int> number = new List<int>();
     public string myName;
-    [SerializeField] private int _AnumberOfTasksForThisGame;
 
     // place here the info for each created task;
     // DialTask = 0;
@@ -112,7 +111,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             else
             {
-                //_AnumberOfTasksForThisGame = 
                 trueNumberOfTasks = (int)stream.ReceiveNext();
                 int rcvdId = -1;
                 for (int i = 0; i < trueNumberOfTasks; ++i)
@@ -166,7 +164,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void SendNumberOfCompletedTasks()
     {
-            ammountOfCompletedTasks++;
+        ammountOfCompletedTasks++;
     }
     [PunRPC]
     public void GenerateTasks()
