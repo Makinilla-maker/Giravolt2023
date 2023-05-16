@@ -105,24 +105,27 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             else
             {
-                trueNumberOfTasks = (int)stream.ReceiveNext();
-                int rcvdId = -1;
-                for (int i = 0; i < trueNumberOfTasks; ++i)
+                if (!alreadyGeneratedList)
                 {
-                    rcvdId = (int)stream.ReceiveNext();
-                    for (int k = 0; k < allTasks.Count; ++k)
+                    trueNumberOfTasks = (int)stream.ReceiveNext();
+                    int rcvdId = -1;
+                    for (int i = 0; i < trueNumberOfTasks; ++i)
                     {
-                        if (allTasks[k].id == rcvdId)
+                        rcvdId = (int)stream.ReceiveNext();
+                        for (int k = 0; k < allTasks.Count; ++k)
                         {
-                            tasksForThisGame.Add(allTasks[k]);
+                            if (allTasks[k].id == rcvdId)
+                            {
+                                tasksForThisGame.Add(allTasks[k]);
+                            }
                         }
                     }
-                }
-                Debug.Log("This is the total number of tasks of this game: " + trueNumberOfTasks);
-                alreadyGeneratedList = true;
+                    Debug.Log("This is the total number of tasks of this game: " + trueNumberOfTasks);
+                    alreadyGeneratedList = true;
 
+                }
             }
-        }
+        
         if (pView.IsMine)
         {
             if(send)
