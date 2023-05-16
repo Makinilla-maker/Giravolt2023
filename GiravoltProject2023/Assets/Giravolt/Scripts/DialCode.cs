@@ -58,7 +58,7 @@ using System.Linq;
     IEnumerator CreateTask()
     {
         doUpdate = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         dialTask = manager.CreateTask("DialTask", "Tita", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
         taskCreated = true;
     }
@@ -73,6 +73,7 @@ using System.Linq;
             if (!doUpdate)
             {
                 StartCoroutine(CreateTask());
+                Debug.Log("_______________________________________________________________________");
             }
         }
         bool IsInRange(float val, float b1, float b2)
