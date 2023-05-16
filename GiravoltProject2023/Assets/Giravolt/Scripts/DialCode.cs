@@ -72,7 +72,7 @@ using System.Linq;
 
             if (!doUpdate)
             {
-                StartCoroutine(CreateTask());
+                //StartCoroutine(CreateTask());
                 Debug.Log("_______________________________________________________________________");
             }
         }

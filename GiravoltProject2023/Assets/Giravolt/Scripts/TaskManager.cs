@@ -48,31 +48,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         send = false;
         
     }
-    public void OnPlace(GameObject receptor)
-    {
-        GameObject go = receptor.transform.GetChild(receptor.transform.childCount - 1).gameObject;
-
-        Debug.Log(go.name);
-        foreach(Task currentTask in tasksForThisGame)
-        {
-            Debug.Log(currentTask.mainObject.name + "==" + go.name);
-            Debug.Log(currentTask.targetObject.name + "==" + receptor.name);
-            if (currentTask.mainObject.name == go.name && currentTask.targetObject.name == receptor.name && currentTask.status != TaskStatus.COMPLETED)
-            {
-                currentTask.status = TaskStatus.COMPLETED;
-                taskCompleted = currentTask;
-                pView.RequestOwnership();
-                send = true;
-            }
-        }
-    }
-    
-    
-    private void SendTaskStatus(string task, int status)
-    {
-        sendTaskName = task;
-        sendTaskInt = status;
-    }
     private void Update()
     {
         if(ammountOfCompletedTasks == tasksForThisGame.Count)
@@ -147,10 +122,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }        
         }
         else
-        {
-            
+        {            
             Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
-            pView.RPC("SendNumberOfCompletedTasks", RpcTarget.All);
+            pView.RPC("SetCompletedTask", RpcTarget.All);
         }
 
     }
@@ -178,10 +152,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             for (int i = 0; i < allTasks.Count; ++i)
             {
-                int rnd = Random.Range(0, allTasks.Count + 1);
+                int rnd = Random.Range(0, allTasks.Count);
                 //tasksForThisGame.Add(allTasks[i]);
                 if (!number.Contains(rnd))
                 {
+                    Debug.Log(rnd);
                     tasksForThisGame.Add(allTasks[rnd]);
                     number.Add(rnd);
                     trueNumberOfTasks++;
@@ -195,22 +170,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             alreadyGeneratedList = true;
         }
     }
-    public void ApplyReceivedChanges(PhotonStream stream)
-    {
-        // Network player, receive data
-    
-        this.sendTaskName = (string)stream.ReceiveNext();
-        this.sendTaskInt = (int)stream.ReceiveNext();
-        //this.sendGoingLeft = (bool)stream.ReceiveNext();
-        //Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt + " Bool is: " + sendGoingLeft);
-        CheckTasksState(this.sendTaskName, this.sendTaskInt);
-    
-    }
     #endregion
-    private void CheckTasksState(string name, int status)
-    {
-        Debug.Log("This is the last solved task name: " + name + " and this is the status of the task: " + (TaskStatus)status + "\n" + "This is the value of the bool: ");
-    }
     // this function must be used in the awake function of every gameobject that has a task
     public Task CreateTask(string n, string d, TaskStatus s, GameObject mo, GameObject to, int id)
     {
