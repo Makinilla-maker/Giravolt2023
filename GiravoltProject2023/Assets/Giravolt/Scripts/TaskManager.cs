@@ -37,7 +37,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] public List<Task> tasksForThisGame = new List<Task>();
     public int numberOfTasksForThisGame;
     [SerializeField] private List<int> number = new List<int>();
-    public string myName;
 
     // place here the info for each created task;
     // DialTask = 0;
@@ -66,12 +65,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
     }
-    public void SetCompletedTask(Task completedTask)
-    {
-        //completedTask.status = TaskStatus.COMPLETED;
-        myName = completedTask.name;
-        pView.RPC("SendNumberOfCompletedTasks", RpcTarget.All);
-    }
+    
     
     private void SendTaskStatus(string task, int status)
     {
@@ -136,11 +130,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 // We own this player: send the others our data
                 if (sendTaskName != "")
                 {
-                    sendTaskName = taskCompleted.name;
-                    sendTaskInt = taskCompleted.id;
-        
-                    Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
-        
                     stream.SendNext(sendTaskName);
                     stream.SendNext(sendTaskInt);
                 }
@@ -156,15 +145,27 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
             Debug.Log("Received Task name: " + sendTaskName + " Task ID: " + sendTaskInt);
-            //pView.RPC("ApplyReceivedChanges", RpcTarget.All, stream);
+            pView.RPC("SetCompletedTask", RpcTarget.All);
         }
 
     }
-
-    [PunRPC]
-    public void SendNumberOfCompletedTasks()
+    public void GetCompletedTask(Task completedTask)
     {
-        ammountOfCompletedTasks++;
+        //completedTask.status = TaskStatus.COMPLETED;
+        taskCompleted.name = completedTask.name;
+        taskCompleted.id = completedTask.id;
+        send = true;
+    }
+    [PunRPC]
+    public void SetCompletedTask()
+    {
+        for (int i = 0; i < tasksForThisGame.Count; ++i)
+        {
+            if (tasksForThisGame[i].id == sendTaskInt)
+            {
+                tasksForThisGame.Remove(tasksForThisGame[i]);
+            }
+        }
     }
     [PunRPC]
     public void GenerateTasks()

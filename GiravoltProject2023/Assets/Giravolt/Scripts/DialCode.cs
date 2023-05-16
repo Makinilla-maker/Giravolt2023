@@ -165,7 +165,7 @@ using System.Linq;
         if(CheckCorrectPassword())
         {
             Debug.Log("Correct Password");
-            manager.SetCompletedTask(dialTask);
+            manager.GetCompletedTask(dialTask);
         }
         else
         {
