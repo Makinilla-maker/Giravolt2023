@@ -214,13 +214,13 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     // this function must be used in the awake function of every gameobject that has a task
     public Task CreateTask(string n, string d, TaskStatus s, GameObject mo, GameObject to, int id)
     {
-        Debug.Log("dsaddddddddddddddddddddddddddddddddddddddddddddddddddddddpppppppppppppppppppppppppppppppppppppppppppp   " + numberOfTasksForThisGame);
-        for (int i = 0; i < trueNumberOfTasks; ++i)
+        Debug.Log("dsaddddddddddddddddddddddddddddddddddddddddddddddddddddddpppppppppppppppppppppppppppppppppppppppppppp   " + tasksForThisGame.Count);
+        for (int i = 0; i < tasksForThisGame.Count; ++i)
         {
-            Debug.Log(" ================================================================================= id ->" + allTasks[i].id);
-            if (allTasks[i].id == id)
+            Debug.Log(" ================================================================================= id ->" + tasksForThisGame[i].id);
+            if (tasksForThisGame[i].id == id)
             {
-                Debug.Log(" 222222222222222222222222222222222222222222222222222222222222222222222222222222222 id ->" + allTasks[i].id);
+                Debug.Log(" 222222222222222222222222222222222222222222222222222222222222222222222222222222222 id ->" + tasksForThisGame[i].id);
                 Task ret = new Task();
                 ret.name = n;
                 ret.description = d;

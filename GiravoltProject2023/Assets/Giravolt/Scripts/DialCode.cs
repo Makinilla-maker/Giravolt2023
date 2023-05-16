@@ -50,7 +50,7 @@ using System.Linq;
         {
             password.Add(Random.Range(0, 10));
         }
-        dialTask = manager.CreateTask("DialTask", "A", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+        dialTask = manager.CreateTask("DialTask", "Tita", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
     }
         // Update is called once per frame
         void Update()
