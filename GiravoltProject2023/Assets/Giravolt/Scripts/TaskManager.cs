@@ -128,7 +128,22 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             if(send)
             {
-
+                // We own this player: send the others our data
+                if (sendTaskName != "")
+                {
+                    sendTaskName = taskCompleted.name;
+                    sendTaskInt = taskCompleted.id;
+        
+                    Debug.Log("Sending this info: " + sendTaskName + " , " + sendTaskInt + "\n" + "This is the value of the bool: ");
+        
+                    stream.SendNext(sendTaskName);
+                    stream.SendNext(sendTaskInt);
+                }
+                else
+                {
+                    Debug.Log("Sending null information");
+                }
+                send = !send;
             }        
         }
         else
