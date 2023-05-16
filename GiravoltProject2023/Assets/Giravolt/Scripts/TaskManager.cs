@@ -110,13 +110,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            _AnumberOfTasksForThisGame = (int)stream.ReceiveNext();
-            trueNumberOfTasks = _AnumberOfTasksForThisGame;
-            int rcvdId = -1;
+            if(!alreadyGeneratedList)
+            {
+                _AnumberOfTasksForThisGame = (int)stream.ReceiveNext();
+                trueNumberOfTasks = _AnumberOfTasksForThisGame;
+                int rcvdId = -1;
                 for (int i = 0; i < trueNumberOfTasks; ++i)
                 {
                     rcvdId = (int)stream.ReceiveNext();
-                    for (int k = 0; k < allTasks.Count; ++k) 
+                    for (int k = 0; k < allTasks.Count; ++k)
                     {
                         if (allTasks[k].id == rcvdId)
                         {
@@ -124,7 +126,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                         }
                     }
                 }
-            Debug.Log("This is the total number of tasks of this game: " + trueNumberOfTasks);
+                Debug.Log("This is the total number of tasks of this game: " + trueNumberOfTasks);
+                alreadyGeneratedList = true;
+            }
         }
         if (pView.IsMine)
         {
