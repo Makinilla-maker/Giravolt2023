@@ -99,21 +99,21 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (pView.IsMine)
+        if (!alreadyGeneratedList)
         {
-            stream.SendNext(trueNumberOfTasks);
-            for (int i = 0; i < trueNumberOfTasks; ++i)
+            if (pView.IsMine)
             {
-                int n = tasksForThisGame[i].id;
-                stream.SendNext(n);
+                stream.SendNext(trueNumberOfTasks);
+                for (int i = 0; i < trueNumberOfTasks; ++i)
+                {
+                    int n = tasksForThisGame[i].id;
+                    stream.SendNext(n);
+                }
             }
-        }
-        else
-        {
-            if(!alreadyGeneratedList)
+            else
             {
-                _AnumberOfTasksForThisGame = (int)stream.ReceiveNext();
-                trueNumberOfTasks = _AnumberOfTasksForThisGame;
+                //_AnumberOfTasksForThisGame = 
+                trueNumberOfTasks = (int)stream.ReceiveNext();
                 int rcvdId = -1;
                 for (int i = 0; i < trueNumberOfTasks; ++i)
                 {
@@ -128,6 +128,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 Debug.Log("This is the total number of tasks of this game: " + trueNumberOfTasks);
                 alreadyGeneratedList = true;
+
             }
         }
         if (pView.IsMine)
