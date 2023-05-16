@@ -39,6 +39,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private List<int> number = new List<int>();
     public string myName;
     [SerializeField] private int _AnumberOfTasksForThisGame;
+    [SerializeField] private bool generateTaskOnlyForManager = false;
 
     // place here the info for each created task;
     // DialTask = 0;
@@ -91,12 +92,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             pView.RequestOwnership();
             send = true;
         }
-
-        if (PhotonNetwork.IsMasterClient && tasksForThisGame.Count != trueNumberOfTasks)
+        if (PhotonNetwork.IsMasterClient && !generateTaskOnlyForManager)
         {
             pView.RPC("GenerateTasks", RpcTarget.MasterClient);
         }
-        
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -190,7 +189,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 
             }
-            
+
+            generateTaskOnlyForManager = true;
             alreadyGeneratedList = true;
         }
     }
