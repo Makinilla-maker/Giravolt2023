@@ -60,8 +60,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         // send the info of the generated tasks 
-        if(!alreadyGeneratedList)
-        {
+        
             if (pView.IsMine)
             {
                 stream.SendNext(trueNumberOfTasks);
@@ -82,13 +81,19 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     {
                         if (allTasks[k].id == rcvdId)
                         {
-                            generatedTasksForThisGame.Add(allTasks[k]);
+                            for(int o = 0; o < generatedTasksForThisGame.Count; ++o)
+                            {
+                                if (!generatedTasksForThisGame.Contains(allTasks[k]))
+                                {
+                                   generatedTasksForThisGame.Add(allTasks[k]);
+                                }
+                            }
                         }
                     }
                 }
                 alreadyGeneratedList = true;
             }
-        }
+        
 
         
         if (pView.IsMine)
@@ -121,6 +126,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
 
     }
+
     public void GetCompletedTask(Task completedTask)
     {
         sendTaskName = completedTask.name;
