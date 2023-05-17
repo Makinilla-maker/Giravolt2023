@@ -13,7 +13,6 @@ using System.Linq;
     private int divisionsAngle;
     private int d;
     private TaskManager manager;
-    private bool taskCreated;
     private bool doUpdate;
 
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
@@ -53,7 +52,6 @@ using System.Linq;
         doUpdate = true;
         yield return new WaitForSeconds(5f);
         dialTask = manager.CreateTask("DialTask", "Tita", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
-        taskCreated = true;
     }
         // Update is called once per frame
         void Update()
