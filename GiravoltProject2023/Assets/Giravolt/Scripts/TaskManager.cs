@@ -86,7 +86,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     }
                 }
                 alreadyGeneratedList = true;
-
             }
         }
         if (pView.IsMine)

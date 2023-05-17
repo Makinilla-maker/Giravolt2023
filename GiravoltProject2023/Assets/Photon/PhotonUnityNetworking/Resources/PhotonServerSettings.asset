@@ -39,11 +39,9 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
-  - ApplyReceivedChanges
-  - GenerateTasks
-  - SendNumberOfCompletedTasks
   - SetCompletedTask
-  - GetCompletedTask
+  - GenerateTask
+  - GenerateTasks
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
