@@ -73,7 +73,6 @@ using System.Linq;
             if (!doUpdate)
             {
                 //StartCoroutine(CreateTask());
-                Debug.Log("_______________________________________________________________________");
             }
         }
         bool IsInRange(float val, float b1, float b2)

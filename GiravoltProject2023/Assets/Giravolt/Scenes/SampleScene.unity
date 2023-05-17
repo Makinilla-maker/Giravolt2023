@@ -817,17 +817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb4726d3720604cbc0366fb7a5de1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskCompleted:
-    name: 
-    description: 
-    status: 0
-    mainObject: {fileID: 0}
-    targetObject: {fileID: 0}
-    id: 0
-  ammountOfCompletedTasks: 0
-  send: 0
-  ball: {fileID: 306310635}
-  trueNumberOfTasks: 0
   allTasks:
   - name: Oriol Mongolin
     description: asda
@@ -853,10 +842,8 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 0
-  tasksForThisGame: []
-  numberOfTasksForThisGame: 4
-  number: 
-  myName: 
+  generatedTasksForThisGame: []
+  randomNumberList: 
 --- !u!114 &94974127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8956,6 +8943,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3863732109687929701, guid: 8d447b25c326eb940b6967957e64879b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93a8e6b51d10db43b5fddb271a3583e, type: 2}
+    - target: {fileID: 3863732110138787996, guid: 8d447b25c326eb940b6967957e64879b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93a8e6b51d10db43b5fddb271a3583e, type: 2}
+    - target: {fileID: 3863732110474509583, guid: 8d447b25c326eb940b6967957e64879b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93a8e6b51d10db43b5fddb271a3583e, type: 2}
+    - target: {fileID: 3863732110723698619, guid: 8d447b25c326eb940b6967957e64879b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93a8e6b51d10db43b5fddb271a3583e, type: 2}
+    - target: {fileID: 3863732111316154995, guid: 8d447b25c326eb940b6967957e64879b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93a8e6b51d10db43b5fddb271a3583e, type: 2}
+    - target: {fileID: 3863732111465791694, guid: 8d447b25c326eb940b6967957e64879b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93a8e6b51d10db43b5fddb271a3583e, type: 2}
+    - target: {fileID: 3863732111554214038, guid: 8d447b25c326eb940b6967957e64879b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93a8e6b51d10db43b5fddb271a3583e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d447b25c326eb940b6967957e64879b, type: 3}
 --- !u!1 &1607721905 stripped
