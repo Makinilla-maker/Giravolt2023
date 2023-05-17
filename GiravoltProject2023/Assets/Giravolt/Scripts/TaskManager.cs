@@ -33,7 +33,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private bool alreadyGeneratedList;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     [SerializeField] public List<Task> generatedTasksForThisGame = new List<Task>();
-    [SerializeField] private List<int> randomNumberList = new List<int>();
+    private List<int> randomNumberList = new List<int>();
 
     // place here the info for each created task;
     // DialTask = 0;

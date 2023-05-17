@@ -9,10 +9,10 @@ using System.Linq;
     private RigidbodyConstraints originalConstraints;
     [SerializeField] private List<int> password = new List<int>();
     [SerializeField] private List<int> userInputPassword = new List<int>();
-    [SerializeField] private int divisions = 10;
-    [SerializeField] private int divisionsAngle;
-    [SerializeField] private int d;
-    [SerializeField] private TaskManager manager;
+    private int divisions = 10;
+    private int divisionsAngle;
+    private int d;
+    private TaskManager manager;
     private bool taskCreated;
     private bool doUpdate;
 
@@ -27,7 +27,7 @@ using System.Linq;
         divisionsAngle = 360 / divisions;
         d = divisionsAngle / 2;
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
-        // we go to the task manager and generate thas task and assign its info
+        // we go to the task manager to generate the task and assign its info
         
     }
 
