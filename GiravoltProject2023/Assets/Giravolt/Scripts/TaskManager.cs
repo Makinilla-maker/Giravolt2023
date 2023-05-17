@@ -121,7 +121,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
 
     }
-    public int[] tmpPassword = new int[2];
     public void GetCompletedTask(Task completedTask)
     {
         sendTaskName = completedTask.name;
