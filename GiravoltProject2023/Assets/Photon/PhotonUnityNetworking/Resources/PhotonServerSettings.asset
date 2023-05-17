@@ -40,7 +40,6 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - SetCompletedTask
-  - GenerateTask
   - GenerateTasks
   DisableAutoOpenWizard: 1
   ShowSettings: 1
