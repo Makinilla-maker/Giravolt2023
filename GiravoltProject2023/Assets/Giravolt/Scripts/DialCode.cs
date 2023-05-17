@@ -44,7 +44,10 @@ using System.Linq;
         doUpdate = true;
         yield return new WaitForSeconds(5f);
         dialTask = manager.CreateTask("DialTask", "Tita", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
-
+        for (int i = 0; i < 2; ++i)
+        {
+            password.Add(Random.Range(0, 10));
+        }
     }
         // Update is called once per frame
         void Update()
