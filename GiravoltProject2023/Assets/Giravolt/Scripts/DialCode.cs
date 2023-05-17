@@ -7,7 +7,7 @@ using System.Linq;
     {
     private Rigidbody rb;
     private RigidbodyConstraints originalConstraints;
-    [SerializeField] private List<int> password = new List<int>();
+    [SerializeField] public List<int> password = new List<int>();
     [SerializeField] private List<int> userInputPassword = new List<int>();
     private int divisions = 10;
     private int divisionsAngle;
@@ -38,20 +38,13 @@ using System.Linq;
     {
         rb.constraints = originalConstraints;
     }
-    private void Start()
-    {
-        for (int i = 0; i < 2; ++i)
-        {
-            password.Add(Random.Range(0, 10));
-        }
-        
-    }
 
     IEnumerator CreateTask()
     {
         doUpdate = true;
         yield return new WaitForSeconds(5f);
         dialTask = manager.CreateTask("DialTask", "Tita", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
+
     }
         // Update is called once per frame
         void Update()

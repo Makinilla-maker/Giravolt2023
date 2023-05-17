@@ -28,13 +28,13 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private bool send = false;
     private PhotonView pView;
     private int trueNumberOfTasks = 0;
-    
+    DialCode d;
     // ISAAC
     private bool alreadyGeneratedList;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     [SerializeField] public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
-
+    private bool passwordGenerated;
     // place here the info for each created task;
     // DialTask = 0;
     // CremarNota = 1;
@@ -42,6 +42,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         pView = GetComponent<PhotonView>();
         send = false;
+        d = GameObject.Find("DialTaskGrab").GetComponent<DialCode>();
         if (pView) pView.ObservedComponents.Add(this);
     }
     private void Update()
@@ -54,6 +55,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (PhotonNetwork.IsMasterClient && !alreadyGeneratedList)
         {
             pView.RPC("GenerateTasks", RpcTarget.MasterClient);
+            
+        }
+        if(PhotonNetwork.IsMasterClient)
+        {
+            if(!passwordGenerated)
+            {
+                pView.RPC("DialGeneratePassword", RpcTarget.MasterClient);
+            }
         }
     }
     #region IPunObservable implementation
@@ -100,6 +109,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
                     stream.SendNext(sendTaskName);
                     stream.SendNext(sendTaskInt);
+                    stream.SendNext(d.password.Count);
+                    for(int i = 0; i < d.password.Count; ++i)
+                    {
+                        stream.SendNext(d.password[i]);
+                    }
                 }
                 else
                 {
@@ -112,6 +126,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
+            int c = (int)stream.ReceiveNext();
+            for (int i = 0;i < c; ++i)
+            {
+                d.password[i] = (int)stream.ReceiveNext();
+            }
             pView.RPC("SetCompletedTask", RpcTarget.All);
         }
 
@@ -155,6 +174,16 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
             alreadyGeneratedList = true;
         }
+    }
+    [PunRPC]
+    public void DialGeneratePassword()
+    {
+        
+        for (int i = 0; i < 2; ++i)
+        {
+            d.password.Add(Random.Range(0, 10));
+        }
+        passwordGenerated = true;
     }
     #endregion
     // this function must be used in the awake function of every gameobject that has a task
