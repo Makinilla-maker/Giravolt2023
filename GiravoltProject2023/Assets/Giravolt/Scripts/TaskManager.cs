@@ -59,8 +59,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (!alreadyGeneratedList)
-        {
+        // send the info of the generated tasks 
+        
             if (pView.IsMine)
             {
                 stream.SendNext(trueNumberOfTasks);
@@ -87,7 +87,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 alreadyGeneratedList = true;
             }
-        }
+        
         if (pView.IsMine)
         {
             if(send)
@@ -110,6 +110,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
+            sendTaskName = (string)stream.ReceiveNext();
+            sendTaskInt = (int)stream.ReceiveNext();
             pView.RPC("SetCompletedTask", RpcTarget.All);
         }
 
