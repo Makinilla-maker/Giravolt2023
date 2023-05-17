@@ -60,8 +60,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         // send the info of the generated tasks 
-        if(!alreadyGeneratedList)
-        {
+        
             if (pView.IsMine)
             {
                 stream.SendNext(trueNumberOfTasks);
@@ -88,7 +87,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 alreadyGeneratedList = true;
             }
-        }
+        
 
         
         if (pView.IsMine)
