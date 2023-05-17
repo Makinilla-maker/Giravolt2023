@@ -11662,7 +11662,7 @@ GameObject:
   - component: {fileID: 7002962728027132697}
   - component: {fileID: 7002962728027132696}
   m_Layer: 0
-  m_Name: Grab
+  m_Name: DialTaskGrab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
