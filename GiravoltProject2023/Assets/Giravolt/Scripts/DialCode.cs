@@ -39,15 +39,8 @@ using System.Linq;
     {
         rb.constraints = originalConstraints;
     }
-    IEnumerator Corru()
-    {
-        yield return new WaitForSeconds(.5f);
-        
-    }
     private void Start()
     {
-        
-        
         for (int i = 0; i < 2; ++i)
         {
             password.Add(Random.Range(0, 10));
@@ -72,7 +65,7 @@ using System.Linq;
 
             if (!doUpdate)
             {
-                //StartCoroutine(CreateTask());
+                StartCoroutine(CreateTask());
             }
         }
         bool IsInRange(float val, float b1, float b2)
