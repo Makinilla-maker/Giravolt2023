@@ -8,6 +8,7 @@ using Photon.Pun;
 using ExitGames.Client.Photon;
 using Photon.Realtime;
 using UnityEngine.Serialization;
+using System.IO;
 
 [System.Serializable]
 public enum TaskStatus
@@ -35,6 +36,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
     private bool passwordGenerated;
+    int ammountOfDialPasswordNumbers;
     // place here the info for each created task;
     // DialTask = 0;
     // CremarNota = 1;
@@ -98,10 +100,18 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 alreadyGeneratedList = true;
             }
         }
-            
+
         
         if (pView.IsMine)
         {
+            if(passwordGenerated)
+            {
+                stream.SendNext(d.password.Count);
+                for (int i = 0; i < d.password.Count; ++i)
+                {
+                    stream.SendNext(d.password[i]);
+                }
+            }
             if(send)
             {
                 // We own this player: send the others our data
@@ -112,11 +122,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
                     stream.SendNext(sendTaskName);
                     stream.SendNext(sendTaskInt);
-                    stream.SendNext(d.password.Count);
-                    for(int i = 0; i < d.password.Count; ++i)
-                    {
-                        stream.SendNext(d.password[i]);
-                    }
+                    
                 }
                 else
                 {
@@ -129,15 +135,19 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             sendTaskName = (string)stream.ReceiveNext();
             sendTaskInt = (int)stream.ReceiveNext();
-            int c = (int)stream.ReceiveNext();
-            for (int i = 0;i < c; ++i)
+            if(!passwordGenerated)
             {
-                d.password[i] = (int)stream.ReceiveNext();
+                ammountOfDialPasswordNumbers = (int)stream.ReceiveNext();
+                for (int i = 0; i < ammountOfDialPasswordNumbers; ++i)
+                {
+                    tmpPassword[i] = (int)stream.ReceiveNext();
+                }
             }
             pView.RPC("SetCompletedTask", RpcTarget.All);
         }
 
     }
+    public int[] tmpPassword = new int[2];
     public void GetCompletedTask(Task completedTask)
     {
         sendTaskName = completedTask.name;
@@ -153,6 +163,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             {
                 generatedTasksForThisGame.Remove(generatedTasksForThisGame[i]);
             }
+        }
+    }
+    [PunRPC]
+    public void GetDialGeneratedPassword()
+    {
+        
+        for (int i = 0; i < ammountOfDialPasswordNumbers; ++i)
+        {
+            d.password[i] = tmpPassword[i];
         }
     }
     [PunRPC]
