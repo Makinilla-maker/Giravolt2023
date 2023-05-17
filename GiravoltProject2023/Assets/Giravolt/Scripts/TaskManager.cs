@@ -81,13 +81,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     {
                         if (allTasks[k].id == rcvdId)
                         {
-                            for(int o = 0; o < generatedTasksForThisGame.Count; ++o)
-                            {
+                            
                                 if (!generatedTasksForThisGame.Contains(allTasks[k]))
                                 {
                                    generatedTasksForThisGame.Add(allTasks[k]);
                                 }
-                            }
+                            
                         }
                     }
                 }
