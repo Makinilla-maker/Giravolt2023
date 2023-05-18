@@ -568,6 +568,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6061721820000585932, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe, type: 3}
+--- !u!65 &70682692 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7016475261637888541, guid: 5734bfc774ba91f48a9dfa17faf3caaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 692850098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &75509612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -886,6 +892,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4468080483702984666, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe, type: 3}
+--- !u!65 &97868278 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8766388088264061721, guid: 5734bfc774ba91f48a9dfa17faf3caaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 692850098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &99595510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -468195131333341048, guid: dca6ac7e92042e74d8dbd1ff72e6bcbe,
@@ -4529,6 +4541,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8659393607583734949, guid: 5734bfc774ba91f48a9dfa17faf3caaa,
+        type: 3}
+      propertyPath: cols2.Array.data[0]
+      value: 
+      objectReference: {fileID: 70682692}
+    - target: {fileID: 8659393607583734949, guid: 5734bfc774ba91f48a9dfa17faf3caaa,
+        type: 3}
+      propertyPath: cols2.Array.data[1]
+      value: 
+      objectReference: {fileID: 97868278}
     - target: {fileID: 9209427286342870619, guid: 5734bfc774ba91f48a9dfa17faf3caaa,
         type: 3}
       propertyPath: m_IsActive
@@ -5994,7 +6016,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 871347357}
