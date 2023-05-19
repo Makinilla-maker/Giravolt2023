@@ -24,7 +24,7 @@ public enum TaskStatus
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField]private Task taskCompleted;
-    private string sendTaskStatus = "A";
+    [SerializeField] private string sendTaskStatus = "A";
     private int sendTaskInt = -1;
     private bool send = false;
     private PhotonView pView;
