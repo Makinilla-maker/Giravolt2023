@@ -206,7 +206,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             case 0:
                 GameObject go;
-                go = GameObject.Find("Dial");
+                go = GameObject.Find("DialTaskGrab");
                 go.GetComponent<DialCode>().OnCompletedTask();
                 break;
             default:
