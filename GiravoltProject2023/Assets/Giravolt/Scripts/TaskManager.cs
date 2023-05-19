@@ -23,7 +23,7 @@ public enum TaskStatus
 
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
-    private Task taskCompleted;
+    [SerializeField]private Task taskCompleted;
     private string sendTaskName = "A";
     private int sendTaskInt = -1;
     private bool send = false;
@@ -100,7 +100,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             if(send)
             {
                 // We own this player: send the others our data
-                if (sendTaskName != "")
+                if (taskCompleted.name != "")
                 {
                     sendTaskName = taskCompleted.name;
                     sendTaskInt = taskCompleted.id;
@@ -128,8 +128,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
     public void GetCompletedTask(Task completedTask)
     {
-        sendTaskName = completedTask.name;
-        sendTaskInt = completedTask.id;
+        Debug.Log("Get completed Task funtion");
+        taskCompleted = completedTask;
         send = true;
     }
     [PunRPC]

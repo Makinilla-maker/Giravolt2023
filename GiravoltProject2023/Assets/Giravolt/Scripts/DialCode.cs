@@ -54,6 +54,7 @@ using System.Linq;
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                dialTask.status = TaskStatus.DOING;
                 CheckReleaseAngle();
             }
 
@@ -167,6 +168,7 @@ using System.Linq;
         if(CheckCorrectPassword())
         {
             Debug.Log("Correct Password");
+            dialTask.status = TaskStatus.COMPLETED;
             manager.GetCompletedTask(dialTask);
         }
         else
