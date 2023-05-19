@@ -14,7 +14,7 @@ using System.Linq;
     private int d;
     private TaskManager manager;
     private bool doUpdate;
-
+    private ParticleSystem ps;
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task dialTask = new Task();
 
@@ -26,6 +26,8 @@ using System.Linq;
         divisionsAngle = 360 / divisions;
         d = divisionsAngle / 2;
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
+        ps = GetComponent<ParticleSystem>();
+        ps.playOnAwake = false;
         // we go to the task manager to generate the task and assign its info
         
     }
@@ -52,7 +54,7 @@ using System.Linq;
         // Update is called once per frame
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space) && dialTask.status != TaskStatus.COMPLETED)
             {
                 dialTask.status = TaskStatus.DOING;
                 CheckReleaseAngle();
@@ -179,6 +181,16 @@ using System.Linq;
     bool CheckCorrectPassword()
     {
         return password.SequenceEqual(userInputPassword);
+    }
+    public void OnCompletedTask()
+    {
+        ps.Play();
+        StartCoroutine(Delay());
+    }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1f);
+        this.gameObject.SetActive(false);
     }
 }
 

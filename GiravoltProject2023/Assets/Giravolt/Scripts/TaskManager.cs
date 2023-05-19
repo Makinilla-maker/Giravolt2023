@@ -34,6 +34,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private List<Task> allTasks = new List<Task>();
     [SerializeField] public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
+    public ParticleSystem finalEffect;
     // place here the info for each created task;
     // DialTask = 0;
     // CremarNota = 1;
@@ -176,6 +177,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             alreadyGeneratedList = true;
         }
     }
+    
     #endregion
     // this function must be used in the awake function of every gameobject that has a task
     public Task CreateTask(string n, string d, TaskStatus s, GameObject mo, GameObject to, int id)
@@ -197,4 +199,18 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         return null;
     }
+    public void OnceTaskComplete(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                GameObject go;
+                go = GameObject.Find("Dial");
+                go.GetComponent<DialCode>().OnCompletedTask();
+                break;
+            default:
+                break;
+        }
+    }
+
 }
