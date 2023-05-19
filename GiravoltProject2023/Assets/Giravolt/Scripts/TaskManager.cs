@@ -24,7 +24,7 @@ public enum TaskStatus
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField]private Task taskCompleted;
-    private string sendTaskName = "A";
+    private string sendTaskStatus = "A";
     private int sendTaskInt = -1;
     private bool send = false;
     private PhotonView pView;
@@ -85,7 +85,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
                             if (!generatedTasksForThisGame.Contains(allTasks[k]))
                             {
-                                generatedTasksForThisGame.Add(allTasks[k]);
+                                if(allTasks[k].status != TaskStatus.COMPLETED)
+                                    generatedTasksForThisGame.Add(allTasks[k]);
                             }
 
                         }
@@ -105,10 +106,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 // We own this player: send the others our data
                 if (taskCompleted.name != "")
                 {
-                    sendTaskName = taskCompleted.name;
+                    sendTaskStatus = taskCompleted.status.ToString();
                     sendTaskInt = taskCompleted.id;
         
-                    stream.SendNext(sendTaskName);
+                    stream.SendNext(sendTaskStatus);
                     stream.SendNext(sendTaskInt);
                     
                 }
@@ -124,7 +125,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             string check = (string)stream.ReceiveNext();
             if (check != "")
             {
-               sendTaskName = check;
+                sendTaskStatus = check;
                 sendTaskInt = (int)stream.ReceiveNext();
             
                 pView.RPC("SetCompletedTask", RpcTarget.All);
