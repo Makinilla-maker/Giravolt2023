@@ -118,10 +118,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            sendTaskName = (string)stream.ReceiveNext();
-            sendTaskInt = (int)stream.ReceiveNext();
+            string check = (string)stream.ReceiveNext();
+            if (check != "")
+            {
+               sendTaskName = check;
+                sendTaskInt = (int)stream.ReceiveNext();
             
-            pView.RPC("SetCompletedTask", RpcTarget.All);
+                pView.RPC("SetCompletedTask", RpcTarget.All);
+
+            }
         }
 
     }
@@ -139,6 +144,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (generatedTasksForThisGame[i].id == sendTaskInt)
             {
+                trueNumberOfTasks--;
                 generatedTasksForThisGame.Remove(generatedTasksForThisGame[i]);
             }
         }
