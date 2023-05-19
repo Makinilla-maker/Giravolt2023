@@ -34,7 +34,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private List<Task> allTasks = new List<Task>();
     [SerializeField] public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
-    public ParticleSystem finalEffect;
     // place here the info for each created task;
     // DialTask = 0;
     // CremarNota = 1;
@@ -150,9 +149,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             {
                 trueNumberOfTasks--;
                 generatedTasksForThisGame[i].status = TaskStatus.COMPLETED;
+                OnceTaskComplete(generatedTasksForThisGame[i].id);
                 generatedTasksForThisGame.Remove(generatedTasksForThisGame[i]);
             }
         }
+        
     }
     [PunRPC]
     public void GenerateTasks()
