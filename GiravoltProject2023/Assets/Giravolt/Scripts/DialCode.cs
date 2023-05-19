@@ -14,7 +14,7 @@ using System.Linq;
     private int d;
     private TaskManager manager;
     private bool doUpdate;
-    private ParticleSystem ps;
+    [SerializeField]private ParticleSystem ps;
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task dialTask = new Task();
 
