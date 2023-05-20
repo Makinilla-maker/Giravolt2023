@@ -2135,14 +2135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb4726d3720604cbc0366fb7a5de1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskCompleted:
-    name: 
-    description: 
-    status: 0
-    mainObject: {fileID: 0}
-    targetObject: {fileID: 0}
-    id: 0
-  sendTaskStatus: A
   allTasks:
   - name: Random Task 1
     description: This is the random task number 1
@@ -20940,6 +20932,7 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 4
+  tagForThisTask: Task_1
 --- !u!1 &922429355
 GameObject:
   m_ObjectHideFlags: 0

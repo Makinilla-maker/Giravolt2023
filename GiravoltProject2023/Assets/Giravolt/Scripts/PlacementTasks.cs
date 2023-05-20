@@ -14,6 +14,7 @@ public class PlacementTasks : MonoBehaviour
     private int id;
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task placementTask_01 = new Task();
+    [SerializeField] private string tagForThisTask;
 
     private void Awake()
     {
@@ -62,7 +63,7 @@ public class PlacementTasks : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {        
-        if(other.gameObject.tag == "Task_1" && placementTask_01.status != TaskStatus.COMPLETED)
+        if(other.gameObject.tag == tagForThisTask && placementTask_01.status != TaskStatus.COMPLETED)
         {
             placementTask_01.status = TaskStatus.COMPLETED;
             manager.GetCompletedTask(placementTask_01);
