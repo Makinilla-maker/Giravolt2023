@@ -20931,8 +20931,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 7194952087870367274, guid: a56fa166c27c1b64a90204cdc43a72fd, type: 3}
-  taskName: 
-  taskDescription: 
+  taskName: Placement_Task_01
+  taskDescription: This is a premade empty text
   placementTask_01:
     name: 
     description: 
