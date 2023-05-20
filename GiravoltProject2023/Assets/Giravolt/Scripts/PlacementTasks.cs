@@ -11,14 +11,13 @@ public class PlacementTasks : MonoBehaviour
     [SerializeField]private ParticleSystem ps;
     public string taskName;
     public string taskDescription;
-    private int id;
+    public int id;
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task placementTask_01 = new Task();
     [SerializeField] private string tagForThisTask;
 
     private void Awake()
     {
-        id = 4;
         rb = GetComponent<Rigidbody>();
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
