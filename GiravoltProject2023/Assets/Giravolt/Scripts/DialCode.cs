@@ -27,7 +27,6 @@ using System.Linq;
         d = divisionsAngle / 2;
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
-        ps.playOnAwake = false;
         // we go to the task manager to generate the task and assign its info
         
     }

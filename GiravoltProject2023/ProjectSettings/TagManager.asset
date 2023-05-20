@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - SamplesInfoPanel
   - OnlineGameObject
+  - Task_1
   layers:
   - Default
   - TransparentFX

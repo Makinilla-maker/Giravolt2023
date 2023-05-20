@@ -136,7 +136,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
     public void GetCompletedTask(Task completedTask)
     {
-        Debug.Log("Get completed Task funtion");
         taskCompleted = completedTask;
         send = true;
     }
@@ -205,9 +204,17 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         switch (id)
         {
             case 0:
+            // DIAL
                 GameObject go;
                 go = GameObject.Find("DialTaskGrab");
                 go.GetComponent<DialCode>().OnCompletedTask();
+                break;
+            case 4:
+            // Random Placement task 01
+                GameObject pt;
+                pt = GameObject.Find("RandomRigidbodyObject");
+                Debug.Log(pt.name);
+                pt.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             default:
                 break;
