@@ -9,11 +9,15 @@ public class PlacementTasks : MonoBehaviour
     private TaskManager manager;
     private bool doUpdate;
     [SerializeField]private ParticleSystem ps;
+    public string taskName;
+    public string taskDescription;
+    private int id;
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task placementTask_01 = new Task();
 
     private void Awake()
     {
+        id = 4;
         rb = GetComponent<Rigidbody>();
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
@@ -36,7 +40,7 @@ public class PlacementTasks : MonoBehaviour
         doUpdate = true;
         Debug.Log("Creating placement task!");
         yield return new WaitForSeconds(3f);
-        placementTask_01 = manager.CreateTask("Placement Task 1", "This is a random generic placement task", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 4);
+        placementTask_01 = manager.CreateTask(taskName, taskDescription, TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, id);
     }
         // Update is called once per frame
         void Update()
