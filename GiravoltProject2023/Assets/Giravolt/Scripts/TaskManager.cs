@@ -23,8 +23,8 @@ public enum TaskStatus
 
 public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 {
-    [SerializeField]private Task taskCompleted;
-    [SerializeField] private string sendTaskStatus = "A";
+    private Task taskCompleted;
+    private string sendTaskStatus = "A";
     private int sendTaskInt = -1;
     private bool send = false;
     private PhotonView pView;
@@ -32,11 +32,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     // ISAAC
     private bool alreadyGeneratedList;
     [SerializeField] private List<Task> allTasks = new List<Task>();
-    [SerializeField] public List<Task> generatedTasksForThisGame = new List<Task>();
+    public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
     // place here the info for each created task;
     // DialTask = 0;
-    // CremarNota = 1;
+    // Placement Tasks = ++4;
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
