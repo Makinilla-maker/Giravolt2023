@@ -20689,8 +20689,8 @@ GameObject:
   - component: {fileID: 920789674}
   - component: {fileID: 920789683}
   m_Layer: 0
-  m_Name: RandomRigidbodyObject
-  m_TagString: Task_1
+  m_Name: Task_Factura
+  m_TagString: Task_Factura
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20923,8 +20923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 7194952087870367274, guid: a56fa166c27c1b64a90204cdc43a72fd, type: 3}
-  taskName: Placement_Task_01
-  taskDescription: This is a premade empty text
+  taskName: Task_Factura
+  taskDescription: Cremar la factura
   id: 4
   placementTask_01:
     name: 
@@ -20933,7 +20933,7 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 4
-  tagForThisTask: Task_1
+  tagForThisTask: Task_Factura
 --- !u!1 &922429355
 GameObject:
   m_ObjectHideFlags: 0
@@ -22986,8 +22986,8 @@ GameObject:
   - component: {fileID: 1034652536}
   - component: {fileID: 1034652540}
   m_Layer: 0
-  m_Name: RandomPlacementTrigger
-  m_TagString: Task_1
+  m_Name: Task_Factura_Trigger
+  m_TagString: Task_Factura
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23063,8 +23063,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034652535}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00000023841858, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32409,7 +32409,7 @@ PrefabInstance:
     - target: {fileID: 7194952087870367276, guid: a56fa166c27c1b64a90204cdc43a72fd,
         type: 3}
       propertyPath: m_TagString
-      value: Task_1
+      value: Task_Factura
       objectReference: {fileID: 0}
     - target: {fileID: 7194952087870367277, guid: a56fa166c27c1b64a90204cdc43a72fd,
         type: 3}
