@@ -11,6 +11,18 @@ TagManager:
   - Task_Factura
   - Task_Amagar
   - Task_Llibre
+  - Task_Caixa
+  - Task_Taques
+  - Task_Informacio
+  - Task_Escombraries
+  - Task_Porta
+  - Task_Fuet
+  - Task_Taca
+  - Task_Cos
+  - Task_Sang
+  - Task_Vaixell
+  - Task_Gerro
+  - Task_Espelma
   layers:
   - Default
   - TransparentFX
