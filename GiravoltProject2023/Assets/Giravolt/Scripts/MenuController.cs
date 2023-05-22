@@ -7,6 +7,11 @@ public class MenuController : MonoBehaviour
 {
    public void StartBtn()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void ExitBtn()
+    {
+        Application.Quit();
     }
 }
