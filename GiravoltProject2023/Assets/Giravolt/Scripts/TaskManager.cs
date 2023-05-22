@@ -201,20 +201,26 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void OnceTaskComplete(int id)
     {
+        GameObject go;
         switch (id)
         {
             case 0:
             // DIAL
-                GameObject go;
+                
                 go = GameObject.Find("DialTaskGrab");
                 go.GetComponent<DialCode>().OnCompletedTask();
                 break;
             case 4:
-            // Random Placement task 01
-                GameObject pt;
-                pt = GameObject.Find("RandomRigidbodyObject");
-                Debug.Log(pt.name);
-                pt.GetComponent<PlacementTasks>().OnCompletedTask();
+                go = GameObject.Find("Task_Factura");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 5:
+                go = GameObject.Find("Task_Amagar");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 6:
+                go = GameObject.Find("Task_Llibre");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             default:
                 break;
