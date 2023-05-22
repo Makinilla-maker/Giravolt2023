@@ -8,9 +8,9 @@ public class PlacementTasks : MonoBehaviour
     private RigidbodyConstraints originalConstraints;
     private TaskManager manager;
     private bool doUpdate;
-    [SerializeField]private ParticleSystem ps;
-    public string taskName;
-    public string taskDescription;
+    private ParticleSystem ps;
+    private string taskName;
+    private string taskDescription;
     public int id;
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task placementTask_01 = new Task();
@@ -22,6 +22,7 @@ public class PlacementTasks : MonoBehaviour
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
         tagForThisTask = this.gameObject.tag;
+        taskName = this.gameObject.name;
         // we go to the task manager to generate the task and assign its info
         
     }
