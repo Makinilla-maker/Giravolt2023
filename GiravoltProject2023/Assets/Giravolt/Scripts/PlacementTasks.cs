@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlacementTasks : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlacementTasks : MonoBehaviour
         ps = GetComponentInChildren<ParticleSystem>();
         tagForThisTask = this.gameObject.tag;
         taskName = this.gameObject.name;
+        GetComponentInChildren<TextMeshPro>().text = this.gameObject.name;
         // we go to the task manager to generate the task and assign its info
         
     }
