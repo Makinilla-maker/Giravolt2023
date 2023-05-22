@@ -2136,24 +2136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allTasks:
-  - name: Random Task 1
-    description: This is the random task number 1
-    status: 0
-    mainObject: {fileID: 0}
-    targetObject: {fileID: 0}
-    id: 3
-  - name: Random Task 2
-    description: This is the Random Task 2
-    status: 0
-    mainObject: {fileID: 0}
-    targetObject: {fileID: 0}
-    id: 1
-  - name: Random Task 3
-    description: This is the Random Task 3
-    status: 0
-    mainObject: {fileID: 0}
-    targetObject: {fileID: 0}
-    id: 2
   - name: Dial
     description: VVVV
     status: 0
