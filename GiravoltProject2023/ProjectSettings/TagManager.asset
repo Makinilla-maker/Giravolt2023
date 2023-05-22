@@ -9,6 +9,8 @@ TagManager:
   - SamplesInfoPanel
   - OnlineGameObject
   - Task_Factura
+  - Task_Amagar
+  - Task_Llibre
   layers:
   - Default
   - TransparentFX
