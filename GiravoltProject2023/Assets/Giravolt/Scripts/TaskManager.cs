@@ -222,6 +222,54 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 go = GameObject.Find("Task_Llibre");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
+            case 7:
+                go = GameObject.Find("Task_Caixa");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 8:
+                go = GameObject.Find("Task_Taques");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 9:
+                go = GameObject.Find("Task_Informacio");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 10:
+                go = GameObject.Find("Task_Escombraries");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 11:
+                go = GameObject.Find("Task_Porta");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 12:
+                go = GameObject.Find("Task_Fuet");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 13:
+                go = GameObject.Find("Task_Taca");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 14:
+                go = GameObject.Find("Task_Cos");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 15:
+                go = GameObject.Find("Task_Sang");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 16:
+                go = GameObject.Find("Task_Vaixell");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 17:
+                go = GameObject.Find("Task_Gerro");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
+            case 18:
+                go = GameObject.Find("Task_Espelma");
+                go.GetComponent<PlacementTasks>().OnCompletedTask();
+                break;
             default:
                 break;
         }
