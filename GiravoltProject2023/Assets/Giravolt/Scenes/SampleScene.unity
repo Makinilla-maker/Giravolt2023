@@ -2160,6 +2160,78 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 6
+  - name: Task_Caixa
+    description: Task Caixa
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 7
+  - name: Task_Taques
+    description: Task Taques
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 8
+  - name: Task_Informacio
+    description: Task informacio
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 9
+  - name: Task_Escombraries
+    description: Task Escombraries
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 10
+  - name: Task_Porta
+    description: Task Porta
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 11
+  - name: Task_Fuet
+    description: Task_Fuet
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 12
+  - name: Task_Taca
+    description: Task_Taca
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 13
+  - name: Task_Cos
+    description: Task_Cos
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 14
+  - name: Task_Sang
+    description: Task_Song
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 15
+  - name: Task_Vaixell
+    description: Task_Vaixell
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 16
+  - name: Task_Gerro
+    description: Task_Gerro
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 17
+  - name: Task_Espelma
+    description: Task_Espelma
+    status: 0
+    mainObject: {fileID: 0}
+    targetObject: {fileID: 0}
+    id: 18
   generatedTasksForThisGame: []
 --- !u!114 &94974127
 MonoBehaviour:
