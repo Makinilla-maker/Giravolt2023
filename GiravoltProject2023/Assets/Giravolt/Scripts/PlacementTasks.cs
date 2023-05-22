@@ -21,7 +21,6 @@ public class PlacementTasks : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
-        rb.useGravity = false;
         // we go to the task manager to generate the task and assign its info
         
     }
@@ -45,11 +44,6 @@ public class PlacementTasks : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                rb.useGravity = true;
-            }
-
             if (!doUpdate)
             {
                 StartCoroutine(CreateTask());
