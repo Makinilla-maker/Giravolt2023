@@ -55,7 +55,7 @@ public class PlacementTasks : MonoBehaviour
         {
             StartCoroutine(CreateTask());
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Alpha4))
         {
             rb.useGravity = !rb.useGravity;
         }
@@ -69,6 +69,7 @@ public class PlacementTasks : MonoBehaviour
     {
         Debug.Log("This is the other object tag -> " + other.gameObject.tag);
         Debug.Log("This is my tag -> " + tagForThisTask);
+        Debug.Log("This is my task status -> " + placementTask_01.status.ToString());
         if(other.gameObject.tag == tagForThisTask && placementTask_01.status != TaskStatus.COMPLETED)
         {
             placementTask_01.status = TaskStatus.COMPLETED;
