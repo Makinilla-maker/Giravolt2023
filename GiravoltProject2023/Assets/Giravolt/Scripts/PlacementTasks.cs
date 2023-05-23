@@ -22,7 +22,7 @@ public class PlacementTasks : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
-        tagForThisTask = this.gameObject.tag;
+        tagForThisTask = gameObject.tag;
         taskName = this.gameObject.tag;
         string tmp = this.gameObject.tag;
         string newTexttext = tmp.Replace("Task_", "");
@@ -66,7 +66,9 @@ public class PlacementTasks : MonoBehaviour
         StartCoroutine(Delay());
     }
     void OnTriggerEnter(Collider other)
-    {        
+    {
+        Debug.Log("This is the other object tag -> " + other.gameObject.tag);
+        Debug.Log("This is my tag -> " + tagForThisTask);
         if(other.gameObject.tag == tagForThisTask && placementTask_01.status != TaskStatus.COMPLETED)
         {
             placementTask_01.status = TaskStatus.COMPLETED;
