@@ -23,8 +23,8 @@ public class PlacementTasks : MonoBehaviour
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
         tagForThisTask = this.gameObject.tag;
-        taskName = this.gameObject.name;
-        GetComponentInChildren<TextMeshPro>().text = this.gameObject.name;
+        taskName = this.gameObject.tag;
+        GetComponentInChildren<TextMeshPro>().text = this.gameObject.tag;
         // we go to the task manager to generate the task and assign its info
         
     }
@@ -46,13 +46,13 @@ public class PlacementTasks : MonoBehaviour
         placementTask_01 = manager.CreateTask(taskName, taskDescription, TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, id);
     }
         // Update is called once per frame
-        void Update()
+    void Update()
+    {
+        if (!doUpdate)
         {
-            if (!doUpdate)
-            {
-                StartCoroutine(CreateTask());
-            }
+            StartCoroutine(CreateTask());
         }
+    }
     public void OnCompletedTask()
     {
         ps.Play();
