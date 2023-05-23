@@ -24,7 +24,9 @@ public class PlacementTasks : MonoBehaviour
         ps = GetComponentInChildren<ParticleSystem>();
         tagForThisTask = this.gameObject.tag;
         taskName = this.gameObject.tag;
-        GetComponentInChildren<TextMeshPro>().text = this.gameObject.tag;
+        string tmp = this.gameObject.tag;
+        string newTexttext = tmp.Replace("Task_", "");
+        GetComponentInChildren<TextMeshPro>().text = newTexttext;
         // we go to the task manager to generate the task and assign its info
         
     }
