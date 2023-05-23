@@ -22,7 +22,7 @@ public class PlacementTasks : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
-        tagForThisTask = gameObject.tag;
+        tagForThisTask = this.gameObject.tag;
         taskName = this.gameObject.tag;
         string tmp = this.gameObject.tag;
         string newTexttext = tmp.Replace("Task_", "");
