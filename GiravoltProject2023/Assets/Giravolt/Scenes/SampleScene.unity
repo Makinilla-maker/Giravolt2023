@@ -3356,7 +3356,7 @@ PrefabInstance:
     - target: {fileID: 224641614170224271, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Espelma
+      value: Task_Espelma_Main
       objectReference: {fileID: 0}
     - target: {fileID: 224641614170224271, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
