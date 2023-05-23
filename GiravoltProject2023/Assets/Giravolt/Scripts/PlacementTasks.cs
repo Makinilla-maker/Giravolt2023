@@ -22,8 +22,9 @@ public class PlacementTasks : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
+        taskDescription = "Tita";
         tagForThisTask = this.gameObject.tag;
-        taskName = this.gameObject.tag;
+        taskName = this.gameObject.name;
         string tmp = this.gameObject.tag;
         string newTexttext = tmp.Replace("Task_", "");
         GetComponentInChildren<TextMeshPro>().text = newTexttext;
@@ -57,7 +58,7 @@ public class PlacementTasks : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            rb.useGravity = !rb.useGravity;
+            rb.useGravity = true;
         }
     }
     public void OnCompletedTask()
@@ -67,9 +68,15 @@ public class PlacementTasks : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("This is the other object tag -> " + other.gameObject.tag);
-        Debug.Log("This is my tag -> " + tagForThisTask);
-        Debug.Log("This is my task status -> " + placementTask_01.status.ToString());
+        if(placementTask_01.status.ToString() != "")
+        {
+            Debug.Log("This is my task status -> " + placementTask_01.status.ToString());
+        }
+        else
+        {
+            Debug.Log("Task status is null!");
+        }
+        
         if(other.gameObject.tag == tagForThisTask && placementTask_01.status != TaskStatus.COMPLETED)
         {
             placementTask_01.status = TaskStatus.COMPLETED;
