@@ -900,7 +900,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Taca
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -1144,7 +1144,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Cos
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -1263,7 +1263,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Taques
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -2121,7 +2121,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Porta
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -3286,7 +3286,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Sang
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -3502,7 +3502,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Espelma
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -3880,7 +3880,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Fuet
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -4138,7 +4138,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Taques
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -4619,7 +4619,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Taques
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -5236,7 +5236,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Gerro
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -5489,7 +5489,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Vaixell
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -6161,7 +6161,7 @@ PrefabInstance:
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
-      value: Task_Caixa
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 5563070481307310570, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}

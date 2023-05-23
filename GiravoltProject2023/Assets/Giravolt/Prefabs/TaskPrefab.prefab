@@ -5371,7 +5371,7 @@ GameObject:
   - component: {fileID: 6349714704489878204}
   - component: {fileID: 8055120888174065869}
   m_Layer: 0
-  m_Name: Task_MisCojones_trigger
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
