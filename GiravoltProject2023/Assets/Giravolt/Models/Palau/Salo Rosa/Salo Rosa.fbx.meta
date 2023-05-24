@@ -43,7 +43,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: S_SaloRosa_01
-    second: {fileID: 2100000, guid: d9087e9869197214383c32bea81d5e13, type: 2}
+    second: {fileID: 2100000, guid: 58b75cb4f9ac4cd42bcb647574e1e21e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
