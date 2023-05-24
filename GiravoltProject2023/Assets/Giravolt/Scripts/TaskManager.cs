@@ -37,8 +37,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     // place here the info for each created task;
     // DialTask = 0;
     // Placement Tasks = ++4;
+    bool didPlayersWin;
     private void Awake()
     {
+        didPlayersWin = false;
         pView = GetComponent<PhotonView>();
         send = false;
         if (pView) pView.ObservedComponents.Add(this);
@@ -155,6 +157,18 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
     }
     [PunRPC]
+    public void EndGame()
+    {
+        if(didPlayersWin)
+        {
+            Debug.Log("Players Win The Game!");
+        }
+        else
+        {
+            Debug.Log("Impostor Wins the Game!");
+        }
+    }
+    [PunRPC]
     public void GenerateTasks()
     {
         if (!alreadyGeneratedList)
@@ -199,6 +213,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         return null;
     }
+
     public void OnceTaskComplete(int id)
     {
         GameObject go;
@@ -272,6 +287,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 break;
             default:
                 break;
+        }
+        if(generatedTasksForThisGame.Count == 0)
+        {
+            pView.RPC("EndGame", RpcTarget.All);
         }
     }
 
