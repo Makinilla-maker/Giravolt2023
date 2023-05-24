@@ -3,7 +3,47 @@ guid: 76825fc22e532ae448545430a1769127
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Cortines Vermelles
+    second: {fileID: 2100000, guid: 88171a51c22e2e648ac9044503d1e4f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Motllures Daurades
+    second: {fileID: 2100000, guid: f00a93de11083f94081cf51adbc07d54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Porta _Mod_01
+    second: {fileID: 2100000, guid: 8cfe72b13ab49a2488fb4dccacc85642, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Porta_Mod_02
+    second: {fileID: 2100000, guid: 6ea0e6a15f0a59341b06c084b0f1e2a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Sostre Neutre
+    second: {fileID: 2100000, guid: 0e31d9ea55b1bb44494239b2dd7fab2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: G_Tela Vermella
+    second: {fileID: 2100000, guid: fb3b522f9337e854282a33374088cd3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_Pere Pau_01
+    second: {fileID: 2100000, guid: f27a072c8ed288d4c88f0c4b6d3a07ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_SaloRosa_01
+    second: {fileID: 2100000, guid: d9087e9869197214383c32bea81d5e13, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
