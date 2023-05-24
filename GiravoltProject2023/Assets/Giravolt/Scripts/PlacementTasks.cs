@@ -28,7 +28,6 @@ public class PlacementTasks : MonoBehaviour
         string tmp = this.gameObject.tag;
         string newTexttext = tmp.Replace("Task_", "");
         GetComponentInChildren<TextMeshPro>().text = newTexttext;
-        rb.useGravity = false;
         // we go to the task manager to generate the task and assign its info
         
     }
