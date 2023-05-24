@@ -5619,7 +5619,7 @@ PrefabInstance:
     - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.0474
+      value: -5.937
       objectReference: {fileID: 0}
     - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -5858,7 +5858,12 @@ PrefabInstance:
     - target: {fileID: 7037916029294715211, guid: 64c4d73713283994280506c6a4738703,
         type: 3}
       propertyPath: m_Name
-      value: Armari_Task_Amagar (1)
+      value: Armari_Llibre_Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037916029294715211, guid: 64c4d73713283994280506c6a4738703,
+        type: 3}
+      propertyPath: m_TagString
+      value: Task_Llibre
       objectReference: {fileID: 0}
     - target: {fileID: 7037916030628338173, guid: 64c4d73713283994280506c6a4738703,
         type: 3}
@@ -6925,6 +6930,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Armari_Task_Amagar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037916029294715211, guid: 64c4d73713283994280506c6a4738703,
+        type: 3}
+      propertyPath: m_TagString
+      value: Task_Amagar
       objectReference: {fileID: 0}
     - target: {fileID: 7037916030628338173, guid: 64c4d73713283994280506c6a4738703,
         type: 3}
