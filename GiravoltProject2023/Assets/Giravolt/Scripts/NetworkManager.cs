@@ -6,6 +6,11 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    private PhotonView pView;
+    private void Awake()
+    {
+        pView = GetComponent<PhotonView>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +29,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         roomOption.MaxPlayers = 10;
         roomOption.IsVisible = true;
         roomOption.IsOpen = true;
+        roomOption.PublishUserId = true;
         PhotonNetwork.JoinOrCreateRoom("Room 1",roomOption, TypedLobby.Default);
     }
     public override void OnJoinedRoom()
@@ -35,6 +41,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("New player joined to the room");
         base.OnPlayerEnteredRoom(newPlayer);
+
     }
     
 }

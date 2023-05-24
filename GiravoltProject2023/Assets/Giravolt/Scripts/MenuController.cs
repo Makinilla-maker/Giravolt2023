@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    private GameManager gameManger;
    public void StartBtn()
     {
+        gameManger.UpdateGameState(GameState.INGAME);
         SceneManager.LoadScene("SampleScene");
     }
 
