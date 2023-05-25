@@ -7,12 +7,14 @@ public class LobbyBell : MonoBehaviour
     private Animator anim;
     public bool isAnimationDone;
     [SerializeField]private GameManager gameManager;
+    private AudioSource src;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         isAnimationDone = false;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        src = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -26,15 +28,16 @@ public class LobbyBell : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.L))
         {
-            SetAniamtionBool(true);
+            SetBellAniamtionBool(true);
         }
     }
     public void SetAnimationDone()
     {
         isAnimationDone = true;
+        SetBellAniamtionBool(false);
         gameManager.OnVotationBegin();
     }
-    public void SetAniamtionBool(bool b)
+    public void SetBellAniamtionBool(bool b)
     {
         anim.SetBool("PlayAnimation", b);
     }
@@ -42,7 +45,11 @@ public class LobbyBell : MonoBehaviour
     {
         if (collision.transform.gameObject.CompareTag("Player_Hand"))
         {
-            SetAniamtionBool(true);
+            SetBellAniamtionBool(true);
         }
+    }
+    public void PlayBellSound()
+    {
+        src.PlayOneShot(src.clip);
     }
 }
