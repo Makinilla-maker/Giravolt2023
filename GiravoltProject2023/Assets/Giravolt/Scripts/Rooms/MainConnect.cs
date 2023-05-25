@@ -21,4 +21,9 @@ public class MainConnect : MonoBehaviourPunCallbacks
         base.OnPlayerEnteredRoom(newPlayer);
 
     }
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        Debug.Log("DIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOS JOINED ROOM CORRECTLY");
+    }
 }
