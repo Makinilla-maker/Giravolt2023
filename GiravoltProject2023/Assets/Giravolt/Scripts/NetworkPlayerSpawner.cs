@@ -7,6 +7,10 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
     private GameObject spawnedPlayerPrefab;
     public Transform spawnPoint;
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
