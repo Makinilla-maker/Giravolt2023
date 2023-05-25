@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private GameObject player;
     private PhotonView pView;
     [SerializeField] private Transform lobbyPosition;
+    private GameObject lobbyVotationObjects;
     public GameState gameState;
     private void Awake()
     {
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
         pView = GetComponent<PhotonView>();
         player = GameObject.Find("OculusPlayer");
         lobbyPosition = GameObject.Find("LobbyStartPosition").GetComponent<Transform>();
+        lobbyVotationObjects = GameObject.Find("VotationObject");
+        lobbyVotationObjects.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void StartVotation()
     {
+        lobbyVotationObjects.SetActive(true);
         player.transform.position = lobbyPosition.position;
         gameState = GameState.INVOTATION;
     }
