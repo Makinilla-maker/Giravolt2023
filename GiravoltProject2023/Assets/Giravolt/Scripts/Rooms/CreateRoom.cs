@@ -16,6 +16,9 @@ public class CreateRoom : MonoBehaviourPunCallbacks
 
     public void GiraCreateRoom()
     {
+        if (!PhotonNetwork.IsConnected)
+            return;
+
         RoomOptions roomOption = new RoomOptions();
         roomOption.MaxPlayers = 5;
         roomOption.IsVisible = true;
