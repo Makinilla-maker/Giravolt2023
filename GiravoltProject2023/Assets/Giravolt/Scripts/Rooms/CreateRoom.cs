@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TextMeshProUGUI roomName;
+    private string name;
     private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -19,13 +20,18 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
             return;
 
+        name = roomName.text;
+        OnConnectedToMaster();        
+    }
+    public override void OnConnectedToMaster()
+    {
+        base.OnConnectedToMaster();
         RoomOptions roomOption = new RoomOptions();
         roomOption.MaxPlayers = 5;
         roomOption.IsVisible = true;
         roomOption.IsOpen = true;
         roomOption.PublishUserId = true;
-        PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOption, TypedLobby.Default);
-        
+        PhotonNetwork.JoinOrCreateRoom(name, roomOption, TypedLobby.Default);
     }
     public override void OnCreatedRoom()
     {
