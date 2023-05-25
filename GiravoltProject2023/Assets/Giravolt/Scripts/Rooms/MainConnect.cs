@@ -7,6 +7,12 @@ using Photon.Pun;
 public class MainConnect : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
+    private GameObject spawnedPlayerPrefab;
+    public Transform spawnPoint;
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         Debug.Log("COnnecting to photon ___ ", this);
@@ -18,12 +24,18 @@ public class MainConnect : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("New player joined to the room");
+        Debug.Log("This is the joined room of the Main Connect player spawner");
         base.OnPlayerEnteredRoom(newPlayer);
 
     }
-    // public override void OnJoinedRoom()
-    // {
-    //     base.OnJoinedRoom();
-    //     Debug.Log("DIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOS JOINED ROOM CORRECTLY");
-    // }
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnPoint.position, Quaternion.identity);
+    }
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+        PhotonNetwork.Destroy(spawnedPlayerPrefab);
+    }
 }

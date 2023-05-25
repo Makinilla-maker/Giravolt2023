@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
-    private GameObject spawnedPlayerPrefab;
+    [SerializeField] private GameObject spawnedPlayerPrefab;
     public Transform spawnPoint;
     void Awake()
     {
@@ -14,6 +14,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("This is the joined room of the network player spawner");
+        
         base.OnJoinedRoom();
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnPoint.position, Quaternion.identity);
     }
