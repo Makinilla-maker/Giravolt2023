@@ -7,6 +7,7 @@ using Photon.Realtime;
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     private PhotonView pView;
+    
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -14,24 +15,23 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        ConnectToServer();
+        //ConnectToServer();
     }
     void ConnectToServer()
     {
         PhotonNetwork.ConnectUsingSettings();
         Debug.Log("Try Connect To Server...");
     }
-    public override void OnConnectedToMaster()
-    {
-        Debug.Log("Connected To Server.");
-        base.OnConnectedToMaster();
-        RoomOptions roomOption = new RoomOptions();
-        roomOption.MaxPlayers = 10;
-        roomOption.IsVisible = true;
-        roomOption.IsOpen = true;
-        roomOption.PublishUserId = true;
-        PhotonNetwork.JoinOrCreateRoom("Room 1",roomOption, TypedLobby.Default);
-    }
+    //public override void OnConnectedToMaster()
+    //{
+    //    base.OnConnectedToMaster();
+    //    RoomOptions roomOption = new RoomOptions();
+    //    roomOption.MaxPlayers = 5;
+    //    roomOption.IsVisible = true;
+    //    roomOption.IsOpen = true;
+    //    roomOption.PublishUserId = true;
+    //    PhotonNetwork.JoinOrCreateRoom(roomName, roomOption, TypedLobby.Default);
+    //}
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a Room");
