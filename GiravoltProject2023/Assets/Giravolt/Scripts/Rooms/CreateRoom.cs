@@ -36,7 +36,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("OLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE SHA CREAR ROOM amb nom: " + roomName.text);
-        StartCoroutine(WaitToLoadScene("SampleScene"));
+        //StartCoroutine(WaitToLoadScene("SampleScene"));
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
