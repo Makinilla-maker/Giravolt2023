@@ -10,6 +10,10 @@ public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TextMeshProUGUI roomName;
     private string name;
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -43,6 +47,10 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     }
     public void LoadSampleScene()
     {
-        PhotonNetwork.LoadLevel("SampleScene");
+        if(PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel("SampleScene");
+        }
+        
     }
 }
