@@ -7492,9 +7492,6 @@ GameObject:
   - component: {fileID: 774222246443032226}
   - component: {fileID: 4400382504062554375}
   - component: {fileID: 1942665364969022925}
-  - component: {fileID: 4400382504062554377}
-  - component: {fileID: 4400382504062554379}
-  - component: {fileID: 4400382504062554378}
   m_Layer: 0
   m_Name: bell_ring
   m_TagString: Untagged
@@ -11317,51 +11314,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141097764753851416}
-  m_Mesh: {fileID: -8441949897049494527, guid: ab4fc32b6405cff4cabe179fe3c9bb62, type: 3}
---- !u!54 &4400382504062554377
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141097764753851416}
-  serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!138 &4400382504062554378
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141097764753851416}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 5
-  m_ConnectedMassScale: 1
---- !u!64 &4400382504062554379
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141097764753851416}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
   m_Mesh: {fileID: -8441949897049494527, guid: ab4fc32b6405cff4cabe179fe3c9bb62, type: 3}
 --- !u!4 &4406060815449131152
 Transform:
@@ -24333,7 +24285,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 54
   m_CollisionDetection: 2
 --- !u!64 &8524190943134338234
 MeshCollider:
@@ -24381,7 +24333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240300e95d24b754b98d27c0dd2d3bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  isAnimationDone: 0
 --- !u!1 &8548445459861825459
 GameObject:
   m_ObjectHideFlags: 0
