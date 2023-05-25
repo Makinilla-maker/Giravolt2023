@@ -23,6 +23,7 @@ TagManager:
   - Task_Vaixell
   - Task_Gerro
   - Task_Espelma
+  - Player_Hand
   layers:
   - Default
   - TransparentFX
