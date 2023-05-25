@@ -15,4 +15,10 @@ public class MainConnect : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinLobby();
     }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("New player joined to the room");
+        base.OnPlayerEnteredRoom(newPlayer);
+
+    }
 }
