@@ -15,7 +15,6 @@ public class MainConnect : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.ConnectUsingSettings();
         Debug.Log("COnnecting to photon ___ ", this);
     }
     public override void OnConnectedToMaster()
@@ -27,6 +26,7 @@ public class MainConnect : MonoBehaviourPunCallbacks
     {
         base.OnJoinedLobby();
         Debug.Log("=============================== JOINED LOBBY ===============================");
+        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
