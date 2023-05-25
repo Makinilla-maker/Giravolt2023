@@ -67,9 +67,10 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void StartVotation()
     {
+        // lock doors
         lobbyVotationObjects.SetActive(true);
         player.transform.position = lobbyPosition.position;
-        gameState = GameState.INVOTATION;
+        UpdateGameState(GameState.INVOTATION);
     }
     [PunRPC]
     public void EndVotaion()
