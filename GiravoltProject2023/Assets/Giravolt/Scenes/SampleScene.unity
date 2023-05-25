@@ -232,6 +232,11 @@ PrefabInstance:
       propertyPath: platformingLayerMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 297602102319057234, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 297602103752395642, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
         type: 3}
       propertyPath: m_Name
