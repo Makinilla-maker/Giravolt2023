@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class LobbyBell : MonoBehaviour
 {
-    public Animator anim;
+    private Animator anim;
+    public bool isAnimationDone;
+    private GameManager gameManager;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        isAnimationDone = false;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +25,16 @@ public class LobbyBell : MonoBehaviour
     {
         
     }
+    public void SetAnimationDone()
+    {
+        isAnimationDone = true;
+        gameManager.OnVotationBegin();
+    }
     public void SetAniamtionBool(bool b)
     {
         anim.SetBool("PlayAnimation", b);
     }
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.gameObject.CompareTag("Player_Hand"))
         {

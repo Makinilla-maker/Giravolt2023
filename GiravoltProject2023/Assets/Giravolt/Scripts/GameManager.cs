@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     private GameObject player;
     private PhotonView pView;
     private Transform lobbyPosition;
-    [SerializeField] GameState gameState;
+    public GameState gameState;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -40,7 +40,10 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         
     }
-
+    public void OnVotationBegin()
+    {        
+        pView.RPC("StartVotation", RpcTarget.All);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     public void StartVotation()
     {
         player.transform.position = lobbyPosition.position;
-        UpdateGameState(GameState.INVOTATION);
+        gameState = GameState.INVOTATION;
     }
     [PunRPC]
     public void EndVotaion()
