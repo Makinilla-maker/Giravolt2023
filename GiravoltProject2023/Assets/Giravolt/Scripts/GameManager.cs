@@ -25,15 +25,14 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
 {
     private GameObject player;
     private PhotonView pView;
-    private Transform lobbyPosition;
+    [SerializeField] private Transform lobbyPosition;
     public GameState gameState;
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         gameState = GameState.INLOBBY;
         pView = GetComponent<PhotonView>();
         player = GameObject.Find("OculusPlayer");
-        lobbyPosition = GetComponentInChildren<Transform>();
+        lobbyPosition = GameObject.Find("LobbyStartPosition").GetComponent<Transform>();
     }
     // Start is called before the first frame update
     void Start()

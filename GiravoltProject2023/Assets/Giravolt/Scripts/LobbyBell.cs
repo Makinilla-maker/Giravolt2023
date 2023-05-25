@@ -12,6 +12,7 @@ public class LobbyBell : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         isAnimationDone = false;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
