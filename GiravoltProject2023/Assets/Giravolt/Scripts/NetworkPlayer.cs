@@ -29,6 +29,7 @@ public class NetworkPlayer : MonoBehaviour
     {
         if(photonView.IsMine)
         {
+            player = GameObject.Find("TrackerOffsets");
             head.gameObject.SetActive(false);
             rightHand.gameObject.SetActive(false);
             leftHand.gameObject.SetActive(false);

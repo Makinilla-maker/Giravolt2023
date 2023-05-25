@@ -23,11 +23,15 @@ public class MainConnect : MonoBehaviourPunCallbacks
         if(!PhotonNetwork.InLobby)
             PhotonNetwork.JoinLobby();
     }
+    public override void OnJoinedLobby()
+    {
+        base.OnJoinedLobby();
+        Debug.Log("=============================== JOINED LOBBY ===============================");
+    }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("POOOOOOOOOOOOOOOOOOOOOOLLAAAAAAAAAAAAAAAAAAAAAA");
         base.OnPlayerEnteredRoom(newPlayer);
-        Debug.Log("POOOOOOOOOOOOOOOOOOOOOOLLAAAAAAAAAAAAAAAAAAAAAA x 2");
     }
     public override void OnJoinedRoom()
     {
