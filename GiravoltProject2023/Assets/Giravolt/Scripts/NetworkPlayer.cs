@@ -16,6 +16,10 @@ public class NetworkPlayer : MonoBehaviour
     private Transform rightHandRig;
 
     public GameObject player;
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
