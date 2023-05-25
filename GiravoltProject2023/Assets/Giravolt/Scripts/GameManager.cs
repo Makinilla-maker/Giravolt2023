@@ -20,10 +20,9 @@ public enum GameState
     ENDGAME,
     NONE,
 }
-[System.Serializable]
 public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
 {
-    private GameObject player;
+    [SerializeField] private GameObject player;
     private PhotonView pView;
     [SerializeField] private Transform lobbyPosition;
     public GameState gameState;

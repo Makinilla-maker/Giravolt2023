@@ -6,7 +6,7 @@ public class LobbyBell : MonoBehaviour
 {
     private Animator anim;
     public bool isAnimationDone;
-    private GameManager gameManager;
+    [SerializeField]private GameManager gameManager;
 
     private void Awake()
     {
