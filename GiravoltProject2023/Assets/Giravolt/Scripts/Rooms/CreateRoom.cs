@@ -25,11 +25,12 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         roomOption.IsOpen = true;
         roomOption.PublishUserId = true;
         PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOption, TypedLobby.Default);
-        StartCoroutine(WaitToLoadScene("SampleScene"));
+        
     }
     public override void OnCreatedRoom()
     {
         Debug.Log("OLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE SHA CREAR ROOM amb nom: " + roomName.text);
+        StartCoroutine(WaitToLoadScene("SampleScene"));
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {

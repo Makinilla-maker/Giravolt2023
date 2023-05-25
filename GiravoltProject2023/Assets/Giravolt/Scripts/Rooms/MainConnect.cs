@@ -8,29 +8,31 @@ public class MainConnect : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     private GameObject spawnedPlayerPrefab;
-    public Transform spawnPoint;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
     void Start()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.ConnectUsingSettings();
         Debug.Log("COnnecting to photon ___ ", this);
     }
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinLobby();
+        if(!PhotonNetwork.InLobby)
+            PhotonNetwork.JoinLobby();
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("POOOOOOOOOOOOOOOOOOOOOOLLAAAAAAAAAAAAAAAAAAAAAA");
         base.OnPlayerEnteredRoom(newPlayer);
-
+        Debug.Log("POOOOOOOOOOOOOOOOOOOOOOLLAAAAAAAAAAAAAAAAAAAAAA x 2");
     }
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnPoint.position, Quaternion.identity);
+        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);
     }
     public override void OnLeftRoom()
     {
