@@ -49,7 +49,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel("SampleScene");
+            SceneManager.LoadScene("SampleScene");
+            //hotonNetwork.LoadLevel("SampleScene");
         }
         
     }
