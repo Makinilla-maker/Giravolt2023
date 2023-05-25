@@ -23,8 +23,7 @@ public class MainConnect : MonoBehaviourPunCallbacks
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log("New player joined to the room");
-        Debug.Log("This is the joined room of the Main Connect player spawner");
+        Debug.Log("POOOOOOOOOOOOOOOOOOOOOOLLAAAAAAAAAAAAAAAAAAAAAA");
         base.OnPlayerEnteredRoom(newPlayer);
 
     }
