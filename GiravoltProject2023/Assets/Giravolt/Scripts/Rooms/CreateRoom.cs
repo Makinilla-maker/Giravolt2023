@@ -36,15 +36,13 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("OLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE SHA CREAR ROOM amb nom: " + roomName.text);
-        StartCoroutine(WaitToLoadScene("SampleScene"));
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("No sha creat la room, noob");
     }
-    IEnumerator WaitToLoadScene(string n)
+    public void LoadSampleScene()
     {
-        yield return new WaitForSeconds(1);
         PhotonNetwork.LoadLevel("SampleScene");
     }
 }
