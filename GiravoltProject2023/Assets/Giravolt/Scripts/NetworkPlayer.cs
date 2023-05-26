@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using Photon.Pun;
-
+using UnityEngine.SceneManagement;
 public class NetworkPlayer : MonoBehaviour
 {
     public Transform head;
@@ -41,9 +41,12 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(head, XRNode.Head);
             MapPosition(leftHand, XRNode.LeftHand);
             MapPosition(rightHand, XRNode.RightHand);
-
-            this.gameObject.transform.position = player.transform.position;
-            this.gameObject.transform.rotation = player.transform.rotation;
+            if(SceneManager.GetActiveScene().name == "SampleScene")
+            {
+                this.gameObject.transform.position = player.transform.position;
+                this.gameObject.transform.rotation = player.transform.rotation;
+            }
+            
         }
     }
      
