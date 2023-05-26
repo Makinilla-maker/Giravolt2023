@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
+using Photon.Pun;
 public class RoomListing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
@@ -12,6 +13,10 @@ public class RoomListing : MonoBehaviour
     {
         _roomInfo = roomInfo;
         text.text = roomInfo.MaxPlayers + ", " + roomInfo.Name;
+    }
+    public void OnClicked()
+    {
+        PhotonNetwork.JoinRoom(_roomInfo.Name); 
     }
     
 }

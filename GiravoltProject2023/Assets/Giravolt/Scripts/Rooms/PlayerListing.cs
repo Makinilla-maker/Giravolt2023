@@ -7,7 +7,7 @@ using Photon.Realtime;
 public class PlayerListing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    private Player myPlayer;
+    public Player myPlayer {get; private set;}
     public void SetPlayerInfo(Player player)
     {
         myPlayer = player;

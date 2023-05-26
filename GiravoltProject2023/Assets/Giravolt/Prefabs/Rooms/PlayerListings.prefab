@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8480193945390720615}
   - component: {fileID: 8480193945390720610}
   - component: {fileID: 8480193945390720613}
-  - component: {fileID: 8480193945390720612}
+  - component: {fileID: 8403931443231939445}
   m_Layer: 5
   m_Name: PlayerListings
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8480193945390720612
+--- !u!114 &8403931443231939445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8480193945390720614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615fc1e29a52044585ec2d1e83931e1, type: 3}
+  m_Script: {fileID: 11500000, guid: e4b9ab6bb9053ac4b94891442bc22df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomListing: {fileID: 2914988603613761652, guid: e427f8117f0278649a9d5b91f7111dc6,
-    type: 3}
-  content: {fileID: 8480193945665014305}
 --- !u!1 &8480193945665014304
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.13039589, g: 0, b: 1, a: 0.8509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
