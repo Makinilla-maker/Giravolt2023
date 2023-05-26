@@ -7,8 +7,8 @@ using Photon.Realtime;
 
 public class PlayerListings : MonoBehaviourPunCallbacks
 {
-    [SerializeField] PlayerListing playerListing;
-    [SerializeField] Transform content;
+    [SerializeField] private PlayerListing playerListing;
+    [SerializeField] private Transform content;
     private List<PlayerListing> _listings = new List<PlayerListing>();
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
