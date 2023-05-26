@@ -10,14 +10,29 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     [SerializeField] private PlayerListing playerListing;
     [SerializeField] private Transform content;
     private List<PlayerListing> _listings = new List<PlayerListing>();
-    public override void OnPlayerEnteredRoom(Player newPlayer)
+    private void Awake()
     {
-                PlayerListing listing = Instantiate(playerListing, content);
+        
+    }
+    private void AddPlayerListing(Player player)
+    {
+        PlayerListing listing = Instantiate(playerListing, content);
                 if (listing != null)
                 {
-                    listing.SetPlayerInfo(newPlayer);
+                    listing.SetPlayerInfo(player);
                     _listings.Add(listing);
                 }
+    }
+    private void GetCurrentRoomPlayers()
+    {
+        foreach(KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
+        {
+            AddPlayerListing(playerInfo.Value);
+        }
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        AddPlayerListing(newPlayer);
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
