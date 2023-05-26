@@ -9,10 +9,13 @@ using UnityEngine.SceneManagement;
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TextMeshProUGUI roomName;
+    [SerializeField] private PlayerListings playerListings; 
     private string name;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        playerListings = FindObjectOfType<PlayerListings>();
+
     }
     private void Start()
     {
@@ -51,7 +54,12 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             SceneManager.LoadScene("SampleScene");
             //hotonNetwork.LoadLevel("SampleScene");
-        }
-        
+        }        
     }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("THEEEEEEEEE PLAYEEEEEEEER ENTEEEEEEEREEEEEEEEEED AAAAA RROOOOOOOOOOOOOOOOM ATTACHING NAME TO THE UI");
+        playerListings.AddPlayerListing(newPlayer);
+    }
+    
 }

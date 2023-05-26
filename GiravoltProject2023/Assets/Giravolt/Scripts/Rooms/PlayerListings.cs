@@ -14,7 +14,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     {
         
     }
-    private void AddPlayerListing(Player player)
+    public void AddPlayerListing(Player player)
     {
         PlayerListing listing = Instantiate(playerListing, content);
                 if (listing != null)
@@ -30,10 +30,11 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             AddPlayerListing(playerInfo.Value);
         }
     }
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        AddPlayerListing(newPlayer);
-    }
+    // public override void OnPlayerEnteredRoom(Player newPlayer)
+    // {
+    //     Debug.Log("THEEEEEEEEE PLAYEEEEEEEER ENTEEEEEEEREEEEEEEEEED AAAAA RROOOOOOOOOOOOOOOOM ATTACHING NAME TO THE UI");
+    //     AddPlayerListing(newPlayer);
+    // }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         int index = _listings.FindIndex(x => x.myPlayer == otherPlayer);
