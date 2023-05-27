@@ -60,6 +60,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         Debug.Log("THEEEEEEEEE PLAYEEEEEEEER ENTEEEEEEEREEEEEEEEEED AAAAA RROOOOOOOOOOOOOOOOM ATTACHING NAME TO THE UI");
         playerListings.AddPlayerListing(newPlayer);
+        Debug.Log("THIS IS THE P L A Y E R NAME -> " + newPlayer.NickName);
     }
     
 }
