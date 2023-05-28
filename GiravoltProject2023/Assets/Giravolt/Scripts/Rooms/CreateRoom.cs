@@ -58,9 +58,9 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             //hotonNetwork.LoadLevel("SampleScene");
         }        
     }
-    public override void OnPlayerEnteredRoom(Player newPlayer)
+    
+    public override void OnJoinedRoom()
     {
-        Debug.Log("THEEEEEEEEE PLAYEEEEEEEER ENTEEEEEEEREEEEEEEEEED AAAAA RROOOOOOOOOOOOOOOOM ATTACHING NAME TO THE UI");
         this.gameObject.SetActive(false);
         playerListGameObject.SetActive(true);
     }
