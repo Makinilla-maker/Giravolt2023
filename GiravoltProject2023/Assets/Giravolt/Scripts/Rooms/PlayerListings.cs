@@ -12,6 +12,11 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     private List<PlayerListing> _listings = new List<PlayerListing>();
     private int i;
     private MainConnect mC;
+
+    // Impostor selector
+    public static int assassinID;
+    public static List<Player> players = new List<Player>();
+
     private void Awake()
     {
         i = 1;
@@ -25,7 +30,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     public override void OnDisable()
     {
         base.OnDisable();
-        for(int i = 0; i < _listings.Count; ++i)
+        for (int i = 0; i < _listings.Count; ++i)
         {
             Destroy(_listings[i].gameObject);
         }
@@ -34,7 +39,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     public void AddPlayerListing(Player player)
     {
         int index = _listings.FindIndex(x => x.Player == player);
-        if(index != -1)
+        if (index != -1)
         {
             _listings[index].SetPlayerInfo(player);
         }
@@ -46,15 +51,19 @@ public class PlayerListings : MonoBehaviourPunCallbacks
                 player.NickName = "Player " + i;
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
+                players.Add(player);
                 i++;
             }
         }
-        
     }
     public void GetCurrentRoomPlayers()
-    {      
-        foreach(KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
-        {            
+    {
+        if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+        {
+            PickAssassin();
+        }
+        foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
+        {
             AddPlayerListing(playerInfo.Value);
         }
     }
@@ -65,11 +74,17 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         int index = _listings.FindIndex(x => x.Player == otherPlayer);
-        if(index != -1)
+        if (index != -1)
         {
             Destroy(_listings[index].gameObject);
             _listings.RemoveAt(index);
             i--;
         }
+    }
+
+    void PickAssassin()
+    {
+        assassinID = Random.Range(0, PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.Log("Assassin is the Player: " + assassinID);
     }
 }

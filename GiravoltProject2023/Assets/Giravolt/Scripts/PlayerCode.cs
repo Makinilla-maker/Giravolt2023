@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerCode : MonoBehaviour
 {
     public int id;
+    public bool isAssassin;
     private GameManager gameManager;
     private void Awake()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 }
