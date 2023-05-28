@@ -43,6 +43,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             PlayerListing listing = Instantiate(_playerListing, content);
             if (listing != null)
             {
+                player.NickName = "Player " + i;
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
                 i++;
