@@ -44,6 +44,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
                 player.NickName = "Player " + i;                
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
+                i++;
             }
         }
         
@@ -53,7 +54,6 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         foreach(KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {            
             AddPlayerListing(playerInfo.Value);
-            i++;
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -67,6 +67,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         {
             Destroy(_listings[index].gameObject);
             _listings.RemoveAt(index);
+            i--;
         }
     }
 }
