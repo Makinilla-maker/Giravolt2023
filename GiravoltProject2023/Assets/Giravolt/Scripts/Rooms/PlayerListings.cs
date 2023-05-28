@@ -10,9 +10,10 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     [SerializeField] private PlayerListing _playerListing;
     [SerializeField] private Transform content;
     private List<PlayerListing> _listings = new List<PlayerListing>();
+    private int i;
     private void Awake()
     {
-        
+        i = 1;
     }
     public override void OnEnable()
     {
@@ -40,7 +41,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             PlayerListing listing = Instantiate(_playerListing, content);
             if (listing != null)
             {
-                player.NickName = "Player " + PhotonNetwork.CurrentRoom.Players.Count;
+                player.NickName = "Player " + i;                
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
             }
@@ -52,6 +53,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         foreach(KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {            
             AddPlayerListing(playerInfo.Value);
+            i++;
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
