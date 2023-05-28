@@ -8,6 +8,7 @@ public class PlayerListing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     public Player Player {get; private set;}
+<<<<<<< HEAD
     void Awake()
     {
         
@@ -15,5 +16,11 @@ public class PlayerListing : MonoBehaviour
     public void SetPlayerInfo(Player player)
     {
         Player = player;
+=======
+    public void SetPlayerInfo(Player player)
+    {
+        Player = player;
+        text.text = player.NickName;
+>>>>>>> parent of 25d26528 (set custom name, must test online)
     }
 }
