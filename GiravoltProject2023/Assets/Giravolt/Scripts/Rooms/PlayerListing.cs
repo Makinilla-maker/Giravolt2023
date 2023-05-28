@@ -7,10 +7,10 @@ using Photon.Realtime;
 public class PlayerListing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    public Player myPlayer {get; private set;}
+    public Player Player {get; private set;}
     public void SetPlayerInfo(Player player)
     {
-        myPlayer = player;
+        Player = player;
         text.text = player.NickName;
     }
 }

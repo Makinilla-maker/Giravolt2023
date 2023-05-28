@@ -9,12 +9,13 @@ using UnityEngine.SceneManagement;
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TextMeshProUGUI roomName;
-    [SerializeField] private PlayerListings playerListings; 
     private string name;
+    private GameObject playerListGameObject;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        playerListings = FindObjectOfType<PlayerListings>();
+        playerListGameObject = GameObject.Find("PlayerListings");
+        playerListGameObject.SetActive(false);
 
     }
     private void Start()
@@ -43,6 +44,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("OLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE SHA CREAR ROOM amb nom: " + roomName.text);
+        this.gameObject.SetActive(false);
+        playerListGameObject.SetActive(true);
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -59,8 +62,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("THEEEEEEEEE PLAYEEEEEEEER ENTEEEEEEEREEEEEEEEEED AAAAA RROOOOOOOOOOOOOOOOM ATTACHING NAME TO THE UI");
-        playerListings.AddPlayerListing(newPlayer);
-        Debug.Log("THIS IS THE P L A Y E R NAME -> " + newPlayer.NickName);
     }
     
 }

@@ -329,10 +329,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 136022983651400579, guid: 9a47ad2441e1fb343af1f4a3dd9be6a6,
         type: 3}
+    - target: {fileID: 8403931443231939445, guid: 792ec14c16cc747499e5fa26fac635a1,
+        type: 3}
+      propertyPath: _playerListing
+      value: 
+      objectReference: {fileID: 136022983651400579, guid: 9a47ad2441e1fb343af1f4a3dd9be6a6,
+        type: 3}
     - target: {fileID: 8480193945390720614, guid: 792ec14c16cc747499e5fa26fac635a1,
         type: 3}
       propertyPath: m_Name
       value: PlayerListings
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480193945390720614, guid: 792ec14c16cc747499e5fa26fac635a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8480193945390720615, guid: 792ec14c16cc747499e5fa26fac635a1,
         type: 3}
@@ -779,6 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb56502245480b74da071d40c0f4a869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerListings: {fileID: 0}
 --- !u!114 &1690715452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,6 +1074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreateRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 2885684562673732950, guid: a447e67cd0003e94dac2b38d3d50ddde,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2885684562673732951, guid: a447e67cd0003e94dac2b38d3d50ddde,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1185,6 +1202,21 @@ PrefabInstance:
     - target: {fileID: 2885684562673732951, guid: a447e67cd0003e94dac2b38d3d50ddde,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885684564187492284, guid: a447e67cd0003e94dac2b38d3d50ddde,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885684564187492285, guid: a447e67cd0003e94dac2b38d3d50ddde,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885684564187492287, guid: a447e67cd0003e94dac2b38d3d50ddde,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5798127689872674151, guid: a447e67cd0003e94dac2b38d3d50ddde,

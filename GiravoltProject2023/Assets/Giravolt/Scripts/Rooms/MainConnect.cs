@@ -8,11 +8,9 @@ public class MainConnect : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     private GameObject spawnedPlayerPrefab;
-    [SerializeField] private PlayerListings playerListings;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        playerListings = FindObjectOfType<PlayerListings>();
     }
     void Start()
     {
@@ -28,7 +26,6 @@ public class MainConnect : MonoBehaviourPunCallbacks
     {
         base.OnJoinedLobby();
         Debug.Log("=============================== JOINED LOBBY ===============================");
-        playerListings.GetCurrentRoomPlayers();
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
