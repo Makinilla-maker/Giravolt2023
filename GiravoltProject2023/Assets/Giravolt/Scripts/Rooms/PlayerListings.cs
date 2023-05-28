@@ -47,12 +47,10 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         
     }
     public void GetCurrentRoomPlayers()
-    {
-        int i = 0;        
+    {      
         foreach(KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
             playerInfo.Value.NickName = "Player " + PhotonNetwork.CurrentRoom.Players.Count;
-            i++; 
             AddPlayerListing(playerInfo.Value);
         }
     }
