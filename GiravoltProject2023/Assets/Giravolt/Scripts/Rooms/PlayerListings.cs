@@ -11,9 +11,11 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     [SerializeField] private Transform content;
     private List<PlayerListing> _listings = new List<PlayerListing>();
     private int i;
+    private MainConnect mC;
     private void Awake()
     {
         i = 1;
+        mC = FindObjectOfType<MainConnect>();
     }
     public override void OnEnable()
     {
@@ -41,7 +43,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             PlayerListing listing = Instantiate(_playerListing, content);
             if (listing != null)
             {
-                player.NickName = "Player " + i;                
+                player.NickName = mC.userName;
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
                 i++;
