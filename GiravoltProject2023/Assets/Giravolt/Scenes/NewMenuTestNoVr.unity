@@ -790,7 +790,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb56502245480b74da071d40c0f4a869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerListings: {fileID: 0}
 --- !u!114 &1690715452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885684562867362091, guid: a447e67cd0003e94dac2b38d3d50ddde,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnConnectedToMaster
       objectReference: {fileID: 0}
     - target: {fileID: 2885684564187492284, guid: a447e67cd0003e94dac2b38d3d50ddde,
         type: 3}

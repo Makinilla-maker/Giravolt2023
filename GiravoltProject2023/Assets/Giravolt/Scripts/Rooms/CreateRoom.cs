@@ -28,11 +28,11 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
             return;
 
-        name = roomName.text;
-        OnConnectedToMaster();        
+        name = roomName.text;     
     }
     public override void OnConnectedToMaster()
     {
+        GiraCreateRoom();
         base.OnConnectedToMaster();
         RoomOptions roomOption = new RoomOptions();
         roomOption.MaxPlayers = 5;
