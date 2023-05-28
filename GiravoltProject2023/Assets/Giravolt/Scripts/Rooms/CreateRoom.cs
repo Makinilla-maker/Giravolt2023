@@ -61,6 +61,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("THEEEEEEEEE PLAYEEEEEEEER ENTEEEEEEEREEEEEEEEEED AAAAA RROOOOOOOOOOOOOOOOM ATTACHING NAME TO THE UI");
+        this.gameObject.SetActive(false);
+        playerListGameObject.SetActive(true);
     }
     
 }
