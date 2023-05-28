@@ -8,9 +8,14 @@ public class PlayerListing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     public Player Player {get; private set;}
+    private MainConnect mC;
+    void Awake()
+    {
+        mC = FindObjectOfType<MainConnect>();
+    }
     public void SetPlayerInfo(Player player)
     {
         Player = player;
-        text.text = player.NickName;
+        text.text = mC.userName;
     }
 }

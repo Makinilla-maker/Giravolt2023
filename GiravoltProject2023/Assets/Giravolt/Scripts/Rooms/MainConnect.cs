@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
-
+using UnityEngine.UI;
 public class MainConnect : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
+    public string userName;
     private GameObject spawnedPlayerPrefab;
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
