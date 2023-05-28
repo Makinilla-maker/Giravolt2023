@@ -29,17 +29,16 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             return;
 
         name = roomName.text;     
-    }
-    public override void OnConnectedToMaster()
-    {
-        GiraCreateRoom();
-        base.OnConnectedToMaster();
         RoomOptions roomOption = new RoomOptions();
         roomOption.MaxPlayers = 5;
         roomOption.IsVisible = true;
         roomOption.IsOpen = true;
         roomOption.PublishUserId = true;
         PhotonNetwork.JoinOrCreateRoom(name, roomOption, TypedLobby.Default);
+    }
+    public override void OnConnectedToMaster()
+    {
+        base.OnConnectedToMaster();
     }
     public override void OnCreatedRoom()
     {
