@@ -40,6 +40,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             PlayerListing listing = Instantiate(_playerListing, content);
             if (listing != null)
             {
+                player.NickName = "Player " + PhotonNetwork.CurrentRoom.Players.Count;
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
             }
@@ -49,14 +50,13 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     public void GetCurrentRoomPlayers()
     {      
         foreach(KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
-        {
-            playerInfo.Value.NickName = "Player " + PhotonNetwork.CurrentRoom.Players.Count;
+        {            
             AddPlayerListing(playerInfo.Value);
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        AddPlayerListing(newPlayer);
+        GetCurrentRoomPlayers();
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
