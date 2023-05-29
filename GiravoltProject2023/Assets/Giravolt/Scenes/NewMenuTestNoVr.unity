@@ -313,6 +313,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 580774289}
     m_Modifications:
+    - target: {fileID: 128379324839764560, guid: 792ec14c16cc747499e5fa26fac635a1,
+        type: 3}
+      propertyPath: m_StartAxis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 128379324839764560, guid: 792ec14c16cc747499e5fa26fac635a1,
+        type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 128379324839764560, guid: 792ec14c16cc747499e5fa26fac635a1,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 128379324839764560, guid: 792ec14c16cc747499e5fa26fac635a1,
+        type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3213211079630175004, guid: 792ec14c16cc747499e5fa26fac635a1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -592,6 +612,26 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1942465813277418735, guid: 776c789163dee804aafd80f8c4863453,
+        type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039916697602259016, guid: 776c789163dee804aafd80f8c4863453,
+        type: 3}
+      propertyPath: m_StartAxis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039916697602259016, guid: 776c789163dee804aafd80f8c4863453,
+        type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039916697602259016, guid: 776c789163dee804aafd80f8c4863453,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039916697602259016, guid: 776c789163dee804aafd80f8c4863453,
         type: 3}
       propertyPath: m_Padding.m_Bottom
       value: 30
