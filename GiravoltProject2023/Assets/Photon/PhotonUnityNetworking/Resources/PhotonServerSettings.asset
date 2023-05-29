@@ -15,9 +15,9 @@ MonoBehaviour:
   AppSettings:
     AppIdRealtime: 36f475b2-7d17-47d1-9412-fa2ed191ccc6
     AppIdFusion: 
-    AppIdChat: 
+    AppIdChat: b9142fe7-bf63-4ff6-ac1a-4673b29c993e
     AppIdVoice: 3797e568-df2b-4215-a6bd-7321241abc0e
-    AppVersion: 
+    AppVersion: 0.5.0
     UseNameServer: 1
     FixedRegion: 
     Server: 
@@ -28,7 +28,7 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  DevRegion: eu
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -49,4 +49,4 @@ MonoBehaviour:
   - StartVotation
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 0
+  DevRegionSetOnce: 1
