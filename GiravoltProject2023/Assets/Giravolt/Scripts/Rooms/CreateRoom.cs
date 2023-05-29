@@ -16,7 +16,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(this.gameObject);
         playerListGameObject = GameObject.Find("PlayerListings");
         playerListGameObject.SetActive(false);
-
+        roomName.text = "Tita";
     }
     private void Start()
     {
