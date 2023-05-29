@@ -7131,6 +7131,9 @@ GameObject:
   - component: {fileID: 1623265306378328295}
   - component: {fileID: 3107847255291254994}
   - component: {fileID: 7225631818600545181}
+  - component: {fileID: 3137717020901575188}
+  - component: {fileID: 9005694140121986670}
+  - component: {fileID: 1040459780702672376}
   m_Layer: 0
   m_Name: OculusPlayer
   m_TagString: Untagged
@@ -7249,6 +7252,84 @@ MonoBehaviour:
   useOnAudioFilterRead: 0
   useMicrophoneTypeFallback: 1
   recordWhenJoined: 1
+--- !u!114 &3137717020901575188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297602103752395642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f95aa3c06eaa84bba4eafdedf12758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandleDeviceChange: 1
+  HandleDeviceChangeIOS: 0
+  HandleDeviceChangeAndroid: 1
+--- !u!114 &9005694140121986670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297602103752395642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddec46cf6a4c4addbf21b6be8442124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aec: 1
+  aecHighPass: 0
+  agc: 1
+  agcCompressionGain: 9
+  agcTargetLevel: 3
+  vad: 1
+  highPass: 0
+  noiseSuppression: 1
+  reverseStreamDelayMs: 120
+--- !u!114 &1040459780702672376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297602103752395642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d9debcbaf99472bb70ffc2f99cb23f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisconnectAfterKeepAlive: 0
+  KeepAliveInBackground: 60000
+  ApplyDontDestroyOnLoad: 1
+  runInBackground: 1
+  statsResetInterval: 1000
+  speakerPrefab: {fileID: 0}
+  primaryRecorder: {fileID: 0}
+  usePrimaryRecorder: 0
+  cppCompatibilityMode: 0
+  Settings:
+    AppIdRealtime: 
+    AppIdFusion: 
+    AppIdChat: 
+    AppIdVoice: 
+    AppVersion: 
+    UseNameServer: 1
+    FixedRegion: 
+    Server: 
+    Port: 0
+    ProxyServer: 
+    Protocol: 0
+    EnableProtocolFallback: 1
+    AuthMode: 0
+    EnableLobbyStatistics: 0
+    NetworkLogging: 1
+  ShowSettings: 1
+  AutoConnectAndJoin: 1
+  AutoLeaveAndDisconnect: 1
+  usePunAppSettings: 1
+  usePunAuthValues: 1
 --- !u!1 &387941546817901168
 GameObject:
   m_ObjectHideFlags: 0

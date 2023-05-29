@@ -322,6 +322,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player_Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 1040459780702672376, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+        type: 3}
+      propertyPath: speakerPrefab
+      value: 
+      objectReference: {fileID: 8601842220682113212, guid: abfec5edda47c8749ba387a139c00b56,
+        type: 3}
+    - target: {fileID: 1040459780702672376, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+        type: 3}
+      propertyPath: primaryRecorder
+      value: 
+      objectReference: {fileID: 20847432}
     - target: {fileID: 2547284220342742280, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
         type: 3}
       propertyPath: m_IsActive
@@ -370,6 +381,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4854c80cf48d01e44bfe786e8cf18e3a, type: 3}
+--- !u!114 &20847432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7225631818600545181, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 20847431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91175dcc15224463780e01a8a98b1b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &20847433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7672837401179564081, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
