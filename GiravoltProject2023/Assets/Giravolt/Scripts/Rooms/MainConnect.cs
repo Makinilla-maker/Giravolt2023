@@ -41,6 +41,10 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);
         pView.RPC("AddPlayerToList", RpcTarget.All, spawnedPlayerPrefab);        
     }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
+    }
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
