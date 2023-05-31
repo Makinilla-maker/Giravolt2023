@@ -70,17 +70,19 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         {
             pView.RPC("SendPhotonPlayerName", RpcTarget.All);
             dicOfPlayers.Add(newPlayer, tmpFakePlayer);
+            noUsePlayerList.Add(newPlayer.NickName.ToString());
         }
         else
         {
             dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
+            noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());
         }
             
         
 
 
         // THIS IS JUST TO DEBUG
-        noUsePlayerList.Add(newPlayer.NickName.ToString());
+        
         noUseGameObjectList.Add(tmpFakePlayer);
     }
     #endregion
