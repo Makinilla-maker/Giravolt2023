@@ -13,7 +13,9 @@ using System.IO;
 public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
-    [SerializeField] public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
+    public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
+    public List<Player> noUsePlayerList = new List<Player>();
+    public List<GameObject> noUseGameObjectList = new List<GameObject>();
     private GameObject spawnedPlayerPrefab;
     private PhotonView pView;
     public Player tmpPhotonPlayer;
@@ -59,6 +61,8 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public void AddPlayerToList()
     {
         dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
+        noUsePlayerList.Add(tmpPhotonPlayer);
+        noUseGameObjectList.Add(tmpFakePlayer);
     }
     #endregion
 }
