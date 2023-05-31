@@ -36,7 +36,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
             return;
 
-        name = roomName.text;     
+        name = "Tita";     
         RoomOptions roomOption = new RoomOptions();
         roomOption.MaxPlayers = 5;
         roomOption.IsVisible = true;
