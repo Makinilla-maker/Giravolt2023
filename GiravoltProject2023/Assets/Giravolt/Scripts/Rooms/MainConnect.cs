@@ -13,7 +13,7 @@ using System.IO;
 public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
-    [Serializable] public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
+    [SerializeField] public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
     private GameObject spawnedPlayerPrefab;
     private PhotonView pView;
     public Player tmpPhotonPlayer;
