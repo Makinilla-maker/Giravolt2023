@@ -21,6 +21,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public Player tmpPhotonPlayer;
     public GameObject tmpFakePlayer;
     public GameObject fakePlayerPrefab;
+    private Player newPlayer;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -58,9 +59,18 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     }
     #region IPunObservable implementation
     [PunRPC]
+    public void SendPhotonPlayerName()
+    {
+        newPlayer =  tmpPhotonPlayer;
+    }
+    [PunRPC]
     public void AddPlayerToList()
     {
-        dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
+        pView.RPC("SendPhotonPlayerName", RpcTarget.All);
+        dicOfPlayers.Add(newPlayer, tmpFakePlayer);
+
+
+        // THIS IS JUST TO DEBUG
         noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());
         noUseGameObjectList.Add(tmpFakePlayer);
     }
