@@ -11,12 +11,14 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     [SerializeField] private TextMeshProUGUI roomName;
     private string name;
     private GameObject playerListGameObject;
+    private MainConnect mC;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         playerListGameObject = GameObject.Find("PlayerListings");
         playerListGameObject.SetActive(false);
         roomName.text = "Tita";
+        mC = FindObjectOfType<MainConnect>();
     }
     private void Start()
     {
@@ -54,6 +56,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.IsMasterClient)
         {
+            //mC.
             SceneManager.LoadScene("SampleScene");
         }        
     }

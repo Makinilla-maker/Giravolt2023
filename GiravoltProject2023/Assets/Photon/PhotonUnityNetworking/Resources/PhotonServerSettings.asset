@@ -47,6 +47,7 @@ MonoBehaviour:
   - RespawnSpaceship
   - SetCompletedTask
   - StartVotation
+  - AddPlayerToList
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
