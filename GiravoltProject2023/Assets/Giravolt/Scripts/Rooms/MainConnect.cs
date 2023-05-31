@@ -66,8 +66,17 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void AddPlayerToList()
     {
-        pView.RPC("SendPhotonPlayerName", RpcTarget.All);
-        dicOfPlayers.Add(newPlayer, tmpFakePlayer);
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            pView.RPC("SendPhotonPlayerName", RpcTarget.All);
+            dicOfPlayers.Add(newPlayer, tmpFakePlayer);
+        }
+        else
+        {
+            dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
+        }
+            
+        
 
 
         // THIS IS JUST TO DEBUG
