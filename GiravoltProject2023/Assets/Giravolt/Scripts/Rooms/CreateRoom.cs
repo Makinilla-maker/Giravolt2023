@@ -24,7 +24,13 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.ConnectUsingSettings();
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            GiraCreateRoom();
+        }
+    }
     public void GiraCreateRoom()
     {
         if (!PhotonNetwork.IsConnected)
