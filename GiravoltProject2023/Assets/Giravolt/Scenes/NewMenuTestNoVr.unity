@@ -1325,6 +1325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb56502245480b74da071d40c0f4a869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noUsePlayerList: []
+  noUseGameObjectList: []
   tmpFakePlayer: {fileID: 0}
   fakePlayerPrefab: {fileID: 1369406595302925384, guid: 4f84368fab16321479feb7f97c458d95,
     type: 3}
