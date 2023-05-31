@@ -60,35 +60,14 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         PhotonNetwork.Destroy(spawnedPlayerPrefab);
     }
     #region IPunObservable implementation
-    [PunRPC]
-    public void SendPhotonPlayerName()
-    {
-        newPlayer =  tmpPhotonPlayer;
-    }
+    
     [PunRPC]
     public void AddPlayerToList()
     {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            i++;
-            pView.RPC("SendPhotonPlayerName", RpcTarget.All);
-            newPlayer.NickName = "Player " + i;
-            dicOfPlayers.Add(newPlayer, tmpFakePlayer);
-            noUsePlayerList.Add(newPlayer.NickName.ToString());
-            
-        }
-        else
-        {
-            i++;
-            dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
-            noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());            
-        }
-            
-        
-
-
-        // THIS IS JUST TO DEBUG
-        
+        i++;
+        tmpPhotonPlayer.NickName = "Player " + i;
+        dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
+        noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());   
         noUseGameObjectList.Add(tmpFakePlayer);
     }
     #endregion
