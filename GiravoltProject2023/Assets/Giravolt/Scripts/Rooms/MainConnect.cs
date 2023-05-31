@@ -22,10 +22,12 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject tmpFakePlayer;
     public GameObject fakePlayerPrefab;
     private Player newPlayer;
+    private int i;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         pView = GetComponent<PhotonView>();
+        i = 0;
     }
     void Start()
     {
@@ -68,14 +70,18 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (!PhotonNetwork.IsMasterClient)
         {
+            i++;
             pView.RPC("SendPhotonPlayerName", RpcTarget.All);
+            newPlayer.NickName = "Player " + i;
             dicOfPlayers.Add(newPlayer, tmpFakePlayer);
             noUsePlayerList.Add(newPlayer.NickName.ToString());
+            
         }
         else
         {
+            i++;
             dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
-            noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());
+            noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());            
         }
             
         
