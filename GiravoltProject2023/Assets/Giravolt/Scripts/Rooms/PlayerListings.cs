@@ -49,6 +49,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             if (listing != null)
             {
                 player.NickName = "Player " + i;
+                mC.tmpPhotonPlayer = player;
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
                 players.Add(player);

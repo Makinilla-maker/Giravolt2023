@@ -13,9 +13,12 @@ using System.IO;
 public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
-    public List<GameObject> ListsOfPlayers = new List<GameObject>();
+    public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
     private GameObject spawnedPlayerPrefab;
     private PhotonView pView;
+    public Player tmpPhotonPlayer;
+    public GameObject tmpFakePlayer;
+    public GameObject fakePlayerPrefab;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -39,7 +42,8 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     {
         base.OnJoinedRoom();
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);
-        pView.RPC("AddPlayerToList", RpcTarget.All, spawnedPlayerPrefab);        
+        tmpFakePlayer = Instantiate(fakePlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity, spawnedPlayerPrefab.transform);
+        pView.RPC("AddPlayerToList", RpcTarget.All);        
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -52,9 +56,9 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     }
     #region IPunObservable implementation
     [PunRPC]
-    public void AddPlayerToList(GameObject player)
+    public void AddPlayerToList()
     {
-        ListsOfPlayers.Add(player);
+        dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
     }
     #endregion
 }
