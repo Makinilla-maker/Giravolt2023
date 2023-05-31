@@ -10,7 +10,7 @@ using Photon.Realtime;
 using UnityEngine.Serialization;
 using System.IO;
 
-public class MainConnect : MonoBehaviourPunCallbacks
+public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
     public List<GameObject> ListsOfPlayers = new List<GameObject>();
