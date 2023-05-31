@@ -71,7 +71,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 
 
         // THIS IS JUST TO DEBUG
-        noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());
+        noUsePlayerList.Add(newPlayer.NickName.ToString());
         noUseGameObjectList.Add(tmpFakePlayer);
     }
     #endregion
