@@ -84,19 +84,19 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
                     bool b = (bool)stream.ReceiveNext();
                     switch (name)
                     {
-                        case "Player 1":
+                        case "Player 1(Clone)":
                             OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
                             break;
-                        case "Player 2":
+                        case "Player 2(Clone)":
                             OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
                         break;
-                        case "Player 3":
+                        case "Player 3(Clone)":
                             OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
                             break;
-                        case "Player 4":
+                        case "Player 4(Clone)":
                             OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
                         break;
-                        case "Player 5":
+                        case "Player 5(Clone)":
                             OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
                         break;
                         default:
