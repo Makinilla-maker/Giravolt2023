@@ -75,7 +75,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
         playerListGameObject.SetActive(true);
     }
     
