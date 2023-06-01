@@ -115,7 +115,6 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         PhotonNetwork.Destroy(spawnedPlayerPrefab);
     }
     #region IPunObservable implementation
-    [PunRPC]
     public void CleanListOfPhotonPlayers()
     {
         foreach (PlayerCode p in ListOfPhotonPlayers)
@@ -124,8 +123,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
             {
                 ListOfPhotonPlayers.Remove(p);
                 Destroy(p.gameObject);
-            }
-                
+            }                
         }
     }
     [PunRPC]
