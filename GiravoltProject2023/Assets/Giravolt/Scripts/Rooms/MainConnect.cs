@@ -13,7 +13,7 @@ using System.IO;
 public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
-    public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
+    public static Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
     [SerializeField] public List<string> noUsePlayerList = new List<string>();
     public List<GameObject> noUseGameObjectList = new List<GameObject>();
     private GameObject spawnedPlayerPrefab;
@@ -52,7 +52,6 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-
     }
     public override void OnLeftRoom()
     {

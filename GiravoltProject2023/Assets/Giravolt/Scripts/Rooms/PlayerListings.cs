@@ -14,7 +14,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     private MainConnect mC;
 
     // Impostor selector
-    public static int assassinID;
+    public static int globalAssassinID;
     public static List<Player> players = new List<Player>();
 
     private void Awake()
@@ -59,9 +59,12 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     }
     public void GetCurrentRoomPlayers()
     {
-        if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (PhotonNetwork.IsMasterClient)
         {
-            PickAssassin();
+            if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+            {
+                PickAssassin();
+            }
         }
         foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
@@ -85,7 +88,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
 
     void PickAssassin()
     {
-        assassinID = Random.Range(0, PhotonNetwork.CurrentRoom.PlayerCount);
-        Debug.Log("Assassin is the Player: " + assassinID);
+        globalAssassinID = Random.Range(0, PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.Log("Assassin is the Player: " + globalAssassinID);
     }
 }

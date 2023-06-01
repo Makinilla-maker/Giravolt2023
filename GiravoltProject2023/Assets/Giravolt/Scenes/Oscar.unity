@@ -6167,6 +6167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479749305}
   - component: {fileID: 1479749306}
+  - component: {fileID: 1479749307}
   m_Layer: 0
   m_Name: RoleManager
   m_TagString: Untagged
@@ -6201,6 +6202,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4418d9b3685d04c9a32ceba28b8a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assassinID: 0
+  localPlayer: {fileID: 0}
+  isLocalAssassin: 0
+--- !u!114 &1479749307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479749304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 32
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &1529971351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7037916029294715210, guid: 64c4d73713283994280506c6a4738703,

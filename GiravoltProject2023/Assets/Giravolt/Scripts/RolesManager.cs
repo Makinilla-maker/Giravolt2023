@@ -7,19 +7,33 @@ using ExitGames.Client.Photon.StructWrapping;
 
 public class RolesManager : MonoBehaviour
 {
+    private PhotonView pView;
     public int assassinID;
-    public List<Player> players;
+    public static List<GameObject> players = new List<GameObject>();
+
+    public GameObject localPlayer;
+    public bool isLocalAssassin;
 
     private void Awake()
     {
-        assassinID = PlayerListings.assassinID;
+        pView = GetComponent<PhotonView>();
+        assassinID = PlayerListings.globalAssassinID;
         Debug.Log("Assassin ID: " + assassinID);
-        players = PlayerListings.players;
-        //PhotonNetwork.CurrentRoom.GetPlayer(assassinID);
-    }
 
-    private void SetAssassin(int assassinID)
-    {
-        
+        localPlayer = GameObject.Find("OculusPlayer");
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            pView.RPC("SetAssassin", RpcTarget.All, assassinID);
+        }
+
+        [PunRPC]
+        void SetAssassin(int assassinID)
+        {
+            if (PhotonNetwork.LocalPlayer == PhotonNetwork.PlayerList[assassinID])
+            {
+                localPlayer.GetComponent<PlayerCode>().BecomeAssassin();
+            }
+        }
     }
 }
