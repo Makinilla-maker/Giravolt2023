@@ -120,7 +120,8 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     {
         foreach (PlayerCode p in ListOfPhotonPlayers)
         {
-            ListOfPhotonPlayers.Remove(p);
+            if(p != null)
+                ListOfPhotonPlayers.Remove(p);
         }
     }
     [PunRPC]
