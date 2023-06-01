@@ -53,8 +53,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);
-        pView.RPC("AddPlayerToList", RpcTarget.All);        
+        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);       
     }
     void Update()
     {
@@ -126,7 +125,6 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
             }                
         }
     }
-    [PunRPC]
     public void AddPlayerToList(int l)
     {
         i = l;
