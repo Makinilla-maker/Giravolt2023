@@ -53,19 +53,22 @@ public class PlayerListings : MonoBehaviourPunCallbacks
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
                 players.Add(player);
-                i++;
             }
         }
     }
     public void GetCurrentRoomPlayers()
     {
+        int i =0;
+        mC.CleanListOfPhotonPlayers();
         if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             PickAssassin();
         }
         foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
+            i++;
             AddPlayerListing(playerInfo.Value);
+            mC.AddPlayerToList(i);
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -81,7 +84,6 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             Destroy(_listings[index].gameObject);
             _listings.RemoveAt(index);
             i--;
-            mC.i--;
         }
     }
 
