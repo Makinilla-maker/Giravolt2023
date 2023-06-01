@@ -63,11 +63,16 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            //mC.
-            SceneManager.LoadScene("SampleScene");
+            mC.AssignRoles();
+            StartCoroutine(WaitToLoadCorrectScene());
+            
         }        
     }
-    
+    IEnumerator WaitToLoadCorrectScene()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("SampleScene");
+    }
     public override void OnJoinedRoom()
     {
         this.gameObject.SetActive(false);
