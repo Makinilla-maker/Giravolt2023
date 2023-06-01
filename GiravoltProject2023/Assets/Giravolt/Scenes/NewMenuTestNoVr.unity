@@ -1342,6 +1342,7 @@ MonoBehaviour:
   PlayerList: []
   tmpFakePlayer: {fileID: 1369406595302925384, guid: 4f84368fab16321479feb7f97c458d95,
     type: 3}
+  i: 0
 --- !u!114 &1690715452
 MonoBehaviour:
   m_ObjectHideFlags: 0
