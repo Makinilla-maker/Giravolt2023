@@ -407,7 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f372dda83f1e7c640b1814ce52ec7a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
   isAssassin: 0
 --- !u!1 &6226005740609080961
 GameObject:

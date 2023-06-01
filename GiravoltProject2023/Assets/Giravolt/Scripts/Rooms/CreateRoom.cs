@@ -41,12 +41,13 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
             return;
 
-        name = "Tita";     
+           
         RoomOptions roomOption = new RoomOptions();
         roomOption.MaxPlayers = 5;
         roomOption.IsVisible = true;
         roomOption.IsOpen = true;
         roomOption.PublishUserId = true;
+        name = "Tita";
         PhotonNetwork.JoinOrCreateRoom(name, roomOption, TypedLobby.Default);
     }
     public override void OnConnectedToMaster()
