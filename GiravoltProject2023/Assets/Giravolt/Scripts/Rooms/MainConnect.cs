@@ -15,13 +15,13 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
     public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
-    public List<Player> ListOfPhotonPlayers = new List<Player>();
+    public List<PlayerCode> ListOfPhotonPlayers = new List<PlayerCode>();
     [SerializeField] private List<string> PlayerList = new List<string>();
     private List<GameObject> noUseGameObjectList = new List<GameObject>();
     private GameObject spawnedPlayerPrefab;
     private PhotonView pView;
     public Player tmpPhotonPlayer;
-    private GameObject tmpFakePlayer;
+    public GameObject tmpFakePlayer;
     private Player newPlayer;
     private bool sendRoleInformation;
     private GameObject OculusPlayer;
@@ -72,8 +72,8 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
             {
                 for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
                 {
-                    stream.SendNext(ListOfPhotonPlayers[i].ConvertTo<GameObject>().name);
-                    stream.SendNext(ListOfPhotonPlayers[i].ConvertTo<GameObject>().GetComponent<PlayerCode>().isAssassin);
+                    stream.SendNext(ListOfPhotonPlayers[i].name);
+                    stream.SendNext(ListOfPhotonPlayers[i].isAssassin);
                 }
             }
             else
@@ -119,9 +119,11 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public void AddPlayerToList()
     {
         i++;
+        Instantiate(tmpFakePlayer, Vector3.zero, Quaternion.identity);
         tmpPhotonPlayer.NickName = "Player " + i;
         dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
-        ListOfPhotonPlayers.Add(tmpPhotonPlayer);
+        tmpFakePlayer.gameObject.name = tmpPhotonPlayer.NickName;
+        ListOfPhotonPlayers.Add(tmpFakePlayer.GetComponent<PlayerCode>());
         PlayerList.Add(tmpPhotonPlayer.NickName.ToString());   
         noUseGameObjectList.Add(tmpFakePlayer);
     }
@@ -132,12 +134,12 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         {
             if(i == rnd)
             {
-                ListOfPhotonPlayers[i].ConvertTo<GameObject>().GetComponent<PlayerCode>().isAssassin = true;
-                Debug.Log("The assin is: " + ListOfPhotonPlayers[i].ConvertTo<GameObject>().name);
+                ListOfPhotonPlayers[i].isAssassin = true;
+                Debug.Log("The assin is: " + ListOfPhotonPlayers[i].name);
             }
             else
             {
-                ListOfPhotonPlayers[i].ConvertTo<GameObject>().GetComponent<PlayerCode>().isAssassin = false;
+                ListOfPhotonPlayers[i].isAssassin = false;
             }
         }
         sendRoleInformation = true;
