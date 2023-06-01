@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCode : MonoBehaviour
 {
-    public int id;
+    public static int id;
     public bool isAssassin;
     private GameManager gameManager;
     private void Awake()

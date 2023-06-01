@@ -9,25 +9,33 @@ using ExitGames.Client.Photon;
 using Photon.Realtime;
 using UnityEngine.Serialization;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
     public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
-    [SerializeField] public List<string> noUsePlayerList = new List<string>();
-    public List<GameObject> noUseGameObjectList = new List<GameObject>();
+    public List<Player> ListOfPhotonPlayers = new List<Player>();
+    [SerializeField] private List<string> PlayerList = new List<string>();
+    private List<GameObject> noUseGameObjectList = new List<GameObject>();
     private GameObject spawnedPlayerPrefab;
     private PhotonView pView;
     public Player tmpPhotonPlayer;
-    public GameObject tmpFakePlayer;
-    public GameObject fakePlayerPrefab;
+    private GameObject tmpFakePlayer;
+    private GameObject fakePlayerPrefab;
     private Player newPlayer;
+    private bool sendRoleInformation;
+    private GameObject OculusPlayer;
+    private int rnd;
     private int i;
+    private bool doOnce;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         pView = GetComponent<PhotonView>();
         i = 0;
+        sendRoleInformation = false;
+        doOnce = false;
     }
     void Start()
     {
@@ -50,9 +58,57 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         tmpFakePlayer = Instantiate(fakePlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity, spawnedPlayerPrefab.transform);
         pView.RPC("AddPlayerToList", RpcTarget.All);        
     }
+    void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "SampleScene" && !doOnce)
+        {
+            OculusPlayer = GameObject.Find("OculusPlayer");
+            doOnce = true;
+        }
+    }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-
+        if(sendRoleInformation)
+        {
+            if(pView.IsMine)
+            {
+                for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
+                {
+                    stream.SendNext(ListOfPhotonPlayers[i].ConvertTo<GameObject>().name);
+                    stream.SendNext(ListOfPhotonPlayers[i].ConvertTo<GameObject>().GetComponent<PlayerCode>().isAssassin);
+                }
+            }
+            else
+            {
+                for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
+                {
+                    string name = (string)stream.ReceiveNext();
+                    bool b = (bool)stream.ReceiveNext();
+                    switch (name)
+                    {
+                        case "Player 1":
+                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+                            break;
+                        case "Player 2":
+                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+                        break;
+                        case "Player 3":
+                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+                            break;
+                        case "Player 4":
+                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+                        break;
+                        case "Player 5":
+                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+                        break;
+                        default:
+                        Debug.Log("Errors while sending the bool isAssassin to all players, did not get the name of the player right");
+                        break;
+                    }
+                }
+            }
+        }
+        
     }
     public override void OnLeftRoom()
     {
@@ -67,8 +123,25 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         i++;
         tmpPhotonPlayer.NickName = "Player " + i;
         dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
-        noUsePlayerList.Add(tmpPhotonPlayer.NickName.ToString());   
+        ListOfPhotonPlayers.Add(tmpPhotonPlayer);
+        PlayerList.Add(tmpPhotonPlayer.NickName.ToString());   
         noUseGameObjectList.Add(tmpFakePlayer);
+    }
+    public void AssignRoles()
+    {
+        rnd = Random.Range(0, PhotonNetwork.CurrentRoom.PlayerCount);
+        for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
+        {
+            if(i == rnd)
+            {
+                ListOfPhotonPlayers[i].ConvertTo<GameObject>().GetComponent<PlayerCode>().isAssassin = true;
+            }
+            else
+            {
+                ListOfPhotonPlayers[i].ConvertTo<GameObject>().GetComponent<PlayerCode>().isAssassin = false;
+            }
+        }
+        sendRoleInformation = true;
     }
     #endregion
 }
