@@ -10,5 +10,6 @@ public class PlayerCode : MonoBehaviour
     private void Awake()
     {
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        DontDestroyOnLoad(this);
     }
 }
