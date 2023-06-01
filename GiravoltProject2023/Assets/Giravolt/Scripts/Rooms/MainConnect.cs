@@ -122,7 +122,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         Instantiate(tmpFakePlayer, Vector3.zero, Quaternion.identity);
         tmpPhotonPlayer.NickName = "Player " + i;
         dicOfPlayers.Add(tmpPhotonPlayer, tmpFakePlayer);
-        tmpFakePlayer.gameObject.name = tmpPhotonPlayer.NickName;
+        tmpFakePlayer.gameObject.name = "Player " + i;
         ListOfPhotonPlayers.Add(tmpFakePlayer.GetComponent<PlayerCode>());
         PlayerList.Add(tmpPhotonPlayer.NickName.ToString());   
         noUseGameObjectList.Add(tmpFakePlayer);

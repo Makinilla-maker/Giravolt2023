@@ -52,7 +52,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("New room with name: " + roomName.text);
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
         playerListGameObject.SetActive(true);
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
