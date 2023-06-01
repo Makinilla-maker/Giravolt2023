@@ -71,6 +71,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         GetCurrentRoomPlayers();
+        mC.i++;
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
@@ -80,6 +81,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             Destroy(_listings[index].gameObject);
             _listings.RemoveAt(index);
             i--;
+            mC.i--;
         }
     }
 

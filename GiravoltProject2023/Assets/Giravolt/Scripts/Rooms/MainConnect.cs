@@ -26,7 +26,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     private bool sendRoleInformation;
     private GameObject OculusPlayer;
     private int rnd;
-    private int i;
+    public int i;
     private bool doOnce;
     void Awake()
     {
@@ -64,6 +64,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
             doOnce = true;
         }
     }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if(sendRoleInformation)
