@@ -121,7 +121,11 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         foreach (PlayerCode p in ListOfPhotonPlayers)
         {
             if(p != null)
+            {
                 ListOfPhotonPlayers.Remove(p);
+                Destroy(p.gameObject);
+            }
+                
         }
     }
     [PunRPC]
