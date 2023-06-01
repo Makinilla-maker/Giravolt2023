@@ -17,7 +17,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(this.gameObject);
         playerListGameObject = GameObject.Find("PlayerListings");
         playerListGameObject.SetActive(false);
-        roomName.text = "Tita";
         mC = FindObjectOfType<MainConnect>();
     }
     private void Start()
@@ -42,7 +41,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         roomOption.IsVisible = true;
         roomOption.IsOpen = true;
         roomOption.PublishUserId = true;
-        name = "Tita";
+        name = roomName.text;
         PhotonNetwork.JoinOrCreateRoom(name, roomOption, TypedLobby.Default);
     }
     public override void OnConnectedToMaster()
