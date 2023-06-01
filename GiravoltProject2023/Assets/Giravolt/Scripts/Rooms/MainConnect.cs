@@ -22,7 +22,6 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     private PhotonView pView;
     public Player tmpPhotonPlayer;
     private GameObject tmpFakePlayer;
-    private GameObject fakePlayerPrefab;
     private Player newPlayer;
     private bool sendRoleInformation;
     private GameObject OculusPlayer;
@@ -55,7 +54,6 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     {
         base.OnJoinedRoom();
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);
-        tmpFakePlayer = Instantiate(fakePlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity, spawnedPlayerPrefab.transform);
         pView.RPC("AddPlayerToList", RpcTarget.All);        
     }
     void Update()
