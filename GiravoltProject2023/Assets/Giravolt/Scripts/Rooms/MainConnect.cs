@@ -135,6 +135,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
             if(i == rnd)
             {
                 ListOfPhotonPlayers[i].ConvertTo<GameObject>().GetComponent<PlayerCode>().isAssassin = true;
+                Debug.Log("The assin is: " + ListOfPhotonPlayers[i].ConvertTo<GameObject>().name);
             }
             else
             {
