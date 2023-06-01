@@ -30,11 +30,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             GiraCreateRoom();
         }
-        else if(Input.GetKeyDown(KeyCode.I))
-        {
-            LoadSampleScene();
-            Debug.Log("Hardcoded load sample scene");
-        }
     }
     public void GiraCreateRoom()
     {
