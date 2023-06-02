@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerListings : MonoBehaviourPunCallbacks
 {
@@ -12,6 +13,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     private List<PlayerListing> _listings = new List<PlayerListing>();
     private int i;
     private MainConnect mC;
+    public TextMeshProUGUI playerName;
 
     // Impostor selector
     public static int assassinID;
@@ -48,7 +50,11 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             PlayerListing listing = Instantiate(_playerListing, content);
             if (listing != null)
             {
-                player.NickName = "Player " + i;
+                if(playerName.text != "")
+                    player.NickName = playerName.text;
+                else
+                    player.NickName = "Player " + i;
+
                 mC.tmpPhotonPlayer = player;
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
