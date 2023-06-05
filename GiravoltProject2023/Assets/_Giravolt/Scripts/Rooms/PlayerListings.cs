@@ -66,15 +66,13 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     }
     public void GetCurrentRoomPlayers()
     {
-        int i = 0;
         mC.CleanListOfPhotonPlayers();
-        if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
-        {
-            PickAssassin();
-        }
+        //if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+        //{
+        //    PickAssassin();
+        //}
         foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
-            i++;
             AddPlayerListing(playerInfo.Value);
             mC.AddPlayerToList(playerInfo.Value);
         }
