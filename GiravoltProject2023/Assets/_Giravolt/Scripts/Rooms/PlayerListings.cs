@@ -95,6 +95,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         {
             Destroy(_listings[index].gameObject);
             _listings.RemoveAt(index);
+            mC.ListOfPhotonPlayers.Remove(otherPlayer);
             i--;
         }
     }
