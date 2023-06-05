@@ -10,21 +10,21 @@ using Photon.Realtime;
 using UnityEngine.Serialization;
 using System.IO;
 using UnityEngine.SceneManagement;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+//using Oculus.Platform.Samples.VrHoops;
 
 public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Start is called before the first frame update
-    public Dictionary<Player, GameObject> dicOfPlayers = new Dictionary<Player, GameObject>();
-    public List<PlayerCode> ListOfPhotonPlayers = new List<PlayerCode>();
+    public List<Player> ListOfPhotonPlayers = new List<Player>();
     [SerializeField] private List<string> PlayerList = new List<string>();
-    private List<GameObject> noUseGameObjectList = new List<GameObject>();
     private GameObject spawnedPlayerPrefab;
     private PhotonView pView;
     public Player tmpPhotonPlayer;
     public GameObject tmpFakePlayer;
     private Player newPlayer;
     private bool sendRoleInformation;
-    private GameObject OculusPlayer;
+    public GameObject OculusPlayer;
     private int rnd;
     public int i;
     private bool doOnce;
@@ -72,8 +72,8 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
             {
                 for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
                 {
-                    stream.SendNext(ListOfPhotonPlayers[i].name);
-                    stream.SendNext(ListOfPhotonPlayers[i].isAssassin);
+                    //stream.SendNext(ListOfPhotonPlayers[i].name);
+                    //stream.SendNext(ListOfPhotonPlayers[i].isAssassin);
                 }
             }
             else
@@ -116,37 +116,40 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void CleanListOfPhotonPlayers()
     {
-        foreach (PlayerCode p in ListOfPhotonPlayers)
+        foreach (Player p in ListOfPhotonPlayers)
         {
-            if(p != null)
+            if (p != null)
             {
                 ListOfPhotonPlayers.Remove(p);
-                Destroy(p.gameObject);
-            }                
+            }
         }
     }
-    public void AddPlayerToList(int l)
+    public void AddPlayerToList(Player p)
     {
-        i = l;
-        GameObject go = Instantiate(tmpFakePlayer, Vector3.zero, Quaternion.identity);
-        tmpPhotonPlayer.NickName = "Player " + i;
-        go.gameObject.name = "Player " + i;
-        ListOfPhotonPlayers.Add(go.GetComponent<PlayerCode>());
+
+        ListOfPhotonPlayers.Add(p);
     }
     public void AssignRoles()
     {
         rnd = Random.Range(0, PhotonNetwork.CurrentRoom.PlayerCount);
-        for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
+        for (int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
         {
-            if(i == rnd)
+            bool isAssassin = (bool)ListOfPhotonPlayers[i].CustomProperties["isAssassin"];
+
+            if (i == rnd)
             {
-                ListOfPhotonPlayers[i].isAssassin = true;
-                Debug.Log("The assin is: " + ListOfPhotonPlayers[i].name);
+                Debug.Log("The assassin is: " + ListOfPhotonPlayers[i].NickName);
+                isAssassin = true;
             }
             else
             {
-                ListOfPhotonPlayers[i].isAssassin = false;
+                isAssassin = false;
             }
+            
+
+            Hashtable hash = new Hashtable();
+            hash.Add("isAssassin", isAssassin);
+            ListOfPhotonPlayers[i].SetCustomProperties(hash);
         }
         sendRoleInformation = true;
     }

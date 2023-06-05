@@ -5,6 +5,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine.InputSystem;
+using ExitGames.Client.Photon;
+
 
 public class PlayerListings : MonoBehaviourPunCallbacks
 {
@@ -74,7 +76,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         {
             i++;
             AddPlayerListing(playerInfo.Value);
-            mC.AddPlayerToList(i);
+            mC.AddPlayerToList(playerInfo.Value);
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
