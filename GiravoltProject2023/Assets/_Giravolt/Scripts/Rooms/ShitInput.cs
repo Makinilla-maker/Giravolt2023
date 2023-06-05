@@ -9,6 +9,7 @@ public class ShitInput : MonoBehaviour
     void Start()
     {
         r = GameObject.Find("CreateRoom").GetComponent<CreateRoom>();
+
     }
 
     // Update is called once per frame

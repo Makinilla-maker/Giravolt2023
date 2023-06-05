@@ -144,5 +144,13 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         }
         sendRoleInformation = true;
     }
+    public void POLLA()
+    {
+        for (int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
+        {
+            Debug.Log("This player " + ListOfPhotonPlayers[i].NickName + " " + i +" is the assasin? " + ListOfPhotonPlayers[i].CustomProperties["MePolla"].ToString());
+
+        }
+    }
     #endregion
 }
