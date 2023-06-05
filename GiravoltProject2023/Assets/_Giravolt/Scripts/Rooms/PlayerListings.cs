@@ -46,6 +46,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         if (index != -1)
         {
             _listings[index].SetPlayerInfo(player);
+            mC.AddPlayerToList(player);
         }
         else
         {
@@ -61,15 +62,16 @@ public class PlayerListings : MonoBehaviourPunCallbacks
                 listing.SetPlayerInfo(player);
                 _listings.Add(listing);
                 players.Add(player);
+                mC.AddPlayerToList(player);
             }
         }
     }
     public void GetCurrentRoomPlayers()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount != 0)
-        {
-            mC.CleanListOfPhotonPlayers();
-        }
+        //if (PhotonNetwork.CurrentRoom.PlayerCount != 0)
+        //{
+        //    mC.CleanListOfPhotonPlayers();
+        //}
             
             //if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
             //{
@@ -79,7 +81,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
             AddPlayerListing(playerInfo.Value);
-            mC.AddPlayerToList(playerInfo.Value);
+            
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)

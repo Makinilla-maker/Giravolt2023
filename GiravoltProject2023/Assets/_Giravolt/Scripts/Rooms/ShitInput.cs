@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShitInput : MonoBehaviour
 {
-    private CreateRoom r;
+    public CreateRoom r;
     // Start is called before the first frame update
     void Start()
     {
