@@ -26,6 +26,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     private bool sendRoleInformation;
     private int rnd;
     public int i;
+    private Hashtable customProperties = new Hashtable();
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -124,22 +125,19 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         rnd = Random.Range(0, PhotonNetwork.CurrentRoom.PlayerCount);
         for (int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
         {
-            bool isAssassin = (bool)ListOfPhotonPlayers[i].CustomProperties["isAssassin"];
-
             if (i == rnd)
             {
                 Debug.Log("The assassin is: " + ListOfPhotonPlayers[i].NickName);
-                isAssassin = true;
+
+                ListOfPhotonPlayers[i].CustomProperties["MePolla"] = true;
             }
             else
             {
-                isAssassin = false;
+                ListOfPhotonPlayers[i].CustomProperties["MePolla"] = false;
             }
-            
 
-            Hashtable hash = new Hashtable();
-            hash.Add("isAssassin", isAssassin);
-            ListOfPhotonPlayers[i].SetCustomProperties(hash);
+            Debug.Log(ListOfPhotonPlayers[i].CustomProperties["MePolla"].ToString());
+            
         }
         sendRoleInformation = true;
     }
