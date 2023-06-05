@@ -24,17 +24,14 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject tmpFakePlayer;
     private Player newPlayer;
     private bool sendRoleInformation;
-    public GameObject OculusPlayer;
     private int rnd;
     public int i;
-    private bool doOnce;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         pView = GetComponent<PhotonView>();
         i = 0;
         sendRoleInformation = false;
-        doOnce = false;
     }
     void Start()
     {
@@ -55,57 +52,49 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         base.OnJoinedRoom();
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);       
     }
-    void Update()
-    {
-        if(SceneManager.GetActiveScene().name == "SampleScene" && !doOnce)
-        {
-            OculusPlayer = GameObject.Find("OculusPlayer");
-            doOnce = true;
-        }
-    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if(sendRoleInformation)
-        {
-            if(pView.IsMine)
-            {
-                for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
-                {
-                    //stream.SendNext(ListOfPhotonPlayers[i].name);
-                    //stream.SendNext(ListOfPhotonPlayers[i].isAssassin);
-                }
-            }
-            else
-            {
-                for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
-                {
-                    string name = (string)stream.ReceiveNext();
-                    bool b = (bool)stream.ReceiveNext();
-                    switch (name)
-                    {
-                        case "Player 1(Clone)":
-                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
-                            break;
-                        case "Player 2(Clone)":
-                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
-                        break;
-                        case "Player 3(Clone)":
-                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
-                            break;
-                        case "Player 4(Clone)":
-                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
-                        break;
-                        case "Player 5(Clone)":
-                            OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
-                        break;
-                        default:
-                        Debug.Log("Errors while sending the bool isAssassin to all players, did not get the name of the player right");
-                        break;
-                    }
-                }
-            }
-        }
+        //if(sendRoleInformation)
+        //{
+        //    if(pView.IsMine)
+        //    {
+        //        for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
+        //        {
+        //            //stream.SendNext(ListOfPhotonPlayers[i].name);
+        //            //stream.SendNext(ListOfPhotonPlayers[i].isAssassin);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        for(int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
+        //        {
+        //            string name = (string)stream.ReceiveNext();
+        //            bool b = (bool)stream.ReceiveNext();
+        //            //switch (name)
+        //            //{
+        //            //    case "Player 1(Clone)":
+        //            //        OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+        //            //        break;
+        //            //    case "Player 2(Clone)":
+        //            //        OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+        //            //    break;
+        //            //    case "Player 3(Clone)":
+        //            //        OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+        //            //        break;
+        //            //    case "Player 4(Clone)":
+        //            //        OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+        //            //    break;
+        //            //    case "Player 5(Clone)":
+        //            //        OculusPlayer.GetComponent<PlayerCode>().isAssassin = b;
+        //            //    break;
+        //            //    default:
+        //            //    Debug.Log("Errors while sending the bool isAssassin to all players, did not get the name of the player right");
+        //            //    break;
+        //            //}
+        //        }
+        //    }
+        //}
         
     }
     public override void OnLeftRoom()
@@ -116,13 +105,17 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void CleanListOfPhotonPlayers()
     {
-        foreach (Player p in ListOfPhotonPlayers)
+        if(PhotonNetwork.CurrentRoom.PlayerCount != 0)
         {
-            if (p != null)
+            foreach (Player p in ListOfPhotonPlayers)
             {
-                ListOfPhotonPlayers.Remove(p);
+                if (p != null)
+                {
+                    ListOfPhotonPlayers.Remove(p);
+                }
             }
         }
+        
     }
     public void AddPlayerToList(Player p)
     {
