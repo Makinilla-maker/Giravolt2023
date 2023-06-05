@@ -105,8 +105,6 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     #region IPunObservable implementation
     public void CleanListOfPhotonPlayers()
     {
-        if(PhotonNetwork.CurrentRoom.PlayerCount != 0)
-        {
             foreach (Player p in ListOfPhotonPlayers)
             {
                 if (p != null)
@@ -114,7 +112,6 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
                     ListOfPhotonPlayers.Remove(p);
                 }
             }
-        }
         
     }
     public void AddPlayerToList(Player p)
