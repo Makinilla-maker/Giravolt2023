@@ -46,7 +46,6 @@ public class PlayerListings : MonoBehaviourPunCallbacks
         if (index != -1)
         {
             _listings[index].SetPlayerInfo(player);
-            bool isAssassin = (bool)player.CustomProperties["MePolla"];
             mC.AddPlayerToList(player);
         }
         else

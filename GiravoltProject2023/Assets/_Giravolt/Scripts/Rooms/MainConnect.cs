@@ -53,7 +53,10 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         base.OnJoinedRoom();
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);       
     }
-
+    private void Update()
+    {
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ---- " + ListOfPhotonPlayers.Count);
+    }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         //if(sendRoleInformation)
