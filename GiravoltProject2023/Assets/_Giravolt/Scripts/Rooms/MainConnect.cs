@@ -157,13 +157,11 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public void SetCustomNumber()
     {
         System.Random rand = new System.Random();
-        int result = rand.Next(1, PhotonNetwork.CurrentRoom.PlayerCount);
-
-        assassinID = result;
+        assassinID = Random.Range(1, PhotonNetwork.CurrentRoom.PlayerCount+1);
 
         customProperties["AssassinID"] = assassinID;
         PhotonNetwork.SetPlayerCustomProperties(customProperties);
 
-        Debug.Log("Assassin is " + result + " of the player count " + PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.Log("Assassin is " + assassinID + " of the player count " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
 }
