@@ -157,6 +157,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public void GetAssassinId(int id)
     {
         customProperties["AssassinID"] = id;
+        Debug.Log("THIS IS THE ID FROM THE GET ASSASSIN ID: " + id);
     }
     public void SetCustomNumber()
     {
