@@ -12,7 +12,7 @@ public class RolesManager : MonoBehaviour
     private void Start()
     {
         Debug.Log("THIS IS THE ID OF THE ASSASSIN: " + (int)PhotonNetwork.LocalPlayer.CustomProperties["AssassinID"]);
-        id = (int)PhotonNetwork.LocalPlayer.ActorNumber;
+        id = PhotonNetwork.LocalPlayer.ActorNumber;
         imAssassin = false; 
         SetLocalPlayerAsAssassin();
     }
@@ -20,7 +20,7 @@ public class RolesManager : MonoBehaviour
     public void SetLocalPlayerAsAssassin()
     {
         Debug.Log("FUNCTION BEING CALLED IN START");
-        if ((int)PhotonNetwork.LocalPlayer.ActorNumber == (int)PhotonNetwork.LocalPlayer.CustomProperties["AssassinID"])
+        if (PhotonNetwork.LocalPlayer.ActorNumber == (int)PhotonNetwork.LocalPlayer.CustomProperties["AssassinID"])
         {
             imAssassin = true;
             Debug.Log("I AM the ASSASSIN");

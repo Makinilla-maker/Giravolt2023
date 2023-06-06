@@ -153,13 +153,15 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
 
         }
     }
-
+    [PunRPC]
+    public void GetAssassinId(int id)
+    {
+        customProperties["AssassinID"] = id;
+    }
     public void SetCustomNumber()
     {
         assassinID = (int)Random.Range(1, PhotonNetwork.CurrentRoom.PlayerCount);
-
-        customProperties["AssassinID"] = assassinID;
-        PhotonNetwork.SetPlayerCustomProperties(customProperties);
+        pView.RPC("GetAssassinId", RpcTarget.All, assassinID);
 
         Debug.Log("Assassin is " + assassinID + " of the player count " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
