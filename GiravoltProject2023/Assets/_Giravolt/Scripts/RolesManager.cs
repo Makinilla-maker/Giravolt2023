@@ -11,7 +11,6 @@ public class RolesManager : MonoBehaviour
     [SerializeField] bool imAssassin;
     private void Start()
     {
-        Debug.Log("THIS IS THE ID OF THE ASSASSIN: " + (int)PhotonNetwork.LocalPlayer.CustomProperties["AssassinID"]);
         id = PhotonNetwork.LocalPlayer.ActorNumber;
         imAssassin = false; 
         SetLocalPlayerAsAssassin();
