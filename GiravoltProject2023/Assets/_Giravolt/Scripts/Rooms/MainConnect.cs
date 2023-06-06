@@ -55,10 +55,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
         base.OnJoinedRoom();
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", new Vector3(0,0,0), Quaternion.identity);       
     }
-    private void Update()
-    {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ---- " + ListOfPhotonPlayers.Count);
-    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         //if(sendRoleInformation)
@@ -160,13 +157,13 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public void SetCustomNumber()
     {
         System.Random rand = new System.Random();
-        int result = rand.Next(0, PhotonNetwork.CurrentRoom.PlayerCount);
+        int result = rand.Next(1, PhotonNetwork.CurrentRoom.PlayerCount);
 
         assassinID = result;
 
         customProperties["AssassinID"] = assassinID;
         PhotonNetwork.SetPlayerCustomProperties(customProperties);
 
-        Debug.Log("Assassin is " + result + "in SetCustomNumber");
+        Debug.Log("Assassin is " + result + " of the player count " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
 }

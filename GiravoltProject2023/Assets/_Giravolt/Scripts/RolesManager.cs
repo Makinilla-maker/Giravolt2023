@@ -22,11 +22,12 @@ public class RolesManager : MonoBehaviour
         if (PhotonNetwork.LocalPlayer.ActorNumber == (int)PhotonNetwork.LocalPlayer.CustomProperties["AssassinID"])
         {
             imAssassin = true;
-            Debug.Log("I am the assassin");
+            Debug.Log("I AM the ASSASSIN");
         }
         else
         {
             imAssassin= false;
+            Debug.Log("I am NOT the ASSASSIN");
         }
     }
 }
