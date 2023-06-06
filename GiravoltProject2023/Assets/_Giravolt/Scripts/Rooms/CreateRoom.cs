@@ -62,7 +62,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.IsMasterClient)
         {
-            mC.AssignRoles();
+            //mC.AssignRoles();
+            mC.SetCustomNumber();
             StartCoroutine(WaitToLoadCorrectScene());
             
         }        

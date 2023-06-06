@@ -18,7 +18,7 @@ public class DELETEME : MonoBehaviour
     void Start()
     {
         mc = FindObjectOfType<MainConnect>();
-        mc.POLLA();
+        //mc.POLLA();
     }
 
     // Update is called once per frame

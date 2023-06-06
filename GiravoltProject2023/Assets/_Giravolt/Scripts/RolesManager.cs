@@ -7,19 +7,26 @@ using ExitGames.Client.Photon.StructWrapping;
 
 public class RolesManager : MonoBehaviour
 {
-    public int assassinID;
-    public List<Player> players;
+    int id;
+    bool imAssassin;
 
     private void Awake()
     {
-        assassinID = PlayerListings.assassinID;
-        Debug.Log("Assassin ID: " + assassinID);
-        players = PlayerListings.players;
-        //PhotonNetwork.CurrentRoom.GetPlayer(assassinID);
+        id = PhotonNetwork.LocalPlayer.ActorNumber;
+        imAssassin = false; 
+        SetLocalPlayerAsAssassin();
     }
 
-    private void SetAssassin(int assassinID)
+    public void SetLocalPlayerAsAssassin()
     {
-        
+        if (PhotonNetwork.LocalPlayer.ActorNumber == (int)PhotonNetwork.LocalPlayer.CustomProperties["AssassinID"])
+        {
+            imAssassin = true;
+            Debug.Log("I am the assassin");
+        }
+        else
+        {
+            imAssassin= false;
+        }
     }
 }

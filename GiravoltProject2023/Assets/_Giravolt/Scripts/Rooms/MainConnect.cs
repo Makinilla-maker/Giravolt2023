@@ -27,6 +27,8 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     private int rnd;
     public int i;
     private Hashtable customProperties = new Hashtable();
+    [SerializeField] public int assassinID;
+    
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -153,5 +155,18 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log("\n\n\nThis player " + ListOfPhotonPlayers[i].NickName + " " + i + " is the assasin? " + ListOfPhotonPlayers[i].CustomProperties["MePolla"].ToString() + "\n\n\n\n");
 
         }
+    }
+
+    public void SetCustomNumber()
+    {
+        System.Random rand = new System.Random();
+        int result = rand.Next(0, PhotonNetwork.CurrentRoom.PlayerCount);
+
+        assassinID = result;
+
+        customProperties["AssassinID"] = assassinID;
+        PhotonNetwork.SetPlayerCustomProperties(customProperties);
+
+        Debug.Log("Assassin is " + result + "in SetCustomNumber");
     }
 }
