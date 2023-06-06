@@ -26,6 +26,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     private bool sendRoleInformation;
     private int rnd;
     public int i;
+    public int ORIOLMONGOLO;
     private Hashtable customProperties = new Hashtable();
     [SerializeField] public int assassinID;
     
@@ -157,6 +158,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public void GetAssassinId(int id)
     {
         customProperties["AssassinID"] = id;
+        ORIOLMONGOLO = id;
         Debug.Log("THIS IS THE ID FROM THE GET ASSASSIN ID: " + id);
     }
     public void SetCustomNumber()

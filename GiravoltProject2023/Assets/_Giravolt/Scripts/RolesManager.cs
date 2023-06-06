@@ -9,8 +9,10 @@ public class RolesManager : MonoBehaviour
 {
     [SerializeField] int id;
     [SerializeField] bool imAssassin;
+    private MainConnect mC;
     private void Start()
     {
+        mC = FindObjectOfType<MainConnect>();
         id = PhotonNetwork.LocalPlayer.ActorNumber;
         imAssassin = false; 
         SetLocalPlayerAsAssassin();
@@ -19,7 +21,7 @@ public class RolesManager : MonoBehaviour
     public void SetLocalPlayerAsAssassin()
     {
         Debug.Log("FUNCTION BEING CALLED IN START");
-        if (PhotonNetwork.LocalPlayer.ActorNumber == (int)PhotonNetwork.LocalPlayer.CustomProperties["AssassinID"])
+        if (PhotonNetwork.LocalPlayer.ActorNumber == mC.ORIOLMONGOLO)
         {
             imAssassin = true;
             Debug.Log("I AM the ASSASSIN");
