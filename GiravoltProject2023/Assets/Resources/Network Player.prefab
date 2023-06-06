@@ -2526,7 +2526,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Data.m_Target
       value: 
-      objectReference: {fileID: 2953753092857325750}
+      objectReference: {fileID: 3652318989459504793}
     - target: {fileID: 7729239463506144083, guid: 8e1398160cb83ef43a20693400da539c,
         type: 3}
       propertyPath: m_Data.m_MaintainTargetPositionOffset
@@ -2541,7 +2541,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Data.m_Target
       value: 
-      objectReference: {fileID: 2953753092331146814}
+      objectReference: {fileID: 1929591401196533943}
     - target: {fileID: 7729239464331403041, guid: 8e1398160cb83ef43a20693400da539c,
         type: 3}
       propertyPath: m_Data.m_MaintainTargetPositionOffset
