@@ -163,7 +163,7 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void SetCustomNumber()
     {
-        assassinID = (int)Random.Range(1, PhotonNetwork.CurrentRoom.PlayerCount);
+        assassinID = (int)Random.Range(1, PhotonNetwork.CurrentRoom.PlayerCount+1);
         pView.RPC("GetAssassinId", RpcTarget.All, assassinID);
 
         Debug.Log("Assassin is " + assassinID + " of the player count " + PhotonNetwork.CurrentRoom.PlayerCount);
