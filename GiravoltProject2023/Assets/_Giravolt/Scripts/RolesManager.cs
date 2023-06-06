@@ -7,8 +7,8 @@ using ExitGames.Client.Photon.StructWrapping;
 
 public class RolesManager : MonoBehaviour
 {
-    int id;
-    bool imAssassin;
+    [SerializeField] int id;
+    [SerializeField] bool imAssassin;
 
     private void Awake()
     {
