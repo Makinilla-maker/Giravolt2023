@@ -10,7 +10,7 @@ public class RolesManager : MonoBehaviour
     [SerializeField] int id;
     [SerializeField] bool imAssassin;
 
-    private void Awake()
+    private void Start()
     {
         id = PhotonNetwork.LocalPlayer.ActorNumber;
         imAssassin = false; 
