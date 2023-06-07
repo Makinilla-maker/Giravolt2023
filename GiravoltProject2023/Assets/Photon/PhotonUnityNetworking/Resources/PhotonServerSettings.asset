@@ -50,6 +50,7 @@ MonoBehaviour:
   - AddPlayerToList
   - SendPhotonPlayerName
   - CleanListOfPhotonPlayers
+  - GetAssassinId
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
