@@ -22,6 +22,86 @@ MonoBehaviour:
     m_Localized: Play
     m_Metadata:
       m_Items: []
+  - m_Id: 4448655690289152
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448871936020480
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448909013667840
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448984209149952
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449564713406464
+    m_Localized: Search public room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449595134693376
+    m_Localized: Enter room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449614130696192
+    m_Localized: Create room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4450871083913216
+    m_Localized: Enter room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451168200019968
+    m_Localized: Get in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451225250942976
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451574628077568
+    m_Localized: Room list
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452279715745792
+    m_Localized: Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452606309421056
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452661166723072
+    m_Localized: Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452779643228160
+    m_Localized: Tunnel vision
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453073961734144
+    m_Localized: General
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453120799526912
+    m_Localized: Voice chat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453149014609920
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453166785875968
+    m_Localized: Sound effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453959018598400
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

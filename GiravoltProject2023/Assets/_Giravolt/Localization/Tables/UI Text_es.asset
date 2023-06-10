@@ -22,6 +22,86 @@ MonoBehaviour:
     m_Localized: Jugar
     m_Metadata:
       m_Items: []
+  - m_Id: 4448655690289152
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448871936020480
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448909013667840
+    m_Localized: "Cr\xE9ditos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448984209149952
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449564713406464
+    m_Localized: "Buscar sala p\xFAblica "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449595134693376
+    m_Localized: Entrar sala
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449614130696192
+    m_Localized: Crear sala
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4450871083913216
+    m_Localized: 'Entrar a la sala '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451168200019968
+    m_Localized: Entrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451225250942976
+    m_Localized: Volver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451574628077568
+    m_Localized: Lista de salas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452279715745792
+    m_Localized: Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452606309421056
+    m_Localized: Sonido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452661166723072
+    m_Localized: Controles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452779643228160
+    m_Localized: "Visi\xF3n de t\xFAnel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453073961734144
+    m_Localized: General
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453120799526912
+    m_Localized: Chat de voz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453149014609920
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453166785875968
+    m_Localized: Efectos de sonido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453959018598400
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

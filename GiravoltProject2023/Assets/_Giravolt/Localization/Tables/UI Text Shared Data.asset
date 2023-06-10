@@ -19,6 +19,86 @@ MonoBehaviour:
     m_Key: Jugar Bt
     m_Metadata:
       m_Items: []
+  - m_Id: 4448655690289152
+    m_Key: "Configuraci\xF3 Bt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448871936020480
+    m_Key: Tutorial Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448909013667840
+    m_Key: "Cr\xE8dits Bt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4448984209149952
+    m_Key: Sortir Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449564713406464
+    m_Key: Buscar Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449595134693376
+    m_Key: EntrarSala Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4449614130696192
+    m_Key: Crear Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4450871083913216
+    m_Key: EntrarSala TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451168200019968
+    m_Key: Entrar Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451225250942976
+    m_Key: Tornar Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4451574628077568
+    m_Key: LlistaSala TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452279715745792
+    m_Key: GamePlay Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452606309421056
+    m_Key: So Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452661166723072
+    m_Key: Controls Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4452779643228160
+    m_Key: Tunnel Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453073961734144
+    m_Key: General Slider
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453120799526912
+    m_Key: Xat de Veu Slider
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453149014609920
+    m_Key: "M\xFAsica Slider"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453166785875968
+    m_Key: Efectes de so Slider
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453959018598400
+    m_Key: "Configuraci\xF3 TMP"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
