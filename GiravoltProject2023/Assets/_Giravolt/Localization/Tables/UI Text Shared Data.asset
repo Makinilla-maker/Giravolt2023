@@ -99,6 +99,42 @@ MonoBehaviour:
     m_Key: "Configuraci\xF3 TMP"
     m_Metadata:
       m_Items: []
+  - m_Id: 4778421505056768
+    m_Key: Jugar Opcions TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778861437214720
+    m_Key: Codi TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778948284473344
+    m_Key: Confirmar Bt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779028299210752
+    m_Key: Usuari TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779876622360576
+    m_Key: "Comen\xE7ar Bt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780141140336640
+    m_Key: Jugadors Insuficient TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780441205039104
+    m_Key: "Esperant Amfitri\xF3 TMP"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780903014686720
+    m_Key: Jugadors TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4781656978579456
+    m_Key: "Sala p\xFAblica TMP"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

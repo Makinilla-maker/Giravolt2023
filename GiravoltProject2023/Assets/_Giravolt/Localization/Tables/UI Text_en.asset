@@ -102,6 +102,42 @@ MonoBehaviour:
     m_Localized: Settings
     m_Metadata:
       m_Items: []
+  - m_Id: 4778421505056768
+    m_Localized: 'Select an option:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778861437214720
+    m_Localized: Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778948284473344
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779028299210752
+    m_Localized: Enter your username
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779876622360576
+    m_Localized: Start game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780141140336640
+    m_Localized: Insufficient players...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780441205039104
+    m_Localized: Waiting for the host
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780903014686720
+    m_Localized: Players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4781656978579456
+    m_Localized: Public room
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

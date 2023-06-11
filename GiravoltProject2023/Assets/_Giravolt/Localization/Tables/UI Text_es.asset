@@ -102,6 +102,42 @@ MonoBehaviour:
     m_Localized: "Configuraci\xF3n"
     m_Metadata:
       m_Items: []
+  - m_Id: 4778421505056768
+    m_Localized: "Selecciona una opci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778861437214720
+    m_Localized: "C\xF3digo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778948284473344
+    m_Localized: Confirmar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779028299210752
+    m_Localized: Introduce tu nombre de usuario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779876622360576
+    m_Localized: Empezar partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780141140336640
+    m_Localized: Jugadores insuficientes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780441205039104
+    m_Localized: "Esperando al anfitri\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4780903014686720
+    m_Localized: Jugadores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4781656978579456
+    m_Localized: "Sala p\xFAblica"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
