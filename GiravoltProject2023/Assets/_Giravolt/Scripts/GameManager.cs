@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     private PhotonView pView;
     [SerializeField] private Transform lobbyPosition;
     private GameObject lobbyVotationObjects;
+    private GameObject trackerOffset;
     public GameState gameState;
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
         pView = GetComponent<PhotonView>();
         player = GameObject.Find("OculusPlayer");
         lobbyPosition = GameObject.Find("LobbyStartPosition").GetComponent<Transform>();
+        trackerOffset = GameObject.Find("TrackerOffsets");
         lobbyVotationObjects = GameObject.Find("VotationObject");
         lobbyVotationObjects.SetActive(false);
     }
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
         // lock doors
         lobbyVotationObjects.SetActive(true);
         player.transform.position = lobbyPosition.position;
+        trackerOffset.transform.position = Vector3.zero;
         UpdateGameState(GameState.INVOTATION);
     }
     [PunRPC]
