@@ -1,0 +1,5 @@
+La textura "S_Vigata_VidresOpacs" l'haureu de configurar vosaltres, ja que és un material procedural. 
+La idea és generar una textura com de vidre translucent perque entri la llum del sol però no deixi
+veure l'exterior.
+
+Att. Isidre Ot
