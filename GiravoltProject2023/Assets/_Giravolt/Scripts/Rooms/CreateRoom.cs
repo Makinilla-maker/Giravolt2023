@@ -13,6 +13,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     private GameObject playerListGameObject;
     private MainConnect mC;
     [SerializeField] private RolesManager rolesManager;
+    PhotonView pv;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -22,6 +23,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         playerListGameObject = GameObject.Find("PlayerListings");
         //playerListGameObject.SetActive(false);
+        pv = GetComponent<PhotonView>();
         rolesManager = FindObjectOfType<RolesManager>();
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -66,13 +68,17 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             //mC.AssignRoles();
             mC.SetCustomNumber();
-
-            rolesManager.SetLocalPlayerAsAssassin();
-
+            pv.RPC("SetLocalPlayerAsAssassin", RpcTarget.All);
             StartCoroutine(WaitToLoadCorrectScene());
-            
-        }        
+        }
     }
+    [PunRPC]
+    public void SetLocalPlayerAsAssassin()
+    {
+        Debug.Log("FUNCTION BEING CALLED IN START");
+        rolesManager.isaacMongolo = mC.ORIOLMONGOLO;
+    }
+
     IEnumerator WaitToLoadCorrectScene()
     {
         SceneManager.LoadSceneAsync("SampleScene");

@@ -46,6 +46,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         pView = GetComponent<PhotonView>();
         send = false;
         if (pView) pView.ObservedComponents.Add(this);
+
+
     }
     private void Update()
     {
