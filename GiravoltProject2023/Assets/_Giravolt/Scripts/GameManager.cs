@@ -10,6 +10,7 @@ using Photon.Realtime;
 using UnityEngine.Serialization;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Autohand;
 
 [System.Serializable]
 public enum GameState
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     private GameObject lobbyVotationObjects;
     private GameObject trackerOffset;
     public GameState gameState;
+    private AutoHandPlayer playerBody;
     private void Awake()
     {
         gameState = GameState.INLOBBY;
@@ -69,10 +71,10 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void StartVotation()
     {
+        playerBody = GameObject.Find("Auto Hand Player").GetComponent<AutoHandPlayer>();
         // lock doors
         lobbyVotationObjects.SetActive(true);
-        player.transform.position = lobbyPosition.position;
-        trackerOffset.transform.position = Vector3.zero;
+        playerBody.SetPosition(lobbyPosition.position);
         UpdateGameState(GameState.INVOTATION);
     }
     [PunRPC]
