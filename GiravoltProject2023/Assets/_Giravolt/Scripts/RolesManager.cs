@@ -10,13 +10,13 @@ public class RolesManager : MonoBehaviour
     public int id;
     [SerializeField] bool imAssassin;
     public MainConnect mC;
-    public int isaacMongolo = 0;
     private bool doOnce = false;
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         mC = FindObjectOfType<MainConnect>();
         imAssassin = false;
+        id = PhotonNetwork.LocalPlayer.ActorNumber;
+        SetLocalId();
     }
     private void Update()
     {
@@ -24,8 +24,8 @@ public class RolesManager : MonoBehaviour
     }
     public void SetLocalId()
     {
-        id = PhotonNetwork.LocalPlayer.ActorNumber;
-        if (PhotonNetwork.LocalPlayer.ActorNumber == isaacMongolo)
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == mC.ORIOLMONGOLO)
         {
             imAssassin = true;
             Debug.Log("I AM the ASSASSIN");

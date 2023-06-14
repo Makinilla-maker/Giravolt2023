@@ -9,11 +9,9 @@ using UnityEngine.SceneManagement;
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TextMeshProUGUI roomName;
-    private string name;
     private GameObject playerListGameObject;
     private MainConnect mC;
     [SerializeField] private RolesManager rolesManager;
-    PhotonView pv;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -23,7 +21,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         playerListGameObject = GameObject.Find("PlayerListings");
         //playerListGameObject.SetActive(false);
-        pv = GetComponent<PhotonView>();
         rolesManager = FindObjectOfType<RolesManager>();
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -68,21 +65,21 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             //mC.AssignRoles();
             mC.SetCustomNumber();
-            pv.RPC("SetLocalPlayerAsAssassin", RpcTarget.All);
+            //pv.RPC("SetLocalPlayerAsAssassin", RpcTarget.All);
             StartCoroutine(WaitToLoadCorrectScene());
         }
     }
-    [PunRPC]
-    public void SetLocalPlayerAsAssassin()
-    {
-        Debug.Log("FUNCTION BEING CALLED IN START");
-        rolesManager.isaacMongolo = mC.ORIOLMONGOLO;
-    }
+    //[PunRPC]
+    //public void SetLocalPlayerAsAssassin()
+    //{
+    //    Debug.Log("FUNCTION BEING CALLED IN START");
+    //    rolesManager.isaacMongolo = mC.ORIOLMONGOLO;
+    //}
 
     IEnumerator WaitToLoadCorrectScene()
     {
-        SceneManager.LoadSceneAsync("SampleScene");
         yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("SampleScene");
     }
     public override void OnJoinedRoom()
     {
