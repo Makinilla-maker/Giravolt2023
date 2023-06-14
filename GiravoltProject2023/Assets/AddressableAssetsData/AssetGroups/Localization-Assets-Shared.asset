@@ -21,6 +21,10 @@ MonoBehaviour:
     m_Address: Assets/Giravolt/Localization/Tables/UI Text Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 8ceda8da90cec054bacd521fb90262e2
+    m_Address: Assets/_Giravolt/Localization/Tables/AssetTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: e00b70fe001ce4344bd666f811c1ad75, type: 2}
   m_SchemaSet:
