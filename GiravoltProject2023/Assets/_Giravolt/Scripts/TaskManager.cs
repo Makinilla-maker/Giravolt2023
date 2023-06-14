@@ -150,6 +150,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             int marcEspavila = (int)stream.ReceiveNext();
             ammountOfWipes = marcEspavila;
+            Debug.Log("DSADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD                       " + ammountOfWipes);
         }
 
     }

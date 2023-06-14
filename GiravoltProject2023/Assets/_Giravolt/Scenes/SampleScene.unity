@@ -780,6 +780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb4726d3720604cbc0366fb7a5de1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sendWipeTask: 0
+  ammountOfWipes: 3
   allTasks:
   - name: Dial
     description: VVVV
@@ -4720,6 +4722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Task_Taques
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074674582740138261, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
