@@ -32,7 +32,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private int trueNumberOfTasks = 0;
     // ISAAC
     private bool alreadyGeneratedList;
-    public int ammountOfWipes;
+    public int ammountOfWipes = 3;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
