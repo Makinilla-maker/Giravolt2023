@@ -81,8 +81,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
             
         foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
-            AddPlayerListing(playerInfo.Value);
-            
+            AddPlayerListing(playerInfo.Value);            
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
