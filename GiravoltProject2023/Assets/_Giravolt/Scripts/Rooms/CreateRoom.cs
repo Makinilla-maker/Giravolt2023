@@ -67,8 +67,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             //mC.AssignRoles();
             mC.SetCustomNumber();
 
-            rolesManager.id = PhotonNetwork.LocalPlayer.ActorNumber;
             rolesManager.SetLocalPlayerAsAssassin();
+
             StartCoroutine(WaitToLoadCorrectScene());
             
         }        

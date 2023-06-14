@@ -24,6 +24,7 @@ public class RolesManager : MonoBehaviour
     public void SetLocalPlayerAsAssassin()
     {
         Debug.Log("FUNCTION BEING CALLED IN START");
+        id = PhotonNetwork.LocalPlayer.ActorNumber;
         if (PhotonNetwork.LocalPlayer.ActorNumber == mC.ORIOLMONGOLO)
         {
             imAssassin = true;
