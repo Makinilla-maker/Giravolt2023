@@ -27,7 +27,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private string sendTaskStatus = "A";
     private int sendTaskInt = -1;
     private bool send = false;
-    [HideInInspector] public bool sendWipeTask = false;
+    public bool sendWipeTask = false;
     private PhotonView pView;
     private int trueNumberOfTasks = 0;
     // ISAAC
