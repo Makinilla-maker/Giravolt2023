@@ -21,7 +21,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     private void Start()
     {
         playerListGameObject = GameObject.Find("PlayerListings");
-        playerListGameObject.SetActive(false);
+        //playerListGameObject.SetActive(false);
         rolesManager = FindObjectOfType<RolesManager>();
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -79,7 +79,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         //this.gameObject.SetActive(false);
-        playerListGameObject.SetActive(true);
+        //playerListGameObject.SetActive(true);
     }
     
 }
