@@ -12,6 +12,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     private string name;
     private GameObject playerListGameObject;
     private MainConnect mC;
+    [SerializeField] private RolesManager rolesManager;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -21,6 +22,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         playerListGameObject = GameObject.Find("PlayerListings");
         playerListGameObject.SetActive(false);
+        rolesManager = FindObjectOfType<RolesManager>();
         PhotonNetwork.ConnectUsingSettings();
     }
     private void Update()
@@ -64,6 +66,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             //mC.AssignRoles();
             mC.SetCustomNumber();
+            rolesManager.SetLocalPlayerAsAssassin();
             StartCoroutine(WaitToLoadCorrectScene());
             
         }        
