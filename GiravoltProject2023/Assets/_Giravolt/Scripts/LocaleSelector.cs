@@ -13,19 +13,19 @@ public class LocaleSelector : MonoBehaviour
         ChangeLocale(ID);
     }
 
-    private bool active = false;
+    public bool active = true;
     public void ChangeLocale(int localeID)
     {
         if (active == true)
-        StartCoroutine(SetLocale(localeID));
+            StartCoroutine(SetLocale(localeID));
     }
 
     IEnumerator SetLocale(int _localeID)
     {
-        active = true;
+        active = false;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
         PlayerPrefs.SetInt("LocaleKey", _localeID);
-        active = false;
+        active = true;
     }
 }

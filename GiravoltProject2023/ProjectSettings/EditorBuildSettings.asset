@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Giravolt/Scenes/MainMenu.unity
     guid: b9319e4b135155d4298852e8b9ccfc1f
   - enabled: 1

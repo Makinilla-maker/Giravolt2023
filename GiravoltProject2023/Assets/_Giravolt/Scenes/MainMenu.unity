@@ -2618,6 +2618,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1106655943}
+          m_TargetAssemblyTypeName: LocaleSelector, Assembly-CSharp
+          m_MethodName: ChangeLocale
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &258502372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4874,6 +4886,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1106655943}
+          m_TargetAssemblyTypeName: LocaleSelector, Assembly-CSharp
+          m_MethodName: ChangeLocale
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &517854309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5313,7 +5337,19 @@ MonoBehaviour:
     m_WaitForCompletion: 0
   m_UpdateAsset:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 528177190}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &569699928
 GameObject:
   m_ObjectHideFlags: 0
@@ -14702,6 +14738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f884dfc943684b89eb1e29c4df364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
 --- !u!4 &1106655944
 Transform:
   m_ObjectHideFlags: 0
@@ -17666,6 +17703,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: ButtonFunction, Assembly-CSharp
           m_MethodName: ClickSound
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1106655943}
+          m_TargetAssemblyTypeName: LocaleSelector, Assembly-CSharp
+          m_MethodName: ChangeLocale
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
