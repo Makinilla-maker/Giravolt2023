@@ -16,7 +16,7 @@ public class RolesManager : MonoBehaviour
         
         if(SceneManager.GetActiveScene().name == "SampleScene")
         {
-            mC = FindObjectOfType<MainConnect>();
+            mC = GameObject.Find("MainNetworkGameObject").GetComponent<MainConnect>();
             id = PhotonNetwork.LocalPlayer.ActorNumber;
         }
             
@@ -27,7 +27,7 @@ public class RolesManager : MonoBehaviour
     {
         if(!doOnce)
         {
-            mC = FindObjectOfType<MainConnect>();
+            mC = GameObject.Find("MainNetworkGameObject").GetComponent<MainConnect>();
             id = PhotonNetwork.LocalPlayer.ActorNumber;
             doOnce = true;
         }
