@@ -10,6 +10,7 @@ using Photon.Realtime;
 using UnityEngine.Serialization;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Autohand;
 
 [System.Serializable]
 public enum GameState
@@ -26,13 +27,16 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     private PhotonView pView;
     [SerializeField] private Transform lobbyPosition;
     private GameObject lobbyVotationObjects;
+    private GameObject trackerOffset;
     public GameState gameState;
+    private AutoHandPlayer playerBody;
     private void Awake()
     {
         gameState = GameState.INLOBBY;
         pView = GetComponent<PhotonView>();
         player = GameObject.Find("OculusPlayer");
         lobbyPosition = GameObject.Find("LobbyStartPosition").GetComponent<Transform>();
+        trackerOffset = GameObject.Find("TrackerOffsets");
         lobbyVotationObjects = GameObject.Find("VotationObject");
         lobbyVotationObjects.SetActive(false);
     }
@@ -67,9 +71,10 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void StartVotation()
     {
+        playerBody = GameObject.Find("Auto Hand Player").GetComponent<AutoHandPlayer>();
         // lock doors
         lobbyVotationObjects.SetActive(true);
-        player.transform.position = lobbyPosition.position;
+        playerBody.SetPosition(lobbyPosition.position);
         UpdateGameState(GameState.INVOTATION);
     }
     [PunRPC]
