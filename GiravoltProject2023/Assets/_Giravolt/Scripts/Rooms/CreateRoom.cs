@@ -15,12 +15,12 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        playerListGameObject = GameObject.Find("PlayerListings");
-        playerListGameObject.SetActive(false);
         mC = FindObjectOfType<MainConnect>();
     }
     private void Start()
     {
+        playerListGameObject = GameObject.Find("PlayerListings");
+        playerListGameObject.SetActive(false);
         PhotonNetwork.ConnectUsingSettings();
     }
     private void Update()
