@@ -7702,6 +7702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   imAssassin: 0
+  imDead: 0
   mC: {fileID: 0}
 --- !u!4 &688456581
 Transform:
@@ -8047,6 +8048,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703944005784587001, guid: 44da91211d6969449bbd7bc5756f6e36,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.372
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703944005784587001, guid: 44da91211d6969449bbd7bc5756f6e36,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.391
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703944005784587001, guid: 44da91211d6969449bbd7bc5756f6e36,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.332
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44da91211d6969449bbd7bc5756f6e36, type: 3}
