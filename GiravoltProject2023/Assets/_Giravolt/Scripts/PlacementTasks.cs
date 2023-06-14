@@ -16,7 +16,7 @@ public class PlacementTasks : MonoBehaviour
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task placementTask_01 = new Task();
     private string tagForThisTask;
-
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -76,8 +76,26 @@ public class PlacementTasks : MonoBehaviour
         
         if(other.gameObject.tag == tagForThisTask && placementTask_01.status != TaskStatus.COMPLETED)
         {
-            placementTask_01.status = TaskStatus.COMPLETED;
-            manager.GetCompletedTask(placementTask_01);
+            if(placementTask_01.id == 8) // Taques
+            {
+                if(manager.ammountOfWipes != 0)
+                {
+                    manager.sendWipeTask = true;
+                }
+                else
+                {
+                    if(manager.ammountOfWipes == 0)
+                    {
+                        placementTask_01.status = TaskStatus.COMPLETED;
+                        manager.GetCompletedTask(placementTask_01);
+                    }
+                }
+            }
+            else
+            {
+                placementTask_01.status = TaskStatus.COMPLETED;
+                manager.GetCompletedTask(placementTask_01);
+            }            
         }
     }
     IEnumerator Delay()

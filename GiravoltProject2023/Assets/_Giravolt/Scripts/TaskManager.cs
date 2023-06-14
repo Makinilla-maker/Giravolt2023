@@ -27,10 +27,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private string sendTaskStatus = "A";
     private int sendTaskInt = -1;
     private bool send = false;
+    [HideInInspector] public bool sendWipeTask = false;
     private PhotonView pView;
     private int trueNumberOfTasks = 0;
     // ISAAC
     private bool alreadyGeneratedList;
+    public int ammountOfWipes;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
@@ -132,6 +134,22 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 pView.RPC("SetCompletedTask", RpcTarget.All);
 
             }
+        }
+
+
+
+        if(pView.IsMine)
+        {
+            if(sendWipeTask)
+            {
+                ammountOfWipes--;
+                sendWipeTask = !sendWipeTask;
+            }
+        }
+        else
+        {
+            int marcEspavila = (int)stream.ReceiveNext();
+            ammountOfWipes = marcEspavila;
         }
 
     }
