@@ -8,13 +8,15 @@ using UnityEngine.SceneManagement;
 public class RolesManager : MonoBehaviour
 {
     public int id;
-    [SerializeField] bool imAssassin;
+    [SerializeField] public  bool imAssassin;
+    [SerializeField] public bool imDead;
     public MainConnect mC;
     private bool doOnce = false;
     private void Start()
     {
         mC = FindObjectOfType<MainConnect>();
         imAssassin = false;
+        imDead = false; 
         id = PhotonNetwork.LocalPlayer.ActorNumber;
         SetLocalId();
     }

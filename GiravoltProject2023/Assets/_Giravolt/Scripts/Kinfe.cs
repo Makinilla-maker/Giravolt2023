@@ -10,13 +10,22 @@ public class Kinfe : MonoBehaviour
 {
     public LayerMask stabbableLayers;
     [SerializeField] public bool isStabbing;
+    public RolesManager rolesManager;
     [SerializeField] private float speed;
     [SerializeField] public GameObject knife;
 
     void Start()
     {
         isStabbing = false;
-
+        rolesManager = GameObject.Find("RoleManager").GetComponent<RolesManager>();
+        if (rolesManager.imAssassin == true)
+        {
+            this.GetComponent<Grabbable>().enabled = true;
+        }
+        else
+        {
+            this.GetComponent<Grabbable>().enabled = false;
+        } 
     }
 
     // Update is called once per frame
@@ -40,7 +49,7 @@ public class Kinfe : MonoBehaviour
         if (isStabbing == false && speed >= 1.5f && collision.gameObject.tag == "Player")
         {
             isStabbing = true;
-            collision.gameObject.GetComponent<DeathManager>().isAlive = false;
+            //collision.gameObject.GetComponent<DeathManager>().isAlive = false;
         }
             else isStabbing = false;
     }
