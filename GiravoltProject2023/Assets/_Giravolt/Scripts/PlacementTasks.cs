@@ -76,7 +76,7 @@ public class PlacementTasks : MonoBehaviour
         
         if(other.gameObject.tag == tagForThisTask && placementTask_01.status != TaskStatus.COMPLETED)
         {
-            if(placementTask_01.id == 8) // Taques
+            if(placementTask_01.id == 13) // Taques
             {
                 if(manager.ammountOfWipes != 0)
                 {
