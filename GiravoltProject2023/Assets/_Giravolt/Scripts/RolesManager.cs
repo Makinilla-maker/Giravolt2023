@@ -7,15 +7,12 @@ using ExitGames.Client.Photon.StructWrapping;
 using UnityEngine.SceneManagement;
 public class RolesManager : MonoBehaviour
 {
-    [SerializeField] int id;
     [SerializeField] bool imAssassin;
     private MainConnect mC;
     private bool doOnce = false;
     private void Start()
     {
         mC = GameObject.Find("MainNetworkGameObject").GetComponent<MainConnect>();
-        id = PhotonNetwork.LocalPlayer.ActorNumber;
-            
         imAssassin = false; 
     }
     private void Update()
