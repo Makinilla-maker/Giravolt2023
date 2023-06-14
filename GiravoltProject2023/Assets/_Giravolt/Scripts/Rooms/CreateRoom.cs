@@ -66,6 +66,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             //mC.AssignRoles();
             mC.SetCustomNumber();
+
+            rolesManager.id = PhotonNetwork.LocalPlayer.ActorNumber;
             rolesManager.SetLocalPlayerAsAssassin();
             StartCoroutine(WaitToLoadCorrectScene());
             
@@ -73,8 +75,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     }
     IEnumerator WaitToLoadCorrectScene()
     {
+        SceneManager.LoadSceneAsync("SampleScene");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("SampleScene");
     }
     public override void OnJoinedRoom()
     {

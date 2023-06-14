@@ -29,7 +29,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     public override void OnEnable()
     {
         base.OnEnable();
-        GetCurrentRoomPlayers();
+        //GetCurrentRoomPlayers();
     }
     public override void OnDisable()
     {
@@ -86,7 +86,7 @@ public class PlayerListings : MonoBehaviourPunCallbacks
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        GetCurrentRoomPlayers();
+        //GetCurrentRoomPlayers();
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
