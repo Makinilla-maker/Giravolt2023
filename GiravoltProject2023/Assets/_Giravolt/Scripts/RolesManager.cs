@@ -13,9 +13,13 @@ public class RolesManager : MonoBehaviour
     private bool doOnce = false;
     private void Start()
     {
-        mC = FindObjectOfType<MainConnect>();
+        
         if(SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            mC = FindObjectOfType<MainConnect>();
             id = PhotonNetwork.LocalPlayer.ActorNumber;
+        }
+            
         imAssassin = false; 
         SetLocalPlayerAsAssassin();
     }
@@ -23,6 +27,7 @@ public class RolesManager : MonoBehaviour
     {
         if(!doOnce)
         {
+            mC = FindObjectOfType<MainConnect>();
             id = PhotonNetwork.LocalPlayer.ActorNumber;
             doOnce = true;
         }
