@@ -13,24 +13,15 @@ public class RolesManager : MonoBehaviour
     private bool doOnce = false;
     private void Start()
     {
-        
-        if(SceneManager.GetActiveScene().name == "SampleScene")
-        {
             mC = GameObject.Find("MainNetworkGameObject").GetComponent<MainConnect>();
             id = PhotonNetwork.LocalPlayer.ActorNumber;
-        }
             
         imAssassin = false; 
         SetLocalPlayerAsAssassin();
     }
     private void Update()
     {
-        if(!doOnce)
-        {
-            mC = GameObject.Find("MainNetworkGameObject").GetComponent<MainConnect>();
-            id = PhotonNetwork.LocalPlayer.ActorNumber;
-            doOnce = true;
-        }
+        
     }
     public void SetLocalPlayerAsAssassin()
     {
