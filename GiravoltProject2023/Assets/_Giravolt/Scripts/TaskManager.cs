@@ -99,11 +99,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 alreadyGeneratedList = true;
             }
-        
-            
-        
-
-        
         if (pView.IsMine)
         {
             if(send)
@@ -133,7 +128,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 sendTaskStatus = check;
                 sendTaskInt = (int)stream.ReceiveNext();
             
-                pView.RPC("SetCompletedTask", RpcTarget.All);
 
             }
         }
@@ -161,6 +155,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         taskCompleted = completedTask;
         send = true;
+        pView.RPC("SetCompletedTask", RpcTarget.All);
     }
     [PunRPC]
     public void SetCompletedTask()

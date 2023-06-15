@@ -9,7 +9,7 @@ public class PlacementTasks : MonoBehaviour
     private RigidbodyConstraints originalConstraints;
     private TaskManager manager;
     private bool doUpdate;
-    private ParticleSystem ps;
+    [SerializeField]private ParticleSystem ps;
     private string taskName;
     private string taskDescription;
     public int id;
@@ -47,7 +47,7 @@ public class PlacementTasks : MonoBehaviour
     {
         doUpdate = true;
         Debug.Log("Creating placement task!");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(.2f);
         placementTask_01 = manager.CreateTask(taskName, taskDescription, TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, id);
     }
         // Update is called once per frame

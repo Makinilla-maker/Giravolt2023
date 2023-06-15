@@ -1026,6 +1026,11 @@ PrefabInstance:
       propertyPath: id
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: sceneViewId
@@ -1111,6 +1116,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Task_Taca
       objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.758
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.185
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
 --- !u!1 &174690396 stripped
@@ -1171,6 +1186,11 @@ PrefabInstance:
     - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: id
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
@@ -1257,6 +1277,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Task_Informacio
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.895
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
@@ -6528,6 +6558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 4
   placementTask_01:
     name: 
@@ -7003,6 +7034,11 @@ PrefabInstance:
       propertyPath: id
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: sceneViewId
@@ -7087,6 +7123,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Task_Porta
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.921
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.511
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
@@ -8223,6 +8269,11 @@ PrefabInstance:
       propertyPath: id
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: sceneViewId
@@ -8307,6 +8358,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Task_Sang
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.233
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.557
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.666
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
@@ -9831,6 +9897,11 @@ PrefabInstance:
       propertyPath: id
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: sceneViewId
@@ -9915,6 +9986,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Task_Fuet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.231
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.555
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
@@ -10627,6 +10708,11 @@ PrefabInstance:
       propertyPath: id
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: sceneViewId
@@ -10745,7 +10831,7 @@ PrefabInstance:
     - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.040273
+      value: -0.388
       objectReference: {fileID: 0}
     - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
@@ -10985,6 +11071,11 @@ PrefabInstance:
       propertyPath: id
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: sceneViewId
@@ -11074,6 +11165,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388551903042960018, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.586
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
@@ -11625,6 +11736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 7
   placementTask_01:
     name: 
@@ -11632,7 +11744,7 @@ MonoBehaviour:
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
-    id: 4
+    id: 7
 --- !u!114 &1192969539 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5407218802118561081, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
@@ -22700,6 +22812,11 @@ PrefabInstance:
       propertyPath: id
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: sceneViewId
@@ -22784,6 +22901,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Task_Gerro
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.394
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772431439539600255, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.434
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34317f633367f1b40b19e01bb5df1b20, type: 3}
@@ -22984,6 +23111,11 @@ PrefabInstance:
     - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: id
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: placementTask_01.id
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1853886729829879445, guid: 34317f633367f1b40b19e01bb5df1b20,
@@ -23648,6 +23780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 14
   placementTask_01:
     name: 
@@ -23655,7 +23788,7 @@ MonoBehaviour:
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
-    id: 4
+    id: 14
 --- !u!65 &1701510199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28340,6 +28473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 14
   placementTask_01:
     name: 
@@ -28347,7 +28481,7 @@ MonoBehaviour:
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
-    id: 4
+    id: 14
 --- !u!114 &1376473437986893272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28360,6 +28494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 5
   placementTask_01:
     name: 
@@ -28367,7 +28502,7 @@ MonoBehaviour:
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
-    id: 4
+    id: 5
 --- !u!114 &1376473438473662689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28380,6 +28515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 17
   placementTask_01:
     name: 
@@ -28387,7 +28523,7 @@ MonoBehaviour:
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
-    id: 4
+    id: 17
 --- !u!114 &1376473439349773641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28400,6 +28536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 6
   placementTask_01:
     name: 
@@ -28407,7 +28544,7 @@ MonoBehaviour:
     status: 0
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
-    id: 4
+    id: 6
 --- !u!23 &1401336710925983128
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29135,6 +29272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 4
   placementTask_01:
     name: 
@@ -60121,7 +60259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3164517992853093782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.633, y: -5.474, z: 6.719}
+  m_LocalPosition: {x: 0.995, y: -5.474, z: 6.857}
   m_LocalScale: {x: 0.052447673, y: 0.052447673, z: 0.052447673}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63262,6 +63400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7751785893f6d32499dacece66a64153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   id: 7
   placementTask_01:
     name: 
@@ -68878,7 +69017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8626225826337037392}
   m_LocalRotation: {x: -0, y: -0, z: -0.008949846, w: 0.99995995}
-  m_LocalPosition: {x: 0.608, y: -6.8, z: 5.005}
+  m_LocalPosition: {x: 0.613, y: -6.509, z: 5.005}
   m_LocalScale: {x: 9.88558, y: 9.88558, z: 9.88558}
   m_ConstrainProportionsScale: 0
   m_Children:
