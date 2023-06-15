@@ -59,7 +59,7 @@ public class Kinfe : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if (isStabbing == false && speed >= 0.5f && other.tag == "Player")
-        if (other.tag == "Player")
+        if (other.tag == "Player" && rolesManager.imAssassin == false)
         {
             isStabbing = true;
             other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
