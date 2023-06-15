@@ -150,7 +150,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
 
     }
+    //[PunRPC]
+    //public void SetTrueNumberOfTasks()
+    //{
 
+    //}
     public void GetCompletedTask(Task completedTask)
     {
         taskCompleted = completedTask;
