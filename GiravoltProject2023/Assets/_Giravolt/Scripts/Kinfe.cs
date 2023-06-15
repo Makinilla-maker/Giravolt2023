@@ -62,7 +62,9 @@ public class Kinfe : MonoBehaviour
         if (other.tag == "Player")
         {
             isStabbing = true;
-            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            other.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            other.gameObject.transform.GetChild(2).gameObject.SetActive(false);
             Debug.Log(other.gameObject.name);
             hitName = other.gameObject.name;
             hitID = (int)hitName[hitName.Length - 1];
