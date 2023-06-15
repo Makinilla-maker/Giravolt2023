@@ -63,8 +63,9 @@ public class Kinfe : MonoBehaviour
         {
             isStabbing = true;
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            Debug.Log(other.gameObject.name);
             hitName = other.gameObject.name;
-            hitID = hitName[hitName.Length - 1];
+            hitID = (int)hitName[hitName.Length - 1];
             pView.RPC("KillId", RpcTarget.All, hitID);
         }
         else isStabbing = false;
