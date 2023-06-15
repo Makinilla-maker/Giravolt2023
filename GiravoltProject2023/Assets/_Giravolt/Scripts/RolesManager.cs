@@ -12,7 +12,7 @@ public class RolesManager : MonoBehaviour
     [SerializeField] public bool imDead;
     public MainConnect mC;
     private bool doOnce = false;
-    private void Start()
+    private void Awake()
     {
         mC = FindObjectOfType<MainConnect>();
         imAssassin = false;
