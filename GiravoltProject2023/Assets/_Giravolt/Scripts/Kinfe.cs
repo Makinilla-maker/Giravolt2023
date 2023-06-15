@@ -16,6 +16,7 @@ public class Kinfe : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] public GameObject knife;
     public string hitName;
+    public int hitID;
 
     public PhotonView pView;
 
@@ -57,12 +58,13 @@ public class Kinfe : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isStabbing == false && speed >= 0.5f && other.gameObject.tag == "Player")
+        //if (isStabbing == false && speed >= 0.5f && other.tag == "Player")
+        if (other.tag == "Player")
         {
             isStabbing = true;
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
             hitName = other.gameObject.name;
-            int hitID = hitName[hitName.Length - 1];
+            hitID = hitName[hitName.Length - 1];
             pView.RPC("KillId", RpcTarget.All, hitID);
         }
         else isStabbing = false;
