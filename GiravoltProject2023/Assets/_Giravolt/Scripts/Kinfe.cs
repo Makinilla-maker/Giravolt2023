@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
+using Oculus.Interaction;
 
 public class Kinfe : MonoBehaviour
 {
@@ -13,19 +15,17 @@ public class Kinfe : MonoBehaviour
     public RolesManager rolesManager;
     [SerializeField] private float speed;
     [SerializeField] public GameObject knife;
+    public string hitName;
+
+    public PhotonView pView;
 
     void Start()
     {
         isStabbing = false;
         rolesManager = GameObject.Find("RoleManager").GetComponent<RolesManager>();
-        if (rolesManager.imAssassin == true)
-        {
-            this.GetComponent<Grabbable>().enabled = true;
-        }
-        else
-        {
-            this.GetComponent<Grabbable>().enabled = false;
-        } 
+        pView = GetComponent<PhotonView>();
+
+        SetGrabbable();
     }
 
     // Update is called once per frame
@@ -36,6 +36,18 @@ public class Kinfe : MonoBehaviour
         
     }
 
+    public void SetGrabbable()
+    {
+        if (rolesManager.imAssassin == true)
+        {
+            this.GetComponent<Autohand.Grabbable>().enabled = true;
+        }
+        else
+        {
+            this.GetComponent<Autohand.Grabbable>().enabled = false;
+        }
+    }
+
     IEnumerator CalculateSpeed()
     {
         Vector3 lastPos = transform.position;
@@ -43,14 +55,22 @@ public class Kinfe : MonoBehaviour
         speed = (lastPos- transform.position).magnitude / Time.deltaTime;
     }
 
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (isStabbing == false && speed >= 1.5f && collision.gameObject.tag == "Player")
+        if (isStabbing == false && speed >= 0.5f && other.gameObject.tag == "Player")
         {
             isStabbing = true;
-            //collision.gameObject.GetComponent<DeathManager>().isAlive = false;
+            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            hitName = other.gameObject.name;
+            int hitID = hitName[hitName.Length - 1];
+            pView.RPC("KillId", RpcTarget.All, hitID);
         }
-            else isStabbing = false;
+        else isStabbing = false;
+    }
+
+    [PunRPC]
+    public void KillId(int killedId)
+    {
+        GameObject.Find("RoleManager").GetComponent<RolesManager>().imDead = true;
     }
 }
