@@ -1,9 +1,59 @@
 fileFormatVersion: 2
 guid: a9d0e5d1261ebaf4398a11deca721399
 ModelImporter:
-  serializedVersion: 21300
+  serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Cortines_adamascades_4
+    second: {fileID: 2100000, guid: 9a638467c477ca042a2334e1168994a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Finestrons_
+    second: {fileID: 2100000, guid: 98d0a9d8547f2164b91687f8983706a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C_Porta _Mod_01
+    second: {fileID: 2100000, guid: 44afa6666a9585b429a0a1b771340ccf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "S_Catifa_Vigat\xE0"
+    second: {fileID: 2100000, guid: e5bd13fbd601aae429d2fb38d62ab3f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_SVigata_01
+    second: {fileID: 2100000, guid: 2a0fb693e042e86438379a1b25203210, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_SVigata_02
+    second: {fileID: 2100000, guid: b237c9733b1f1874bb2eec9c681240fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_SVigata_03
+    second: {fileID: 2100000, guid: 96afbe1de1ce12042a72e321f70f6b29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_Vigata_04
+    second: {fileID: 2100000, guid: 8944c0addc0eba54fa96c3dfd8e43f23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_Vigata_Baranes
+    second: {fileID: 2100000, guid: 698eeb7f93a8d2a47a5fde5a88e76f24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S_Vigata_VidresOpacs
+    second: {fileID: 2100000, guid: af9d7d7858731e24b931bf1f0df76f09, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -99,7 +149,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
