@@ -135,6 +135,26 @@ MonoBehaviour:
     m_Key: "Sala p\xFAblica TMP"
     m_Metadata:
       m_Items: []
+  - m_Id: 6552954040819712
+    m_Key: "Selecciona una opci\xF3 TMP"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6554747063836672
+    m_Key: CrearSala TMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6556084530913280
+    m_Key: Tornar Btn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6557976782774272
+    m_Key: EntrarSala Btn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6571593506824192
+    m_Key: Crear Btn
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

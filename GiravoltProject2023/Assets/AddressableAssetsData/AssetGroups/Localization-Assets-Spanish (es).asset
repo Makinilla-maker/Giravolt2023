@@ -22,6 +22,16 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
+  - m_GUID: ca15343ebb6d62443a1652ffa2222bbd
+    m_Address: img_ControlsESP
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 1d1fe11bba370cb4f9df891cae5c8e58
+    m_Address: background_CreditsESP 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: e00b70fe001ce4344bd666f811c1ad75, type: 2}
   m_SchemaSet:

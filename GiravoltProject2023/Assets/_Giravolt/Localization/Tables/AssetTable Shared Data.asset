@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: Titol
     m_Metadata:
       m_Items: []
+  - m_Id: 604754888957952
+    m_Key: Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 606228008214528
+    m_Key: Credits
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 6036429123316088842
@@ -41,6 +49,16 @@ MonoBehaviour:
       data:
         m_Entries:
         - m_KeyId: 146130935808
+          m_TableCodes:
+          - ca
+          - en
+          - es
+        - m_KeyId: 604754888957952
+          m_TableCodes:
+          - ca
+          - en
+          - es
+        - m_KeyId: 606228008214528
           m_TableCodes:
           - ca
           - en
