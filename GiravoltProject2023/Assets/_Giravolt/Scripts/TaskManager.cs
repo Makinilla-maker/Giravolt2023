@@ -155,15 +155,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void GetCompletedTask(Task completedTask)
     {
         taskCompleted = completedTask;
-        send = true;
-        pView.RPC("SetCompletedTask", RpcTarget.All);
+        //send = true;
+        pView.RPC("SetCompletedTask", RpcTarget.All, (string)taskCompleted.name);
     }
     [PunRPC]
-    public void SetCompletedTask()
+    public void SetCompletedTask(string tn)
     {
         for (int i = 0; i < generatedTasksForThisGame.Count; ++i)
         {
-            if (generatedTasksForThisGame[i].id == sendTaskInt)
+            if ((string)generatedTasksForThisGame[i].name == tn)
             {
                 trueNumberOfTasks--;
                 generatedTasksForThisGame[i].status = TaskStatus.COMPLETED;
