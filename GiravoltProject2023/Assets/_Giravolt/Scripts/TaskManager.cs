@@ -58,47 +58,51 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (PhotonNetwork.IsMasterClient && !alreadyGeneratedList)
         {
-            pView.RPC("GenerateTasks", RpcTarget.MasterClient);
-            
+            pView.RPC("GenerateTasks", RpcTarget.MasterClient);            
         }
+    }
+    [PunRPC]
+    public void SetTasks(List<Task> l)
+    {
+        generatedTasksForThisGame = l;
     }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         // send the info of the generated tasks 
         
-            if (pView.IsMine)
-            {
-                stream.SendNext(trueNumberOfTasks);
-                for (int i = 0; i < trueNumberOfTasks; ++i)
-                {
-                    int n = generatedTasksForThisGame[i].id;
-                    stream.SendNext(n);
-                }
-            }
-            else
-            {
-                trueNumberOfTasks = (int)stream.ReceiveNext();
-                int rcvdId = -1;
-                for (int i = 0; i < trueNumberOfTasks; ++i)
-                {
-                    rcvdId = (int)stream.ReceiveNext();
-                    for (int k = 0; k < allTasks.Count; ++k)
-                    {
-                        if (allTasks[k].id == rcvdId)
-                        {
+        //if (pView.IsMine)
+        //{
+        //    stream.SendNext(trueNumberOfTasks);
+        //    for (int i = 0; i < trueNumberOfTasks; ++i)
+        //    {
+        //        int n = generatedTasksForThisGame[i].id;
+        //        stream.SendNext(n);
+        //    }
+        //}
+        //else
+        //{
+        //    trueNumberOfTasks = (int)stream.ReceiveNext();
+        //    int rcvdId = -1;
+        //    for (int i = 0; i < trueNumberOfTasks; ++i)
+        //    {
+        //        rcvdId = (int)stream.ReceiveNext();
+        //        for (int k = 0; k < allTasks.Count; ++k)
+        //        {
+        //            if (allTasks[k].id == rcvdId)
+        //            {
 
-                            if (!generatedTasksForThisGame.Contains(allTasks[k]))
-                            {
-                                if(allTasks[k].status != TaskStatus.COMPLETED)
-                                    generatedTasksForThisGame.Add(allTasks[k]);
-                            }
+        //                if (!generatedTasksForThisGame.Contains(allTasks[k]))
+        //                {
+        //                    if(allTasks[k].status != TaskStatus.COMPLETED)
+        //                        generatedTasksForThisGame.Add(allTasks[k]);
+        //                }
 
-                        }
-                    }
-                }
-                alreadyGeneratedList = true;
-            }
+        //            }
+        //        }
+        //    }
+        //    alreadyGeneratedList = true;
+        //}
         if (pView.IsMine)
         {
             if(send)
@@ -208,6 +212,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 
             }
+            pView.RPC("SetTasks", RpcTarget.All, generatedTasksForThisGame);
+
             alreadyGeneratedList = true;
         }
     }
