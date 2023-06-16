@@ -58,14 +58,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (PhotonNetwork.IsMasterClient && !alreadyGeneratedList)
         {
-            pView.RPC("GenerateTasks", RpcTarget.MasterClient);            
+            pView.RPC("GenerateTasks", RpcTarget.MasterClient);
+            pView.RPC("SetTasks", RpcTarget.All, generatedTasksForThisGame);
         }
     }
-    [PunRPC]
-    public void SetTasks(List<Task> l)
-    {
-        generatedTasksForThisGame = l;
-    }
+    
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -181,6 +178,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
     }
     [PunRPC]
+    public void SetTasks(List<Task> l)
+    {
+        generatedTasksForThisGame = l;
+    }
+    [PunRPC]
     public void EndGame()
     {
         if(didPlayersWin)
@@ -212,7 +214,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 
             }
-            pView.RPC("SetTasks", RpcTarget.All, generatedTasksForThisGame);
+            
 
             alreadyGeneratedList = true;
         }
