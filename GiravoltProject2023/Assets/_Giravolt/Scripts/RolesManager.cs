@@ -38,4 +38,13 @@ public class RolesManager : MonoBehaviour
             Debug.Log("I am NOT the ASSASSIN");
         }
     }
+
+    public void KillMe()
+    {
+        imDead = true;
+        other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        other.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        other.gameObject.transform.GetChild(2).gameObject.SetActive(false);
+        Debug.Log("----------you got stabbed and Killed");
+    }
 }

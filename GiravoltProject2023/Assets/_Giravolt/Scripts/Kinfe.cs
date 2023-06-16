@@ -62,13 +62,10 @@ public class Kinfe : MonoBehaviour
         if (other.tag == "Player" && rolesManager.imAssassin == false)
         {
             isStabbing = true;
-            Debug.Log("you stabbed someone");
-            other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            other.gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            other.gameObject.transform.GetChild(2).gameObject.SetActive(false);
-            Debug.Log(other.gameObject.name);
+            Debug.Log("-------------you stabbed " + other.gameObject.name);
             hitName = other.gameObject.name;
             hitID = (int)hitName[hitName.Length - 1];
+            Debug.Log("--------KiledID = " + hitID);
             pView.RPC("KillId", RpcTarget.All, hitID);
         }
         else isStabbing = false;
@@ -77,7 +74,9 @@ public class Kinfe : MonoBehaviour
     [PunRPC]
     public void KillId(int killedId)
     {
-        GameObject.Find("RoleManager").GetComponent<RolesManager>().imDead = true;
-        Debug.Log("you got stabbed and Killed");
+        if(rolesManager.id == killedId) 
+        {
+            rolesManager.KillMe();
+        }
     }
 }
