@@ -124,6 +124,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             var check = " ";
             check = (string)stream.ReceiveNext();
+            Debug.Log("DADSASDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD CAAAAAAAAAAAAAST " + (string)stream.ReceiveNext());
             if (check != " ")
             {
                 sendTaskStatus = check;
