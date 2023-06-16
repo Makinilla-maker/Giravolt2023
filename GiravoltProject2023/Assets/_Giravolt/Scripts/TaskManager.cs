@@ -59,11 +59,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (IsAnyTaskLeft())
         {
-            Debug.Log("HOLA ORIOL, ETS UN MONGOLIN LOQUETE!\n\ngilipollas");
+            //Debug.Log("HOLA ORIOL, ETS UN MONGOLIN LOQUETE!\n\ngilipollas");
         }
         else
         {
-            Debug.Log("ORIOL TREBALLA BOBO");
+            //Debug.Log("ORIOL TREBALLA BOBO");
         }
     }
     public bool IsAnyTaskLeft()
