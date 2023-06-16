@@ -159,6 +159,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         pView.RPC("SetCompletedTask", RpcTarget.All, (string)taskCompleted.name);
     }
     [PunRPC]
+    public void DecreaseWipe()
+    {
+        ammountOfWipes--;
+    }
+    [PunRPC]
     public void SetCompletedTask(string tn)
     {
         for (int i = 0; i < generatedTasksForThisGame.Count; ++i)

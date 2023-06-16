@@ -90,7 +90,7 @@ public class PlacementTasks : MonoBehaviour
             {
                 if(manager.ammountOfWipes != 0)
                 {
-                    manager.sendWipeTask = true;
+                    manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All);
                 }
                 else
                 {
