@@ -97,6 +97,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
             }
             alreadyGeneratedList = true;
+            HideUnselectedTasks();
         }
         if (pView.IsMine)
         {
@@ -202,10 +203,20 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 
             }
+            HideUnselectedTasks();
             alreadyGeneratedList = true;
         }
     }
-    
+    public void HideUnselectedTasks()
+    {
+        foreach (Task t in allTasks)
+        {
+            if(!generatedTasksForThisGame.Contains(t))
+            {
+                GameObject.Find(t.name).SetActive(false);
+            }
+        }
+    }
     #endregion
     // this function must be used in the awake function of every gameobject that has a task
     public Task CreateTask(string n, string d, TaskStatus s, GameObject mo, GameObject to, int id)
