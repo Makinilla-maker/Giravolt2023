@@ -541,6 +541,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta Noble_Terra (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c6e1be3bcd7ffb43b0ddb9902e9e79a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6e1be3bcd7ffb43b0ddb9902e9e79a, type: 3}
 --- !u!23 &65196214
@@ -2359,6 +2364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PM_Retopo_EscalaNoble
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: ac0b3b4181a0db342a367117a0e8dfbc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac0b3b4181a0db342a367117a0e8dfbc, type: 3}
@@ -5196,6 +5206,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ed6ef27d5f6344647abe51d24765d2c7, type: 2}
+    - target: {fileID: 7663347020429220427, guid: 70522f7908e6bed46a8b9420d48bd5d0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8807521047945993004, guid: 70522f7908e6bed46a8b9420d48bd5d0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7657,6 +7672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SalaVaixells_Modelat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c1851143c7474054da7dcce0ce813043,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1851143c7474054da7dcce0ce813043, type: 3}
@@ -14123,10 +14143,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8154701091872378928, guid: 66f77e6e0c0a4324498e8f259bc9375f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6599486195998804548, guid: 66f77e6e0c0a4324498e8f259bc9375f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 66f77e6e0c0a4324498e8f259bc9375f,
         type: 3}
       propertyPath: m_Name
       value: PM_Pati
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938671146615395449, guid: 66f77e6e0c0a4324498e8f259bc9375f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5893603758678780948, guid: 66f77e6e0c0a4324498e8f259bc9375f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108147348051271604, guid: 66f77e6e0c0a4324498e8f259bc9375f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66f77e6e0c0a4324498e8f259bc9375f, type: 3}
@@ -21431,6 +21476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta Noble_Terra
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c6e1be3bcd7ffb43b0ddb9902e9e79a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6e1be3bcd7ffb43b0ddb9902e9e79a, type: 3}
 --- !u!4 &1940666612 stripped
@@ -24216,7 +24266,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &1094694267756167120
 GameObject:
@@ -26781,12 +26831,13 @@ GameObject:
   - component: {fileID: 7326496681915922868}
   - component: {fileID: 6951703670348256238}
   - component: {fileID: 709914677788421449}
+  - component: {fileID: 7326496681915922869}
   m_Layer: 0
   m_Name: Salo Verd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3020862465238669228
 Transform:
@@ -44267,13 +44318,28 @@ GameObject:
   - component: {fileID: 3352794482498232124}
   - component: {fileID: 553556963663795849}
   - component: {fileID: 152521300972009011}
+  - component: {fileID: 5387171515418875716}
   m_Layer: 0
   m_Name: Salo Vigata.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!64 &5387171515418875716
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387171515418875715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1725068579892976140, guid: a9d0e5d1261ebaf4398a11deca721399, type: 3}
 --- !u!33 &5389406557846039594
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -45623,7 +45689,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &6154026093689385190
 MeshFilter:
@@ -47455,6 +47521,20 @@ Transform:
   m_Father: {fileID: 543450653622060572}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &7326496681915922869
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000484791130738540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1796767548898661338, guid: 2d5e49dfd261b5b4787f5aa2a542bce3, type: 3}
 --- !u!23 &7331215058774582162
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47602,7 +47682,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &7451187519149871412
 GameObject:
@@ -54431,7 +54511,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &8942609290929164004
 GameObject:

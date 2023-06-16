@@ -2127,3 +2127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   imAssassin: 0
+  imDead: 0
+  mC: {fileID: 0}
