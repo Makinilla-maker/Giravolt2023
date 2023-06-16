@@ -59,12 +59,12 @@ public class Kinfe : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if (isStabbing == false && speed >= 0.5f && other.tag == "Player")
-        if (other.tag == "Player" && rolesManager.imAssassin == false)
+        if (other.tag == "Player" && rolesManager.imAssassin == true)
         {
             isStabbing = true;
             Debug.Log("-------------you stabbed " + other.gameObject.name);
             hitName = other.gameObject.name;
-            hitID = (int)hitName[hitName.Length - 1];
+            hitID = int.Parse(hitName.Substring(hitName.Length - 1));
             Debug.Log("--------KiledID = " + hitID);
             pView.RPC("KillId", RpcTarget.All, hitID);
         }
