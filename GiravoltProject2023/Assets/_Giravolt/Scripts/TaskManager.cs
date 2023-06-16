@@ -36,6 +36,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private List<Task> allTasks = new List<Task>();
     public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
+    public int numberOfTasksPerGame = 10;
     // place here the info for each created task;
     // DialTask = 0;
     // Placement Tasks = ++4;
@@ -46,8 +47,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         pView = GetComponent<PhotonView>();
         send = false;
         if (pView) pView.ObservedComponents.Add(this);
-
-
     }
     private void Update()
     {
@@ -66,39 +65,39 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         // send the info of the generated tasks 
-        
-        //if (pView.IsMine)
-        //{
-        //    stream.SendNext(trueNumberOfTasks);
-        //    for (int i = 0; i < trueNumberOfTasks; ++i)
-        //    {
-        //        int n = generatedTasksForThisGame[i].id;
-        //        stream.SendNext(n);
-        //    }
-        //}
-        //else
-        //{
-        //    trueNumberOfTasks = (int)stream.ReceiveNext();
-        //    int rcvdId = -1;
-        //    for (int i = 0; i < trueNumberOfTasks; ++i)
-        //    {
-        //        rcvdId = (int)stream.ReceiveNext();
-        //        for (int k = 0; k < allTasks.Count; ++k)
-        //        {
-        //            if (allTasks[k].id == rcvdId)
-        //            {
 
-        //                if (!generatedTasksForThisGame.Contains(allTasks[k]))
-        //                {
-        //                    if(allTasks[k].status != TaskStatus.COMPLETED)
-        //                        generatedTasksForThisGame.Add(allTasks[k]);
-        //                }
+        if (pView.IsMine)
+        {
+            stream.SendNext(trueNumberOfTasks);
+            for (int i = 0; i < trueNumberOfTasks; ++i)
+            {
+                int n = generatedTasksForThisGame[i].id;
+                stream.SendNext(n);
+            }
+        }
+        else
+        {
+            trueNumberOfTasks = (int)stream.ReceiveNext();
+            int rcvdId = -1;
+            for (int i = 0; i < trueNumberOfTasks; ++i)
+            {
+                rcvdId = (int)stream.ReceiveNext();
+                for (int k = 0; k < allTasks.Count; ++k)
+                {
+                    if (allTasks[k].id == rcvdId)
+                    {
 
-        //            }
-        //        }
-        //    }
-        //    alreadyGeneratedList = true;
-        //}
+                        if (!generatedTasksForThisGame.Contains(allTasks[k]))
+                        {
+                            if (allTasks[k].status != TaskStatus.COMPLETED)
+                                generatedTasksForThisGame.Add(allTasks[k]);
+                        }
+
+                    }
+                }
+            }
+            alreadyGeneratedList = true;
+        }
         if (pView.IsMine)
         {
             if(send)
@@ -150,11 +149,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
 
     }
-    //[PunRPC]
-    //public void SetTrueNumberOfTasks()
-    //{
-
-    //}
     public void GetCompletedTask(Task completedTask)
     {
         taskCompleted = completedTask;
@@ -177,11 +171,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
     }
     [PunRPC]
-    public void SetTasks(List<Task> l)
-    {
-        generatedTasksForThisGame = l;
-    }
-    [PunRPC]
     public void EndGame()
     {
         if(didPlayersWin)
@@ -198,7 +187,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (!alreadyGeneratedList)
         {
-            for (int i = 0; i < allTasks.Count; ++i)
+            for (int i = 0; i < numberOfTasksPerGame; ++i)
             {
                 int rnd = Random.Range(0, allTasks.Count);
                 //tasksForThisGame.Add(allTasks[i]);
@@ -213,9 +202,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 
             }
-
-            pView.RPC("SetTasks", RpcTarget.All, generatedTasksForThisGame);
-            Debug.Log("The master is calling all players and sharing AllTasksForThisGame LIST !!!!!!");
             alreadyGeneratedList = true;
         }
     }
