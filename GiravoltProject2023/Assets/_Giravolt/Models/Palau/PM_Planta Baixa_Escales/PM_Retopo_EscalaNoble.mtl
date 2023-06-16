@@ -1,0 +1,108 @@
+# Blender 3.3.6 MTL File: 'PM_Retopo_EscalaNoble.blend'
+# www.blender.org
+
+newmtl C_Marbre_Blanc
+Ka 1.000000 1.000000 1.000000
+Ks 0.213636 0.213636 0.213636
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures/G_Marbre_Blanc/Marbre_Blanc__BaseColor.png
+map_Ns Textures/G_Marbre_Blanc/Marbre_Blanc__Roughness.jpg
+map_Bump -bm 0.300000 Textures/G_Marbre_Blanc/Marbre_Blanc__NormalDX.jpg
+
+newmtl C_Terra_Marbre
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures/G_Terra_Marbre/C_Terra_Marbre3_basecolor.png
+map_Ns Textures/G_Terra_Marbre/C_Terra_Marbre3_roughness.png
+map_Bump -bm 1.200000 Textures/G_Terra_Marbre/C_Terra_Marbre3_normal.png
+
+newmtl G_Estuc_Beige
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/CFPS_2/Projectes/Practiques/Palau Moja VR/PM_Planta Baixa_Pati/Textures/G_Estuc_beige/beige_wall_001_diff_4k.jpg
+map_Ns E:/CFPS_2/Projectes/Practiques/Palau Moja VR/PM_Planta Baixa_Pati/Textures/G_Estuc_beige/beige_wall_001_rough_4k.exr
+map_Bump -bm 1.000000 E:/CFPS_2/Projectes/Practiques/Palau Moja VR/PM_Planta Baixa_Pati/Textures/G_Estuc_beige/beige_wall_001_nor_gl_4k.exr
+
+newmtl G_Pedra_1
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/CFPS_2/Projectes/Practiques/Palau Moja VR/PM_Planta Baixa_Pati/Textures/G_Parets/G_Parets_albedo.png
+map_Ks E:/CFPS_2/Projectes/Practiques/Palau Moja VR/PM_Planta Baixa_Pati/Textures/G_Parets/G_Parets_Specular.png
+map_Bump -bm 1.000000 E:/CFPS_2/Projectes/Practiques/Palau Moja VR/PM_Planta Baixa_Pati/Textures/G_Parets/G_Parets_normal.png
+
+newmtl Gerro
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.204545 0.204545 0.204545
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/CFPS_2/Projectes/Practiques/Palau Moja VR/Textures/Gerro_Barana/Gerro_Barana1_albedo.jpg
+map_Bump -bm 0.100000 E:/CFPS_2/Projectes/Practiques/Palau Moja VR/Textures/Gerro_Barana/Gerro_Barana_Normal.png
+
+newmtl S_Marbres_SalaEscales
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures/S_Marbres_SalaEscales/S_Marbres_SalaEscales_basecolor.png
+
+newmtl S_Motllures_Escales
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures/S_Motllures_Escales/S_Motllures_Escales.jpg
+
+newmtl S_Pintures_Escales
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Textures/S_Pintures_Escales/S_Pintures_Escales.jpg
+map_Ks Textures/S_Pintures_Escales/S_Pintures_Escales_specular.jpg
+map_Bump -bm 0.200000 Textures/S_Pintures_Escales/S_Pintures_Escales_normal.jpg
+
+newmtl S_Porta_Gos
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.522222 0.522222 0.522222
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:/CFPS_2/Projectes/Practiques/Palau Moja VR/Ortofotos/PORTA_GOS.png
+
+newmtl TT_checker_1024x1024_COLOR_GRID
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
