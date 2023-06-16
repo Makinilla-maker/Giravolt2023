@@ -122,9 +122,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            string check = "";
+            var check = " ";
             check = (string)stream.ReceiveNext();
-            if (check != "")
+            if (check != " ")
             {
                 sendTaskStatus = check;
                 sendTaskInt = (int)stream.ReceiveNext();
