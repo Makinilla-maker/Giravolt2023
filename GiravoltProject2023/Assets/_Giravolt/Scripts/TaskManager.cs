@@ -213,7 +213,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             if(!generatedTasksForThisGame.Contains(t))
             {
-                GameObject.Find(t.name).SetActive(false);
+                GameObject.Find(t.name + "_Main").SetActive(false);
             }
         }
     }
