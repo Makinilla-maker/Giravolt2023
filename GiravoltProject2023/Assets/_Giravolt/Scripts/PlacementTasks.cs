@@ -109,31 +109,11 @@ public class PlacementTasks : MonoBehaviour
             }            
         }
     }
-    public bool IsAnyTaskLeft()
-    {
-        bool ret = false;
-        if(manager.generatedTasksForThisGame.Count == 0)
-        {
-            ret = true;
-        }
-        else
-        {
-            ret = false;
-        }
-
-        return ret;
-    }
+   
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1f);
         this.gameObject.SetActive(false);
-        if (IsAnyTaskLeft())
-        {
-            Debug.Log("HOLA ORIOL, ETS UN MONGOLIN LOQUETE!\n\ngilipollas");
-        }
-        else
-        {
-            Debug.Log("ORIOL TREBALLA BOBO");
-        }
+        
     }
 }
