@@ -71,6 +71,14 @@ public class PlacementTasks : MonoBehaviour
     public void OnCompletedTask()
     {
         ps.Play();
+        if(IsAnyTaskLeft())
+        {
+            Debug.Log("HOLA ORIOL, ETS UN MONGOLIN LOQUETE!\n\ngilipollas");
+        }
+        else
+        {
+            Debug.Log("ORIOL TREBALLA BOBO");
+        }
         StartCoroutine(Delay());
     }
     void OnTriggerEnter(Collider other)
@@ -107,6 +115,20 @@ public class PlacementTasks : MonoBehaviour
                 manager.GetCompletedTask(placementTask_01);
             }            
         }
+    }
+    public bool IsAnyTaskLeft()
+    {
+        bool ret = false;
+        if(manager.generatedTasksForThisGame.Count == 0)
+        {
+            ret = true;
+        }
+        else
+        {
+            ret = false;
+        }
+
+        return ret;
     }
     IEnumerator Delay()
     {
