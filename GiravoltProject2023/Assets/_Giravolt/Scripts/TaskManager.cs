@@ -213,7 +213,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             if(!generatedTasksForThisGame.Contains(t))
             {
-                GameObject.Find(t.name + "_Main").SetActive(false);
+                Debug.Log("About to deactivate: " + t.name + "_Main");
+                if(GameObject.Find(t.name + "_Main"))
+                    GameObject.Find(t.name + "_Main").SetActive(false);
             }
         }
     }
