@@ -59,7 +59,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (PhotonNetwork.IsMasterClient && !alreadyGeneratedList)
         {
             pView.RPC("GenerateTasks", RpcTarget.MasterClient);
-            pView.RPC("SetTasks", RpcTarget.All, generatedTasksForThisGame);
         }
     }
     
@@ -214,8 +213,9 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 }
                 
             }
-            
 
+            pView.RPC("SetTasks", RpcTarget.All, generatedTasksForThisGame);
+            Debug.Log("The master is calling all players and sharing AllTasksForThisGame LIST !!!!!!");
             alreadyGeneratedList = true;
         }
     }
