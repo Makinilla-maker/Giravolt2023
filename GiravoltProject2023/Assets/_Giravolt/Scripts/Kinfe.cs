@@ -78,9 +78,9 @@ public class Kinfe : MonoBehaviour
             Debug.Log("-----You are being killed");
             rolesManager.KillMe();
         }
-        string path = $"{hitName}/Head/Robot Kyle/Robot2";
+        string path = $"{killedName}/Head/Robot Kyle/Robot2";
         Debug.Log(path);
-        Debug.Log(transform.Find(path).GetComponent<SkinnedMeshRenderer>().enabled);
-        //transform.Find(hitName + "/Head/Robot Kyle/Robot2").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        Debug.Log(GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled);
+        GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled = false;
     }
 }
