@@ -1340,6 +1340,7 @@ MonoBehaviour:
     id: 18
   generatedTasksForThisGame: []
   numberOfTasksPerGame: 10
+  gameLightsHolder: {fileID: 0}
 --- !u!114 &94974127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29245,6 +29246,7 @@ GameObject:
   - component: {fileID: 1223427773}
   - component: {fileID: 1223427772}
   - component: {fileID: 1223427771}
+  - component: {fileID: 1223427775}
   m_Layer: 0
   m_Name: Cube (37)
   m_TagString: Untagged
@@ -29330,6 +29332,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223427775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223427770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ea587d5cd5c1b43a35dd96beb5bb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areLightsOff: 0
+  manager: {fileID: 0}
 --- !u!1 &1227114906
 GameObject:
   m_ObjectHideFlags: 0
