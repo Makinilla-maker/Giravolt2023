@@ -16,7 +16,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         Debug.Log("This is the joined room of the network player spawner");
         
         base.OnJoinedRoom();
-        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnPoint.position, Quaternion.identity);
+        //spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnPoint.position, Quaternion.identity);
     }
     public override void OnLeftRoom()
     {

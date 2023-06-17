@@ -32,9 +32,7 @@ public class Kinfe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(CalculateSpeed());
-
-        
+        //StartCoroutine(CalculateSpeed());
     }
 
     public void SetGrabbable()
@@ -49,12 +47,12 @@ public class Kinfe : MonoBehaviour
         }
     }
 
-    IEnumerator CalculateSpeed()
-    {
-        Vector3 lastPos = transform.position;
-        yield return new WaitForFixedUpdate();
-        speed = (lastPos- transform.position).magnitude / Time.deltaTime;
-    }
+    //IEnumerator CalculateSpeed()
+    //{
+    //    Vector3 lastPos = transform.position;
+    //    yield return new WaitForFixedUpdate();
+    //    speed = (lastPos- transform.position).magnitude / Time.deltaTime;
+    //}
 
     private void OnTriggerEnter(Collider other)
     {

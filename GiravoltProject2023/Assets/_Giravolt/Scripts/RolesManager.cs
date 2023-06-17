@@ -12,12 +12,14 @@ public class RolesManager : MonoBehaviour
     [SerializeField] public bool imDead;
     public MainConnect mC;
     private bool doOnce = false;
+
     private void Awake()
     {
         mC = FindObjectOfType<MainConnect>();
         imAssassin = false;
         imDead = false; 
         id = PhotonNetwork.LocalPlayer.ActorNumber;
+        GameObject.Find("Network Player(Clone)").GetComponent<CapsuleCollider>().enabled = false;
         SetLocalId();
     }
     private void Update()
@@ -42,6 +44,8 @@ public class RolesManager : MonoBehaviour
     public void KillMe()
     {
         imDead = true;
+        GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        go.transform.position = new Vector3(0, 0, -5);
         this.transform.GetChild(0).gameObject.SetActive(false);
         this.transform.GetChild(1).gameObject.SetActive(false);
         this.transform.GetChild(2).gameObject.SetActive(false);
