@@ -975,8 +975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sendWipeTask: 0
-  sangMaterial: {fileID: 2100000, guid: 041d561566d34aa4d91eafec859a33fa, type: 2}
-  tacaMaterial: {fileID: 2100000, guid: 80938886fedd9014287660573ad0005a, type: 2}
+  sangMaterial: {fileID: 559504277}
+  tacaMaterial: {fileID: 5563070480214129859}
   ammountOfWipesTaques: 3
   ammountOfWipesSang: 3
   allTasks:
