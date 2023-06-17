@@ -72,8 +72,10 @@ public class Kinfe : MonoBehaviour
     [PunRPC]
     public void KillId(int killedId)
     {
+        Debug.Log("------Player " + killedId + "was killed");
         if(rolesManager.id == killedId) 
         {
+            Debug.Log("-----You are being killed");
             rolesManager.KillMe();
         }
     }

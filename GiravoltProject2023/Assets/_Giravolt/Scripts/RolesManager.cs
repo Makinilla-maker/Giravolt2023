@@ -43,6 +43,7 @@ public class RolesManager : MonoBehaviour
 
     public void KillMe()
     {
+        Debug.Log(".......You are dead");
         imDead = true;
         GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
         go.transform.position = new Vector3(0, 0, -5);
