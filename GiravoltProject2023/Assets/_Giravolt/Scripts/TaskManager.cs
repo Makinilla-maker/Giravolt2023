@@ -32,7 +32,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private int trueNumberOfTasks = 0;
     // ISAAC
     private bool alreadyGeneratedList;
-    public int ammountOfWipes = 3;
+    public int ammountOfWipesTaques = 3;
+    public int ammountOfWipesSang = 3;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
@@ -160,15 +161,15 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             if(sendWipeTask)
             {
-                ammountOfWipes--;
+                ammountOfWipesTaques--;
                 sendWipeTask = !sendWipeTask;
             }
         }
         else
         {
             int marcEspavila = (int)stream.ReceiveNext();
-            ammountOfWipes = marcEspavila;
-            Debug.Log("DSADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD                       " + ammountOfWipes);
+            ammountOfWipesTaques = marcEspavila;
+            Debug.Log("DSADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD                       " + ammountOfWipesTaques);
         }
 
     }
@@ -179,9 +180,14 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         pView.RPC("SetCompletedTask", RpcTarget.All, (string)taskCompleted.name);
     }
     [PunRPC]
-    public void DecreaseWipe()
+    public void DecreaseWipeSang()
     {
-        ammountOfWipes--;
+        ammountOfWipesSang--;
+    }
+    [PunRPC]
+    public void DecreaseWipeTaques()
+    {
+        ammountOfWipesTaques--;
     }
     [PunRPC]
     public void SetCompletedTask(string tn)

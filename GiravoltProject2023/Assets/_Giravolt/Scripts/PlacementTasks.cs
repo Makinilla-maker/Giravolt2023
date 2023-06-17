@@ -87,15 +87,30 @@ public class PlacementTasks : MonoBehaviour
         
         if(other.gameObject.tag == tagForThisTask && placementTask_01.status != TaskStatus.COMPLETED)
         {
-            if(placementTask_01.id == 13) // Taques
+            if(placementTask_01.id == 13) // Sang
             {
-                if(manager.ammountOfWipes != 0)
+                if(manager.ammountOfWipesSang != 0)
                 {
-                    manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All);
+                    manager.photonView.RPC("DecreaseWipeSang", Photon.Pun.RpcTarget.All);
                 }
                 else
                 {
-                    if(manager.ammountOfWipes == 0)
+                    if(manager.ammountOfWipesSang == 0)
+                    {
+                        placementTask_01.status = TaskStatus.COMPLETED;
+                        manager.GetCompletedTask(placementTask_01);
+                    }
+                }
+            }
+            if(placementTask_01.id == 8) // Taques
+            {
+                if(manager.ammountOfWipesTaques != 0)
+                {
+                    manager.photonView.RPC("DecreaseWipeTaques", Photon.Pun.RpcTarget.All);
+                }
+                else
+                {
+                    if(manager.ammountOfWipesTaques == 0)
                     {
                         placementTask_01.status = TaskStatus.COMPLETED;
                         manager.GetCompletedTask(placementTask_01);

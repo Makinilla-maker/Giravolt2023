@@ -19403,6 +19403,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: carro
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 90e6a1eb9c86ae543b12a4db691d035e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Task_Taques
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e6a1eb9c86ae543b12a4db691d035e, type: 3}
 --- !u!4 &1515303025 stripped
