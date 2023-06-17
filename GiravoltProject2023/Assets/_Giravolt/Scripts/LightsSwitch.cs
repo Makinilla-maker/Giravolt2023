@@ -6,7 +6,7 @@ public class LightsSwitch : MonoBehaviour
 {
     [SerializeField] public bool areLightsOn;
     [SerializeField] private TaskManager manager;
-    bool canISwitch;
+    public bool canISwitch;
     float time = 2;
     // Start is called before the first frame update
     void Start()
@@ -36,10 +36,10 @@ public class LightsSwitch : MonoBehaviour
             switch (areLightsOn)
             {
                 case true:
-                    manager.CallTurnLights(true, this.gameObject.name);
+                    manager.CallTurnLights(true, this.gameObject.name, canISwitch);
                     break;
                 case false:
-                    manager.CallTurnLights(false, this.gameObject.name);
+                    manager.CallTurnLights(false, this.gameObject.name, canISwitch);
                     break;
                 default:
                     break;

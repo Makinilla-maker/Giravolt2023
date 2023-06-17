@@ -202,24 +202,26 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         
     }
     
-    public void CallTurnLights(bool b, string name)
+    public void CallTurnLights(bool b, string name, bool canISwitch)
     {
-        pView.RPC("TurnLihtsOnOrOff", RpcTarget.All, b, name);
+        pView.RPC("TurnLihtsOnOrOff", RpcTarget.All, b, name,canISwitch);
     }
     [PunRPC]
-    public void TurnLihtsOnOrOff(bool b, string name)
+    public void TurnLihtsOnOrOff(bool b, string name, bool canISwitch)
     {
         
             switch (b)
             {
                 case true:
                     GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn = false;
+                    GameObject.Find(name).GetComponent<LightsSwitch>().canISwitch = false;
                     gameLightsHolder.gameObject.SetActive(false);
                     GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.green);
                     
                     break;
                 case false:
                 GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn = true;
+                GameObject.Find(name).GetComponent<LightsSwitch>().canISwitch = false;
                 gameLightsHolder.gameObject.SetActive(true);
                 GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.red);
                 
