@@ -42,6 +42,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
     public int numberOfTasksPerGame = 10;
+    public GameObject gameLightsHolder;
+    private LightsSwitch ls;
     // place here the info for each created task;
     // DialTask = 0;
     // Placement Tasks = ++4;
@@ -50,6 +52,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         pView = GetComponent<PhotonView>();
         send = false;
         if (pView) pView.ObservedComponents.Add(this);
+
+        gameLightsHolder = GameObject.Find("InGameLights");
     }
     private void Update()
     {
@@ -196,6 +200,31 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
         
+    }
+    
+    public void CallTurnLights(bool b, string name)
+    {
+        pView.RPC("TurnLihtsOnOrOff", RpcTarget.All, b, name);
+    }
+    [PunRPC]
+    public void TurnLihtsOnOrOff(bool b, string name)
+    {
+        foreach (Transform g in gameLightsHolder.transform.GetComponentInChildren<Transform>())
+        {
+            switch (b)
+            {
+                case true:
+                    g.gameObject.SetActive(b);
+                    GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.green);
+                    break;
+                case false:
+                    g.gameObject.SetActive(b);
+                    GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.red);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     [PunRPC]
     public void GenerateTasks()
