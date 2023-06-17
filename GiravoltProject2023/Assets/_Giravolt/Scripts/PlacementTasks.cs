@@ -107,16 +107,6 @@ public class PlacementTasks : MonoBehaviour
                     }
                 }
             }
-            else if (placementTask_01.id == 11) // Porta
-            {
-                placementTask_01.status = TaskStatus.COMPLETED;
-                manager.GetCompletedTask(placementTask_01);
-            }
-            else
-            {
-                placementTask_01.status = TaskStatus.COMPLETED;
-                manager.GetCompletedTask(placementTask_01);
-            }            
         }
     }
    
