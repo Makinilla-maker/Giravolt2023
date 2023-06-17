@@ -209,24 +209,25 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void TurnLihtsOnOrOff(bool b, string name)
     {
-        foreach (Transform g in gameLightsHolder.transform.GetComponentInChildren<Transform>())
-        {
+        
             switch (b)
             {
                 case true:
-                    g.gameObject.SetActive(b);
+                    GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn = false;
+                    gameLightsHolder.gameObject.SetActive(false);
                     GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.green);
-                    GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn = !GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn;
+                    
                     break;
                 case false:
-                    g.gameObject.SetActive(b);
-                    GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.red);
-                    GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn = !GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn;
+                GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn = true;
+                gameLightsHolder.gameObject.SetActive(true);
+                GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.red);
+                
                     break;
                 default:
                     break;
             }
-        }
+        
     }
     [PunRPC]
     public void GenerateTasks()

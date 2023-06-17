@@ -33,6 +33,7 @@ public class LightsSwitch : MonoBehaviour
                 default:
                     break;
             }
+            Debug.Log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         }
     }
     public void ChangeCubeColor(Color g)
