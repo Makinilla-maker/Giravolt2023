@@ -31,8 +31,8 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     private PhotonView pView;
     private int trueNumberOfTasks = 0;
 
-    public Material sangMaterial;
-    public Material tacaMaterial;
+    public GameObject sangMaterial;
+    public GameObject tacaMaterial;
 
     // ISAAC
     private bool alreadyGeneratedList;
@@ -172,11 +172,11 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         switch(id)
         {
             case 13:
-                sangMaterial.color = new Color(sangMaterial.color.r, sangMaterial.color.g, sangMaterial.color.b, (float)(0.33 * ammountOfWipesSang));
+                sangMaterial.GetComponent<MeshRenderer>().material.color = new Color(sangMaterial.GetComponent<MeshRenderer>().material.color.r, sangMaterial.GetComponent<MeshRenderer>().material.color.g, sangMaterial.GetComponent<MeshRenderer>().material.color.b, (float)(0.33 * ammountOfWipesSang));
                 ammountOfWipesSang--;
                 break;
             case 8:
-                tacaMaterial.color = new Color(tacaMaterial.color.r, tacaMaterial.color.g, tacaMaterial.color.b, (float)(0.33 * ammountOfWipesTaques));
+                tacaMaterial.GetComponent<MeshRenderer>().material.color = new Color(tacaMaterial.GetComponent<MeshRenderer>().material.color.r, tacaMaterial.GetComponent<MeshRenderer>().material.color.g, tacaMaterial.GetComponent<MeshRenderer>().material.color.b, (float)(0.33 * ammountOfWipesSang));
                 ammountOfWipesTaques--;
                 break;
             default: break;
