@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightsSwitch : MonoBehaviour
 {
-    [SerializeField] private bool areLightsOff;
+    [SerializeField] public bool areLightsOff;
     [SerializeField] private TaskManager manager;
     // Start is called before the first frame update
     void Start()
