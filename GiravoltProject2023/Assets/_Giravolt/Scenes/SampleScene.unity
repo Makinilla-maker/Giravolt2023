@@ -975,7 +975,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sendWipeTask: 0
-  ammountOfWipes: 3
+  sangMaterial: {fileID: 2100000, guid: 041d561566d34aa4d91eafec859a33fa, type: 2}
+  tacaMaterial: {fileID: 2100000, guid: 80938886fedd9014287660573ad0005a, type: 2}
+  ammountOfWipesTaques: 3
+  ammountOfWipesSang: 3
   allTasks:
   - name: Dial
     description: VVVV
@@ -82849,8 +82852,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5563070480214129859}
   m_LocalRotation: {x: 0.17826685, y: -0.17826685, z: -0.68426675, w: 0.68426675}
-  m_LocalPosition: {x: 0.4267, y: -5.9387, z: 7.0891}
-  m_LocalScale: {x: 0.019336892, y: 0.027561134, z: 0.027561134}
+  m_LocalPosition: {x: 0.417, y: -5.948, z: 7.106}
+  m_LocalScale: {x: 0.06257805, y: 0.089193344, z: 0.089193344}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2781876214583966947}

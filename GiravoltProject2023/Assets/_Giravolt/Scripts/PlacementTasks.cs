@@ -91,7 +91,7 @@ public class PlacementTasks : MonoBehaviour
             {
                 if(manager.ammountOfWipesSang != 0)
                 {
-                    manager.photonView.RPC("DecreaseWipeSang", Photon.Pun.RpcTarget.All);
+                    manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All, 13);
                 }
                 else
                 {
@@ -106,7 +106,7 @@ public class PlacementTasks : MonoBehaviour
             {
                 if(manager.ammountOfWipesTaques != 0)
                 {
-                    manager.photonView.RPC("DecreaseWipeTaques", Photon.Pun.RpcTarget.All);
+                    manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All,8);
                 }
                 else
                 {

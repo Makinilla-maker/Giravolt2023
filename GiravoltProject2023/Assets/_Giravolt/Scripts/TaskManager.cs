@@ -30,6 +30,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public bool sendWipeTask = false;
     private PhotonView pView;
     private int trueNumberOfTasks = 0;
+
+    public Material sangMaterial;
+    public Material tacaMaterial;
+
     // ISAAC
     private bool alreadyGeneratedList;
     public int ammountOfWipesTaques = 3;
@@ -155,23 +159,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
 
-
-
-        if(pView.IsMine)
-        {
-            if(sendWipeTask)
-            {
-                ammountOfWipesTaques--;
-                sendWipeTask = !sendWipeTask;
-            }
-        }
-        else
-        {
-            int marcEspavila = (int)stream.ReceiveNext();
-            ammountOfWipesTaques = marcEspavila;
-            Debug.Log("DSADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD                       " + ammountOfWipesTaques);
-        }
-
     }
     public void GetCompletedTask(Task completedTask)
     {
@@ -180,14 +167,20 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         pView.RPC("SetCompletedTask", RpcTarget.All, (string)taskCompleted.name);
     }
     [PunRPC]
-    public void DecreaseWipeSang()
+    public void DecreaseWipe(int id)
     {
-        ammountOfWipesSang--;
-    }
-    [PunRPC]
-    public void DecreaseWipeTaques()
-    {
-        ammountOfWipesTaques--;
+        switch(id)
+        {
+            case 13:
+                sangMaterial.color = new Color(sangMaterial.color.r, sangMaterial.color.g, sangMaterial.color.b, (float)(0.33 * ammountOfWipesSang));
+                ammountOfWipesSang--;
+                break;
+            case 8:
+                tacaMaterial.color = new Color(tacaMaterial.color.r, tacaMaterial.color.g, tacaMaterial.color.b, (float)(0.33 * ammountOfWipesTaques));
+                ammountOfWipesTaques--;
+                break;
+            default: break;
+        }
     }
     [PunRPC]
     public void SetCompletedTask(string tn)
