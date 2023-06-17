@@ -92,7 +92,7 @@ public class PlacementTasks : MonoBehaviour
                     }
                 }
             }
-            if(placementTask_01.id == 8) // Taques
+            else if(placementTask_01.id == 8) // Taques
             {
                 if(manager.ammountOfWipesTaques != 0)
                 {
@@ -107,7 +107,7 @@ public class PlacementTasks : MonoBehaviour
                     }
                 }
             }
-            if (placementTask_01.id == 11) // Porta
+            else if (placementTask_01.id == 11) // Porta
             {
                 placementTask_01.status = TaskStatus.COMPLETED;
                 manager.GetCompletedTask(placementTask_01);
