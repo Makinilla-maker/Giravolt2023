@@ -583,7 +583,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &42605445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1716,6 +1716,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Task_Informacio
       objectReference: {fileID: 0}
+    - target: {fileID: 558955782128164761, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 937028502207806180, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
@@ -2168,7 +2173,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &213723273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2429,7 +2434,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &269208797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3172,7 +3177,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &331442028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13837,7 +13842,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!1 &599916901
 GameObject:
   m_ObjectHideFlags: 0
@@ -14204,7 +14209,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &635154741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20326,7 +20331,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &871347359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22185,7 +22190,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1031918040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22713,7 +22718,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1077286810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28285,7 +28290,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1191504246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34398,7 +34403,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1449020312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40042,6 +40047,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Task_Vaixell
       objectReference: {fileID: 0}
+    - target: {fileID: 558955782128164761, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 937028502207806180, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
       propertyPath: m_Name
@@ -40476,7 +40486,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1687851367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40584,7 +40594,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1701510192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40783,7 +40793,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &1728023108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44048,7 +44058,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &558955782096588586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44064,7 +44074,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &558955782433051432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44096,7 +44106,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &558955782729067091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44112,7 +44122,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &558955783181646512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44128,7 +44138,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &558955783485175739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44144,7 +44154,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &558955783539940608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44160,7 +44170,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!4 &584457520399040703
 Transform:
   m_ObjectHideFlags: 0
@@ -105226,7 +105236,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &7002962728027132697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106698,7 +106708,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &7768950331577124522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108021,7 +108031,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &8798243381386013099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113624,7 +113634,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!114 &8989205701801560149
 MonoBehaviour:
   m_ObjectHideFlags: 0
