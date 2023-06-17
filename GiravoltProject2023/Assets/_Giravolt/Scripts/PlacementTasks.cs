@@ -49,16 +49,6 @@ public class PlacementTasks : MonoBehaviour
         Debug.Log("Creating placement task!");
         yield return new WaitForSeconds(.2f);
         placementTask_01 = manager.CreateTask(taskName, taskDescription, TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, id);
-        //if (placementTask_01 == null)
-        //{
-        //    Task ret = new Task();
-        //    ret.name = taskName;
-        //    ret.description = taskDescription;
-        //    ret.status = TaskStatus.NOTSTARTED;
-        //    ret.mainObject = this.gameObject;
-        //    ret.targetObject = this.gameObject;
-        //    ret.id = id;
-        //}
     }
         // Update is called once per frame
     void Update()
@@ -116,6 +106,11 @@ public class PlacementTasks : MonoBehaviour
                         manager.GetCompletedTask(placementTask_01);
                     }
                 }
+            }
+            if (placementTask_01.id == 11) // Porta
+            {
+                placementTask_01.status = TaskStatus.COMPLETED;
+                manager.GetCompletedTask(placementTask_01);
             }
             else
             {
