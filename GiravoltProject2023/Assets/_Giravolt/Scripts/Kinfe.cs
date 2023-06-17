@@ -64,13 +64,13 @@ public class Kinfe : MonoBehaviour
             hitName = other.gameObject.name;
             hitID = int.Parse(hitName.Substring(hitName.Length - 1));
             Debug.Log("--------KiledID = " + hitID);
-            pView.RPC("KillId", RpcTarget.All, hitID);
+            pView.RPC("KillId", RpcTarget.All, hitID, hitName);
         }
         else isStabbing = false;
     }
 
     [PunRPC]
-    public void KillId(int killedId)
+    public void KillId(int killedId, string killedName)
     {
         Debug.Log("------Player " + killedId + "was killed");
         if(rolesManager.id == killedId) 
@@ -78,5 +78,7 @@ public class Kinfe : MonoBehaviour
             Debug.Log("-----You are being killed");
             rolesManager.KillMe();
         }
+
+        transform.Find(hitName + "/Head/Robot Kyle/Robot2").GetComponent<SkinnedMeshRenderer>().enabled = false;
     }
 }

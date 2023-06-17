@@ -45,11 +45,5 @@ public class RolesManager : MonoBehaviour
     {
         Debug.Log(".......You are dead");
         imDead = true;
-        GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        go.transform.position = new Vector3(0, 0, -5);
-        this.transform.GetChild(0).gameObject.SetActive(false);
-        this.transform.GetChild(1).gameObject.SetActive(false);
-        this.transform.GetChild(2).gameObject.SetActive(false);
-        Debug.Log("----------you got stabbed and Killed");
     }
 }
