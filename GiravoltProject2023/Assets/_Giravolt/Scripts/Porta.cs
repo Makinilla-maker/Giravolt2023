@@ -7,11 +7,17 @@ public class Porta : MonoBehaviour
     public List<GameObject> portaList;
     public GameObject selectedClau;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         int a = Random.Range(0,2);
         selectedClau = portaList[a].gameObject;
-        selectedClau.GetComponent<PlacementTasks>().enabled = true;
+        foreach (GameObject item in portaList)
+        {
+            if(item != selectedClau)
+            {
+                selectedClau.GetComponent<PlacementTasks>().enabled = false;
+            }
+        }        
     }
 
     // Update is called once per frame
