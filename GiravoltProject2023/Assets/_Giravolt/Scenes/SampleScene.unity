@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 42605441}
   - component: {fileID: 42605440}
   m_Layer: 0
-  m_Name: Clau1
+  m_Name: Task_Porta
   m_TagString: Task_Porta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2742,7 +2742,7 @@ GameObject:
   - component: {fileID: 324432803}
   - component: {fileID: 324432802}
   m_Layer: 0
-  m_Name: Clau2
+  m_Name: Task_Porta
   m_TagString: Task_Porta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44178,7 +44178,7 @@ GameObject:
   - component: {fileID: 1376473438187565530}
   - component: {fileID: 7018583437768228243}
   m_Layer: 0
-  m_Name: Clau3
+  m_Name: Task_Porta
   m_TagString: Task_Porta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
