@@ -82,5 +82,6 @@ public class Kinfe : MonoBehaviour
         Debug.Log(path);
         Debug.Log(GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled);
         GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled = false;
+        //TODO Player mask instantiate
     }
 }
