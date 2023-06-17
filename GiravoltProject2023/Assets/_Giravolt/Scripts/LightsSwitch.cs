@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class LightsSwitch : MonoBehaviour
 {
-    [SerializeField] public bool areLightsOff;
+    [SerializeField] public bool areLightsOn;
     [SerializeField] private TaskManager manager;
     // Start is called before the first frame update
     void Start()
     {
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
+        areLightsOn = true;
     }
 
     // Update is called once per frame
@@ -21,7 +22,7 @@ public class LightsSwitch : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player_Hand"))
         {
-            switch (areLightsOff)
+            switch (areLightsOn)
             {
                 case true:
                     manager.CallTurnLights(true, this.gameObject.name);
