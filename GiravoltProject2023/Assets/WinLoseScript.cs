@@ -6,6 +6,9 @@ using UnityEngine;
 public class WinLoseScript : MonoBehaviour
 {
     public MainConnect mC;
+    public GameObject menuC;
+    public GameObject menuI;
+
     private void Awake()
     {
         mC = FindObjectOfType<MainConnect>();
@@ -18,15 +21,15 @@ public class WinLoseScript : MonoBehaviour
         if (mC._assassinWin == true)
         {
             Debug.Log("entering assassin wiu");
-            GameObject.Find("MenuI").SetActive(true);
-            GameObject.Find("MenuC").SetActive(false);
+            menuI.SetActive(true);
+            menuC.SetActive(false);
             Debug.Log("---------Assassin win in ending");
         }
         else
         {
             Debug.Log("---------else debug");
-            GameObject.Find("MenuI").SetActive(false);
-            GameObject.Find("MenuC").SetActive(true);
+            menuI.SetActive(false);
+            menuC.SetActive(true);
         }
     }
 }
