@@ -64,12 +64,16 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
         gameLightsHolder = GameObject.Find("InGameLights");
         bellSpawns = GameObject.FindGameObjectsWithTag("Bell").ToList();
-        if(PhotonNetwork.IsMasterClient)
+        
+    }
+    private void Start()
+    {
+        if (PhotonNetwork.IsMasterClient)
         {
             int rnd = Random.Range(0, bellSpawns.Count + 1);
-            for(int i = 0; i < bellSpawns.Count; i++)
+            for (int i = 0; i < bellSpawns.Count; i++)
             {
-                if(i == rnd)
+                if (i == rnd)
                 {
                     pView.RPC("SetOnlyBell", RpcTarget.All, bellSpawns[i].gameObject.name);
                 }
