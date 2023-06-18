@@ -23,7 +23,7 @@ public class WinLoseScript : MonoBehaviour
             Debug.Log("---------Assassin win in ending");
         }
         else
-
+        {
             Debug.Log("---------else debug");
             GameObject.Find("MenuI").SetActive(false);
             GameObject.Find("MenuC").SetActive(true);
