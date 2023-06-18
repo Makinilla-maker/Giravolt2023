@@ -32,6 +32,36 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
+  - m_GUID: d58f7dba9cdf4704d81e6824a0d46213
+    m_Address: background_TutorialESP (1)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 19785e907a505e3438dfa1023f1e9179
+    m_Address: background_TutorialESP (2)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 7c9c3228df944294ab7d0f73c0a768af
+    m_Address: background_TutorialESP (3)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 1459377a229ce5e4c83de92f117f0a70
+    m_Address: background_TutorialESP (4)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: a550f4f84a2b5a448accdf6e1288eff7
+    m_Address: background_TutorialESP (5)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: c3100414c69395f48a2087476d3d5fd1
+    m_Address: background_TutorialESP (6)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: e00b70fe001ce4344bd666f811c1ad75, type: 2}
   m_SchemaSet:
