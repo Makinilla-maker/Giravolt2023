@@ -33,11 +33,13 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
     public GameObject sangMaterial;
     public GameObject tacaMaterial;
+    public GameObject tatxadesMaterial;
 
     // ISAAC
     private bool alreadyGeneratedList;
     public int ammountOfWipesTaques = 3;
     public int ammountOfWipesSang = 3;
+    public int ammountOfTatxades = 3;
     [SerializeField] private List<Task> allTasks = new List<Task>();
     public List<Task> generatedTasksForThisGame = new List<Task>();
     private List<int> randomNumberList = new List<int>();
@@ -182,6 +184,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             case 8:
                 tacaMaterial.GetComponent<MeshRenderer>().material.color = new Color(tacaMaterial.GetComponent<MeshRenderer>().material.color.r, tacaMaterial.GetComponent<MeshRenderer>().material.color.g, tacaMaterial.GetComponent<MeshRenderer>().material.color.b, (float)(0.33 * ammountOfWipesSang));
                 ammountOfWipesTaques--;
+                break;
+            case 9:
+                tatxadesMaterial.GetComponent<MeshRenderer>().material.color = new Color(tacaMaterial.GetComponent<MeshRenderer>().material.color.r, tacaMaterial.GetComponent<MeshRenderer>().material.color.g, tacaMaterial.GetComponent<MeshRenderer>().material.color.b, (float)(0.33 * ammountOfWipesSang));
+                ammountOfTatxades--;
                 break;
             default: break;
         }

@@ -107,6 +107,21 @@ public class PlacementTasks : MonoBehaviour
                     }
                 }
             }
+            else if (placementTask_01.id == 9) // Taques
+            {
+                if (manager.ammountOfTatxades != 0)
+                {
+                    manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All, 9);
+                }
+                else
+                {
+                    if (manager.ammountOfTatxades == 0)
+                    {
+                        placementTask_01.status = TaskStatus.COMPLETED;
+                        manager.GetCompletedTask(placementTask_01);
+                    }
+                }
+            }
             else
             {
                 placementTask_01.status = TaskStatus.COMPLETED;
