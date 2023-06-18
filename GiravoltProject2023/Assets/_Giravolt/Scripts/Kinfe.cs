@@ -19,6 +19,8 @@ public class Kinfe : MonoBehaviour
     public int hitID;
     [SerializeField] public GameObject maskPrefab;
 
+    public int alivePlayers;
+
     public PhotonView pView;
 
     void Start()
@@ -26,7 +28,7 @@ public class Kinfe : MonoBehaviour
         isStabbing = false;
         rolesManager = GameObject.Find("RoleManager").GetComponent<RolesManager>();
         pView = GetComponent<PhotonView>();
-
+        alivePlayers = PhotonNetwork.CurrentRoom.Players.Count;
         SetGrabbable();
     }
 
@@ -83,6 +85,7 @@ public class Kinfe : MonoBehaviour
         //Debug.Log(path);
         GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled = false;
         Instantiate(maskPrefab, GameObject.Find(path).transform.position, Quaternion.identity);
-        //TODO Player mask instantiate
+
+        --alivePlayers;
     }
 }
