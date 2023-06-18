@@ -79,8 +79,9 @@ public class Kinfe : MonoBehaviour
             rolesManager.KillMe();
         }
         string path = $"{killedName}/Head/Robot Kyle/Robot2";
-        Debug.Log(path);
-        Debug.Log(GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled);
+        //Debug.Log(path);
+        //Debug.Log(GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled);
         GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled = false;
+        //TODO Player mask instantiate
     }
 }
