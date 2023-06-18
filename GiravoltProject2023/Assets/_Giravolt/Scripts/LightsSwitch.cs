@@ -33,8 +33,8 @@ public class LightsSwitch : MonoBehaviour
     {
         if(canISwitch)
         {
-            manager.CallTurnLights(true, this.gameObject.name, true);
             canISwitch = false;
+            manager.CallTurnLights(true, this.gameObject.name, canISwitch);
             Debug.Log("Should be on top");
         }            
     }
@@ -42,8 +42,8 @@ public class LightsSwitch : MonoBehaviour
     {
         if(canISwitch)
         {
-            manager.CallTurnLights(false, this.gameObject.name, true);
             canISwitch = false;
+            manager.CallTurnLights(false, this.gameObject.name, canISwitch);
             Debug.Log("Should be on bot");
         }
     }
