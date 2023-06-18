@@ -15,6 +15,12 @@ public class RolesManager : MonoBehaviour
 
     public bool assassinWin;
 
+    [SerializeField] public GameObject rolePaper;
+
+    public Material langMat;
+
+    public LanguageSelector languageSelector;
+
     private void Awake()
     {
         mC = FindObjectOfType<MainConnect>();
@@ -24,6 +30,11 @@ public class RolesManager : MonoBehaviour
         id = PhotonNetwork.LocalPlayer.ActorNumber;
         GameObject.Find("Network Player(Clone)").GetComponent<CapsuleCollider>().enabled = false;
         SetLocalId();
+        
+        languageSelector = mC.GetComponent<LanguageSelector>();
+        
+
+        Instantiate(rolePaper, new Vector3(transform.position.x, transform.position.y, (transform.position.z + 1)), Quaternion.identity);
     }
     private void Update()
     {
@@ -48,5 +59,44 @@ public class RolesManager : MonoBehaviour
     {
         Debug.Log(".......You are dead");
         imDead = true;
+    }
+
+    public void SetMyMat()
+    {
+        switch(languageSelector.lang)
+        {
+            case 1:
+                if (imAssassin == false)
+                {
+                    langMat = GameObject.Find("LanguagesMats").GetComponent<LanguagesMats>().C_Cat;
+                }
+                else
+                {
+                    langMat = GameObject.Find("LanguagesMats").GetComponent<LanguagesMats>().I_Cat;
+                }
+                break;
+            case 2:
+                if (imAssassin == false)
+                {
+                    langMat = GameObject.Find("LanguagesMats").GetComponent<LanguagesMats>().C_Esp;
+                }
+                else
+                {
+                    langMat = GameObject.Find("LanguagesMats").GetComponent<LanguagesMats>().I_Esp;
+                }
+                break;
+            case 3:
+                if (imAssassin == false)
+                {
+                    langMat = GameObject.Find("LanguagesMats").GetComponent<LanguagesMats>().C_Eng;
+                }
+                else
+                {
+                    langMat = GameObject.Find("LanguagesMats").GetComponent<LanguagesMats>().I_Eng;
+                }
+                break;
+
+        }
+        rolePaper.GetComponent<MeshRenderer>().material = langMat;
     }
 }
