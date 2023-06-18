@@ -218,7 +218,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                     gameLightsHolder.gameObject.SetActive(false);
                     GameObject.Find(name).GetComponent<LightsSwitch>().ChangeCubeColor(Color.green);
                     
-                    break;
+                break;
                 case false:
                 GameObject.Find(name).GetComponent<LightsSwitch>().areLightsOn = true;
                 GameObject.Find(name).GetComponent<LightsSwitch>().canISwitch = false;
