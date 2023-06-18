@@ -29,24 +29,23 @@ public class LightsSwitch : MonoBehaviour
             }
         }
     }
-    public void SwitchLight()
+    public void TurnLightsOn()
     {
         if(canISwitch)
         {
-            switch (areLightsOn)
-            {
-                case true:
-                    manager.CallTurnLights(true, this.gameObject.name, canISwitch);
-                    break;
-                case false:
-                    manager.CallTurnLights(false, this.gameObject.name, canISwitch);
-                    break;
-                default:
-                    break;
-            }
+            manager.CallTurnLights(true, this.gameObject.name, canISwitch);
             canISwitch = false;
-            Debug.Log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         }
+            
+    }
+    public void TurnLightsOff()
+    {
+        if(canISwitch)
+        {
+            manager.CallTurnLights(false, this.gameObject.name, canISwitch);
+            canISwitch = false;
+        }
+            
     }
     public void ChangeCubeColor(Color g)
     {
