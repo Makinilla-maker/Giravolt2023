@@ -9,6 +9,7 @@ using ExitGames.Client.Photon;
 using Photon.Realtime;
 using UnityEngine.Serialization;
 using System.IO;
+using System.Linq;
 
 [System.Serializable]
 public enum TaskStatus
@@ -46,6 +47,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     public int numberOfTasksPerGame = 10;
     public GameObject gameLightsHolder;
     private LightsSwitch ls;
+    public List<GameObject> bellSpawns = new List<GameObject>();
     // place here the info for each created task;
     // DialTask = 0;
     // Placement Tasks = ++4;
@@ -61,6 +63,18 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         rolesManager = GameObject.Find("RoleManager").GetComponent<RolesManager>();
 
         gameLightsHolder = GameObject.Find("InGameLights");
+        bellSpawns = GameObject.FindGameObjectsWithTag("Bell").ToList();
+        if(PhotonNetwork.IsMasterClient)
+        {
+            int rnd = Random.Range(0, bellSpawns.Count + 1);
+            for(int i = 0; i < bellSpawns.Count; i++)
+            {
+                if(i == rnd)
+                {
+                    pView.RPC("SetOnlyBell", RpcTarget.All, bellSpawns[i].gameObject.name);
+                }
+            }
+        }
     }
     private void Update()
     {
@@ -107,7 +121,17 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log("ERROR on WIN/LOSE");
         }
     }
-
+    [PunRPC]
+    public void SetOnlyBell(string name)
+    {
+        for (int i = 0; i < bellSpawns.Count; i++)
+        {
+            if (bellSpawns[i].gameObject.name != name)
+            {
+                bellSpawns[i].gameObject.SetActive(false);
+            }
+        }
+    }
     #region IPunObservable implementation
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
