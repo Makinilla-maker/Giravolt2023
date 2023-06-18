@@ -34,8 +34,6 @@ public class RolesManager : MonoBehaviour
         languageSelector = mC.GetComponent<LanguageSelector>();
         
         SetMyMat();
-
-        Instantiate(rolePaper, new Vector3(transform.position.x, transform.position.y, (transform.position.z + 1)), Quaternion.identity);
     }
     private void Update()
     {
