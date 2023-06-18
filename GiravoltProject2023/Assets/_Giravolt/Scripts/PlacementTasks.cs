@@ -123,7 +123,7 @@ public class PlacementTasks : MonoBehaviour
                     }
                 }
             }
-            else if (placementTask_01.id == 9) // Taques
+            else if (placementTask_01.id == 9) // Tatxades
             {
                 if (manager.ammountOfTatxades != 0 && canWipeAgain)
                 {

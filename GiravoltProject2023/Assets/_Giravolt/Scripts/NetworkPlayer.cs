@@ -25,7 +25,7 @@ public class NetworkPlayer : MonoBehaviour
     void Start()
     {
         photonView= GetComponent<PhotonView>();
-        player = GameObject.Find("TrackerOffsets");
+        //player = GameObject.Find("TrackerOffsets");
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class NetworkPlayer : MonoBehaviour
     {
         if(photonView.IsMine)
         {
-            player = GameObject.Find("TrackerOffsets");
+            //player = GameObject.Find("TrackerOffsets");
             head.gameObject.SetActive(false);
             rightHand.gameObject.SetActive(false);
             leftHand.gameObject.SetActive(false);
@@ -41,11 +41,11 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(head, XRNode.Head);
             MapPosition(leftHand, XRNode.LeftHand);
             MapPosition(rightHand, XRNode.RightHand);
-            if(SceneManager.GetActiveScene().name == "SampleScene")
-            {
-                this.gameObject.transform.position = player.transform.position;
-                this.gameObject.transform.rotation = player.transform.rotation;
-            }
+            //if(SceneManager.GetActiveScene().name == "SampleScene")
+            //{
+            //    this.gameObject.transform.position = player.transform.position;
+            //    this.gameObject.transform.rotation = player.transform.rotation;
+            //}
             
         }
     }
