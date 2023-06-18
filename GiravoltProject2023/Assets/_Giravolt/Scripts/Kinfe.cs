@@ -70,7 +70,7 @@ public class Kinfe : MonoBehaviour
         }
         string path = $"{killedName}/Head/Robot Kyle/Robot2";
         //Debug.Log(path);
-        GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject.Find(path).SetActive(false);
         Instantiate(maskPrefab, GameObject.Find(path).transform.position, Quaternion.identity);
         --alivePlayers;
         if (alivePlayers <= 1)
