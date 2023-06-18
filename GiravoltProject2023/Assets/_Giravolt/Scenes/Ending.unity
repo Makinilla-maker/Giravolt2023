@@ -3865,7 +3865,7 @@ GameObject:
   - component: {fileID: 2018976332}
   - component: {fileID: 2018976331}
   m_Layer: 5
-  m_Name: Menu Guanya l'assassi
+  m_Name: MenuI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
