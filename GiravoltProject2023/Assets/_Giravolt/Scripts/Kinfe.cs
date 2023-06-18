@@ -17,6 +17,7 @@ public class Kinfe : MonoBehaviour
     [SerializeField] public GameObject knife;
     public string hitName;
     public int hitID;
+    [SerializeField] public GameObject maskPrefab;
 
     public PhotonView pView;
 
@@ -80,8 +81,8 @@ public class Kinfe : MonoBehaviour
         }
         string path = $"{killedName}/Head/Robot Kyle/Robot2";
         //Debug.Log(path);
-        //Debug.Log(GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled);
         GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled = false;
+        Instantiate(maskPrefab, GameObject.Find(path).transform.position, Quaternion.identity);
         //TODO Player mask instantiate
     }
 }
