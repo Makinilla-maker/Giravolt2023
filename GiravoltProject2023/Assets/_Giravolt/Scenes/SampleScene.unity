@@ -43634,6 +43634,7 @@ GameObject:
   - component: {fileID: 584457520399040703}
   - component: {fileID: 6503274320348779324}
   - component: {fileID: 8327823107058413443}
+  - component: {fileID: 8327823107058413444}
   m_Layer: 0
   m_Name: SV_Catifa.003
   m_TagString: Untagged
@@ -44342,7 +44343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395279903653335575}
   m_LocalRotation: {x: 0.0024936246, y: 0.70710236, z: 0.7071024, w: -0.002493624}
-  m_LocalPosition: {x: -19.245224, y: 0.039749466, z: -10.872804}
+  m_LocalPosition: {x: -19.245224, y: -0.01, z: -10.872804}
   m_LocalScale: {x: 421.16174, y: 457.43515, z: 273.20175}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110316,6 +110317,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8327823107058413444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395279903653335575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02024563, y: 0.020188818, z: 0.0002044987}
+  m_Center: {x: 1.8444083e-14, y: 4.693009e-10, z: -0.00010224834}
 --- !u!33 &8357257305336114118
 MeshFilter:
   m_ObjectHideFlags: 0
