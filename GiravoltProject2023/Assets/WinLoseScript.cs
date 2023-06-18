@@ -14,15 +14,19 @@ public class WinLoseScript : MonoBehaviour
 
     public void SetText()
     {
+        Debug.Log("SetText");
         if (mC._assassinWin == true)
         {
-            GameObject.Find("Menu Guanya l'assassi").SetActive(true);
-            GameObject.Find("Menu Guanyen els convidats").SetActive(false);
+            Debug.Log("entering assassin wiu");
+            GameObject.Find("MenuI").SetActive(true);
+            GameObject.Find("MenuC").SetActive(false);
+            Debug.Log("---------Assassin win in ending");
         }
         else
         {
-            GameObject.Find("Menu Guanya l'assassi").SetActive(false);
-            GameObject.Find("Menu Guanyen els convidats").SetActive(true);
+            Debug.Log("---------else debug");
+            GameObject.Find("MenuI").SetActive(false);
+            GameObject.Find("MenuC").SetActive(true);
         }
     }
 }
