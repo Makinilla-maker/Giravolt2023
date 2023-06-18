@@ -889,6 +889,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.281883
       objectReference: {fileID: 0}
+    - target: {fileID: 484971493926051352, guid: d4e1683bac913ba4b8737d5f7457ea26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 545686505384955932, guid: d4e1683bac913ba4b8737d5f7457ea26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2666,7 +2671,7 @@ PrefabInstance:
     - target: {fileID: 3078415500019604916, guid: 786be8d5471a05e4f9242ac018d375e2,
         type: 3}
       propertyPath: m_Name
-      value: rig_hombre
+      value: Robot Kyle
       objectReference: {fileID: 0}
     - target: {fileID: 3078415500019604916, guid: 786be8d5471a05e4f9242ac018d375e2,
         type: 3}
@@ -2686,6 +2691,16 @@ PrefabInstance:
     - target: {fileID: 4261249145078425223, guid: 786be8d5471a05e4f9242ac018d375e2,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361603553186402870, guid: 786be8d5471a05e4f9242ac018d375e2,
+        type: 3}
+      propertyPath: m_Name
+      value: Robot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361603553186402870, guid: 786be8d5471a05e4f9242ac018d375e2,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419237627528920758, guid: 786be8d5471a05e4f9242ac018d375e2,
