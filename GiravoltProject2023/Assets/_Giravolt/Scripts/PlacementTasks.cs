@@ -151,7 +151,8 @@ public class PlacementTasks : MonoBehaviour
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1f);
-        this.gameObject.transform.parent.gameObject.SetActive(false);
-        
+        GameObject go;
+        go = GameObject.Find(taskName + "_Main");
+        go.SetActive(false);        
     }
 }
