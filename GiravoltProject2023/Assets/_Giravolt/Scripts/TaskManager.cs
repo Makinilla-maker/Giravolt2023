@@ -49,11 +49,16 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     // place here the info for each created task;
     // DialTask = 0;
     // Placement Tasks = ++4;
+
+    RolesManager rolesManager;
+
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
         send = false;
         if (pView) pView.ObservedComponents.Add(this);
+
+        rolesManager = GameObject.Find("RoleManager").GetComponent<RolesManager>();
 
         gameLightsHolder = GameObject.Find("InGameLights");
     }
@@ -68,28 +73,39 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             pView.RPC("GenerateTasks", RpcTarget.MasterClient);
         }
-        if (IsAnyTaskLeft())
+        IsAnyTaskLeft();
+        if (rolesManager.assassinWin == true)
         {
-            //Debug.Log("HOLA ORIOL, ETS UN MONGOLIN LOQUETE!\n\ngilipollas");
-        }
-        else
-        {
-            //Debug.Log("ORIOL TREBALLA BOBO");
+            pView.RPC("EndGameTheMovie", RpcTarget.All, true);
         }
     }
-    public bool IsAnyTaskLeft()
+    public void IsAnyTaskLeft()
     {
-        bool ret = false;
         if (generatedTasksForThisGame.Count == 0)
         {
-            ret = true;
+            pView.RPC("EndGameTheMovie", RpcTarget.All, false);
+        }
+    }
+
+
+    // Win/Lose Condition
+    [PunRPC]
+    public void EndGameTheMovie(bool assassinWin)
+    {
+        if (assassinWin == true)
+        {
+            // TODO Marc posar la escena de win del assassi
+            Debug.Log("The ASSASSIN WIN");
+        }
+        else if (assassinWin == false)
+        {
+            // TODO Marc posar la escena de win dels convidats
+            Debug.Log("The PEOPLE WIN");
         }
         else
         {
-            ret = false;
+            Debug.Log("ERROR on WIN/LOSE");
         }
-
-        return ret;
     }
 
     #region IPunObservable implementation
@@ -368,10 +384,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 break;
             default:
                 break;
-        }
-        if(generatedTasksForThisGame.Count == 0)
-        {
-            pView.RPC("EndGame", RpcTarget.All);
         }
     }
 

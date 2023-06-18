@@ -19,8 +19,8 @@ public class Kinfe : MonoBehaviour
     public int hitID;
     [SerializeField] public GameObject maskPrefab;
 
-    public int alivePlayers;
 
+    public int alivePlayers;
     public PhotonView pView;
 
     void Start()
@@ -30,12 +30,6 @@ public class Kinfe : MonoBehaviour
         pView = GetComponent<PhotonView>();
         alivePlayers = PhotonNetwork.CurrentRoom.Players.Count;
         SetGrabbable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //StartCoroutine(CalculateSpeed());
     }
 
     public void SetGrabbable()
@@ -49,13 +43,6 @@ public class Kinfe : MonoBehaviour
             this.GetComponent<Autohand.Grabbable>().enabled = false;
         }
     }
-
-    //IEnumerator CalculateSpeed()
-    //{
-    //    Vector3 lastPos = transform.position;
-    //    yield return new WaitForFixedUpdate();
-    //    speed = (lastPos- transform.position).magnitude / Time.deltaTime;
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -85,7 +72,11 @@ public class Kinfe : MonoBehaviour
         //Debug.Log(path);
         GameObject.Find(path).GetComponent<SkinnedMeshRenderer>().enabled = false;
         Instantiate(maskPrefab, GameObject.Find(path).transform.position, Quaternion.identity);
-
         --alivePlayers;
+        if (alivePlayers <= 1)
+        {
+            rolesManager.assassinWin = true;
+        }
+
     }
 }
