@@ -240,7 +240,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 ammountOfWipesTaques--;
                 break;
             case 9:
-                tatxadesMaterial.GetComponent<MeshRenderer>().material.color = new Color(tacaMaterial.GetComponent<MeshRenderer>().material.color.r, tacaMaterial.GetComponent<MeshRenderer>().material.color.g, tacaMaterial.GetComponent<MeshRenderer>().material.color.b, (float)(0.33 * ammountOfTatxades));
+                tatxadesMaterial.GetComponent<MeshRenderer>().material.color = new Color(tatxadesMaterial.GetComponent<MeshRenderer>().material.color.r, tatxadesMaterial.GetComponent<MeshRenderer>().material.color.g, tatxadesMaterial.GetComponent<MeshRenderer>().material.color.b, (float)(0.33 * ammountOfTatxades));
                 ammountOfTatxades--;
                 break;
             default: break;

@@ -9,6 +9,7 @@ public class WinLoseScript : MonoBehaviour
     private void Awake()
     {
         mC = FindObjectOfType<MainConnect>();
+        SetText();
     }
 
     public void SetText()
