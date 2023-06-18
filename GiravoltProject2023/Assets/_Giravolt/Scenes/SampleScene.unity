@@ -16039,8 +16039,7 @@ MonoBehaviour:
   imDead: 0
   mC: {fileID: 0}
   assassinWin: 0
-  rolePaper: {fileID: 4125786465636660428, guid: 10fc27c3da9e33e4d8eafa16a09c5e22,
-    type: 3}
+  rolePaper: {fileID: 4125786465758716300}
   langMat: {fileID: 0}
   languageSelector: {fileID: 0}
 --- !u!4 &688456581
