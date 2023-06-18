@@ -29,6 +29,8 @@ public class MainConnect : MonoBehaviourPunCallbacks, IPunObservable
     public int ORIOLMONGOLO;
     private Hashtable customProperties = new Hashtable();
     [SerializeField] public int assassinID;
+
+    public bool _assassinWin;
     
     void Awake()
     {

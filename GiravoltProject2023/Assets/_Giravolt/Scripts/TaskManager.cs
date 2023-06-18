@@ -10,6 +10,7 @@ using Photon.Realtime;
 using UnityEngine.Serialization;
 using System.IO;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public enum TaskStatus
@@ -54,6 +55,10 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
 
     RolesManager rolesManager;
 
+    public MainConnect mC;
+
+    public bool _assassinWin;
+
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
@@ -61,6 +66,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (pView) pView.ObservedComponents.Add(this);
 
         rolesManager = GameObject.Find("RoleManager").GetComponent<RolesManager>();
+        mC = FindObjectOfType<MainConnect>();
 
         gameLightsHolder = GameObject.Find("InGameLights");
         bellSpawns = GameObject.FindGameObjectsWithTag("Bell").ToList();
@@ -113,12 +119,16 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (assassinWin == true)
         {
             // TODO Marc posar la escena de win del assassi
+            mC._assassinWin = true;
             Debug.Log("The ASSASSIN WIN");
+            SceneManager.LoadScene("Ending");
         }
         else if (assassinWin == false)
         {
             // TODO Marc posar la escena de win dels convidats
+            mC._assassinWin = false;    
             Debug.Log("The PEOPLE WIN");
+            SceneManager.LoadScene("Ending");
         }
         else
         {
