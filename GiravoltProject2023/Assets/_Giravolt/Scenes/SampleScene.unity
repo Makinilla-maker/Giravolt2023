@@ -1408,12 +1408,6 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 14
-  - name: Task_Sang
-    description: Task_Song
-    status: 0
-    mainObject: {fileID: 0}
-    targetObject: {fileID: 0}
-    id: 15
   - name: Task_Vaixell
     description: Task_Vaixell
     status: 0
@@ -45354,7 +45348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &224641614507916037
 GameObject:
   m_ObjectHideFlags: 0
