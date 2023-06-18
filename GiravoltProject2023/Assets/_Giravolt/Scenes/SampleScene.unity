@@ -537,6 +537,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 11
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &42605442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1727,6 +1730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
         type: 3}
+      propertyPath: canWipe
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376473437989174635, guid: 34317f633367f1b40b19e01bb5df1b20,
+        type: 3}
       propertyPath: placementTask_01.id
       value: 9
       objectReference: {fileID: 0}
@@ -2427,6 +2435,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 4
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &269208794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,6 +2715,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 11
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &324432804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3043,6 +3057,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 5
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &331442025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13958,6 +13975,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0027423021, y: 0.09787864, z: 0.034714956}
   m_Center: {x: -0.0030761366, y: 0.0010606755, z: -0.011786472}
+--- !u!1 &594255977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543450653257752414}
+  m_Layer: 0
+  m_Name: 'Recovery GameObject for Transform (ID in file: 543450653257752414)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &594494451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28560,6 +28593,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 7
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &1192969539 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5407218802118561081, guid: 4854c80cf48d01e44bfe786e8cf18e3a,
@@ -41110,6 +41146,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 14
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!65 &1701510199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42068,6 +42107,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 11
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &1864310192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44164,7 +44206,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 594255977}
   m_LocalRotation: {x: -0, y: 0.50240517, z: -0, w: 0.86463237}
   m_LocalPosition: {x: 0.17400026, y: -6.723072, z: 6.9919996}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -46959,6 +47001,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 5
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &1376473438047398064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46980,6 +47025,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 13
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 1
 --- !u!114 &1376473438187565530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47001,6 +47049,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 11
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &1376473438462134433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47022,6 +47073,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 15
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &1376473438473662689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47043,6 +47097,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 17
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &1376473439049455682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47064,6 +47121,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 8
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 1
 --- !u!114 &1376473439295045618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47085,6 +47145,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 17
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &1376473439349773641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47106,6 +47169,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 6
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!23 &1401336710925983128
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -110162,6 +110228,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 12
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &7768950331577124524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111552,6 +111621,9 @@ MonoBehaviour:
     mainObject: {fileID: 0}
     targetObject: {fileID: 0}
     id: 10
+  canWipeAgain: 0
+  timer: 0.3
+  canWipe: 0
 --- !u!114 &8798243381386013100
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class PlacementTasks : MonoBehaviour
     public bool canWipeAgain;
     public float timer = .3f;
     private float timerRestart;
-    public bool canWipe;
+    public bool canWipe = false;
     
     private void Awake()
     {
@@ -35,7 +35,6 @@ public class PlacementTasks : MonoBehaviour
         rb.useGravity = true;
         UnFreezeRigidboydConstraints();
         canWipeAgain = true;
-        canWipe = false;
         timerRestart = timer;
         // we go to the task manager to generate the task and assign its info
         
