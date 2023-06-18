@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 654307553}
   - component: {fileID: 654307552}
   m_Layer: 5
-  m_Name: Menu Guanyen els convidats
+  m_Name: MenuC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
