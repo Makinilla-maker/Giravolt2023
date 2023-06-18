@@ -307,63 +307,63 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 go.GetComponent<DialCode>().OnCompletedTask();
                 break;
             case 4:
-                go = GameObject.Find("Task_Factura");
+                go = GameObject.Find("Task_Factura_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 5:
-                go = GameObject.Find("Task_Amagar");
+                go = GameObject.Find("Task_Amagar_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 6:
-                go = GameObject.Find("Task_Llibre");
+                go = GameObject.Find("Task_Llibre_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 7:
-                go = GameObject.Find("Task_Caixa");
+                go = GameObject.Find("Task_Caixa_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 8:
-                go = GameObject.Find("Task_Taques");
+                go = GameObject.Find("Task_Taques_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 9:
-                go = GameObject.Find("Task_Informacio");
+                go = GameObject.Find("Task_Informacio_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 10:
-                go = GameObject.Find("Task_Escombraries");
+                go = GameObject.Find("Task_Escombraries_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 11:
-                go = GameObject.Find("Task_Porta");
+                go = GameObject.Find("Task_Porta_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 12:
-                go = GameObject.Find("Task_Fuet");
+                go = GameObject.Find("Task_Fuet_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 13:
-                go = GameObject.Find("Task_Taca");
+                go = GameObject.Find("Task_Taca_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 14:
-                go = GameObject.Find("Task_Cos");
+                go = GameObject.Find("Task_Cos_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 15:
-                go = GameObject.Find("Task_Sang");
+                go = GameObject.Find("Task_Sang_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 16:
-                go = GameObject.Find("Task_Vaixell");
+                go = GameObject.Find("Task_Vaixell_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 17:
-                go = GameObject.Find("Task_Gerro");
+                go = GameObject.Find("Task_Gerro_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             case 18:
-                go = GameObject.Find("Task_Espelma");
+                go = GameObject.Find("Task_Espelma_Main");
                 go.GetComponent<PlacementTasks>().OnCompletedTask();
                 break;
             default:
