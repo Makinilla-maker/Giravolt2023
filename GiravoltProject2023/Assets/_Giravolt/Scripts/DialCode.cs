@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using TMPro;
     public class DialCode : MonoBehaviour
     {
     private Rigidbody rb;
@@ -15,6 +16,7 @@ using System.Linq;
     private TaskManager manager;
     private bool doUpdate;
     [SerializeField]private ParticleSystem ps;
+    public TextMeshProUGUI text;
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task dialTask = new Task();
 
@@ -42,13 +44,17 @@ using System.Linq;
 
     IEnumerator CreateTask()
     {
+        string a = "";
         doUpdate = true;
         yield return new WaitForSeconds(5f);
         dialTask = manager.CreateTask("DialTask", "Tita", TaskStatus.NOTSTARTED, this.gameObject, this.gameObject, 0);
-        for (int i = 0; i < 2; ++i)
+        for (int i = 0; i < 4; ++i)
         {
-            password.Add(Random.Range(0, 10));
+            int rnd = Random.Range(0, 10);
+            password.Add(rnd);
+            a = a + password[i];
         }
+        text.text = a;
     }
         // Update is called once per frame
         void Update()
