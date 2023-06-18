@@ -13,11 +13,14 @@ public class RolesManager : MonoBehaviour
     public MainConnect mC;
     private bool doOnce = false;
 
+    public bool assassinWin;
+
     private void Awake()
     {
         mC = FindObjectOfType<MainConnect>();
         imAssassin = false;
-        imDead = false; 
+        imDead = false;
+        assassinWin = false;
         id = PhotonNetwork.LocalPlayer.ActorNumber;
         GameObject.Find("Network Player(Clone)").GetComponent<CapsuleCollider>().enabled = false;
         SetLocalId();

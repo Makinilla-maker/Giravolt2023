@@ -73,31 +73,22 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         {
             pView.RPC("GenerateTasks", RpcTarget.MasterClient);
         }
-        if (IsAnyTaskLeft())
+        IsAnyTaskLeft();
+        if (rolesManager.assassinWin == true)
         {
-            //Debug.Log("HOLA ORIOL, ETS UN MONGOLIN LOQUETE!\n\ngilipollas");
-        }
-        else
-        {
-            //Debug.Log("ORIOL TREBALLA BOBO");
+            pView.RPC("EndGameTheMovie", RpcTarget.All, true);
         }
     }
-    public bool IsAnyTaskLeft()
+    public void IsAnyTaskLeft()
     {
-        bool ret = false;
         if (generatedTasksForThisGame.Count == 0)
         {
-            ret = true;
             pView.RPC("EndGameTheMovie", RpcTarget.All, false);
         }
-        else
-        {
-            ret = false;
-        }
-
-        return ret;
     }
 
+
+    // Win/Lose Condition
     [PunRPC]
     public void EndGameTheMovie(bool assassinWin)
     {
