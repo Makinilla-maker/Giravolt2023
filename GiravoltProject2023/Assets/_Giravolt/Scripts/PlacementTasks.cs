@@ -23,6 +23,10 @@ public class PlacementTasks : MonoBehaviour
     
     private void Awake()
     {
+        DOAIKHJSDASD();   
+    }
+    public void DOAIKHJSDASD()
+    {
         rb = GetComponent<Rigidbody>();
         manager = GameObject.Find("TaskManager").GetComponent<TaskManager>();
         ps = GetComponentInChildren<ParticleSystem>();
@@ -37,7 +41,13 @@ public class PlacementTasks : MonoBehaviour
         canWipeAgain = true;
         timerRestart = timer;
         // we go to the task manager to generate the task and assign its info
-        
+    }
+    private void Start()
+    {
+        if(this.name == "Task_Porta")
+        {
+            DOAIKHJSDASD();
+        }
     }
 
     public void FreezeRigidbodyConstraints()
