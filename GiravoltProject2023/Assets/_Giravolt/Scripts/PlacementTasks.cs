@@ -16,6 +16,10 @@ public class PlacementTasks : MonoBehaviour
     // this code is for this script only and will only be used if this task is added to tasksForThisGame list
     public Task placementTask_01 = new Task();
     private string tagForThisTask;
+    public bool canWipeAgain;
+    public float timer = .3f;
+    private float timerRestart;
+    public bool canWipe;
     
     private void Awake()
     {
@@ -30,6 +34,9 @@ public class PlacementTasks : MonoBehaviour
         GetComponentInChildren<TextMeshPro>().text = newTexttext;
         rb.useGravity = true;
         UnFreezeRigidboydConstraints();
+        canWipeAgain = true;
+        canWipe = false;
+        timerRestart = timer;
         // we go to the task manager to generate the task and assign its info
         
     }
@@ -57,6 +64,15 @@ public class PlacementTasks : MonoBehaviour
         {
             StartCoroutine(CreateTask());
         }
+        if(canWipe && !canWipeAgain)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                canWipeAgain=true;
+                timer = timerRestart;
+            }
+        }
     }
     public void OnCompletedTask()
     {
@@ -79,9 +95,10 @@ public class PlacementTasks : MonoBehaviour
         {
             if(placementTask_01.id == 13) // Sang
             {
-                if(manager.ammountOfWipesSang != 0)
+                if(manager.ammountOfWipesSang != 0 && canWipeAgain)
                 {
                     manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All, 13);
+                    canWipeAgain = false;
                 }
                 else
                 {
@@ -94,9 +111,10 @@ public class PlacementTasks : MonoBehaviour
             }
             else if(placementTask_01.id == 8) // Taques
             {
-                if(manager.ammountOfWipesTaques != 0)
+                if(manager.ammountOfWipesTaques != 0 && canWipeAgain)
                 {
                     manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All,8);
+                    canWipeAgain = false;
                 }
                 else
                 {
@@ -109,9 +127,10 @@ public class PlacementTasks : MonoBehaviour
             }
             else if (placementTask_01.id == 9) // Taques
             {
-                if (manager.ammountOfTatxades != 0)
+                if (manager.ammountOfTatxades != 0 && canWipeAgain)
                 {
                     manager.photonView.RPC("DecreaseWipe", Photon.Pun.RpcTarget.All, 9);
+                    canWipeAgain = false;
                 }
                 else
                 {
