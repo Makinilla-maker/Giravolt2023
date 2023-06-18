@@ -29,9 +29,9 @@ public class LightsSwitch : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    public void SwitchLight()
     {
-        if(collision.gameObject.CompareTag("Player_Hand") && canISwitch)
+        if(canISwitch)
         {
             switch (areLightsOn)
             {
