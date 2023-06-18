@@ -94,10 +94,12 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (assassinWin == true)
         {
+            // TODO Marc posar la escena de win del assassi
             Debug.Log("The ASSASSIN WIN");
         }
         else if (assassinWin == false)
         {
+            // TODO Marc posar la escena de win dels convidats
             Debug.Log("The PEOPLE WIN");
         }
         else
