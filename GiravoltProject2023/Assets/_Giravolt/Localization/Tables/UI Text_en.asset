@@ -143,7 +143,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6554747063836672
-    m_Localized: Crear sala
+    m_Localized: Room code
     m_Metadata:
       m_Items: []
   - m_Id: 6556084530913280
@@ -156,6 +156,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 6571593506824192
     m_Localized: Create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7418699725479936
+    m_Localized: Enter
     m_Metadata:
       m_Items: []
   references:
