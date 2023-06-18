@@ -49,11 +49,16 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
     // place here the info for each created task;
     // DialTask = 0;
     // Placement Tasks = ++4;
+
+    RolesManager rolesManager;
+
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
         send = false;
         if (pView) pView.ObservedComponents.Add(this);
+
+        rolesManager = GameObject.Find("RoleManager").GetComponent<RolesManager>();
 
         gameLightsHolder = GameObject.Find("InGameLights");
     }
@@ -83,6 +88,7 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         if (generatedTasksForThisGame.Count == 0)
         {
             ret = true;
+            pView.RPC("EndGameTheMovie", RpcTarget.All, false);
         }
         else
         {
@@ -90,6 +96,23 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
         }
 
         return ret;
+    }
+
+    [PunRPC]
+    public void EndGameTheMovie(bool assassinWin)
+    {
+        if (assassinWin == true)
+        {
+            Debug.Log("The ASSASSIN WIN");
+        }
+        else if (assassinWin == false)
+        {
+            Debug.Log("The PEOPLE WIN");
+        }
+        else
+        {
+            Debug.Log("ERROR on WIN/LOSE");
+        }
     }
 
     #region IPunObservable implementation
@@ -368,10 +391,6 @@ public class TaskManager : MonoBehaviourPunCallbacks, IPunObservable
                 break;
             default:
                 break;
-        }
-        if(generatedTasksForThisGame.Count == 0)
-        {
-            pView.RPC("EndGame", RpcTarget.All);
         }
     }
 
