@@ -107,6 +107,11 @@ public class PlacementTasks : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                placementTask_01.status = TaskStatus.COMPLETED;
+                manager.GetCompletedTask(placementTask_01);
+            }
         }
     }
    
