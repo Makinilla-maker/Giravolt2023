@@ -2129,3 +2129,7 @@ MonoBehaviour:
   imAssassin: 0
   imDead: 0
   mC: {fileID: 0}
+  assassinWin: 0
+  rolePaper: {fileID: 0}
+  langMat: {fileID: 0}
+  languageSelector: {fileID: 0}
