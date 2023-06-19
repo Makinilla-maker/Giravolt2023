@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlacementTasks : MonoBehaviour
 {
@@ -29,9 +28,6 @@ public class PlacementTasks : MonoBehaviour
         taskDescription = "Tita";
         tagForThisTask = this.gameObject.tag;
         taskName = this.gameObject.name;
-        string tmp = this.gameObject.tag;
-        string newTexttext = tmp.Replace("Task_", "");
-        GetComponentInChildren<TextMeshPro>().text = newTexttext;
         rb.useGravity = true;
         UnFreezeRigidboydConstraints();
         canWipeAgain = true;
